@@ -91,7 +91,7 @@
                     // admin override
                 }
                 else {
-                    die( 'not your poll' );
+                    throw New Exception( 'not your poll' );
                 }
             }
             Poll::Delete( $id );

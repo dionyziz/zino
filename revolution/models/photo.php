@@ -301,7 +301,7 @@
 
             if ( strpos( $data, "error" ) !== false ) {
                 // throw New ImageException( 'Image_Upload could not upload the image: Server returned an error: ' . $data );
-                die( 'Image_Upload could not upload the image: Server returned an error: ' . $data );
+                throw New Exception( 'Image_Upload could not upload the image: Server returned an error: ' . $data );
             }
             else if ( strpos( $data, "success" ) !== false ) {
                 // throw New ImageException( $data );
@@ -325,7 +325,7 @@
             }
             // err'd
             // throw New ImageException( 'Image_Upload could not upload the image: Server returned an unknown state: ' . $data );
-            die( 'Image_Upload could not upload the image: Server returned an unknown state: ' . $data );
+            throw New Exception( 'Image_Upload could not upload the image: Server returned an unknown state: ' . $data );
         }
     }
 ?>

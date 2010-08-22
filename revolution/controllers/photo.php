@@ -103,7 +103,7 @@
     
             $album = Album::Item( $albumid );
             if ( !is_array( $album ) || $album[ 'delid' ] || $album[ 'ownerid' ] != $userid ) {
-                die( 'not allowed' );
+                throw New Exception( 'not allowed' );
             }
     
             $error = 0;
@@ -166,7 +166,7 @@
             
             $photo = Photo::Item( $id );
             if ( $photo[ 'user' ][ 'id' ] != $_SESSION[ 'user' ][ 'id' ] ) {
-                die( 'not your photo' );
+                throw New Exception( 'not your photo' );
             }
             if ( $photo[ 'user' ][ 'deleted' ] === 1 ) { 
                 include 'views/itemdeleted.php';
@@ -182,7 +182,7 @@
                 
                 $album = Album::Item( $albumid );
                 if ( $album[ 'ownerid' ] != $_SESSION[ 'user' ][ 'id' ] || $album[ 'ownertype' ] != TYPE_USERPROFILE ) {
-                    die( 'not your album' );
+                    throw New Exception( 'not your album' );
                 }
             }
 
@@ -213,7 +213,7 @@
                     // admin override
                 }
                 else {
-                    die( 'Not your photo' );
+                    throw New Exception( 'Not your photo' );
                 }
             }
             Photo::Delete( $id );

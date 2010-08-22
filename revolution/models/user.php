@@ -78,7 +78,7 @@
                 return false;
             }
             if ( !preg_match( '#^[a-zA-Z0-9]{32}$#', $authtoken ) ) {
-                die( 'invalid auth' );
+                throw New Exception( 'invalid auth' );
                 return false;
             }
             clude( 'models/db.php' );
@@ -462,7 +462,7 @@
 		}
         public static function UpdateLastActive( $userid, $authtoken = false ) {
             if ( !is_bool( $authtoken ) && !is_string( $authtoken ) ) {
-                die( 'invalid authtoken' );
+                throw New Exception( 'invalid authtoken' );
             }
 
             $sql = 'SELECT
@@ -508,7 +508,7 @@
             curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
             
             if ( ( $data = curl_exec( $ch ) ) === false ) {
-                die( 'failed connecting to presence server' );
+                throw New Exception( 'failed connecting to presence server' );
             }
 
             curl_close( $ch );

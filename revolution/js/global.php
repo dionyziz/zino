@@ -24,7 +24,7 @@ foreach ( $list as $num=>$line ) {
     if ( !file_exists( $line ) ) {
         //Generate viewable error
         echo "alert( 'global.js: File \"$line\" in global.lst does not exist' );";
-        die();
+        exit;
     }
     $modtime = filemtime( $line );
     $datelist[ $line ] = filemtime( $line );

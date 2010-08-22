@@ -40,7 +40,7 @@ body:after {
     position: fixed;
 }
 ERROR;
-        die();
+        exit;
     }
     $modtime = filemtime( $line );
     $datelist[ $line ] = filemtime( $line );

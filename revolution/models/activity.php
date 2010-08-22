@@ -117,7 +117,7 @@
                         }
                         break;
                     default:
-                        die( 'unknown activity type' );
+                        throw New Exception( 'unknown activity type' );
                 }
                 $activities[] = $activity;
             }

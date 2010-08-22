@@ -37,7 +37,7 @@
                     break;
                 case 'unknown':
                 default:
-                    die( 'unknown tag type' );
+                    throw New Exception( 'unknown tag type' );
             }
 
             $userid = $_SESSION[ 'user' ][ 'id' ];

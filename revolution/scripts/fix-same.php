@@ -8,7 +8,7 @@
 
 
     if ( !isset( $_GET[ 'go' ] ) ) {
-        die( "Tell me to go!" );
+        throw New Exception( "Tell me to go!" );
     }
 
     ?><html><body><?php

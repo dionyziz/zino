@@ -42,7 +42,7 @@
             case 'parvati':
             case 'ilias':
             case 'gogkasm0m':
-                die( 'Access denied' );
+                throw New Exception( 'Access denied' );
             default:
         }
     }

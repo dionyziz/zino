@@ -23,7 +23,7 @@
             clude( 'models/comet.php' );
 
             if ( !PushTunnel::Auth( $tunnelid, $tunnelauthtoken ) ) {
-                die( 'Invalid tunnel authtoken' );
+                throw New Exception( 'Invalid tunnel authtoken' );
             }
 
             PushTunnel::Renew( $tunnelid ); // make sure it doesn't expire

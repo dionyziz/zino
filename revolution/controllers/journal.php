@@ -70,7 +70,7 @@
             $user = $journal[ 'user' ];
 
             if ( $user[ 'id' ] != $_SESSION[ 'user' ][ 'id' ] ) {
-                die( 'not your journal' );
+                throw New Exception( 'not your journal' );
             }
 
             $title = $title !== false ? $title : $journal[ 'title' ];
@@ -95,7 +95,7 @@
                     // admin override
                 }
                 else {
-                    die( 'not your journal' );
+                    throw New Exception( 'not your journal' );
                 }
             }
             
