@@ -3,6 +3,8 @@
         public static function Create( $photoid, $personid, $top, $left, $width, $height ) {
 			clude( "models/db.php" );
 			clude( "models/user.php" );
+			clude( "models/photo.php" );
+			clude( "models/friend.php" );
 			$top = ( int )$top;
 			$left = ( int )$left;
 			$width = ( int )$width;
