@@ -29,10 +29,11 @@
 				&& $ownerid != $personid ) {
             	throw Exception( 'You are not related to the person you are going to tag' );
 	        }
-			ImageTag::Create( $personid, $photoid, $ownerid, $top, $left, $width, $height );
+			$id = ImageTag::Create( $personid, $photoid, $ownerid, $top, $left, $width, $height );
 			if(  $ownerid !== $personid ) {
 				Notification::Create( $ownerid, $personid, EVENT_IMAGETAG_CREATED, $photoid );
 			}
+            Template( 'imagetag/create', compact( 'id', 'personid', 'photoid', 'ownerid', 'top', 'left', 'width', 'height' ) );
 			return;
         }
         public static function Listing( $photoid ) {
