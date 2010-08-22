@@ -5,16 +5,27 @@ var ParseCookies = require( './lib/utilities' ).ParseCookies;
 
 var server = http.createServer();
 
+var HTML = {
+    iframe: ''
+};
+
 console.log( 'Zino Presence Server' );
 console.log( '(c) Kamibu 2010 by Petros <petros@kamibu.com> and Chorvus <chorvus@kamibu.com>' );
 console.log( '' );
 
-fs.open( '/var/run/presence.pid', 'w+', 0666, function( err, fd ){
+fs.open( '/var/run/presence.pid', 'w+', 0666, function( err, fd ) {
     if ( err != null ) {
         console.log( 'Failed to write PID file' );
         console.log( err );
     }
     fs.write( fd, process.pid );
+} );
+
+fs.readFile( './html/iframe.html', function ( err, data ) {
+    if ( err ) {
+        throw err;
+    }
+    HTML.iframe = data;
 } );
 
 server.on( 'request', function ( req, res ) {
@@ -25,14 +36,14 @@ server.on( 'request', function ( req, res ) {
     //Iframe request
     if ( req.url == '/' ) {
         console.log( 'Seding iframe' );
-        res.end( '<html><head></head><body><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script><script>var Connect = function() { setTimeout( function() { $.get( "http://presence.zino.gr:8124/connect"); }, 20 ); }; Connect(); setInterval( Connect, 60000 );</script></body></html>' );
+        res.end( HTML.iframe );
         return;
     }
 
     //User list request
     if ( req.url == '/users/list' ) {
         console.log( 'Listing Users' );
-        for( user in UserManager.Users ) {
+        for ( user in UserManager.Users ) {
             res.write( user + "\n" );
         }
         res.end();

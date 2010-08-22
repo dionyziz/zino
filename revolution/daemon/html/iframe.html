@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Zino Presence Monitor</title>
+    </head>
+    <body>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            var Connect = function() {
+                setTimeout( function() {
+                    $.get( "http://presence.zino.gr:8124/connect");
+                }, 20 );
+            };
+            Connect();
+            setInterval( Connect, 60000 );
+        </script>
+    </body>
+</html>
