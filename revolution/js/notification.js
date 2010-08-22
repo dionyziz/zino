@@ -220,7 +220,8 @@ var Notifications = {
     Ignore: function () {
         Notifications.Shortcuts.Assign( function(){}, Notifications.Save, Notifications.Ignore );
         var notificationid = $( '#notifications .box.selected' ).attr( 'id' ).split( '_' )[ 2 ];
-        $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
+        Notifications.RequestStart();
+        $.post( '?resource=notification&method=delete', { notificationid: notificationid }, Notifications.RequestDone );
         Notifications.DoneWithCurrent();
     },
     Save: function() {
@@ -239,9 +240,11 @@ var Notifications = {
             form.find( 'textarea' ).css( { border: '3px solid red' } ).focus();
             return;
         }
-        $.post( url, postdata );
+        Notifications.RequestStart();
+        $.post( url, postdata, Notifications.RequestDone );
         if ( notificationtype != 'comment' ){
-            $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
+            Notifications.RequestStart();
+            $.post( '?resource=notification&method=delete', { notificationid: notificationid }, Notifications.RequestDone );
         }
         Notifications.DoneWithCurrent();
     },
