@@ -41,6 +41,7 @@
             case 'gkogac':
             case 'parvati':
             case 'ilias':
+            case 'gogkasm0m':
                 die( 'Access denied' );
             default:
         }
