@@ -47,7 +47,7 @@
 			$tags = ImageTag::ListByPhoto( $photoid );
             Template( 'imagetag/listing', compact( 'tags', 'photoid' ) );
         }
-        public static function Delete( $albumid ) {
+        public static function Delete( $phototagid ) {
         }
     }
 
