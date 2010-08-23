@@ -30,9 +30,7 @@
     if ( isset( $_SESSION[ 'user' ] ) ) {
         switch ( strtolower( $_SESSION[ 'user' ][ 'name' ] ) ) {
             case 'shinda_tori':
-            case 'beren2112':
             case 'donhoulio':
-            case 'satanoulis':
             case 'annaaa':
 			case 'nitrio2' :
 			case 'stak_o_gamiac':
