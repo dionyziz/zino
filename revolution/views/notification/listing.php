@@ -131,7 +131,7 @@
     <?
     break;
     case EVENT_IMAGETAG_CREATED:
-        $tag = $notifications[ 'tag' ];
+        $tag = $notification[ 'tag' ];
         $photo = $tag[ 'photo' ];
         $owner = $tag[ 'owner' ];
         ?>
