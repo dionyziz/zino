@@ -30,7 +30,6 @@
         $localsettings = include '../../localtest.php';
         $settings = SettingsMerge( $settings, $localsettings );
     }
-	var_dump( $settings );
 
 	clude( "models/libchart-1.2.1/libchart/classes/libchart.php" );
 	clude( "models/db.php" );
