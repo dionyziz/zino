@@ -40,7 +40,7 @@
                 $sql .= ' AND NOT ( b.`relation_id` IS NULL )';
             }
             $sql .= '
-                ORDER BY a.`relation_id` DESC;';
+                ORDER BY name;';
             $res = db( $sql, compact( 'userid' ) );
       
             $friends = array();
