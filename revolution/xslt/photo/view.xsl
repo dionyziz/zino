@@ -3,6 +3,27 @@
 </xsl:template>
 
 <xsl:template match="/social[@resource='photo' and @method='view']//photo">
+    <xsl:if test="not(/social/@for)">
+        <div class="teaser">
+            <a href="login" class="register" type="submit"></a>
+            <xsl:choose>
+                <xsl:when test="author/@gender = 'f'">
+                    <xsl:text>Η </xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Ο </xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            <strong>
+                <xsl:value-of select="author/name" />
+            </strong>
+            <xsl:text> </xsl:text>
+            «είναι μέσα» στο <strong style="font-size: 10pt;">zino.</strong>
+            <br />
+            Γίνε μέλος για να τον προσθέσεις στους φίλους.
+            <div class="eof"></div>
+         </div>
+    </xsl:if>
     <div class="contentitem">
         <xsl:attribute name="id">photo_<xsl:value-of select="/social/photo/@id" /></xsl:attribute>
         <xsl:if test="not( @deleted )">
@@ -33,7 +54,7 @@
                     <div class="icon" id="deletebutton" title="Διαγραφή εικόνας">&#215;</div>     
                     <div class="icon left" id="tagbutton"></div>
                 </xsl:if>
-                <xsl:if test="/social/photo/author/friends">
+                <xsl:if test="author/friends">
                     <div class="icon" id="tagbutton"></div>
                 </xsl:if>
                 <xsl:for-each select="imagetags/imagetag">

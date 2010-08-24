@@ -4,7 +4,7 @@ body, html {
 body {
     margin: 0;
     font-family: "Trebuchet MS";
-    background-image: url( '../images/loggedout/bg.png' );
+    background-image: url( 'http://static.zino.gr/revolution/loggedout/bg.png' );
     background-repeat: repeat-x;
     background-color: #b8e7ff;
 }
@@ -26,7 +26,7 @@ ul li {
 }
 div.card {
     margin: 20px auto 15px auto;
-    background-image: url( '../images/loggedout/loggedout.png' );
+    background-image: url( 'http://static.zino.gr/revolution/loggedout/loggedout.png' );
     background-repeat: no-repeat;
     width: 776px;
     height: 385px;
@@ -68,7 +68,7 @@ div.register input.text, #registermodal input {
     top: 2px;
     width: 173px;
     height: 30px;
-    background-image: url( '../images/loggedout/textbox.png' );
+    background-image: url( 'http://static.zino.gr/revolution/loggedout/textbox.png' );
     background-repeat: no-repeat;
     background-color: transparent;
     padding: 2px 5px 0 12px;
@@ -81,7 +81,7 @@ div.register input.submit {
     height: 35px;
     background-color: transparent;
     border: 1px solid transparent;
-    background-image: url( '../images/loggedout/register.png' );
+    background-image: url( 'http://static.zino.gr/revolution/loggedout/register.png' );
     background-repeat: no-repeat;
     cursor: pointer;
     float: right;
@@ -99,7 +99,7 @@ div.login {
     margin: 52px 10px 0 0;
     width: 196px;
     height: 183px;
-    background-image: url( '../images/loggedout/login.png' );
+    background-image: url( 'http://static.zino.gr/revolution/loggedout/login.png' );
     background-repeat: no-repeat;
     color: #5f6366;
     font-size: 9pt;
@@ -123,7 +123,7 @@ div.login form label {
 }
 div.login form input.text {
     width: 165px;
-    background-image: url( '../images/loggedout/textbox-small.png' );
+    background-image: url( 'http://static.zino.gr/revolution/loggedout/textbox-small.png' );
     background-repeat: no-repeat;
     background-color: transparent;
     width: 155px;
@@ -137,7 +137,7 @@ div.login form input.submit {
     display: block;
     background-color: transparent;
     color: transparent;
-    background-image: url( '../images/loggedout/enter.png' );
+    background-image: url( 'http://static.zino.gr/revolution/loggedout/enter.png' );
     background-repeat: no-repeat;
     width: 79px;
     height: 28px;
@@ -213,7 +213,7 @@ div.login form input.submit {
             height: 35px;
             background-color: transparent;
             border: 1px solid transparent;
-            background-image: url( '../images/loggedout/register.png' );
+            background-image: url( 'http://static.zino.gr/revolution/loggedout/register.png' );
             background-repeat: no-repeat;
             cursor: pointer;
             display: block;
