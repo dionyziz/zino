@@ -29,7 +29,8 @@
 				&& $ownerid != $personid ) {
             	throw Exception( 'You are not related to the person you are going to tag' );
 	        }
-			$id = ImageTag::Create( $personid, $photoid, $ownerid, $top, $left, $width, $height );
+			$info = ImageTag::Create( $personid, $photoid, $ownerid, $top, $left, $width, $height );
+            $id = $info[ 'id' ];
 			if(  $ownerid !== $personid ) {
 				Notification::Create( $ownerid, $personid, EVENT_IMAGETAG_CREATED, $photoid );
 			}

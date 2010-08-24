@@ -103,6 +103,8 @@ var PhotoView = {
         });
     },
     Tag: {
+        index: [],
+        zindex: {},
         Friend: {
             list: {},
             Load: function(){
@@ -120,7 +122,7 @@ var PhotoView = {
                     $( '.friendlist ul li.friend_loading' ).hide();
                     window.asdf = $(data );
                     if( !PhotoView.Tag.Friend.list[ $( data ).find( 'friends' ).attr( 'id' ) ] ){
-                        var li = $( '<li id="friend_' + $( data ).find( 'friends' ).attr( 'id' ) + '">' +
+                        var li = $( '<li id="friend_' + $( data ).find( 'friends' ).attr( 'id' ) + '" class="me">' +
                                         '<a href="">εγώ<span style="display:none;">' + User + '</span></a>' + 
                                     '</li>' );
                         $( '.friendlist ul' ).append( li );
@@ -194,7 +196,7 @@ var PhotoView = {
                 }
                 id = $( '.friendlist ul li.selected' ).attr( 'id' ).split( '_' )[ 1 ];
             }
-            var data = {
+            var tosend = {
                 personid: id,
                 photoid: $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ],
                 top: $( '.newtag' ).top(),
@@ -204,8 +206,13 @@ var PhotoView = {
             };
             $( '.friendlist' ).hide();
             $( '.newtag' ).remove();
-            $( '#friend_' + data.personid ).remove();
-            $.post( 'imagetag/create', data, function( data ){
+            
+            var person = $( '#friend_' + id ).text();
+            if( $( '#friend_' + id ).hasClass( 'me' ) ){
+                person = $( '#friend_' + id + ' span' ).text();
+            }
+            $( '#friend_' + id ).remove();
+            $.post( 'imagetag/create', tosend, function( data ){
                 var tag = $( '<div class="tag">' + 
                                 '<div class="namecontainer">' + 
                                     '<span class="name"></span>' + 
@@ -214,27 +221,29 @@ var PhotoView = {
                                     '<img />' + 
                                 '</div>' + 
                             '</div>' );
-                if( $( data ).find( 'width' ).text() > 200 ){
-                    $( tag ).children( '.namecontainer' ).addClass( 'inside' );
-                }
                 if( $( data ).find( 'top' ).text() > $( '.image' ).height() - 30 - $( data ).find( 'height' ).text() ){
-                    $( tag ).children( '.namecontainer' ).removeClass( 'inside' ).addClass( 'top' );
+                    $( tag ).children( '.namecontainer' ).addClass( 'top' );
                 }
-                tag.attr( 'id', 'tag_' + $( data ).find( 'id' ).text() )
+                if( $( data ).find( 'width' ).text() > 200 ){
+                    $( tag ).children( '.namecontainer' ).removeClass( 'top' ).addClass( 'inside' );
+                }
+                tag.attr( 'id', 'tag_' + $( data ).find( 'imagetag' ).attr( 'id' ) )
                     .css({
-                        left: $( data ).find( 'left' ).text(),
-                        top: $( data ).find( 'top' ).text(),
-                        width: $( data ).find( 'width' ).text(),
-                        height: $( data ).find( 'height' ).text()
+                        left: parseInt( $( data ).find( 'left' ).text() ),
+                        top: parseInt( $( data ).find( 'top' ).text() ),
+                        width: parseInt( $( data ).find( 'width' ).text() ),
+                        height: parseInt( $( data ).find( 'height' ).text() )
                     })
-                    .find( 'namecontainer name' ).text( $( data ).find( 'name' ).text() )
-                        .attr( 'id', 'user_' + $( data ).find( 'user' ).attr( 'id' ) ).end()
+                    .find( '.namecontainer .name' ).text( person )
+                        .attr( 'id', 'user_' + $( data ).find( 'person' ).attr( 'id' ) ).end()
                     .find( 'img' ).attr( 'src', $( '.image .maincontent' ).attr( 'src' ) )
                         .css({
-                            top: $( data ).find( 'top' ).text(),
-                            left: $( data ).find( 'left' ).text()
+                            top: $( data ).find( 'top' ).text() * ( -1 ),
+                            left: $( data ).find( 'left' ).text() * ( -1 )
                         });
                 tag.appendTo( '.image' ).hide();
+                PhotoView.Tag.StopTagging();
+                $( '#tag_' + $( data ).find( 'imagetag' ).attr( 'id' ) + ' .imagecontainer' ).mouseover();
             });
         },
         Cancel: function(){
@@ -378,13 +387,13 @@ var PhotoView = {
             PhotoView.Tag.running = false;
         },
         Init: function(){
-            $( '.image .tag .imagecontainer' ).hover( function(){
+            $( '.image .tag .imagecontainer' ).live( 'mouseover', function(){
                 $( this )
                     .siblings( '.namecontainer' ).show()
                     .parent().fadeTo( 0, 1 )
                         .siblings( '.tag' ).fadeTo( 0, 0 );
                 $( '.image img.maincontent' ).stop( 1 ).fadeTo( 100, 0.4 );
-            }, function( e ){
+            }).live( 'mouseout', function(){
                 $( this ).siblings( '.namecontainer' ).hide();
                 $( '.image img.maincontent' ).stop( 1 ).fadeTo( 100, 1, function( item ){
                     return function(){
@@ -395,9 +404,9 @@ var PhotoView = {
                 e.stopImmediatePropagation();
                 window.open( 'users/' + $( this ).siblings( '.namecontainer' ).children( '.name' ).text() );
             });
-            $( '.image .tag .namecontainer.inside' ).hover( function(){
+            $( '.image .tag .namecontainer.inside' ).live( 'mouseover', function(){
                 $( this ).siblings( '.imagecontainer' ).mouseover();
-            }, function(){
+            }).live( 'mouseout', function(){
                 $( this ).siblings( '.imagecontainer' ).mouseout();
             });
             $( '#tagbutton' ).click( function(){
@@ -413,7 +422,22 @@ var PhotoView = {
                     e.stopImmediatePropagation();
                 }
             });
+            /* attempt to fix tag overlay failed :(
+            $( '.tag' ).each( function(){
+                PhotoView.Tag.index.push({
+                    id: $( this ).attr( 'id' ),
+                    area: parseInt( $( this ).css( 'width' ) ) * parseInt( $( this ).css( 'height' ) )
+                });
+            });
+            PhotoView.Tag.index.sort( function( a, b ){
+                return b.area - a.area;
+            });
+            for( var i in PhotoView.Tag.index ){
+                $( '#' + PhotoView.Tag.index[ i ].id ).css( 'zIndex', i - 0 + 15 );
+            }
+            */
         },
+
     },
     LoadNext: function( evt ) {
         if( PhotoView.Tag.running ){

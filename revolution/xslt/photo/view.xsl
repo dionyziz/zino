@@ -44,7 +44,7 @@
                             width: <xsl:value-of select="width" />px;
                             height: <xsl:value-of select="height" />px;
                         </xsl:attribute>
-                        <xsl:attribute name="id">tag_<xsl:value-of select="id" /></xsl:attribute>
+                        <xsl:attribute name="id">tag_<xsl:value-of select="@id" /></xsl:attribute>
                         <div class="namecontainer">
                             <xsl:if test="top + height &gt; /social/photo/media/@height - '50'">
                                 <xsl:attribute name="class">namecontainer top</xsl:attribute>
