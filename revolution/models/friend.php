@@ -5,10 +5,10 @@
     define( 'FRIENDS_BOTH', FRIENDS_A_HAS_B | FRIENDS_B_HAS_A );
     
     class Friend {
-        public static function ListByUser( $userid ) {
-            $res = db(
+        public static function ListByUser( $userid, $requiremutual = false ) {
+            $sql =
                 'SELECT
-                    `relation_friendid` AS id,
+                    a.`relation_friendid` AS id,
                     `user_name` as name, 
                     `user_subdomain` as subdomain, 
                     `user_avatarid` as avatarid,
@@ -19,25 +19,38 @@
                     (
                         ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
                          - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
-                     ) AS age
-                FROM `relations`
+                     ) AS age,
+                     ( b.`relation_id` IS NULL ) AS mutual
+                FROM `relations` AS a ';
+            if ( $requiremutual ) {
+                $sql .= '
+                    LEFT JOIN `relations` AS b
+                         ON a.relation_friendid = b.relation_userid
+                         AND a.relation_userid = b.relation_frienid ';
+            }
+            $sql .= '
                 LEFT JOIN `users`
                      ON `user_id` = `relation_friendid`                  
                 LEFT JOIN `userprofiles`
                     ON `profile_userid` = `relation_friendid`
                 LEFT JOIN `places`
                     ON `profile_placeid` = `place_id`
-                WHERE `relation_userid` = :userid
-                ORDER BY `relation_id` DESC;',
-                compact( 'userid' ) );
+                WHERE
+                    a.`relation_userid` = :userid';
+            if ( $requiremutual ) {
+                $sql .= ' AND NOT ( b.`relation_id` IS NULL )';
+            }
+            $sql .= '
+                ORDER BY `relation_id` DESC;';
+            $res = db( $sql, compact( 'userid' ) );
       
             $friends = array();
             while ( $row = mysql_fetch_array( $res ) ) {
                 if ( $row[ 'age' ] > 100 || $row[ 'age' ] < 6 ) {
                     unset( $row[ 'age' ] );
                 }
-                $row[ 'id' ] = (int)$row[ 'id' ];
-                $row[ 'placeid' ] = (int)$row[ 'placeid' ];
+                $row[ 'id' ] = ( int )$row[ 'id' ];
+                $row[ 'placeid' ] = ( int )$row[ 'placeid' ];
                 $friends[] = $row;
             }	
             return $friends;

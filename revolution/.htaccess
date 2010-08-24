@@ -75,6 +75,7 @@ RewriteRule ^friendship/create$ index.php?resource=friendship&method=create [L,Q
 RewriteRule ^friendship/delete$ index.php?resource=friendship&method=delete [L,QSA]
 RewriteRule ^friendship/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=view&username=$1 [L,QSA]
 RewriteRule ^friends/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=list&subdomain=$1 [L,QSA]
+RewriteRule ^friendsmutual/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=list&requiremutual=1&subdomain=$1 [L,QSA]
 
 # chat
 RewriteRule ^chat/messages$ index.php?resource=chatmessage&method=listing [L,QSA]

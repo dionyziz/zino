@@ -14,13 +14,12 @@
 
             include 'views/friendship/view.php';
         }
-        public static function Listing( $subdomain ) {
+        public static function Listing( $subdomain, $requiremutual = false ) {
             global $settings;
 
             clude( 'models/db.php' );
             clude( 'models/friend.php' );
             clude( 'models/user.php' );
-            
 			
 			if ( empty( $subdomain ) ) {
 				return;	
@@ -30,7 +29,7 @@
                return;
             }
             $userid = $user[ 'id' ]; // needed by view
-            $friends = Friend::ListByUser( $userid );
+            $friends = Friend::ListByUser( $userid, $requiremutual );
 
             // find which of these are also friends of the active user
             if ( isset( $_SESSION[ 'user' ] ) && $_SESSION[ 'user' ][ 'name' ] != $subdomain ) {
