@@ -14,11 +14,23 @@
     error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );    
     clude( 'models/water.php' );
     global $settings;
-    $settings = include 'settings.php';
+    $settings = include 'settings.php';	
+	if ( file_exists( '../../localtest.php' ) ) {
+        // load local settings from localtest.php
+        function SettingsMerge( $settings, $settingslocal ) {
+            foreach ( $settingslocal as $key => $value ) {
+                if ( is_array( $value ) && isset( $settings[ $key ] ) ) {
+                    $settings[ $key ] = SettingsMerge( $settings[ $key ], $settingslocal[ $key ] );
+                    continue;
+                }
+                $settings[ $key ] = $value;
+            }
+            return $settings;
+        }
+        $localsettings = include '../../localtest.php';
+        $settings = SettingsMerge( $settings, $localsettings );
+    }
 	var_dump( $settings );
-	if ( file_exists( 'localtest.php' ) ) {
-		echo " aosihosahflsaghlakshgl s";
-	}
 
 	clude( "models/libchart-1.2.1/libchart/classes/libchart.php" );
 	clude( "models/db.php" );
