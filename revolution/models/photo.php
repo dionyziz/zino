@@ -250,7 +250,7 @@
             }
 
             if ( !file_exists( $tempfile ) ) {
-                die( 'Image_Upload() failed: Target temporary file does not exist: ' . $tempfile );
+                throw New Exception( 'Image_Upload() failed: Target temporary file does not exist: ' . $tempfile );
             }
 
             $data = array(
@@ -293,19 +293,15 @@
             $data = curl_exec( $curl );
 
             if ( $data === false ) {
-                // throw New ImageException( 'Image_Upload curl error: ' . curl_error( $curl ) . ' (' . curl_errno( $curl ) . ')' );
-                die( 'Image_Upload curl error: ' . curl_error( $curl ) . ' (' . curl_errno( $curl ) . ')' );
+                throw New Exception( 'Image_Upload curl error: ' . curl_error( $curl ) . ' (' . curl_errno( $curl ) . ')' );
             }
 
             curl_close( $curl );
 
             if ( strpos( $data, "error" ) !== false ) {
-                // throw New ImageException( 'Image_Upload could not upload the image: Server returned an error: ' . $data );
                 throw New Exception( 'Image_Upload could not upload the image: Server returned an error: ' . $data );
             }
             else if ( strpos( $data, "success" ) !== false ) {
-                // throw New ImageException( $data );
-
                 $start = strpos( $data, "[" ) + 1;
 
                 $data = substr( $data, $start, strlen( $data ) - $start - 1 );

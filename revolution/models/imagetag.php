@@ -47,7 +47,6 @@
 			if ( !is_array( $ids ) ) {
 				return array();
 			}
-            die( var_dump( $ids ) );
 			$rows = db_array( 
 				'SELECT 
 					`tag_id` as id, `tag_imageid` as imageid, `tag_personid` as personid,

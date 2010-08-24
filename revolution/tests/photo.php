@@ -193,7 +193,7 @@
             curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT, $timeout );
             $data = curl_exec( $ch );
             if ( !$data ) {
-                die( curl_error( $ch ) );
+                throw New Exception( curl_error( $ch ) );
             }
             curl_close( $ch );
             file_put_contents( $to, $data );

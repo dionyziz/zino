@@ -14,7 +14,9 @@
                     else if ( $subdomain ) {
                         $user = User::ItemDetailsByName( $subdomain );
                     }
-                    else die( 'nor id nor subdomain specified for verbosity level 2' );
+                    else {
+                        throw New Exception( 'nor id nor subdomain specified for verbosity level 2' );
+                    }
                     $countcomments = $user[ 'numcomments' ];
                     if ( !isset( $_SESSION[ 'user' ] ) || $_SESSION[ 'user' ][ 'id' ] != $user[ 'id' ] ) {
                         // only let myself know my rights

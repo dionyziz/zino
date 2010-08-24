@@ -91,7 +91,6 @@
                     case EVENT_IMAGETAG_CREATED:
                         clude( 'models/imagetag.php' );
                         $taginfo = ImageTag::ItemMulti( $ids );
-                        die( var_dump( $taginfo ) );
                 }
             }
             foreach ( $notifications as $i => $notification ) {
