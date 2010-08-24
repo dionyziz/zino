@@ -2,7 +2,7 @@
 	set_include_path( '../../:./' );
 
 
-	include "etc/libchart/libchart.php";
+	include "models/libchart/libchart.php";
 	$chart = new VerticalBarChart(500, 250);
 	$dataSet = new XYDataSet();
 	$dataSet->addPoint(new Point("Jan 2005", 273));
