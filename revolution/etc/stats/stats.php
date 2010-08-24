@@ -16,6 +16,9 @@
     global $settings;
     $settings = include 'settings.php';
 	var_dump( $settings );
+	if ( file_exists( 'localtest.php' ) ) {
+		echo " aosihosahflsaghlakshgl s";
+	}
 
 	clude( "models/libchart-1.2.1/libchart/classes/libchart.php" );
 	clude( "models/db.php" );
