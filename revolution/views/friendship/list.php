@@ -4,14 +4,14 @@
     <friend id="<?= $friend[ 'id' ] ?>">
         <name><?= $friend[ 'name' ] ?></name>
             <subdomain><?= $friend[ 'subdomain' ] ?></subdomain>
-        <?php if ( $friend[ 'age' ] > 0 ): ?>
+        <?php if ( !empty( $friend[ 'age' ] ) ): ?>
         <age><?= $friend[ 'age' ] ?></age>
         <?php endif; ?>
+        <?php if ( !empty( $friend[ 'avatarid' ] ) ): ?>
         <avatar id="<?= $friend[ 'avatarid' ] ?>">
-        <?php if ( $friend[ 'avatarid' ] > 0 ): ?>
             <media url="http://images2.zino.gr/media/<?= $friend[ 'id' ] ?>/<?= $friend[ 'avatarid' ] ?>/<?= $friend[ 'avatarid' ] ?>_150.jpg" />
-        <?php endif; ?>
         </avatar>
+        <?php endif; ?>
         <?php if ( $friend[ 'placeid' ] > 0 ): ?>
         <location id="<?= $friend[ 'placeid' ]; ?>">
         <?= $friend[ 'placename' ] ?>

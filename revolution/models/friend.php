@@ -19,20 +19,19 @@
                     (
                         ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
                          - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
-                     ) AS age,
-                     ( b.`relation_id` IS NULL ) AS mutual
+                     ) AS age
                 FROM `relations` AS a ';
             if ( $requiremutual ) {
                 $sql .= '
                     LEFT JOIN `relations` AS b
                          ON a.relation_friendid = b.relation_userid
-                         AND a.relation_userid = b.relation_frienid ';
+                         AND a.relation_userid = b.relation_friendid ';
             }
             $sql .= '
                 LEFT JOIN `users`
-                     ON `user_id` = `relation_friendid`                  
+                     ON `user_id` = a.`relation_friendid`                  
                 LEFT JOIN `userprofiles`
-                    ON `profile_userid` = `relation_friendid`
+                    ON `profile_userid` = a.`relation_friendid`
                 LEFT JOIN `places`
                     ON `profile_placeid` = `place_id`
                 WHERE
@@ -41,7 +40,7 @@
                 $sql .= ' AND NOT ( b.`relation_id` IS NULL )';
             }
             $sql .= '
-                ORDER BY `relation_id` DESC;';
+                ORDER BY a.`relation_id` DESC;';
             $res = db( $sql, compact( 'userid' ) );
       
             $friends = array();
@@ -51,6 +50,9 @@
                 }
                 $row[ 'id' ] = ( int )$row[ 'id' ];
                 $row[ 'placeid' ] = ( int )$row[ 'placeid' ];
+                if ( $row[ 'avatarid' ] == 0 ) {
+                    unset( $row[ 'avatarid' ] );
+                }
                 $friends[] = $row;
             }	
             return $friends;
