@@ -20,7 +20,16 @@
             <xsl:text> </xsl:text>
             «είναι μέσα» στο <strong style="font-size: 10pt;">zino.</strong>
             <br />
-            Γίνε μέλος για να τον προσθέσεις στους φίλους.
+            Γίνε μέλος για να
+            <xsl:choose>
+                <xsl:when test="author/@gender = 'f'">
+                    <xsl:text> την </xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text> τον </xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            προσθέσεις στους φίλους.
             <div class="eof"></div>
          </div>
     </xsl:if>
