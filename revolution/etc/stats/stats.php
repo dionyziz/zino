@@ -6,17 +6,16 @@
             return include $path;
         }
         return true;
-    }
-	
+    }	
 
 	set_include_path( '../../:./' );
-
 
 	session_start();
     error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );    
     clude( 'models/water.php' );
     global $settings;
     $settings = include 'settings.php';
+	var_dump( $settings );
 
 	clude( "models/libchart-1.2.1/libchart/classes/libchart.php" );
 	clude( "models/db.php" );
