@@ -16,8 +16,8 @@ var Calendar = {
     ],
     CurrentDate: new Date(),
     Element: null,
-    Init: function( id, callback ) {
-        Calendar.Element = Calendar.Construct();
+    Init: function( id, callback, title ) {
+        Calendar.Element = Calendar.Construct( title );
         Calendar.SetDate( Calendar.CurrentDate.getFullYear(), Calendar.CurrentDate.getMonth() + 1, Calendar.CurrentDate.getDate() );
         Calendar.AssignEvents( id, callback );
         $( Calendar.Element ).css( {
@@ -54,11 +54,17 @@ var Calendar = {
         var year = Calendar.CurrentDate.getFullYear();
         return ( year % 4 === 0 && year % 100 !== 0 ) || year % 400 === 0;
     },
-    Construct: function() {
+    Construct: function( title ) {
         var calendar = document.createElement( 'div' );
 
         var years = document.createElement( 'div' );
         var months = document.createElement( 'div' );
+
+        if ( typeof title == 'string' ) {
+            var h3 = document.createElement( 'h3' );
+            h3.appendChild( document.createTextNode( title ) );
+            calendar.appendChild( h3 );
+        }
 
         years.className = 'years';
         months.className = 'months';

@@ -204,7 +204,7 @@ var Profile = {
                 document.getElementById( 'age' ).innerHTML = now.getFullYear() - year - 1;
             }
             $.post( '?resource=user&method=update', { dob: year + '-' + month + '-' + day } );
-        } );
+        }, 'Ημερομηνία γέννησης' );
         if ( $( 'li.aboutme > span' ).hasClass( 'notshown' ) ) {
             $( 'li.aboutme > span' ).text( 'Να μην εμφανίζεται' );
         }

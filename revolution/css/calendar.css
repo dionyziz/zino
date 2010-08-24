@@ -5,6 +5,14 @@
     padding: 10px;
     border: 3px solid #556677;
 }
+    #calendar h3 {
+        background-color: #567;
+        border-bottom: 3px solid #567;
+        color: #213549;
+        font-weight: bold;
+        margin: -10px -10px 8px;
+        padding: 5px 0;
+    }
     #calendar ul {
         margin: 0;
         padding: 0;
