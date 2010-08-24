@@ -118,7 +118,7 @@ var PhotoView = {
                         '<button class="cancel">ακύρωση</button>' + 
                     '</div>' );
                 $( friendlist ).hide().appendTo( '.image' );
-                $.get( 'friends/' + User, function( data ){
+                $.get( 'friendsmutual/' + User, function( data ){
                     $( '.friendlist ul li.friend_loading' ).hide();
                     window.asdf = $(data );
                     if( !PhotoView.Tag.Friend.list[ $( data ).find( 'friends' ).attr( 'id' ) ] ){
