@@ -7,7 +7,7 @@
         <div class="teaser">
             <a href="login" class="register" type="submit"></a>
             <xsl:choose>
-                <xsl:when test="author/@gender = 'f'">
+                <xsl:when test="author/gender = 'f'">
                     <xsl:text>Η </xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
@@ -22,7 +22,7 @@
             <br />
             Γίνε μέλος για να
             <xsl:choose>
-                <xsl:when test="author/@gender = 'f'">
+                <xsl:when test="author/gender = 'f'">
                     <xsl:text> την </xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
