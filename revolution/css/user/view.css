@@ -75,6 +75,9 @@ ul.accountmenu li.dot:before {
 .maininfo .slogan {
     line-height: 25px;
 }
+#sloganmodal input {
+    width: 350px;
+}
 .maininfo ul.asl {
     line-height: 25px;
     white-space: nowrap;

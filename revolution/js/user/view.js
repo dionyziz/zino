@@ -278,6 +278,28 @@ var Profile = {
             } );
             return false;
         } );
+        $( 'div.slogan' ).addClass( 'editable' ).click( function() {
+            axslt( false, 'call:user.modal.slogan', function () { 
+                $modal = $( node_strip( this ) );
+                $modal.appendTo( 'body' ).modal();
+                $modal.find( 'input' ).val( $( 'div.slogan' ).text() );
+                $modal.find( '.save' ).click( function () {
+                    var slogan = $modal.find( 'input' ).val();
+                    $modal.jqmHide().remove();
+                    $( 'div.slogan' ).text( slogan );
+                    $.post( 'user/update', { slogan: slogan } );
+                    return false;
+                } );
+                $modal.find( '.linebutton' ).click( function () {
+                    $modal.jqmHide().remove();
+                    return false;
+                } );
+            } );
+            return false;
+        } );
+        //var $sloganinput = $( '<input/>' ).val( $( 'div.slogan' ).text() );
+        //Kamibu.EditableTextElement( $( 'div.slogan' ).get( 0 ), 'Όρισε σλόγκαν', function( text ) { alert( text ); } );
+        //$( 'div.slogan' ).text( '' ).append( $sloganinput );
         if ( window.ActiveXObject ) {
             $( '.editable select' ).css( { opacity: 0, width: 'auto' } );
         }

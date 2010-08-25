@@ -21,25 +21,29 @@
         </div>
     </div>
 </xsl:template>
+
 <xsl:template name="user.modal.aboutme">
-    <div name="aboutmemodal" class="modal">
+    <div id="aboutmemodal" class="modal">
         <h2>Λίγα λόγια για μένα</h2>
         <textarea class="aboutme"></textarea>
         <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
         <div><a href="" class="linebutton">Να μην εμφανίζεται</a></div>
     </div>
 </xsl:template>
+
 <xsl:template name="user.modal.location">
-    <div name="aboutmemodal" class="modal">
+    <div id="locationmodal" class="modal">
         <h2>Περιοχή</h2>
         <select class="location"></select>
     </div>
 </xsl:template>
+
 <xsl:template name="user.modal.location.options">
     <xsl:for-each select="/social/places/place">
         <option><xsl:attribute name="value"><xsl:value-of select="id" /></xsl:attribute><xsl:value-of select="name" /></option>
     </xsl:for-each>
 </xsl:template>
+
 <xsl:template name="user.mood.edit">
     <xsl:param name="gender" />
     <div class="moodpicker">
@@ -62,6 +66,15 @@
                 </div></li>
             </xsl:for-each>
         </ul>
+    </div>
+</xsl:template>
+
+<xsl:template name="user.modal.slogan">
+    <div id="sloganmodal" class="modal">
+        <h2>Σλόγκαν</h2>
+        <input type="textbox"></input>
+        <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
+        <div><a href="" class="linebutton">Να μην εμφανίζεται</a></div>
     </div>
 </xsl:template>
 

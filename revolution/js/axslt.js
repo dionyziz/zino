@@ -1,7 +1,8 @@
-/**
- * axslt.js - Version 1.0 ( 12:19 UTC 4/21/2010 )
+/*
+ * axslt-js - Version 1.1 ( 14:56 UTC 8/17/2010 )
  *
- * Copyright (c) 2010 Tzortzidis Alexandros ( chorvus@kamibu.com )
+ * Copyright (c) 2010 Kamibu <http://www.kamibu.com/>
+ * Developer: Alexandros "Chorvus" Tzortzidis <chorvus@kamibu.com>
  * Project page: <http://chorvus.com/axsltjs>
  * 
  * Changelog:
@@ -27,17 +28,22 @@
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
  * USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
  */
  
- /*
- * ----Compact parameter mode.
- * Example call: xhr.transform( { 'name': templateName,
- *                                'mode': templateMode }, callback, xslPath );
- * ----Normal parameter mode.
- * Example call: xhr.transform( templateName, callback, templateMode, params, xslPath );
+/**
+ * Executes an asynchronous transformation and executes the callback given.
+ * 
+ * 
+ * @param xml       an requesting <XHR> object or a valid xml <string> or <false> for xml independant content (static html, parameter generated content etc)
+ * @param template  a <string> absolute xpath in xml used in apply-templates/@select OR 'call:templatename' used in call-template/@name
+ * @param callback  the <function> that will be called when the transformation is completed, the keyword <this> contains the transformation result and is an NodeList object
+ * @param params    an optional <Object> map that contains the params used in call-template/with-params ( key expresses the param name, value expresses the param value )
+ * @param xslPath   a <string> of the xsl file, absolute or relative to the page location. ( optional only if _aXSLT.defaultStylesheet is set )
+ *
  */
-
-var axslt = function( xml, template, callback, params, xslPath ) {
+ 
+var axslt = function( xml, template, callback, params, xslPath ) { 
     var templateMode;
     var templateName;
     if ( template.substr( 0, 5 ) == 'call:' ) {
@@ -76,11 +82,11 @@ var axslt = function( xml, template, callback, params, xslPath ) {
 
 var node_dump = function( nodeset ) {
     var xmls =  new XMLSerializer();
-    var alertstring = '//Total nodes: ' + nodeset.length + '\n';
+    var res = '//Total nodes: ' + nodeset.length + '\n';
     for ( var i = 0; i < nodeset.length; i++ ) {
-         alertstring += '//Node [' + i + ']:\n' + xmls.serializeToString( nodeset[ i ] ) + '\n\n';
+         res += '//Node [' + i + ']:\n' + xmls.serializeToString( nodeset[ i ] ) + '\n\n';
     }
-    return alertstring;
+    return res;
 };
 
 var node_strip = function( nodeset ) {
