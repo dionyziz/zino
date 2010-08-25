@@ -290,9 +290,14 @@ var Profile = {
                 }
                 $modal.find( '.save' ).click( function () {
                     var slogan = $modal.find( 'input' ).val();
-                    $modal.jqmHide().remove();
-                    $( 'div.slogan' ).text( slogan ).removeClass( 'notshown' );
+                    if ( slogan == '' ) {
+                        $( 'div.slogan' ).text( 'Όρισε σλόγκαν' ).addClass( 'notshown' );
+                    }
+                    else { 
+                        $( 'div.slogan' ).text( slogan ).removeClass( 'notshown' );
+                    }
                     $.post( 'user/update', { slogan: slogan } );
+                    $modal.jqmHide().remove();
                     return false;
                 } );
                 $modal.find( '.linebutton' ).click( function () {
