@@ -282,16 +282,20 @@ var Profile = {
             axslt( false, 'call:user.modal.slogan', function () { 
                 $modal = $( node_strip( this ) );
                 $modal.appendTo( 'body' ).modal();
-                $modal.find( 'input' ).val( $( 'div.slogan' ).text() );
+                if ( !$( 'div.slogan' ).hasClass( 'notshown' ) ) {
+                    $modal.find( 'input' ).val( $( 'div.slogan' ).text() );
+                }
                 $modal.find( '.save' ).click( function () {
                     var slogan = $modal.find( 'input' ).val();
                     $modal.jqmHide().remove();
-                    $( 'div.slogan' ).text( slogan );
+                    $( 'div.slogan' ).text( slogan ).removeClass( 'notshown' );
                     $.post( 'user/update', { slogan: slogan } );
                     return false;
                 } );
                 $modal.find( '.linebutton' ).click( function () {
                     $modal.jqmHide().remove();
+                    $.post( 'user/update', { slogan: '' } );
+                    $( 'div.slogan' ).text( 'Όρισε σλόγκαν' ).addClass( 'notshown' );
                     return false;
                 } );
             } );
