@@ -278,6 +278,9 @@ var Profile = {
             } );
             return false;
         } );
+        if ( $( 'div.slogan' ).hasClass( 'notshown' ) ) {
+            $( 'div.slogan' ).text( 'Όρισε σλόγκαν' );
+        }
         $( 'div.slogan' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.slogan', function () { 
                 $modal = $( node_strip( this ) );

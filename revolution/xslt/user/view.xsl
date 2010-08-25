@@ -133,8 +133,13 @@
                             </xsl:if>
                         </xsl:if>
                     </ul>
-                    <xsl:if test="details/slogan">
-                        <div class="slogan"><xsl:value-of select="details/slogan" /></div>
+                    <xsl:if test="details/slogan or $user">
+                        <div class="slogan">
+                            <xsl:if test="$user and not( details/slogan )">
+                                <xsl:attribute name="class">slogan notshown</xsl:attribute>
+                            </xsl:if>
+                            <xsl:value-of select="details/slogan" />
+                        </div>
                     </xsl:if>
                 </div>
             </div>
