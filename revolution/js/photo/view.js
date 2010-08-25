@@ -321,21 +321,28 @@ var PhotoView = {
             $( '.image' ).css( 'cursor', 'crosshair' );
             $( '#tagbutton' ).addClass( 'selected' );
             $( '.image img.maincontent' ).mousedown( function( e ){
+                var imagepos = {
+                    top: $( '.image' ).offset().top,
+                    left: $( '.image' ).offset().left,
+                };
                 PhotoView.Tag.Down({
-                    top: e.layerY,
-                    left: e.layerX
+                    top: e.pageY - imagepos.top,
+                    left: e.pageX - imagepos.left
                 });
                 return false;
             });
             $( '.newtag' ).live( 'mousedown', function( e ){
-                var top = $( this ).top() + e.layerY;
-                var left = $( this ).left() + e.layerX;
-
+                var imagepos = {
+                    top: $( '.image' ).offset().top,
+                    left: $( '.image' ).offset().left,
+                };
+                var pos = {
+                    top:  e.pageY - imagepos.top,
+                    left: e.pageX - imagepos.left
+                };
                 PhotoView.Tag.Cancel();
-                PhotoView.Tag.Down({
-                    top: top,
-                    left: left
-                });
+                PhotoView.Tag.Down( pos );
+                return false;
             });
 
             $( window ).mousemove( function( e ){
