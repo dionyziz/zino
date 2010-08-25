@@ -45,43 +45,36 @@
                 return true;
             }
             return false;
-        },
+        } /*,
         css: function(a,i,m) {
-            var e = $(a).get(0), keyVal;
-            // m[3] refers to value inside parenthesis (if existing) e.g. :data(___)
-            if(!m[3]) {
-                // Loop through properties of element object, find any jquery references:
-                for (var x in e) { if((/jQuery\d+/).test(x)) { return true; } }
-            } else {
-                // Split into array (name,value):
-                keyVal = m[3].split('=');
-                // If a value is specified:
-                if (keyVal[1]) {
-                    // Test for regex syntax and test against it:
-                    if((/^\/.+\/([mig]+)?$/).test(keyVal[1])) {
-                        return
-                         (new RegExp(
-                             keyVal[1].substr(1,keyVal[1].lastIndexOf('/')-1),
-                             keyVal[1].substr(keyVal[1].lastIndexOf('/')+1))
-                          ).test($(a).css(keyVal[0]));
-                    } else {
-                        // Test key against value:
-                        return $(a).css(keyVal[0]) == keyVal[1];
-                    }
-                } else {
-                    // Test if element has data property:
-                    if($(a).css(keyVal[0])) {
-                        return true;
-                    } else {
-                        // If it doesn't remove data (this is to account for what seems
-                        // to be a bug in jQuery):
-                        $(a).removeData(keyVal[0]);
-                        return false;
-                    }
+            var keyVal;
+            //m[ 3 ] == content of parenthesys
+            var c, s;
+            var cs = [ '>', '>=', '<', '<=', '!=' ];
+            for( var i = 0; i < cs.length; ++i ){
+                if( m[ 3 ].indexOf( cs[ i ] ) != -1 ){
+                    c = true;
+                    s = cs[ i ];
                 }
             }
-            // Strict compliance:
+            if( c === true ){
+                keyVal = m[ 3 ].split( s );
+                var val = parseInt( $( a ).css( keyVal[ 0 ] ) );
+                var cv = parseInt( keyVal[ 1 ] );
+                return ( s == '>'  ? val >  cv : 
+                         s == '>=' ? val >= cv :
+                         s == '<'  ? val <  cv :
+                         s == '<=' ? val <= cv : false );
+            }
+            if( m[ 3 ].indexOf( '=' ) != -1 ){
+                keyVal = m[ 3 ].split( '=' );
+                return $( a ).css( keyVal[ 0 ] ) == keyVal[ 1 ] || $( a ).css( keyVal[ 0 ] ) == keyVal[ 1 ] + 'px';
+            }
+
+            if($(a).css(keyVal[0])) {
+                return true;
+            } 
             return false;
-        }
+        } */
     });
 })(jQuery);
