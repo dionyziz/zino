@@ -60,7 +60,7 @@ var PhotoView = {
                 PhotoView.Title.Selected = true;
                 return false;
             }).keyup( function( event ){
-                e.stopImmediatePropagation();
+                event.stopImmediatePropagation();
                 if( event.which == 27 ){ // esc
                     $( this ).blur();
                 }

@@ -73,8 +73,8 @@
                 </xsl:for-each>
             </div>
         </xsl:if>
-        <div class="title">
-            <xsl:if test="/social/@for = author/name">
+        <xsl:if test="/social/@for = author/name">
+            <div class="title">
                 <input type="text">
                     <xsl:attribute name="value"><xsl:value-of select="title" /></xsl:attribute>
                     <xsl:if test="not(title)">
@@ -82,15 +82,17 @@
                         <xsl:attribute name="class">empty</xsl:attribute>
                     </xsl:if>
                 </input>
-            </xsl:if>
-            <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
-            <span>
-                <xsl:if test="/social/@for = author/name or not(title)">
-                    <xsl:attribute name="class">hidden</xsl:attribute>
-                </xsl:if>
-                <xsl:value-of select="title" />
-            </span>
-        </div>
+                <span class="hidden"><xsl:value-of select="title" /></span>
+            </div>
+        </xsl:if>
+        <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
+        <xsl:if test="/social/@for != author/name and title">
+            <div class="title">
+                <span>
+                    <xsl:value-of select="title" />
+                </span>
+            </div>
+        </xsl:if>
         <xsl:call-template name="favourite.list" />
     </div>
     <div class="navigation" style="display: none;">
