@@ -25,7 +25,7 @@
             $xml = ob_get_clean();
             echo $xml;
             $participants = ChatChannel::ParticipantList( $channelid );
-            foreach ( $participants as $participants ) {
+            foreach ( $participants as $participant ) {
                 PushChannel::Publish( 'chat/typing/list/' . $participant[ 'uesrid' ] . ':' . $participant[ 'authtoken' ], $xml );
             }
         }
