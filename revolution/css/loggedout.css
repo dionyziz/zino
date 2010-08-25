@@ -65,7 +65,6 @@ div.register {
 div.register input.text, #registermodal input {
     border: 1px solid transparent;
     position: relative;
-    top: 2px;
     width: 173px;
     height: 30px;
     background-image: url( 'http://static.zino.gr/revolution/loggedout/textbox.png' );
