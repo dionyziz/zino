@@ -26,7 +26,7 @@
             echo $xml;
             $participants = ChatChannel::ParticipantList( $channelid );
             foreach ( $participants as $participants ) {
-                PushChannel::Publish( 'chat/typing/list/' . $participants[ 'uesrid' ] . ':' . $participants[ 'authtoken' ], $xml );
+                PushChannel::Publish( 'chat/typing/list/' . $participant[ 'uesrid' ] . ':' . $participant[ 'authtoken' ], $xml );
             }
         }
         public static function Delete() { // remove person from group chat
