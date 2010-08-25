@@ -100,7 +100,7 @@
                     $rows[ $i ][ 'owneravatarid' ], $rows[ $i ][ 'ownergender' ],
                     $rows[ $i ][ 'age' ], $rows[ $i ][ 'location' ]
                 );
-                $ret[ $row[ 'id' ] ] = $rows;
+                $ret[ $row[ 'id' ] ] = $rows[ $i ];
             }
             return $ret;
 		}
