@@ -61,10 +61,10 @@ var PhotoView = {
                 return false;
             }).keyup( function( event ){
                 e.stopImmediatePropagation();
-                if( event.which == 13 ){ // esc
+                if( event.which == 27 ){ // esc
                     $( this ).blur();
                 }
-                if( event.which == 27 ){ // enter
+                if( event.which == 13 ){ // enter
                     $( this ).val( PhotoView.Title.Title );
                     $( this ).blur();
                 }
@@ -165,10 +165,10 @@ var PhotoView = {
                 });
                 PhotoView.Tag.Friend.Load();
                 $( '.friendlist input' ).keyup( function( e ){
-                    if( e.which == 13 ){
+                    if( e.which == 27 ){ // esc
                         PhotoView.Tag.StopTagging();
                     }
-                    if( e.which == 27 ){
+                    if( e.which == 13 ){ // enter
                         PhotoView.Tag.Save();
                     }
                     PhotoView.Tag.Friend.Type( $( this ).val() );

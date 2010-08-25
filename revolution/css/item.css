@@ -45,7 +45,7 @@ li.numfavourites {
     color: red;
 }
 li.numcomments span {
-    background-image: url( 'images/speak-blue.png' );
+    background-image: url( 'http://static.zino.gr/revolution/speak-blue.png' );
     background-repeat: no-repeat;
     background-position: left;
     padding-left: 15px;
