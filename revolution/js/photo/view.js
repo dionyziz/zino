@@ -151,7 +151,7 @@ var PhotoView = {
             Type: function( text ){
                 if( text.length ){
                     $( '.friendlist ul li:not(.friend_loading)' ).hide().removeClass( 'selected' )
-                        .filter( ':contains(' + text + ')' ).show().end()
+                        .filter( ':containsCI(' + text + ')' ).show().end()
                         .filter( ':visible:first' ).addClass( 'selected' );
                 }
                 else{

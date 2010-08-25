@@ -39,7 +39,13 @@
  
     // Extend jQuery's native ':'
     $.extend($.expr[':'],{
-        // New method, "data"
+        containsCI: function( a, i, m ){
+            var val = m[ 3 ];
+            if( $( a ).text().toLowerCase().indexOf( val.toLowerCase() ) != -1 ){
+                return true;
+            }
+            return false;
+        },
         css: function(a,i,m) {
             var e = $(a).get(0), keyVal;
             // m[3] refers to value inside parenthesis (if existing) e.g. :data(___)
