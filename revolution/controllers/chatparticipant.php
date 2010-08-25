@@ -16,6 +16,7 @@
             $channelid = ( int )$channelid;
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to access the chat application.' );
             clude( 'models/comet.php' );
+            clude( 'models/chat.php' );
             clude( 'models/db.php' );
             $userid = $_SESSION[ 'user' ][ 'id' ];
             $username = $_SESSION[ 'user' ][ 'name' ];
@@ -23,7 +24,10 @@
             Template( 'chatchannel/typing', compact( 'channelid', 'typing', 'username' ) );
             $xml = ob_get_clean();
             echo $xml;
-            PushChannel::Publish( 'chat/typing/list/' . $channelid, $xml );
+            $participants = ChatChannel::ParticipantList( $channelid );
+            foreach ( $participants as $participants ) {
+                PushChannel::Publish( 'chat/typing/list/' . $participants[ 'uesrid' ] . ':' . $participants[ 'authtoken' ], $xml );
+            }
         }
         public static function Delete() { // remove person from group chat
         }
