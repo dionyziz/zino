@@ -75,16 +75,20 @@ div.register input.text, #registermodal input {
     font-size: 12pt;
     font-weight: bold;
 }
-div.register input.submit {
-    color: transparent;
-    width: 130px;
-    height: 35px;
+.registerbutton {
     background-color: transparent;
-    border: 1px solid transparent;
-    background-image: url( 'http://static.zino.gr/revolution/loggedout/register.png' );
+    background-image: url( "http://static.zino.gr/revolution/loggedout/register.png" );
     background-repeat: no-repeat;
+    background-position: -1px -1px;
+    border: 1px solid transparent;
+    color: transparent;
     cursor: pointer;
     float: right;
+    height: 32px;
+    width: 126px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
 }
 div.register span {
     padding-left: 2px;

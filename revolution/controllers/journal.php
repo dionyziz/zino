@@ -7,7 +7,9 @@
             clude( 'models/db.php' );
             clude( 'models/journal.php' );
             $journal = Journal::Item( $id );
-            $journal !== false or die;
+            if ( $journal === false ) {
+                throw New Exception( 'Journal not found' );
+            }
             if ( $journal[ 'user' ][ 'deleted' ] === 1 ) { 
                 include 'views/itemdeleted.php';
                 return;

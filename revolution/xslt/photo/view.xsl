@@ -21,36 +21,9 @@
                         </xsl:if>
                     </ul>
                 </div>
-            </xsl:if>
-            <xsl:if test="not(/social/@for)">
-                <div class="teaser">
-                    <a href="login" class="register" type="submit"></a>
-                    <xsl:choose>
-                        <xsl:when test="author/gender = 'f'">
-                            <xsl:text>Η </xsl:text>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:text>Ο </xsl:text>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    <strong>
-                        <xsl:value-of select="author/name" />
-                    </strong>
-                    <xsl:text> </xsl:text>
-                    «είναι μέσα» στο <strong style="font-size: 10pt;">zino.</strong>
-                    <br />
-                    Γίνε μέλος για να
-                    <xsl:choose>
-                        <xsl:when test="author/gender = 'f'">
-                            <xsl:text> την </xsl:text>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:text> τον </xsl:text>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    προσθέσεις στους φίλους.
-                    <div class="eof"></div>
-                 </div>
+                <xsl:call-template name="teaser">
+                    <xsl:with-param name="user" select="author" />
+                </xsl:call-template>
             </xsl:if>
             <div class="image">
                 <xsl:attribute name="style">width: <xsl:value-of select="media/@width" />px;</xsl:attribute>

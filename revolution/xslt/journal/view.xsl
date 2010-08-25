@@ -20,6 +20,9 @@
                     </xsl:if>
                 </ul>
             </div>
+            <xsl:call-template name="teaser">
+                <xsl:with-param name="user" select="author" />
+            </xsl:call-template>
         </xsl:if>
         <xsl:if test="$user = author/name[1]">
             <span class="icon" id="deletebutton" title="Διαγραφή ημερολογίου">&#215;</span>

@@ -1,6 +1,23 @@
+.registerbutton {
+    background-color: transparent;
+    background-image: url( "http://static.zino.gr/revolution/loggedout/register.png" );
+    background-repeat: no-repeat;
+    background-position: -1px -1px;
+    border: 1px solid transparent;
+    color: transparent;
+    cursor: pointer;
+    float: right;
+    height: 32px;
+    width: 126px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
 .teaser {
     background-image: url( "http://static.zino.gr/revolution/loggedout/loggedout.png" );
     -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
     background-repeat: no-repeat;
     width: 500px;
     margin: 12px auto 9px auto;
@@ -8,17 +25,11 @@
     font-size: 9pt;
     background-position: -100px -177px;
 }
-.teaser a.register {
-    background-color: transparent;
-    background-image: url( "http://static.zino.gr/revolution/loggedout/register.png" );
-    background-repeat: no-repeat;
-    border: 1px solid transparent;
-    color: transparent;
-    cursor: pointer;
-    float: right;
-    height: 35px;
-    width: 130px;
-}
+    .teaser a.registerbutton:hover {
+        -webkit-box-shadow: 1px 1px 12px #e6e6fa;
+        -moz-box-shadow: 1px 1px 12px #e6e6fa;
+        box-shadow: 1px 1px 12px #e6e6fa;
+    }
 textarea.invisible {
     width: 0;
     height: 0;

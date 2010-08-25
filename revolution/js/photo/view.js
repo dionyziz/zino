@@ -452,7 +452,10 @@ var PhotoView = {
         }
         var $next = $( '.navigation .nextid' );
         if ( $next.length ) {
-            $( '.breadcrumb .nav.next img' ).css( { opacity: 1 } );
+            $( '.breadcrumb .nav.next img' ).animate( {
+                opacity: 1,
+                left: '6px'
+            }, 100 );
             Kamibu.Go( 'photos/' + $next.text() );
         }
         return false;
@@ -463,7 +466,10 @@ var PhotoView = {
         }
         var $previous = $( '.navigation .previousid' );
         if ( $previous.length ) {
-            $( '.breadcrumb .nav.prev img' ).css( { opacity: 1 } );
+            $( '.breadcrumb .nav.prev img' ).animate( {
+                opacity: 1,
+                left: '-6px'
+            }, 100 );
             Kamibu.Go( 'photos/' + $previous.text() );
         }
         return false;

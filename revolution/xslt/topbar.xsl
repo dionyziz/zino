@@ -1,3 +1,37 @@
+<xsl:template name="teaser">
+    <xsl:param name="user" />
+    <xsl:if test="not(/social/@for)">
+        <div class="teaser">
+            <a href="login" class="registerbutton" type="submit"></a>
+            <xsl:choose>
+                <xsl:when test="$user/gender = 'f'">
+                    <xsl:text>Η </xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Ο </xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            <strong>
+                <xsl:value-of select="$user/name" />
+            </strong>
+            <xsl:text> </xsl:text>
+            «είναι μέσα» στο <strong style="font-size: 10pt;">zino.</strong>
+            <br />
+            Γίνε μέλος για να
+            <xsl:choose>
+                <xsl:when test="$user/gender = 'f'">
+                    <xsl:text> την </xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text> τον </xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            προσθέσεις στους φίλους.
+            <div class="eof"></div>
+         </div>
+    </xsl:if>
+</xsl:template>
+
 <xsl:template name="banner">
     <div class="bar">
         <!-- <span>▼</span> -->

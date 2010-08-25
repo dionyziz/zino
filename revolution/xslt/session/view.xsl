@@ -22,7 +22,7 @@
                     <form>
                         <span>Διάλεξε ένα ψευδώνυμο:</span>
                         <div>
-                            <input class="submit" type="submit" value="" tabindex="5" />
+                            <input class="submit registerbutton" type="submit" value="" tabindex="5" />
                             <input class="text" type="text" name="username" tabindex="4" />
                         </div>
                     </form>
@@ -63,7 +63,7 @@
                             <input type="password" name="password2" id="pass2" />
                         <label for="email">Email</label>
                             <input type="text" name="email" id="email"/>
-                        <input class="submit" type="submit" value="Πάμε"/>
+                        <input class="submit registerbutton" type="submit" value="Πάμε"/>
                     </fieldset>
                 </form>
                 <div class="xbutton"></div>
