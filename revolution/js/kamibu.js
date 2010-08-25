@@ -36,17 +36,17 @@ var Kamibu = {
                 input.style.display = '';
              }
         } );
-        if ( typeof callback === 'function' ) {
-            $( input ).change( function() {
-                if ( input.value === '' ) {
-                    return;
-                }
-                Kamibu.removeClass( element, 'editableempty' );
-                $( element ).text( input.value );
-                Kamibu.EditableTextElement( element );
+        $( input ).change( function() {
+            if ( input.value === '' ) {
+                return;
+            }
+            Kamibu.removeClass( element, 'editableempty' );
+            $( element ).text( input.value );
+            Kamibu.EditableTextElement( element );
+            if ( typeof callback === 'function' ) {
                 callback( input.value );
-            } );
-        }
+            }
+        } );
     },
     ClickableTextbox: function( element , reshowtext , aftercolor , beforecolor ,  callback ) {
         //todo: password fields
