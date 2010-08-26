@@ -56,7 +56,7 @@
             return array( $album[ 'ownerid' ], "neo", "gamato asfasf", $album[ 'id' ], $album[ 'mainimageid' ] );
         }
         /**
-         * @dataProvider TestCreate
+         * @producer TestCreate
          */
         public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid ) {
 			$album = Album::Item( $albumid );
