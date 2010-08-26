@@ -32,7 +32,6 @@
          * @dataProvider ExampleData
          */
         public function TestCreate( $userid, $name, $description ) {
-			return;
             $album = Album::Create( $userid, $name, $description );
             $this->AssertArrayHasKeys( $album, array( 'id', 'url', 'created' ) );
             $this->AssertArrayValues( $album, array(
@@ -62,9 +61,6 @@
          */
         public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid = 0  ) {
             // ignore ownerid 
-			echo "In update";
-			echo $ownerid . " " . $name . " " . $description . " ". $albumid . "\n";
-			echo "----" . User::GetEgoAlbumId( $ownerid ) . "\n";
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
 			$oldname = $album[ 'name' ];
