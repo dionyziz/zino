@@ -86,7 +86,7 @@
             assert( is_string( $name ) );
             assert( is_numeric( $mainimageid ) );
 
-            db( 
+            return db( 
                 "UPDATE 
                     `albums` 
                 SET 

@@ -69,7 +69,7 @@
             $id = $album[ 'id' ];
 			$oldname = $album[ 'name' ];
             $success = Album::Update( $id, $name, $mainimageid );
-            //$this->Assert( $success, 'Album::Update failed' );
+            $this->Assert( $success, 'Album::Update failed' );
 
             $album = Album::Item( $albumid );
             $this->Called( "Album::Item" );
@@ -77,7 +77,7 @@
 		        $this->AssertArrayValues( $album, array(
 		            'id' => $id,
 		            'name' => $name,
-		            //'description' => $description,
+		            'description' => $description,
 		            'mainimageid' => $mainimageid
 		        ) );
 			}
@@ -85,11 +85,32 @@
 				$this->AssertArrayValues( $album, array(
 		            'id' => $id,
 		            'name' => $oldname,
-		            //'description' => $description,
+		            'description' => $description,
 		            'mainimageid' => $mainimageid
 		        ) );
 			}
             return array( $album[ 'ownerid' ], $album );
+        }
+
+        /**
+         * @producer TestUpdate
+         */
+        public function TestDelete( $info ) {
+            return;
+            $album = $info[ 1 ];
+
+            $id = (int)$album[ 'id' ];
+            $success = Album::Delete( $id );
+            $this->Assert( $success, 'Album::Delete failed' );
+
+            $album = Album::Item( $id );
+            $this->Called( "Album::Item" );
+            $this->AssertFalse( $album, 'Album::Item should return false on deleted item' );
+
+            // test on invalid album
+            $success = Album::Delete( 0 );
+            $this->AssertFalse( $success, 'Album::Delete succeeded on non-existing album' );
+            echo "Success!!!\n\n";
         }
 
 
