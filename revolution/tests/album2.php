@@ -96,7 +96,6 @@
          * @producer TestUpdate
          */
         public function TestDelete( $info ) {
-            return;
             $album = $info[ 1 ];
 
             $id = (int)$album[ 'id' ];
@@ -110,7 +109,6 @@
             // test on invalid album
             $success = Album::Delete( 0 );
             $this->AssertFalse( $success, 'Album::Delete succeeded on non-existing album' );
-            echo "Success!!!\n\n";
         }
 
 
