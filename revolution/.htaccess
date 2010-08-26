@@ -56,6 +56,9 @@ RewriteRule ^ban/list$ index.php?resource=ban&method=listing [L,QSA]
 RewriteRule ^ban/create$ index.php?resource=ban&method=create [L,QSA]
 RewriteRule ^ban/delete$ index.php?resource=ban&method=delete [L,QSA]
 
+#password request
+RewriteRule ^password/create$ index.php?resource=passwordrequest&method=create [L,QSA]
+
 # news
 RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]
 

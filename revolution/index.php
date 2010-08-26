@@ -60,7 +60,7 @@
 	if ( !in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
         'user', 'chatmessage', 'tunnel', 'videostream', 'notification','friendship', 'interest', 'settings',
-        'chatchannel', 'chatparticipant', 'presence', 'place', 'mood', 'album', 'song', 'imagetag', 'ban',
+        'chatchannel', 'chatparticipant', 'presence', 'place', 'mood', 'album', 'song', 'imagetag', 'ban', 'passwordrequest',
         'file'
     ) ) ) {
         if ( $subdomain ) {

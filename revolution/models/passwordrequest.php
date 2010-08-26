@@ -12,12 +12,14 @@
                  VALUES ( :userid, :hash, 0, :ip, NOW() )',
 				compact( 'userid', 'hash', 'ip' ) 
 			);
+            $id = mysql_insert_id();
 			
 			return array( 
 					'userid' => $userid, 
 					'hash' => $hash, 
 					'used' => 0,
 					'host' => $ip,
+                    'id' => $id
 			);
 		}
 		public static function Item( $id, $hashvalue ) {

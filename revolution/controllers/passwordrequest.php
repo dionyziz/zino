@@ -18,8 +18,8 @@
 			//sent email
 
 			ob_start();
-			echo $settings[ 'base' ];
-            $subject = PasswordRequest::Mail();
+			//echo $settings[ 'base' ];
+            $subject = PasswordRequest::Mail( $request[ 'id' ], $request[ 'hash' ]);
         	$message = ob_get_clean();
         	Email( $user[ 'name' ], $details[ 'profile' ][ 'email' ], $subject, $message, 'Zino', 'info@zino.gr' );
 		}
