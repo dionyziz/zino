@@ -66,7 +66,7 @@
             $userid = ( int ) $userid;
             $user = User::Item( $userid );
             if ( $user == false 
-                || $user[ 'deleted' ] == 0 
+                || $user[ 'deleted' ] == 1 
                 || $user[ 'rights' ] <= 0 ) {
                 return false;
             }
