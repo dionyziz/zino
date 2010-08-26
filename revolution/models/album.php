@@ -2,7 +2,7 @@
     
     class Album {
         public static function Item( $id ) {
-            return array_shift( db_array( 
+            return db( 
                 'SELECT
                     `album_id` AS id, `album_name` AS name, `album_delid` AS delid, `album_ownerid` AS ownerid, `album_numphotos` AS numphotos,
                     `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid, `album_description` AS description
@@ -12,7 +12,7 @@
                     `album_id` = :id AND
                     `album_delid` = 0
                 LIMIT 1', compact( 'id' )
-            ) );
+            );
         }
         public static function ListByUser( $userid, $offset = 0, $limit = 50 ) {
             is_numeric( $userid ) or die( 'userid not an integer' );
