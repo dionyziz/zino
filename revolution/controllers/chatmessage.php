@@ -32,6 +32,7 @@
             $channelid, $text, $narrator = false,
             $_localauthorization = false
             ) {
+            clude( 'models/db.php' );
             clude( 'models/user.php' );
             if ( $narrator ) {
                 $_localauthorization === true or die( 'Local authorization required for narrator access' );
