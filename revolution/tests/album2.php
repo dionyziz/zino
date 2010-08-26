@@ -113,7 +113,7 @@
 
 
         public function ValidIds( $num = 3 ) {
-            $res = db( 'SELECT `album_id` FROM `albums` ORDER BY RAND() LIMIT ' . ( string )$num );
+            $res = db( 'SELECT `album_id` FROM `albums` WHERE `album_delid` = 0 ORDER BY RAND() LIMIT ' . ( string )$num );
             $ret = array();
             while ( $row = mysql_fetch_array( $res ) ) {
                 $ret[] = (int)$row[ 0 ];
