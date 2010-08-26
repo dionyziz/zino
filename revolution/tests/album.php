@@ -71,18 +71,18 @@
             $this->Called( "Album::Item" );
 			if ( User::GetEgoAlbumId( $ownerid )  != $albumid ) {
 		        $this->AssertArrayValues( $album, array(
-		            'id' => $id,
+		            'id' => ( string )$id,
 		            'name' => $name,
 		            'description' => $description,
-		            'mainimageid' => $mainimageid
+		            'mainimageid' => ( string )$mainimageid
 		        ) );
 			}
 			else {
 				$this->AssertArrayValues( $album, array(
-		            'id' => $id,
+		            'id' => ( string )$id,
 		            'name' => $oldname,
 		            'description' => $description,
-		            'mainimageid' => $mainimageid
+		            'mainimageid' => ( string )$mainimageid
 		        ) );
 			}
 			echo "Off update";
