@@ -182,7 +182,7 @@
         if ( isset( $_SESSION[ 'user' ] ) ) {
             if( isset( $_SESSION[ 'user' ][ 'deleted' ] ) ) {
                 if ( $_SESSION[ 'user' ][ 'deleted' ] == 1 ) {
-                    throw new Exception( "Banned or deleted user" );
+                    //throw new Exception( "Banned or deleted user" );<--TODO
                 }
             }
         }
