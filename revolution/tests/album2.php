@@ -53,7 +53,37 @@
                 'description' => $description
             ) );
 
-            return array( $album[ 'ownerid' ], "neo", "gamato asfasf", $album[ 'id' ] );
+            return array( $album[ 'ownerid' ], "neo", "gamato asfasf", $album[ 'id' ], $album[ 'mainimageid' ] );
+        }
+        /**
+         * @dataProvider TestCreate
+         */
+        public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid ) {
+			$album = Album::Item( $albumid );
+            $id = $album[ 'id' ];
+			$oldname = $album[ 'name' ];
+            $success = Album::Update( $id, $name, $description, $mainimageid );
+            $this->Assert( $success, 'Album::Update failed' );
+
+            $album = Album::Item( $albumid );
+            $this->Called( "Album::Item" );
+			if ( User::GetEgoAlbumId( $ownerid )  != $albumid ) {
+		        $this->AssertArrayValues( $album, array(
+		            'id' => $id,
+		            'name' => $name,
+		            'description' => $description,
+		            'mainimageid' => $mainimageid
+		        ) );
+			}
+			else {
+				$this->AssertArrayValues( $album, array(
+		            'id' => $id,
+		            'name' => $oldname,
+		            'description' => $description,
+		            'mainimageid' => $mainimageid
+		        ) );
+			}
+            return array( $album[ 'ownerid' ], $album );
         }
 
 
