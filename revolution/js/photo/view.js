@@ -110,12 +110,11 @@ var PhotoView = {
             Load: function(){
                 var friendlist = $( 
                     '<div class="friendlist">' + 
-                        '<label for="friendfield">Πληκτρολόγησε το όνομα<br /> του φίλου σου</label>' +
+                        '<label for="friendfield">Ποιος είναι αυτός;</label>' +
                         '<input type="text" id="friendfield" />' + 
-                        '<label>Ή επίλεξέ τον από τη λίστα</label>' + 
                         '<ul><li class="friend_loading"><img src="http://static.zino.gr/revolution/loading.gif" /></li></ul>' + 
-                        '<button class="save">αποθήκευση</button>' + 
-                        '<button class="cancel">ακύρωση</button>' + 
+                        '<button class="save">Αποθήκευση</button>' + 
+                        '<div class="controls">ή <a href="" class="cancel">ακύρωση</a></div>' + 
                     '</div>' );
                 $( friendlist ).hide().appendTo( '.image' );
                 $.get( 'friendsmutual/' + User, function( data ){
