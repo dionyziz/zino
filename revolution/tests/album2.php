@@ -53,12 +53,18 @@
                 'description' => $description
             ) );
 
-            return array( $album[ 'ownerid' ], "neo", "gamato asfasf", $album[ 'id' ], $album[ 'mainimageid' ] );
+            return array( 'ownerid' => $album[ 'ownerid' ], 'name' => "neo", 'description' => "gamato asfasf", 'albumid' => $album[ 'id' ], 'mainimageid' => $album[ 'mainimageid' ] );
         }
         /**
          * @producer TestCreate
          */
-        public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid ) {
+        public function TestUpdate( $info ) {
+            $ownerid = $info[ 'ownerid' ];
+            $name = $info[ 'name' ];
+            $description = $info[ 'description' ];
+            $albumid = $info[ 'albumid' ];
+            $mainimageid = $info[ 'mainimageid' ]; 
+
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
 			$oldname = $album[ 'name' ];
