@@ -48,8 +48,8 @@
             $album = Album::Item( $id );
             $this->Called( "Album::Item" );
             $this->AssertArrayValues( $album, array(
-                'id' => $id,
-                'ownerid' => $userid,
+                'id' => ( int )$id,
+                'ownerid' => ( int )$userid,
                 'name' => $name,
                 'description' => $description
             ) );
