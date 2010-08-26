@@ -109,13 +109,13 @@
 
             $found = false;
             foreach ( $albums as $album ) {
-                $this->AssertEquals( $userid, $album[ 'ownerid' ] );
+                $this->AssertEquals( ( int )$userid, $album[ 'ownerid' ] );
                 if ( $album[ 'id' ] == $thealbum[ 'id' ] ) {
                     $this->AssertArrayValues( $album, array(
                         'ownerid' => (int)$thealbum[ 'ownerid' ],
                         'name' => $thealbum[ 'name' ],
-                        'numphotos' => $thealbum[ 'numphotos' ],
-                        'mainimageid' => $thealbum[ 'mainimageid' ]
+                        'numphotos' => ( int )$thealbum[ 'numphotos' ],
+                        'mainimageid' => ( int )$thealbum[ 'mainimageid' ]
                     ) );
                     $found = true;
                 }
