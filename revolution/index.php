@@ -28,11 +28,6 @@
         }
     }
     if ( isset( $_SESSION[ 'user' ] ) ) {
-        if( isset( $_SESSION[ 'user' ][ 'deleted' ] ) ) {
-            if ( $_SESSION[ 'user' ][ 'deleted' ] == 1 ) {
-                throw new Exception( "Banned or deleted user" );
-            }
-        }
         switch ( strtolower( $_SESSION[ 'user' ][ 'name' ] ) ) {
             case 'shinda_tori':
             case 'donhoulio':
@@ -184,6 +179,13 @@
         }
     }
     try {
+        if ( isset( $_SESSION[ 'user' ] ) ) {
+            if( isset( $_SESSION[ 'user' ][ 'deleted' ] ) ) {
+                if ( $_SESSION[ 'user' ][ 'deleted' ] == 1 ) {
+                    throw new Exception( "Banned or deleted user" );
+                }
+            }
+        }
         call_user_func_array( array( 'Controller' . $resource, $method ), $params );
     }
     catch ( Exception $e ) {
