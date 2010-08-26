@@ -41,7 +41,7 @@
 			$egoalbumid = User::GetEgoAlbumId( $user[ 'id' ] );
 
             $album = Album::Item( $albumid );
-            assert( isset( $album[ 'url' ] ) );
+            //assert( isset( $album[ 'url' ] ) ); //wtf is this ?pagio
             $album[ 'ownerid' ] == $user[ 'id' ] or die( 'This is not your album' );
 
             /*
