@@ -1,7 +1,7 @@
 <?php
-    class TestAlbum extends ModelTestCase {
-        protected $mAppliesTo = 'models/album';
-        protected $mCovers = 'Album';
+    class TestAlbumssss extends ModelTestCase {
+        protected $mAppliesTo = 'models/albumssss';
+        protected $mCovers = 'Albumssss';
 
         public function SetUp() {
             clude( 'models/album.php' );

@@ -1,8 +1,7 @@
 <?php
-    /* developing album2.php */
-    class TestAlbumssss extends ModelTestCase {
-        protected $mAppliesTo = 'models/albumsss';
-        protected $mCovers = 'Albumssss';
+    class TestAlbum extends ModelTestCase {
+        protected $mAppliesTo = 'models/album';
+        protected $mCovers = 'Album';
 
         public function SetUp() {
             clude( 'models/album.php' );
@@ -54,57 +53,69 @@
                 'description' => $description
             ) );
 
-            return array( $album[ 'ownerid' ], "neo", "gamato asfasf", $album[ 'id' ] ); // pass to TestUpdate
+            return array( 'ownerid' => $album[ 'ownerid' ], 'name' => "neo", 'description' => $album[ 'description' ], 'albumid' => $album[ 'id' ], 'mainimageid' => $album[ 'mainimageid' ] );
         }
         /**
-         * @dataProvider TestCreate
+         * @producer TestCreate
          */
-        public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid = 0  ) {
-            // ignore ownerid 
+        public function TestUpdate( $info ) {
+            $ownerid = $info[ 'ownerid' ];
+            $name = $info[ 'name' ];
+            $description = $info[ 'description' ];
+            $albumid = $info[ 'albumid' ];
+            $mainimageid = $info[ 'mainimageid' ]; 
+
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
 			$oldname = $album[ 'name' ];
-            $success = Album::Update( $id, $name, $description, $mainimageid );
+            $success = Album::Update( $id, $name, $mainimageid );
             $this->Assert( $success, 'Album::Update failed' );
 
             $album = Album::Item( $albumid );
             $this->Called( "Album::Item" );
 			if ( User::GetEgoAlbumId( $ownerid )  != $albumid ) {
 		        $this->AssertArrayValues( $album, array(
-		            'id' => ( string )$id,
+		            'id' => $id,
 		            'name' => $name,
 		            'description' => $description,
-		            'mainimageid' => ( string )$mainimageid
+		            'mainimageid' => $mainimageid
 		        ) );
 			}
 			else {
 				$this->AssertArrayValues( $album, array(
-		            'id' => ( string )$id,
+		            'id' => $id,
 		            'name' => $oldname,
 		            'description' => $description,
-		            'mainimageid' => ( string )$mainimageid
+		            'mainimageid' => $mainimageid
 		        ) );
 			}
-			echo "Off update";
             return array( $album[ 'ownerid' ], $album );
         }
+        /**
+         * @producer TestCreate
+         */
         public function TestListByUser( $info ) {
-			return;
-            $userid = $info[ 0 ];
-            $thealbum = $info[ 1 ];
+            $ownerid = $info[ 'ownerid' ];
+            $name = $info[ 'name' ];
+            $description = $info[ 'description' ];
+            $albumid = $info[ 'albumid' ];
+            $mainimageid = $info[ 'mainimageid' ]; 
+
+            $userid = $ownerid;
+            $thealbum = Album::Item( $albumid );
 
             $albums = Album::ListByUser( (int)$userid );
             $this->AssertIsArray( $albums );
 
             $found = false;
             foreach ( $albums as $album ) {
-                $this->AssertEquals( $userid, $album[ 'ownerid' ] );
+                $this->AssertEquals( ( int )$userid, $album[ 'ownerid' ] );
                 if ( $album[ 'id' ] == $thealbum[ 'id' ] ) {
                     $this->AssertArrayValues( $album, array(
                         'ownerid' => (int)$thealbum[ 'ownerid' ],
                         'name' => $thealbum[ 'name' ],
-                        'numphotos' => $thealbum[ 'numphotos' ],
-                        'mainimageid' => $thealbum[ 'mainimageid' ]
+                        'numphotos' => ( int )$thealbum[ 'numphotos' ],
+                        'mainimageid' => ( int )$thealbum[ 'mainimageid' ]
                     ) );
                     $found = true;
                 }
@@ -112,11 +123,11 @@
 
             $this->Assert( $found, 'Album::ListByUser failed to list all albums for userid ' . $userid . ' ' . $thealbum[ 'id' ] );
         }
+
         /**
          * @producer TestUpdate
          */
         public function TestDelete( $info ) {
-			return;
             $album = $info[ 1 ];
 
             $id = (int)$album[ 'id' ];
@@ -130,10 +141,11 @@
             // test on invalid album
             $success = Album::Delete( 0 );
             $this->AssertFalse( $success, 'Album::Delete succeeded on non-existing album' );
-            echo "Success!!!\n\n";
         }
+
+
         public function ValidIds( $num = 3 ) {
-            $res = db( 'SELECT `album_id` FROM `albums` ORDER BY RAND() LIMIT ' . ( string )$num );
+            $res = db( 'SELECT `album_id` FROM `albums` WHERE `album_delid` = 0 ORDER BY RAND() LIMIT ' . ( string )$num );
             $ret = array();
             while ( $row = mysql_fetch_array( $res ) ) {
                 $ret[] = (int)$row[ 0 ];
@@ -151,8 +163,7 @@
 				array( $userid1, 'barcelona', 'I love this place', $egoalbum1  )
 			);
 */
-
-            return $this->RandomValues( array(
+            return array(
                 array( $userid, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
                 array( $userid, 'barcelona', 'I love this place' ),
                 array( $userid1, 'rome', '' ),
@@ -160,7 +171,7 @@
                 array( $userid2, 'foobar', '' ),
                 array( $userid2, 'red green', 'blue' ),
                 array( $userid1, 'hello', 'world' )
-            ), 3 );
+            );
         }
     }
 
