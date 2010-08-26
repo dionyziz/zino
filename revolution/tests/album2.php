@@ -27,6 +27,34 @@
             $this->AssertArrayHasKeys( $album, array( 'id', 'ownerid', 'mainimageid' ) );
             $this->AssertArrayValues( $album, array( 'id' => ( string )$id ) );
         }
+        /**
+         * @dataProvider ExampleData
+         */
+        public function TestCreate( $userid, $name, $description ) {
+            $album = Album::Create( $userid, $name, $description );
+            $this->AssertArrayHasKeys( $album, array( 'id', 'url', 'created' ) );
+            $this->AssertArrayValues( $album, array(
+                'ownerid' => $userid,
+                'name' => $name,
+                'description' => $description,
+                'mainimageid' => 0,
+                'delid' => 0,
+                'numcomments' => 0,
+                'numphotos' => 0
+            ) );
+
+            $id = $album[ 'id' ];
+            $album = Album::Item( $id );
+            $this->Called( "Album::Item" );
+            $this->AssertArrayValues( $album, array(
+                'id' => ( string )$id,
+                'ownerid' => ( string )$userid,
+                'name' => $name,
+                'description' => $description
+            ) );
+
+            return array( $album[ 'ownerid' ], "neo", "gamato asfasf", $album[ 'id' ] );
+        }
 
 
         public function ValidIds( $num = 3 ) {
@@ -36,6 +64,27 @@
                 $ret[] = (int)$row[ 0 ];
             }
             return $ret;
+        }
+        public function ExampleData() {
+            $users = $this->GetTestUsers();
+            $userid = (int)( $users[ 0 ][ 'id' ] );
+            $userid1 = (int)( $users[ 1 ][ 'id' ] );
+            $userid2 = (int)( $users[ 2 ][ 'id' ] );
+/*
+			$egoalbum1 = User::GetEgoAlbumId( $userid1 );
+			return array( 
+				array( $userid1, 'barcelona', 'I love this place', $egoalbum1  )
+			);
+*/
+            return array(
+                array( $userid, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
+                array( $userid, 'barcelona', 'I love this place' ),
+                array( $userid1, 'rome', '' ),
+                array( $userid1, 'test', 'haha' ),
+                array( $userid2, 'foobar', '' ),
+                array( $userid2, 'red green', 'blue' ),
+                array( $userid1, 'hello', 'world' )
+            );
         }
     }
 
