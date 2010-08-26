@@ -54,10 +54,10 @@
                 'description' => $description
             ) );
 
-            return $album; // pass to TestUpdate
+            return array( $album[ 'ownerid' ], "neo", "gamato asfasf", $album[ 'id' ] ); // pass to TestUpdate
         }
         /**
-         * @dataProvider ExampleData
+         * @dataProvider TestCreate
          */
         public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid = 0  ) {
             // ignore ownerid 
