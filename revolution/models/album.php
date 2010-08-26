@@ -9,7 +9,8 @@
                 FROM
                     `albums`
                 WHERE
-                    `album_id` = :id
+                    `album_id` = :id AND
+                    `album_delid` = 0
                 LIMIT 1', compact( 'id' )
             ) );
         }
