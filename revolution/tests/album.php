@@ -130,6 +130,7 @@
             // test on invalid album
             $success = Album::Delete( 0 );
             $this->AssertFalse( $success, 'Album::Delete succeeded on non-existing album' );
+            echo "Success!!!\n\n";
         }
         public function ValidIds( $num = 3 ) {
             $res = db( 'SELECT `album_id` FROM `albums` ORDER BY RAND() LIMIT ' . ( string )$num );
