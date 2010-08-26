@@ -197,7 +197,9 @@
 
                 <xsl:apply-templates select="song" />
                 
-                <xsl:apply-templates select="taglists" />
+                <xsl:call-template name="taglists">
+                    <xsl:with-param name="taglists" select="taglists" />
+                </xsl:call-template>
 
             </div>
             <div class="rightbar">
@@ -603,42 +605,43 @@
     </ul>
 </xsl:template>
 
-<xsl:template match="taglists">
+<xsl:template name="taglists">
+    <xsl:param name="taglists" />
     <xsl:if test="/social/@for = /social/user/name">
         <ul class="userinterests ego">
             <xsl:call-template name="interest">
                 <xsl:with-param name="type">hobbies</xsl:with-param>
-                <xsl:with-param name="data" select="taglist[@type='hobbies']" />
+                <xsl:with-param name="data" select="$taglists/taglist[@type='hobbies']" />
             </xsl:call-template>
             <xsl:call-template name="interest">
                 <xsl:with-param name="type">movies</xsl:with-param>
-                <xsl:with-param name="data" select="taglist[@type='movies']" />
+                <xsl:with-param name="data" select="$taglists/taglist[@type='movies']" />
             </xsl:call-template>
             <xsl:call-template name="interest">
                 <xsl:with-param name="type">shows</xsl:with-param>
-                <xsl:with-param name="data" select="taglist[@type='shows']" />
+                <xsl:with-param name="data" select="$taglists/taglist[@type='shows']" />
             </xsl:call-template>
             <xsl:call-template name="interest">
                 <xsl:with-param name="type">books</xsl:with-param>
-                <xsl:with-param name="data" select="taglist[@type='books']" />
+                <xsl:with-param name="data" select="$taglists/taglist[@type='books']" />
             </xsl:call-template>
             <xsl:call-template name="interest">
                 <xsl:with-param name="type">games</xsl:with-param>
-                <xsl:with-param name="data" select="taglist[@type='games']" />
+                <xsl:with-param name="data" select="$taglists/taglist[@type='games']" />
             </xsl:call-template>
             <xsl:call-template name="interest">
                 <xsl:with-param name="type">artists</xsl:with-param>
-                <xsl:with-param name="data" select="taglist[@type='artists']" />
+                <xsl:with-param name="data" select="$taglists/taglist[@type='artists']" />
             </xsl:call-template>
             <xsl:call-template name="interest">
                 <xsl:with-param name="type">songs</xsl:with-param>
-                <xsl:with-param name="data" select="taglist[@type='songs']" />
+                <xsl:with-param name="data" select="$taglists/taglist[@type='songs']" />
             </xsl:call-template>
         </ul>
     </xsl:if>
     <xsl:if test="/social/@for != /social/user/name">
         <ul class="userinterests">
-            <xsl:for-each select="taglist">
+            <xsl:for-each select="$taglists/taglist">
                 <xsl:call-template name="interest">
                     <xsl:with-param name="type"><xsl:value-of select="@type" /></xsl:with-param>
                     <xsl:with-param name="data" select="." />

@@ -246,7 +246,8 @@ var Profile = {
             }, function( data ){
                 var id = $( data ).find( 'tag' ).attr( 'id' );
                 var text = $( data ).find( 'tag' ).text();
-                $( '#' + type ).find( '.last' ).removeClass( 'last' ).after( $( '<span class="last" id="tag_' + id + '"></span>' ).text( text ) );
+                $( '#' + type ).find( '.last' ).removeClass( 'last' );
+                $( '#' + type ).find( 'a.delete' ).before( $( '<span class="last" id="tag_' + id + '"></span>' ).text( text ) );
                 $( '#' + type ).find( 'input' ).val( '' ).keyup();
             });
         },
