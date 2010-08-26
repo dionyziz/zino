@@ -61,6 +61,17 @@
 			return true;
 	
 		}
+        public static function CanPost( $userid ) {
+            clude( 'models/user.php' );
+            $userid = ( int ) $userid;
+            $user = User::Item( $userid );
+            if ( $user == false 
+                || $user[ 'deleted' ] == 0 
+                || $user[ 'rights' ] <= 0 ) {
+                return false;
+            }
+            return true;
+        }
         public static function GetCookieData() {
             global $settings;
 

@@ -32,6 +32,7 @@
             $channelid, $text, $narrator = false,
             $_localauthorization = false
             ) {
+            clude( 'models/user.php' );
             if ( $narrator ) {
                 $_localauthorization === true or die( 'Local authorization required for narrator access' );
                 $channelid === 0 or die( 'Narrator can only in public' );
@@ -42,6 +43,10 @@
                 isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to post a message' ); 
                 $userid = $_SESSION[ 'user' ][ 'id' ];
                 $username = $_SESSION[ 'user' ][ 'name' ];
+                if ( !User::CanPost( $userid ) ) {
+                    $_SESSION[ 'user' ][ 'deleted' ] = 1;
+                    throw new Exception( "You are banned, you want it or not, e.s.a.d " );
+                }
             }
     
             clude( 'models/db.php' );
