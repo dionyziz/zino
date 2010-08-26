@@ -26,7 +26,7 @@
         public function TestItem( $id ) {
             $album = Album::Item( $id );
             $this->AssertArrayHasKeys( $album, array( 'id', 'ownerid', 'mainimageid' ) );
-            $this->AssertArrayValues( $album, array( 'id' => $id ) );
+            $this->AssertArrayValues( $album, array( 'id' => ( string )$id ) );
         }
         /**
          * @dataProvider ExampleData
