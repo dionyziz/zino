@@ -91,6 +91,38 @@
 			}
             return array( $album[ 'ownerid' ], $album );
         }
+        /**
+         * @producer TestCreate
+         */
+        public function TestListByUser( $info ) {
+            $ownerid = $info[ 'ownerid' ];
+            $name = $info[ 'name' ];
+            $description = $info[ 'description' ];
+            $albumid = $info[ 'albumid' ];
+            $mainimageid = $info[ 'mainimageid' ]; 
+
+            $userid = $ownerid;
+            $thealbum = Album::Item( $albumid );
+
+            $albums = Album::ListByUser( (int)$userid );
+            $this->AssertIsArray( $albums );
+
+            $found = false;
+            foreach ( $albums as $album ) {
+                $this->AssertEquals( $userid, $album[ 'ownerid' ] );
+                if ( $album[ 'id' ] == $thealbum[ 'id' ] ) {
+                    $this->AssertArrayValues( $album, array(
+                        'ownerid' => (int)$thealbum[ 'ownerid' ],
+                        'name' => $thealbum[ 'name' ],
+                        'numphotos' => $thealbum[ 'numphotos' ],
+                        'mainimageid' => $thealbum[ 'mainimageid' ]
+                    ) );
+                    $found = true;
+                }
+            }
+
+            $this->Assert( $found, 'Album::ListByUser failed to list all albums for userid ' . $userid . ' ' . $thealbum[ 'id' ] );
+        }
 
         /**
          * @producer TestUpdate
