@@ -114,36 +114,130 @@ var Profile = {
         }
         
         // User Interests
-        $( '.interestitems li .delete' ).live( 'click', function(){
-            Profile.Interests.Remove( $( this ).parent() );
-        });
-        $( '.userinterests li div span.add' ).click( function(){
-            Profile.Interests.StartAdd( $( this ).closest( 'li' ) );
-        });
-
+        Profile.Interests.Init();
         Comment.Init();
     },
     Interests: {
-        Remove: function( li ){
-            $.post( 'interest/delete', {
-                id: li.attr( 'id' ).split( '_' )[ 1 ]
-            }, function(){
-                $( li ).prev().addClass( 'last' ).end().remove();
-
+        Init: function(){
+            if( $( '.userinterests.ego' ).length === 0 ){
+                return;
+            }
+            $( '.userinterests.ego li div.title span.edit' ).click( function(){
+                if( $( this ).closest( 'li' ).hasClass( 'editing' ) ){
+                    Profile.Interests.CancelEdit( $( this ).closest( 'li' ) );
+                    return false;
+                }
+                $( this ).closest( 'li' ).siblings( 'li' ).each( function(){
+                    Profile.Interests.CancelEdit( $( this ) );
+                });
+                Profile.Interests.StartEdit( $( this ).closest( 'li' ) );
+                return false;
+            });
+            $( '.userinterests.ego li div.editarea span' ).live( 'click', function(){
+                Profile.Interests.InterestClicked( $( this ) );
+            });
+            $( '.userinterests.ego li div.editarea a.delete' ).live( 'click', function(){
+                $( this ).siblings( '.selected' ).each( function(){
+                    Profile.Interests.Remove( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
+                });
+                return false;
             });
         },
-        StartAdd: function( li ){
-            $( li ).append( $( '<input type="text" name="tagitem" />' ) ).children( 'input' ).focus().blur( function(){
-                Profile.Interests.CloseAdd( $( this ).closest( 'li' ) );        
-            }).keypress( function( e ){
-                if( e.which == 13 ){
-                    Profile.Interests.Create( $( this ).val(), $( this ).closest( 'li' ).attr( 'class' ));
-                    Profile.Interests.CloseAdd( li );
+        StartEdit: function( li ){
+            var text;
+            switch( li.attr( 'id' ) ){
+                case 'hobbies':
+                    text = 'Προσθεσε ενα hobby';
+                    break;
+                case 'movies':
+                    text = 'Προσθεσε μια ταινα';
+                    break;
+                case 'shows':
+                    text = 'Προσθεσε μια σειρα';
+                    break;
+                case 'books':
+                    text = 'Προσθεσε ενα βιβλιο';
+                    break;
+                case 'games':
+                    text = 'Προσθεσε ενα παιχνιδι';
+                    break;
+                case 'artists':
+                    text = 'Προσθεσε εναν καλλιτεχνη';
+                    break;
+                case 'songs':
+                    text = 'Προσθεσε ενα τραγουδι';
+            }
+            var spans = $( li ).children( 'span' ).removeClass( 'selected' );
+            $( '<div class="editarea"><input class="empty" type="text"></input><p><a class="delete" href=""></a></p></div>' )
+                .find( 'input' ).val( text ).data( 'default', text ).keydown( function( e ){
+                    if( e.which == 27 ){
+                        Profile.Interests.CancelEdit( $( this ).closest( 'li' ) );
+                        return false;
+                    }
+                    if( $( this ).val() == $( this ).data( 'default' ) ){
+                        if( e.which == 16 || //Shift
+                            e.which == 17 || //Ctrl
+                            e.which == 18 || //Alt
+                            e.altKey ||      //Alt + everything
+                            e.which == 20 || //Caps Lock
+                            e.which == 8  || //Backspace
+                            e.which == 46 ){ //Delete
+                            return false;
+                        }
+                        $( this ).val( '' ).removeClass( 'empty' );
+                    }
+                }).keyup( function(){
+                    if( $( this ).val() == '' ){
+                        $( this ).val( $( this ).data( 'default' ) ).addClass( 'empty' )[ 0 ].setSelectionRange( 0, 0 );
+                    }
+                }).keypress( function( e ){
+                    if( e.which == 13 ){
+                        if( $( this ).val() == $( this ).data( 'default' ) || $( this ).val() == '' ){
+                            return false;
+                        }
+                        Profile.Interests.Create( $( this ).val(), $( this ).closest( 'li' ).attr( 'id' ) );
+                    }
+                }).mousedown( function(){
+                    if( $( this ).hasClass( 'empty' ) ){
+                        $( this ).focus()[ 0 ].setSelectionRange( 0, 0 );
+                        return false;
+                    }
+                }).end()
+                .appendTo( li ).children( 'p' ).prepend( spans );
+            $( li ).addClass( 'editing' ).find( 'input' ).focus()[ 0 ].setSelectionRange( 0, 0 );
+        },
+        CancelEdit: function( li ){
+            $( li ).removeClass( 'editing' ).children( '.editarea' ).find( 'span' ).appendTo( li ).end().end().remove();
+        },
+        InterestClicked: function( span ){
+            if( $( span ).hasClass( 'selected' ) ){
+                $( span ).removeClass( 'selected' );
+            }
+            else{
+                $( span ).addClass( 'selected' );
+            }
+            Profile.Interests.ToggleRemoveButton( $( span ).closest( 'li' ) );
+        },
+        ToggleRemoveButton: function( li ){
+            var spans = $( li ).find( 'div span.selected' );
+            if( spans.length === 0 ){
+                $( li ).find( 'a' ).text( '' );
+                return;
+            }
+            var text = 'Διαγραφη ';
+            if( spans.length === 1 ){
+                text += 'του ';
+            }
+            else{
+                text += 'των ';
+            }
+            spans.each( function( i ){
+                text += $( this ).text();
+                if( i != spans.length - 1 ){
+                    text += ', ';
                 }
             });
-        },
-        CloseAdd: function( li ){
-            $( li ).children( 'input' ).remove();
+            $( li ).find( 'a' ).text( text + ';' );
         },
         Create: function( text, type ){
             $.post( 'interest/create', {
@@ -152,10 +246,17 @@ var Profile = {
             }, function( data ){
                 var id = $( data ).find( 'tag' ).attr( 'id' );
                 var text = $( data ).find( 'tag' ).text();
-                $( '.' + type ).find( '.last' ).removeClass( 'last' );
-                var tagitem = $( '<li class="last" id="tag_' + id + '"></li>' )
-                    .text( text ).append( '<span class="delete">&#215;</span>' );
-                $( '.' + type ).children( 'ul' ).append( tagitem );
+                $( '#' + type ).find( '.last' ).removeClass( 'last' ).after( $( '<span class="last" id="tag_' + id + '"></span>' ).text( text ) );
+                $( '#' + type ).find( 'input' ).val( '' ).keyup();
+            });
+        },
+        Remove: function( id ){
+            $.post( 'interest/delete', {
+                id: id
+            }, function(){
+                var li = $( '#tag_' + id ).closest( 'li' );
+                $( '#tag_' + id ).siblings( 'span:last' ).addClass( 'last' ).end().remove();
+                Profile.Interests.ToggleRemoveButton( li );
             });
         }
     },

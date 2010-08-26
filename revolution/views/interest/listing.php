@@ -1,3 +1,6 @@
+<? if ( sizeof( $interests ) ): ?>
+    <taglists>
+<? endif; ?>
 <? foreach ( $interests as $type => $tags ): ?>
     <taglist type="<?
         switch ( $type ) {
@@ -32,3 +35,6 @@
         <? endforeach; ?>
     </taglist>
 <? endforeach; ?>
+<? if( sizeof( $interests ) ): ?>
+    </taglists>
+<? endif; ?>

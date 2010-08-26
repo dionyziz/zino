@@ -129,69 +129,77 @@ ul.userdetails li.aboutme {
 .userinterests{
     text-align: left;
     margin-top: 20px;
+    cursor: default;
+    word-wrap: break-word;
 }
-.userinterests > li{
+.userinterests li{
     margin: 10px 0;
 }
-.userinterests li div:first-child{
+.userinterests li div.title{
     font-weight: bold;
     margin: 2px 0;
 }
-.userinterests li div span.add{
-    border: 3px solid transparent;
-    display: inline-block;
-    height: 11px;
-    line-height: 8px;
-    width: 12px;
+.userinterests li div.title span.edit{
+    padding: 0 12px 0 0;
+    background: transparent url("http://static.zino.gr/phoenix/edit.png") no-repeat;
     margin-left: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    cursor: pointer; 
-}
-.userinterests li div span.add:hover{
-    background: black;
-    border: 3px solid #2a2;
-    -moz-border-top-colors: #2A2 #060 #010;
-    -moz-border-right-colors: #2A2 #060 #010;
-    -moz-border-bottom-colors: #2A2 #060 #010;
-    -moz-border-left-colors: #2A2 #060 #010;
-    border-top-colors: #2A2 #060 #010;
-    border-right-colors: #2A2 #060 #010;
-    border-bottom-colors: #2A2 #060 #010;
-    border-left-colors: #2A2 #060 #010;
-}
-.userinterests li ul li{
-    float: left;
-    margin-right: 13px;
-    height: 16px;
-    position: relative;
-}
-
-.userinterests li ul li:hover{
-    color: #def;
-}
-
-.userinterests li ul li span.delete{
-    font-weight: bold;
     cursor: pointer;
-    border: 2px solid transparent;
-    padding: 1px;
-    height: 11px;
-    line-height: 9px;
-    width: 11px;
-    vertical-align: top;
     display: none;
-    position: absolute;
-    right: -15px;
-    top: -1px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
 }
-.userinterests li ul li:hover span.delete{
+.userinterests li:hover div.title span.edit{
+    display: inline;
+}
+.userinterests li span.tag:after{
+    content: ', ';
+}
+.userinterests li span.tag.last:after{
+    content: '';
+}
+
+.userinterests.ego div.editarea{
+    background: white;
+    border: 1px solid #333;
+}
+.userinterests.ego div.editarea input{
+    margin: 0;
+    padding: 2px;
+    width: 394px;
+    border-width: 0 0 2px 0;
+    border-style: dashed;
+    border-color: #ccc;
+}
+.userinterests.ego div.editarea input.empty{
+    color: #333;
+}
+.userinterests.ego div.editarea p{
+    margin: 0;
+    padding: 5px;
+    overflow: hidden;
+}
+.userinterests.ego div.editarea span{
+    padding: 0 4px;
+    margin: 2px 4px;
+    color: black;
+    background: #ddd;
+    border: 1px solid #aaa;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    float: left;
+    cursor: pointer;
+}
+.userinterests.ego div.editarea span.selected{
+    background: #777;
+}
+.userinterests.ego div.editarea a.delete{
+    color: #333;
     display: block;
-    border: 2px solid #22a;
-    background: black;
+    clear: both;
+    margin-top: 5px;
 }
+.userinterests.ego div.editarea span.tag:after{
+    content: ' ';
+}
+
 .useritems{
     float: right;
 }
@@ -202,8 +210,6 @@ ul.userdetails li.aboutme {
 }
 .useritems li a{
     text-decoration: none;
-}
-.useritems li a:hover {
 }
 .useritems li a span {
     font-size: 160%;

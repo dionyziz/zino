@@ -55,10 +55,9 @@ var Admin = {
                         reason = prompt( 'Ποιο είναι το παράπτωμα στο οποίο υπέπεσε;' );
                         if ( typeof reason == 'string' ) {
                             if ( reason !== '' ) {
-                                $.post( 'ban/create', {
+                                $.post( 'user/delete', {
                                     username: username,
                                     reason: reason,
-                                    daysbanned: 0
                                 }, function () {
                                     alert( 'Ο λογαριασμός διαγράφηκε' );
                                     Kamibu.Go( '' );
