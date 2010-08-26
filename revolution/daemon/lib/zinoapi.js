@@ -23,18 +23,13 @@ var ZinoAPI = {
 			var GETParams = ZinoAPI.QueryHelper.stringify( { resource: resource, method: method }, '&', '=', false );
 			var POSTParams = ZinoAPI.QueryHelper.stringify( parameters, '&', '=', false );
 		}
-		try {
-            var request = ZinoAPI.RequestHandler.request( ZinoAPI.Methods[ method ], '/?' + GETParams, { 
-                'Host': 'zino.gr', 
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Length': POSTParams.length 
-            } );
-            request.end( POSTParams );
-        }
-        catch ( e ) {
-            return false;
-        }
-		
+        var request = ZinoAPI.RequestHandler.request( ZinoAPI.Methods[ method ], '/?' + GETParams, { 
+            'Host': 'zino.gr', 
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': POSTParams.length 
+        } );
+        request.connection.on( 'error', function( e ) { console.log( 'API Request Error: ' + e ) } );
+        request.end( POSTParams );
 		if ( typeof callback == 'function' ) {
 			request.on( 'response', function( response ) {
 				var data = '';
