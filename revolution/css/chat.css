@@ -34,6 +34,20 @@
     .chatchannel .userinfo div {
         margin-left: 48px;
     }
+    .chatchannel .userinfo .toolbox {
+        float: right;
+    }
+        .chatchannel .userinfo .toolbox li {
+            clear: none;
+        }
+            .chatchannel .userinfo .toolbox li img {
+                float: none;
+                width: auto;
+                padding: 5px;
+            }
+        .chatchannel .userinfo .toolbox li:after {
+            content: '';
+        }
     .chatchannel .userinfo {
         background-color: rgb(56, 143, 197);
         background-image: -webkit-gradient(

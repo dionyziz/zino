@@ -103,6 +103,9 @@ RewriteRule ^places$ index.php?resource=place&method=list [L,QSA]
 # mood
 RewriteRule ^moods$ index.php?resource=mood&method=list [L,QSA]
 
+# file
+RewriteRule ^file/create$ index.php?resource=file&method=create [L,QSA]
+
 # global
 
 RewriteRule ^global.xsl$ xslt/global.php [L,QSA]

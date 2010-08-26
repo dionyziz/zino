@@ -654,12 +654,22 @@ var Chat = {
              var $chatmessages = $( '#chatmessages_' + channelid );
              var $panel = $( '<div>'
                             + '<div class="userinfo">'
+                            + '  <ul class="toolbox"></ul>'
                             + '  <div><h3></h3><ul></ul></div>'
                             + '</div>'
                            + '</div>' );
 
              $chatmessages.find( '.scrollcontainer' ).css( { top: '50px' } );
              $chatmessages.prepend( $panel );
+             if ( User === 'dionyziz' || User == 'dokimi' || User == 'naruto' ) {
+                 $panel.find( '.toolbox' ).append( '<li><a class="sendfile" href="#"><img src="http://static.zino.gr/revolution/page_white_get.png" alt="Αποστολή αρχείου" title="Αποστολή αρχείου" /></a></li>' );
+                 $chatmessages.find( 'a.sendfile' ).click( function () {
+                    axslt( false, 'call:chat.modal.file', function() {
+                        $( this ).filter( 'div' ).prependTo( 'body' ).modal();
+                    } );
+                    return false;
+                 } );
+             }
              $.get( 'chat/' + channelid, function ( res ) {
                  var users = $( res ).find( 'user' );
                  for ( var i = 0; i < users.length; ++i ) {
@@ -703,7 +713,7 @@ var Chat = {
                          lihtml += lis[ i ] + '</li>';
                      }
                      $panel.find( '.userinfo' ).prepend( img );
-                     $panel.find( 'ul' ).prepend( lihtml );
+                     $( $panel.find( 'ul' )[ 1 ] ).prepend( lihtml );
                  } );
              } );
          }

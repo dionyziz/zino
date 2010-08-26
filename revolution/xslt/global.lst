@@ -29,5 +29,6 @@ album/listing.xsl
 album/view.xsl
 notification/listing.xsl
 ban/listing.xsl
+chat.xsl
 
 outro.xsl
