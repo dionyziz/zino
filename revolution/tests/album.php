@@ -1,8 +1,8 @@
 <?php
-
-    class TestAlbum extends ModelTestCase {
-        protected $mAppliesTo = 'models/album';
-        protected $mCovers = 'Album';
+    /* developing album2.php */
+    class TestAlbumssss extends ModelTestCase {
+        protected $mAppliesTo = 'models/albumsss';
+        protected $mCovers = 'Albumssss';
 
         public function SetUp() {
             clude( 'models/album.php' );
@@ -60,7 +60,6 @@
          * @dataProvider TestCreate
          */
         public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid = 0  ) {
-            return;
             // ignore ownerid 
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
