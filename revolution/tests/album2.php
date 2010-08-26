@@ -53,7 +53,7 @@
                 'description' => $description
             ) );
 
-            return array( 'ownerid' => $album[ 'ownerid' ], 'name' => "neo", 'description' => "gamato asfasf", 'albumid' => $album[ 'id' ], 'mainimageid' => $album[ 'mainimageid' ] );
+            return array( 'ownerid' => $album[ 'ownerid' ], 'name' => "neo", 'description' => $album[ 'description' ], 'albumid' => $album[ 'id' ], 'mainimageid' => $album[ 'mainimageid' ] );
         }
         /**
          * @producer TestCreate
@@ -68,7 +68,7 @@
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
 			$oldname = $album[ 'name' ];
-            $success = Album::Update( $id, $name, $description, $mainimageid );
+            $success = Album::Update( $id, $name, $mainimageid );
             $this->Assert( $success, 'Album::Update failed' );
 
             $album = Album::Item( $albumid );
