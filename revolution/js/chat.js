@@ -644,6 +644,17 @@ var Chat = {
              Chat.DisplayChannel( channelid );
          }
      },
+     File: {
+         Send: function () {
+             axslt( false, 'call:chat.modal.file', function() {
+                 $( this ).filter( 'div' ).prependTo( 'body' ).modal();
+             } );
+             return false;
+         },
+         OnUploaded: function ( url ) {
+             alert( 'File uploaded: ' + url );
+         }
+     },
      CreateChannelHTML: function ( channelid ) {
          if ( $( '#chatmessages_' + channelid ).length === 0 ) {
              $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><div class="scrollcontainer"><ol></ol><p class="typing"></p></div></div>';
@@ -663,12 +674,7 @@ var Chat = {
              $chatmessages.prepend( $panel );
              if ( User === 'dionyziz' || User == 'dokimi' || User == 'naruto' ) {
                  $panel.find( '.toolbox' ).append( '<li><a class="sendfile" href="#"><img src="http://static.zino.gr/revolution/page_white_get.png" alt="Αποστολή αρχείου" title="Αποστολή αρχείου" /></a></li>' );
-                 $chatmessages.find( 'a.sendfile' ).click( function () {
-                    axslt( false, 'call:chat.modal.file', function() {
-                        $( this ).filter( 'div' ).prependTo( 'body' ).modal();
-                    } );
-                    return false;
-                 } );
+                 $chatmessages.find( 'a.sendfile' ).click( Chat.File.Send );
              }
              $.get( 'chat/' + channelid, function ( res ) {
                  var users = $( res ).find( 'user' );

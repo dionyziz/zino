@@ -14,7 +14,9 @@
 <xsl:template match="/" priority="1">
     <xsl:choose>
         <!-- tiny master templates -->
-        <xsl:when test="$resource = 'session'"><xsl:apply-templates /></xsl:when>
+        <xsl:when test="$resource = 'session' or $resource = 'file'">
+            <xsl:apply-templates />
+        </xsl:when>
         
         <!-- full master templates -->
         <xsl:otherwise>
