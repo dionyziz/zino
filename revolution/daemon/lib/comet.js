@@ -21,32 +21,37 @@ Comet = {
             response.end();
             return;
         }
-
-        var channel = '';
-        try {
-            channel = require( 'url' ).parse( request.url, true ).query.channel;
-        }
-        catch ( e ) {
-            console.log( e ); 
-        }
-
-        if ( typeof Comet.Channels[ channel ] === 'undefined' ) {
-            response.writeHead( 202 );
-            response.end();
-            return;
-        }
-        
-        for ( subscriber in Comet.Channels[ channel ] ) {
-            
-            if ( typeof request.headers[ 'content-type' ] === 'undefined' ) {
-                Comet.Subscribers[ subscriber ].Tunnel.writeHead( 200 );
-                Comet.Subscribers[ subscriber ].Tunnel.end( message );
+        var message = '';
+        request.on( 'data', function ( chunk ) {
+            message += chunk;
+        } );
+        request.on( 'end', function () {
+            var channel = '';
+            try {
+                channel = require( 'url' ).parse( request.url, true ).query.channel;
+            }
+            catch ( e ) {
+                console.log( e ); 
             }
 
-            Comet.Subscribers[ subscriber ].Tunnel.writeHead( 200, { 'Content-Type': request.headers[ 'content-type' ] } );
-            Comet.Subscribers[ subscriber ].Tunnel.end( message );
+            if ( typeof Comet.Channels[ channel ] === 'undefined' ) {
+                response.writeHead( 202 );
+                response.end();
+                return;
+            }
+            
+            for ( subscriber in Comet.Channels[ channel ] ) {
+                
+                if ( typeof request.headers[ 'content-type' ] === 'undefined' ) {
+                    Comet.Subscribers[ subscriber ].Tunnel.writeHead( 200 );
+                    Comet.Subscribers[ subscriber ].Tunnel.end( message );
+                }
 
-        }
+                Comet.Subscribers[ subscriber ].Tunnel.writeHead( 200, { 'Content-Type': request.headers[ 'content-type' ] } );
+                Comet.Subscribers[ subscriber ].Tunnel.end( message );
+
+            }
+        } );
     },
     Subscribe: function( request, response ) {
         if( request.method != 'GET' ) {
