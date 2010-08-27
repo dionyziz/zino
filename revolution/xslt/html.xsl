@@ -86,7 +86,16 @@
                 $.ajaxSetup( {
                     dataType: 'xml'
                 } );
-                _aXSLT.defaultStylesheet = 'global.xsl';
+
+               <xsl:choose>
+                    <xsl:when test="$sandbox">
+                        _aXSLT.defaultStylesheet = 'global.xsl';
+                    </xsl:when>
+                    <xsl:otherwise>
+                        _aXSLT.defaultStylesheet = 'static/global.xsl';
+                    </xsl:otherwise>
+                </xsl:choose>
+
                 if ( window.ActiveXObject ) {
                     _aXSLT.ROOT_PATH = '*[1]';
                 }
