@@ -337,7 +337,7 @@ var Chat = {
                         if ( mine ) {
                             return '<span class="text action"><div>Έστειλες μία εικόνα.</div>' + parts.splice( 2, parts.length - 2 ).join( ':' ) + '</span>';
                         }
-                        return '<span class="text action"><div>Έλαβες μία εικόνα.</div>' + parts.splice( 2, parts.length - 2 ).join( ':' ) + '<div>Δεξί κλικ &gt; Αποθήκευση για αποθήκευση σε πλήρη ανάλυση.</div></span>';
+                        return '<span class="text action"><div>Έλαβες ένα αρχείο.</div>' + parts.splice( 2, parts.length - 2 ).join( ':' ) + '<div>Κάνε δεξί κλικ και αποθήκευση για να το κατεβάσεις.</div></span>';
                     }
                     if ( mine ) {
                         return '<span class="text action">Έστειλες <a href="' + parts[ 2 ] + '" target="_blank">ένα αρχείο</a></span>';
@@ -699,7 +699,7 @@ var Chat = {
                 text: '/__zino:file:' + url
              }, function ( res ) {
                  var li = document.createElement( 'li' );
-                 li.innerHTML = '<strong class="self"></strong> <span class="text action"></span>';
+                 li.innerHTML = '<strong class="self">&nbsp;</strong> <span class="text action"></span>';
                  $( li )
                     .children( 'span.text' ).html( '<a href="' + url + '" target="_blank">Το αρχείο σου</a> στάλθηκε επιτυχώς.' );
                  $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
@@ -724,10 +724,8 @@ var Chat = {
 
              $chatmessages.find( '.scrollcontainer' ).css( { top: '50px' } );
              $chatmessages.prepend( $panel );
-             if ( User === 'dionyziz' || User == 'dokimi' || User == 'naruto' ) {
-                 $panel.find( '.toolbox' ).append( '<li><a class="sendfile" href="#"><img src="http://static.zino.gr/revolution/page_white_get.png" alt="Αποστολή αρχείου" title="Αποστολή αρχείου" /></a></li>' );
-                 $chatmessages.find( 'a.sendfile' ).click( Chat.File.Send );
-             }
+             $panel.find( '.toolbox' ).append( '<li><a class="sendfile" href="#"><img src="http://static.zino.gr/revolution/page_white_get.png" alt="Αποστολή αρχείου" title="Αποστολή αρχείου" /></a></li>' );
+             $chatmessages.find( 'a.sendfile' ).click( Chat.File.Send );
              $.get( 'chat/' + channelid, function ( res ) {
                  var users = $( res ).find( 'user' );
                  for ( var i = 0; i < users.length; ++i ) {
