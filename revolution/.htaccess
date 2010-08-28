@@ -64,6 +64,7 @@ RewriteRule ^users/online$ index.php?resource=user&method=listing [L,QSA]
 RewriteRule ^users/([0-9]+)$ index.php?resource=user&method=view&id=$1 [L,QSA]
 RewriteRule ^users/([a-zA-Z_][a-zA-Z\-_0-9]+)$ index.php?resource=user&method=view&subdomain=$1 [L,QSA]
 RewriteRule ^user/update$ index.php?resource=user&method=update [L,QSA]
+RewriteRule ^user/delete$ index.php?resource=user&method=delete [L,QSA]
 
 # settings
 RewriteRule ^settings$ index.php?resource=settings&method=view [L,QSA]
