@@ -194,7 +194,13 @@
 			return;
 
         }
-        public static function Delete() {
+        public static function Delete( $id ) {
+            $success = User::VirtualDelete( $id );//user rigths = 0, user deleted = 1
+            if ( !$success  ) {
+                throw new Exception( "Cant delete this user" );
+            }
+            //cant post
+            //others cant see his profile and data
         }
     }
 ?>

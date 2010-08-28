@@ -61,6 +61,11 @@
             clude( 'models/poll.php' );
             clude( 'models/user.php' );
 
+            if ( !User::CanPost( $_SESSION[ 'user' ][ 'id' ] ) ) {
+                $_SESSION[ 'user' ][ 'deleted' ] = 1;
+                throw new Exception( "You are banned or deleted, you want it or not, e.s.a.d " );
+            }
+
             $poll = Poll::Create( $_SESSION[ 'user' ][ 'id' ], $question, $options );
             $options = $poll[ 'options' ];
             $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );

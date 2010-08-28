@@ -7,6 +7,13 @@
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to post a comment' ); // must be logged in to leave comment
             clude( 'models/types.php' );
             clude( 'models/db.php' );
+            clude( 'models/user.php' );
+
+            if ( !User::CanPost( $_SESSION[ 'user' ][ 'id' ] ) ) {
+                $_SESSION[ 'user' ][ 'deleted' ] = 1;
+                throw new Exception( "You are banned or deleted, you want it or not, e.s.a.d " );
+            }  
+      
             switch ( $typeid ) {
                 case TYPE_POLL:
                     clude( 'models/poll.php' );

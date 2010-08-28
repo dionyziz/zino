@@ -50,6 +50,11 @@
             clude( 'models/user.php' );
             clude( 'models/journal.php' );
 
+            if ( !User::CanPost( $_SESSION[ 'user' ][ 'id' ] ) ) {
+                $_SESSION[ 'user' ][ 'deleted' ] = 1;
+                throw new Exception( "You are banned or deleted, you want it or not, e.s.a.d " );
+            }  
+
             $journal = Journal::Create( $_SESSION[ 'user' ][ 'id' ], $title, $text );
             $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
 

@@ -678,6 +678,14 @@
             // TODO: Send welcome e-mail
             return compact( 'id', 'name', 'email', 'subdomain', 'password' );
         }
+        public static function VirtualDelete( $id ) {
+            return db( "UPDATE  `users` 
+                        SET  `user_rights` = 0,
+                        `user_deleted` = 1 
+                        WHERE  
+                        `user_id` = :id 
+                        LIMIT 1 ;", compact( 'id' ) );
+        }
         // only for TESTING
         public static function Delete( $id ) {
             return db( "DELETE FROM `users` WHERE `user_id` = :id LIMIT 1;", compact( 'id' ) );
