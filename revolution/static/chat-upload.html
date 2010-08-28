@@ -18,6 +18,7 @@
             <div id="loading" style='display:none'>Φόρτωση...</div>
         </form>
         <script type="text/javascript">
+            document.domain = 'zino.gr';
             document.getElementsByTagName( 'input' )[ 0 ].onchange = function () {
                 this.parentNode.submit();
                 this.style.display = 'none';
