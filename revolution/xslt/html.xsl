@@ -54,6 +54,7 @@
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
               })();
             </script>
+            <meta name="description" content="Το Zino είναι εσύ και η παρέα σου ζωντανά online − είσαι μέσα?" />
         </head>
         <body onload="Comet.OnBodyLoaded()">
             <div id="world">
