@@ -335,7 +335,7 @@ var Chat = {
                  case 'file':
                     if ( parts[ 2 ].substr( 0, 1 ) == '<' ) { // <img> ...
                         if ( mine ) {
-                            return '<span class="text action"><div>Έστειλες μία εικόνα.</div>' + parts.splice( 2, parts.length - 2 ).join( ':' ) + '</span>';
+                            return '<span class="text action"><div>Έστειλες ένα αρχείο.</div>' + parts.splice( 2, parts.length - 2 ).join( ':' ) + '</span>';
                         }
                         return '<span class="text action"><div>Έλαβες ένα αρχείο.</div>' + parts.splice( 2, parts.length - 2 ).join( ':' ) + '<div>Κάνε δεξί κλικ και αποθήκευση για να το κατεβάσεις.</div></span>';
                     }
