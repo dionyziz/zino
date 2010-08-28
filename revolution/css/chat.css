@@ -234,6 +234,17 @@
     overflow: hidden;
     word-wrap: break-word;
 }
+#chatmessages span.action {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    border: 1px solid #cccccc;
+    color: #7777aa;
+    font-size: 100%;
+    text-align: center;
+    margin: 5px;
+}
 #outgoing {
     position: absolute;
     left: 5px;

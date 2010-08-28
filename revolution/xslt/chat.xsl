@@ -4,14 +4,16 @@
     </div>
 </xsl:template>
 
-<xsl:template match="/social[@resource='session' and @method='create']">
+<xsl:template match="/social[@resource='file' and @method='create']">
     <html>
         <head>
             <title>File Uploaded</title>
+        </head>
+        <body>
             <script type="text/javascript">
+                document.domain = 'zino.gr';
                 parent.Chat.File.OnUploaded( '<xsl:value-of select="file/media/@url" />' );
             </script>
-        </head>
-        <body></body>
+        </body>
     </html>
 </xsl:template>

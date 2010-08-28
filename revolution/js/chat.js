@@ -84,7 +84,7 @@ var Chat = {
         var history = $( '#chatmessages_' + channelid + ' ol' )[ 0 ];
         var messages = $( res ).find( 'discussion comment' );
         var text;
-        var html = '';
+        var html = '', li;
         var shoutid;
         
         for ( var i = 0; i < messages.length; ++i ) {
@@ -92,13 +92,19 @@ var Chat = {
             author = $( messages[ i ] ).find( 'author name' ).text();
             shoutid = $( messages[ i ] ).attr( 'id' );
 
-            html += '<li id="' + shoutid + '"><span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong';
+            li = '';
+            li += '<li id="' + shoutid + '"><span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong';
             if ( author == User ) {
-                html += ' class="self"';
+                li += ' class="self"';
             }
-            html += '>';
-            html += author;
-            html += '</strong> <span class="text">' + text + '</span></li>';
+            li += '>';
+            li += author;
+            text = Chat.GetFormattedText( text, author == User );
+            if ( text == null ) {
+                continue;
+            }
+            li += '</strong> ' + text + '</li>';
+            html += li;
         }
         history.innerHTML = html;
         $( '.when:not(.processedtime)' ).load();
@@ -319,6 +325,30 @@ var Chat = {
 
          return container.offsetHeight + container.scrollTop > history.offsetHeight - EPSILON;
      },
+     GetFormattedText: function ( text, mine ) {
+         if ( text.substr( 0, '/__zino:'.length ) == '/__zino:' ) { // action
+             var parts = text.split( ':' );
+             if ( parts.length < 2 ) {
+                 return null;
+             }
+             switch ( parts[ 1 ] ) {
+                 case 'file':
+                    if ( parts[ 2 ].substr( 0, 1 ) == '<' ) { // <img> ...
+                        if ( mine ) {
+                            return '<span class="text action"><div>Έστειλες μία εικόνα.</div>' + parts.splice( 2, parts.length - 2 ).join( ':' ) + '</span>';
+                        }
+                        return '<span class="text action"><div>Έλαβες μία εικόνα.</div>' + parts.splice( 2, parts.length - 2 ).join( ':' ) + '<div>Δεξί κλικ &gt; Αποθήκευση για αποθήκευση σε πλήρη ανάλυση.</div></span>';
+                    }
+                    if ( mine ) {
+                        return '<span class="text action">Έστειλες <a href="' + parts[ 2 ] + '" target="_blank">ένα αρχείο</a></span>';
+                    }
+                    return '<span class="text action">Έλαβες ένα αρχείο. <a href="' + parts[ 2 ] + '" target="_blank">Λήψη τώρα</a></span>';
+                 default:
+                    return null;
+             }
+         }
+         return '<span class="text">' + text + '</span>';
+     },
      OnMessageArrival: function ( res ) {
          var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
          Chat.CreateChannelHTML( channelid );
@@ -341,9 +371,13 @@ var Chat = {
              }
              newmessage = true;
              text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
+             text = Chat.GetFormattedText( text, false );
+             if ( text == null ) {
+                 return;
+             }
              li = document.createElement( 'li' );
              li.id = shoutid;
-             li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
+             li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> ' + text + '</li>'; 
              history.appendChild( li );
              Chat.Typing.OnStop( author );
              Chat.Timestamps.Add( $( '.time:not(.processedtime)' ).load() );
@@ -645,14 +679,32 @@ var Chat = {
          }
      },
      File: {
+         $modal: null,
          Send: function () {
              axslt( false, 'call:chat.modal.file', function() {
-                 $( this ).filter( 'div' ).prependTo( 'body' ).modal();
+                 Chat.File.$modal = $( this ).filter( 'div' );
+                 Chat.File.$modal.prependTo( 'body' ).modal();
              } );
              return false;
          },
+         Hide: function () {
+             Chat.File.$modal.jqmHide();
+         },
          OnUploaded: function ( url ) {
-             alert( 'File uploaded: ' + url );
+             // alert( 'File uploaded: ' + url );
+             Chat.File.Hide();
+             channelid = Chat.CurrentChannel;
+             $.post( 'chat/message/create', {
+                channelid: channelid,
+                text: '/__zino:file:' + url
+             }, function ( res ) {
+                 var li = document.createElement( 'li' );
+                 li.innerHTML = '<strong class="self"></strong> <span class="text action"></span>';
+                 $( li )
+                    .children( 'span.text' ).html( '<a href="' + url + '" target="_blank">Το αρχείο σου</a> στάλθηκε επιτυχώς.' );
+                 $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
+                 $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild.scrollIntoView();
+             } );
          }
      },
      CreateChannelHTML: function ( channelid ) {
