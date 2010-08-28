@@ -14,7 +14,7 @@
         </head>
         <body>
             <div class="card">
-                <h1><img src="images/loggedout/logo-bubble.png" alt="Zino" /></h1>
+                <h1><img src="http://static.zino.gr/revolution/loggedout/logo-bubble.png" alt="Zino" /></h1>
                 <p>
                     Το Zino είναι εσύ και η παρέα σου
                     ζωντανά online − είσαι μέσα?

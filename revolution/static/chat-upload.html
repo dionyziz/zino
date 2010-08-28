@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <title>Αποστολή αρχείου</title>
+        <style type="text/css">
+            body {
+                font-family: "Trebuchet MS";
+            }
+            h1 {
+                font-size: 110%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Αποστολή αρχείου</h1>
+        <form method="post" enctype="multipart/form-data" action="http://beta.zino.gr/dionyziz/file/create">
+            <input type="file" name="file" />
+            <div id="loading" style='display:none'>Φόρτωση...</div>
+        </form>
+        <script type="text/javascript">
+            document.getElementsByTagName( 'input' )[ 0 ].onchange = function () {
+                this.parentNode.submit();
+                this.style.display = 'none';
+                document.getElementById( 'loading' ).style.display = '';
+            };
+            if ( parent.location.href != self.location.href ) {
+                document.getElementsByTagName( 'form' )[ 0 ].action = parent.document.getElementsByTagName( 'base' )[ 0 ].href + 'file/create';
+            }
+        </script>
+    </body>
+</html>
+
