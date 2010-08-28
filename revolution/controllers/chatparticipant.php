@@ -24,9 +24,14 @@
             Template( 'chatchannel/typing', compact( 'channelid', 'typing', 'username' ) );
             $xml = ob_get_clean();
             echo $xml;
-            $participants = ChatChannel::ParticipantList( $channelid );
-            foreach ( $participants as $participant ) {
-                PushChannel::Publish( 'chat/typing/list/' . $participant[ 'userid' ] . ':' . $participant[ 'authtoken' ], $xml );
+            if ( $channelid == 0 ) {
+                PushChannel::Publish( 'chat/typing/list/0', $xml );
+            }
+            else {
+                $participants = ChatChannel::ParticipantList( $channelid );
+                foreach ( $participants as $participant ) {
+                    PushChannel::Publish( 'chat/typing/list/' . $participant[ 'userid' ] . ':' . $participant[ 'authtoken' ], $xml );
+                }
             }
         }
         public static function Delete() { // remove person from group chat
