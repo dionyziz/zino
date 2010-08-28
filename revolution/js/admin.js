@@ -43,12 +43,13 @@ var Admin = {
             } );
         },
         MakeDefaultButtons: function () {
-            var username, reason, itemid;
+            var username, reason, itemid, userid;
 
             $( '#admin' ).empty();
             switch ( MasterTemplate ) {
                 case 'user.view':
                     username = $( '.maininfo .username' ).text();
+                    userid = $( '.userview' ).id.split( '_' )[ 1 ];
                     $( '#admin' ).text( 'Μέλος ' + username )
                                  .append( $( ' <span title="Διαγραφή επιλεγμένου μέλους" class="delete">Διαγραφή</span><span title="Αποκλεισμός επιλεγμένου μέλους από το Zino" class="ban">Αποκλεισμός</span>' ) );
                     $( '#admin span.delete' ).click( function () {
@@ -56,7 +57,7 @@ var Admin = {
                         if ( typeof reason == 'string' ) {
                             if ( reason !== '' ) {
                                 $.post( 'user/delete', {
-                                    username: username,
+                                    id: userid,
                                     reason: reason,
                                 }, function () {
                                     alert( 'Ο λογαριασμός διαγράφηκε' );
