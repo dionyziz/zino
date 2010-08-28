@@ -39,7 +39,7 @@
                     <link type="text/css" href="global.css" rel="stylesheet" />
                 </xsl:when>
                 <xsl:otherwise>
-                    <link type="text/css" href="http://static.zino.gr/css/global.css?12" rel="stylesheet" />
+                    <link type="text/css" href="http://static.zino.gr/css/global.css?13" rel="stylesheet" />
                 </xsl:otherwise>
             </xsl:choose>
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
@@ -68,7 +68,7 @@
                     <script type="text/javascript" src="global.js"></script>
                 </xsl:when>
                 <xsl:otherwise>
-                    <script type="text/javascript" src="http://static.zino.gr/js/global.js?8"></script>
+                    <script type="text/javascript" src="http://static.zino.gr/js/global.js?9"></script>
                 </xsl:otherwise>
             </xsl:choose>
             <script type="text/javascript">
