@@ -77,7 +77,7 @@ var PhotoView = {
             $.post( 'index.php?resource=photo&method=delete', {
                 id: id
             }, function(){
-                window.location = 'photos/' + User;
+                Async.Go( 'photos/' + User );
             });     
         },
         Init: function(){

@@ -44,7 +44,7 @@
                     <xsl:if test="not(/social/photo/author/photos/photo[@navigation])">
                         <xsl:attribute name="style">padding:4px</xsl:attribute>
                     </xsl:if>
-                    <xsl:if test="/social/photo">
+                    <xsl:if test="/social/photo and not(/social/photo/@deleted)">
                         <xsl:if test="/social/photo/author/photos/photo[@navigation='previous']/@id">
                             <li class="nav prev">
                                 <a title="Προηγούμενη φωτογραφία">
@@ -62,43 +62,45 @@
                             </li>
                         </xsl:if>
                     </xsl:if>
-                    <li>
-                        <a>
-                            <xsl:attribute name="href">users/<xsl:value-of select="/social/*/author/name" /></xsl:attribute>
-                            <xsl:value-of select="/social/*/author/name" />
-                        </a>
-                    </li>
-                    <li class="arrow">&#8250;</li>
-                    <xsl:if test="/social/photo">
-                        <li>
-                            <a><xsl:attribute name="href">photos/<xsl:value-of select="/social/photo/author/name" /></xsl:attribute>albums</a>
-                        </li>
-                        <li class="arrow">&#8250;</li>
+                    <xsl:if test="not(/social/photo/@deleted) and not(/social/poll/@deleted) and not(/social/journal/@deleted)">
                         <li>
                             <a>
-                                <xsl:attribute name="href">albums/<xsl:value-of select="/social/photo/containedWithin/album/@id" /></xsl:attribute>
-                                <xsl:choose>
-                                    <xsl:when test="/social/photo/containedWithin/album/@egoalbum">
-                                        εγώ
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="/social/photo/containedWithin/album/name" />
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                <xsl:attribute name="href">users/<xsl:value-of select="/social/*/author/name" /></xsl:attribute>
+                                <xsl:value-of select="/social/*/author/name" />
                             </a>
                         </li>
+                        <li class="arrow">&#8250;</li>
+                        <xsl:if test="/social/photo">
+                            <li>
+                                <a><xsl:attribute name="href">photos/<xsl:value-of select="/social/photo/author/name" /></xsl:attribute>albums</a>
+                            </li>
+                            <li class="arrow">&#8250;</li>
+                            <li>
+                                <a>
+                                    <xsl:attribute name="href">albums/<xsl:value-of select="/social/photo/containedWithin/album/@id" /></xsl:attribute>
+                                    <xsl:choose>
+                                        <xsl:when test="/social/photo/containedWithin/album/@egoalbum">
+                                            εγώ
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:value-of select="/social/photo/containedWithin/album/name" />
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </a>
+                            </li>
+                        </xsl:if>
+                        <xsl:if test="/social/poll">
+                            <li>
+                                <a><xsl:attribute name="href">polls/<xsl:value-of select="/social/poll/author/name" /></xsl:attribute>δημοσκοπήσεις</a>
+                            </li>
+                        </xsl:if>
+                        <xsl:if test="/social/journal">
+                            <li>
+                                <a><xsl:attribute name="href">journals/<xsl:value-of select="/social/journal/author/name" /></xsl:attribute>ημερολόγια</a>
+                            </li>
+                        </xsl:if>
+                        <li class="arrow">&#8250;</li>
                     </xsl:if>
-                    <xsl:if test="/social/poll">
-                        <li>
-                            <a><xsl:attribute name="href">polls/<xsl:value-of select="/social/poll/author/name" /></xsl:attribute>δημοσκοπήσεις</a>
-                        </li>
-                    </xsl:if>
-                    <xsl:if test="/social/journal">
-                        <li>
-                            <a><xsl:attribute name="href">journals/<xsl:value-of select="/social/journal/author/name" /></xsl:attribute>ημερολόγια</a>
-                        </li>
-                    </xsl:if>
-                    <li class="arrow">&#8250;</li>
                 </ol>
             </xsl:when>
             <xsl:otherwise>

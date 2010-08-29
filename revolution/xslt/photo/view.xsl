@@ -93,7 +93,9 @@
                 </span>
             </div>
         </xsl:if>
-        <xsl:call-template name="favourite.list" />
+        <xsl:if test="not(@deleted)">
+            <xsl:call-template name="favourite.list" />
+        </xsl:if>
     </div>
     <div class="navigation" style="display: none;">
         <xsl:if test="//photo[ @navigation='next' ]">
