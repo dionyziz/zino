@@ -91,6 +91,9 @@ var PhotoView = {
             });
         }
     },
+    Unload: function(){
+        Comment.Unload();
+    },
     Init: function(){
         PhotoView.Title.Init();
         PhotoView.Remove.Init();
@@ -391,9 +394,6 @@ var PhotoView = {
             PhotoView.Tag.Cancel();
             $( '#tagbutton' ).removeClass( 'selected' );
             PhotoView.Tag.running = false;
-        },
-        Unload: function(){
-            Comments.Unload();
         },
         Init: function(){
             $( '.image .tag .imagecontainer' ).live( 'mouseover', function(){
