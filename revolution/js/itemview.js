@@ -21,7 +21,7 @@ var ItemView = {
 
             $( 'a.love' ).show();
             if ( $( 'a.love' ).length ) {
-                $( 'a.love' )[ 0 ].onclick = function () {
+                $( 'a.love' ).click( function () {
                     var id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
                     $.post( 'favourite/create', { typeid: typeid, itemid: id } );
                     this.href = '';
@@ -42,7 +42,7 @@ var ItemView = {
                     }, 'slow' );
                     this.blur();
                     return false;
-                };
+                } );
             }
         }
     }

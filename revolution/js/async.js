@@ -41,6 +41,9 @@ var Async = {
             Async.Go( window.location.hash.substr( 1 ) );
         }
         $( 'a:not(:data(events)):not([href^=http])' ).live( 'click', function( e ){
+            if( typeof( $( this )[ 0 ].onclick ) == 'function' ){
+                return;
+            }
             if( e.ctrlKey || e.shiftKey ){
                 return;
             }
