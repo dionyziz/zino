@@ -241,7 +241,7 @@ var Chat = {
                          Chat.Sound.Loading = false;
                          Chat.Sound.Ding();
                      }
-                 );
+                 } );
                  return;
              }
              $( '#jquery_jplayer' ).jPlayer( 'play' );
