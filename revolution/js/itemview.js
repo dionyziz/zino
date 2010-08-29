@@ -35,7 +35,7 @@ var ItemView = {
                     div.style.top = this.offsetTop - 40 + 'px';
                     div.style.left = this.offsetLeft - 10 + 'px'; 
                     div.style.color = 'red';
-                    document.body.appendChild( div );
+                    $( '#world' ).append( div );
                     $( div ).animate( {
                         top: this.offsetTop - 100,
                         opacity: 0

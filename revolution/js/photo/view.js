@@ -122,7 +122,6 @@ var PhotoView = {
                 $( friendlist ).hide().appendTo( '.image' );
                 $.get( 'friendsmutual/' + User, function( data ){
                     $( '.friendlist ul li.friend_loading' ).hide();
-                    window.asdf = $(data );
                     if( !PhotoView.Tag.Friend.list[ $( data ).find( 'friends' ).attr( 'id' ) ] ){
                         var li = $( '<li id="friend_' + $( data ).find( 'friends' ).attr( 'id' ) + '" class="me">' +
                                         '<a href="">εγώ<span style="display:none;">' + User + '</span></a>' + 
@@ -137,6 +136,11 @@ var PhotoView = {
                                         '<a href="">' + $( this ).children( 'name' ).text() + '</a>' +
                                     '</li>' );
                         $( '.friendlist ul' ).append( li );
+                    });
+                    $( '.friendlist a' ).click( function(){
+                        var id = $( this ).parent().attr( 'id' ).split( '_' )[ 1 ];
+                        PhotoView.Tag.Save( id );
+                        return false;
                     });
                 }, 'xml' );
             },
@@ -160,6 +164,10 @@ var PhotoView = {
                     $( '.friendlist ul li:not(.friend_loading)' ).removeClass( 'selected' ).show();
                 }
             },
+            Unload: function(){
+                PhotoView.Tag.Friend.Initialized = false;
+                PhotoView.Tag.Friend.list = {};
+            },
             Init: function(){
                 PhotoView.Tag.Friend.initialized = true;
                 $( '.image .tag .name' ).each( function(){
@@ -182,11 +190,6 @@ var PhotoView = {
                 });
                 $( '.friendlist .save' ).click( function(){
                     PhotoView.Tag.Save();
-                    return false;
-                });
-                $( '.friendlist a' ).live( 'click', function(){
-                    var id = $( this ).parent().attr( 'id' ).split( '_' )[ 1 ];
-                    PhotoView.Tag.Save( id );
                     return false;
                 });
             }
@@ -409,9 +412,6 @@ var PhotoView = {
                         $( item ).parent().show().fadeTo( 0, 0 );
                     }
                 }( this ) );
-            }).click( function( e ){
-                e.stopImmediatePropagation();
-                window.open( 'users/' + $( this ).siblings( '.namecontainer' ).children( '.name' ).text() );
             });
             $( '.image .tag .namecontainer.inside' ).live( 'mouseover', function(){
                 $( this ).siblings( '.imagecontainer' ).mouseover();
