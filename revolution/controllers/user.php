@@ -195,6 +195,7 @@
 
         }
         public static function Delete( $id ) {
+            clude( "models/user.php" );
             $success = User::VirtualDelete( $id );//user rigths = 0, user deleted = 1
             if ( !$success  ) {
                 throw new Exception( "Cant delete this user" );
