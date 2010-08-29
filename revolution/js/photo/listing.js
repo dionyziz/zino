@@ -15,30 +15,6 @@ var PhotoListing = {
         if( $( '.useralbums' ).length ) {
             AlbumListing.Init();
         }
-        $( '.photostream ul li ar' ).live( 'click', function(){
-            PhotoListing.Preview( $( this ).parent().attr( 'id' ).split( '_' )[1], $( this ).children( 'img' ).attr( 'src' ).slice( 0, -7 ) + 'full.jpg' );
-            return false;
-        });
-        $( '.imageoverlay .arrow:not(.disabled)' ).live( 'click', function(){
-            $( '.imageoverlay .arrow' ).removeClass( 'disabled' );
-            $( '.photostream ul li' ).removeClass( 'selected' );
-            var id = $( '.imageoverlay img' ).attr( 'id' ).split( '_' )[ 1 ];
-            var fid;
-            if( $( this ).hasClass( 'left' ) ){
-                fid = $( '#photo_' + id ).prev().addClass( 'selected' ).attr( 'id' ).split( '_' )[ 1];
-            }
-            else{
-                fid = $( '#photo_' + id ).next( ':not(.justifyhack)' ).addClass( 'selected' ).attr( 'id' ).split( '_' )[ 1 ];
-            }
-            var src = $( '#photo_' + fid ).find( 'img' ).attr( 'src' ).slice( 0, -7 ) + 'full.jpg';
-            if( !$( '#photo_' + fid ).prev().length ){
-                $( '.imageoverlay .left' ).addClass( 'disabled' );
-            }
-            if( !$( '#photo_' + fid ).next().length ){
-                $( '.imageoverlay .right' ).addClass( 'disabled' );
-            }
-            $( '.imageoverlay img' ).attr( 'id', 'sel_' + fid ).attr( 'src', src );
-        });
     },
     Preview: function( id, src ){
         $( '#photo_' + id ).addClass( 'selected' );
@@ -77,6 +53,9 @@ var PhotoListing = {
         PhotoListing.SetUploadAction();
         PhotoListing.AssignEvents();
     },
+    Unload: function(){
+        PhotoListing.RemoveEvents();
+    },
     ScrollHandler: function(){
         if( PhotoListing.PhotoList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
             PhotoListing.FetchNewPhotos();
@@ -97,11 +76,7 @@ var PhotoListing = {
         PhotoListing.PhotoList[ 0 ].innerHTML += PhotoListing.PlaceholderHTML;
         PhotoListing.LastLoaded = $( '.photostream ul li')[ PhotoListing.CurrentPage * 100 - 1];
         PhotoListing.CurrentPage++;
-        var target = window.location.href;
-        if( window.location.hash === '' ){
-            target = window.location.hash.split( '#' );
-            target = target[ 1 ];
-        }
+        var target = window.location.href.split( '#' ).join( '' );
         $.get( target,
             { 'page': PhotoListing.CurrentPage },
             function( xml ) {

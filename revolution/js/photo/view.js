@@ -61,10 +61,10 @@ var PhotoView = {
                 return false;
             }).keyup( function( event ){
                 event.stopImmediatePropagation();
-                if( event.which == 27 ){ // esc
+                if( event.which == 13 ){ // esc
                     $( this ).blur();
                 }
-                if( event.which == 13 ){ // enter
+                if( event.which == 27 ){ // enter
                     $( this ).val( PhotoView.Title.Title );
                     $( this ).blur();
                 }
@@ -391,6 +391,9 @@ var PhotoView = {
             PhotoView.Tag.Cancel();
             $( '#tagbutton' ).removeClass( 'selected' );
             PhotoView.Tag.running = false;
+        },
+        Unload: function(){
+            Comments.Unload();
         },
         Init: function(){
             $( '.image .tag .imagecontainer' ).live( 'mouseover', function(){

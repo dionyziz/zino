@@ -36,6 +36,11 @@ var Comment = {
         this.CommentList = $( ".discussion" );
         Comment.AssignEvents();
     },
+    Unload: function(){
+        $( 'a.talk, .message' ).die( 'mousedown mousemove' );
+        Comment.RemoveEvents();
+        Comment.CurrentCommentPage = 1;
+    },
     GetCurrentTypeId: function(){ 
         return {
             'poll': 1,
