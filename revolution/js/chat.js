@@ -229,15 +229,20 @@ var Chat = {
      },
      Sound: {
          Ready: false,
+         Loading: false,
          Ding: function () {
-             if ( !Chat.Sound.Ready ) {
+             if ( !Chat.Sound.Ready && !Chat.Sound.Loading ) {
+                 Chat.Sound.Loading = true;
                  $( document.body ).prepend( '<div id="jquery_jplayer"></div>' );
-                 $( '#jquery_jplayer' ).ready( function () {
-                     Chat.Sound.Ready = true;
-                     this.element.jPlayer( "setFile", "http://static.zino.gr/revolution/sound/glass.mp3" );
-                     Chat.Sound.Ding();
-                     return;
-                 } );
+                 $( '#jquery_jplayer' ).jPlayer( {
+                     ready: function () {
+                         this.element.jPlayer( "setFile", "http://static.zino.gr/revolution/sound/glass.mp3" );
+                         Chat.Sound.Ready = true;
+                         Chat.Sound.Loading = false;
+                         Chat.Sound.Ding();
+                     }
+                 );
+                 return;
              }
              $( '#jquery_jplayer' ).jPlayer( 'play' );
          }
