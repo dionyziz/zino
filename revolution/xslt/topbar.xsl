@@ -133,9 +133,7 @@
                     <xsl:if test="/social/@for">
                         <xsl:attribute name="id">profile_icon</xsl:attribute>
                         <a id="logoutbutton">
-                            <xsl:attribute name="href">
-                                users/<xsl:value-of select="/social/@for" />
-                            </xsl:attribute>
+                            <xsl:attribute name="href">users/<xsl:value-of select="/social/@for" /></xsl:attribute>
                             Προφίλ
                         </a>
                     </xsl:if>
