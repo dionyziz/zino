@@ -187,8 +187,7 @@
         public static function LastMessage( $channelid ) {
             $res = db( 
                 "SELECT 
-                    `shout_id` AS i
-                    d
+                    `shout_id` AS id
                 FROM 
                     `shoutbox` 
                 WHERE 
@@ -199,7 +198,7 @@
                 compact( 'channelid' )
             );      
             $row = mysql_fetch_array( $res );
-            return (int)$row[ 'id' ];
+            return ( int )$row[ 'id' ];
         }
     }
 ?>

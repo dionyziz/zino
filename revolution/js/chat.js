@@ -16,6 +16,7 @@ var Chat = {
      UserId: 0,
      Authtoken: '',
      PreviousPageSelected: 0,
+     FlashingTabs: 0,
      Timestamps: {
          Init: function( chatid ) {
              var items = $( chatid ).find( '.when' ).reverse();
@@ -399,10 +400,13 @@ var Chat = {
          else {
              var userid, cid, found, username;
 
+             if ( channelid != 0 && User === 'dionyziz' ) {
+                 Chat.Sound.Ding();
+             }
              found = false;
              for ( userid in Chat.ChannelByUserId ) {
                  cid = Chat.ChannelByUserId[ userid ];
-                 if ( cid == channelid ) {
+                 if ( cid == channelid && channelid != 0 ) {
                      found = true;
                      Chat.Flash( userid, text );
                      if ( $( '#u' + userid ).hasClass( 'flash' ) ) {
@@ -514,10 +518,14 @@ var Chat = {
          Chat.Typing.OnStop( username );
      },
      Flash: function ( userid, message ) {
-         // TODO: Multiple participants
+         if ( Chat.Visible ) {
+             $( '#u' + userid )[ 0 ].scrollIntoView();
+         }
          if ( $( '#u' + userid ).hasClass( 'flash' ) ) {
+             $( '#u' + userid + ' .text' ).html( message );
              return;
          }
+         ++Chat.FlashingTabs;
          $( '#u' + userid ).addClass( 'flash' ).html(
             '<span class="username">' + $( '#u' + userid ).text() + '</span>'
             + '<span class="text">' + message + '</span>'
@@ -527,6 +535,7 @@ var Chat = {
          if ( !$( '#u' + userid ).hasClass( 'flash' ) ) {
              return;
          }
+         --Chat.FlashingTabs;
          $( '#u' + userid ).removeClass( 'flash' );
          var uname = $( '#u' + userid + ' .username' ).text();
          $( '#u' + userid ).text( uname );
