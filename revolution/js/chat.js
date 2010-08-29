@@ -241,13 +241,7 @@ var Chat = {
              $( '#jquery_jplayer' ).jPlayer( 'play' );
          }
      },
-     Init: function () {
-         // keep this function short
-         // these things run on every page load
-         // if you just want some initialization operation that only needs to
-         // run when the chat is opened
-         // use the Chat.Load() function, not this.
-         // Chat.Load() is only called once.
+     BindClick: function(){
         $( '#chatbutton' ).click( function () {
             if ( Chat.UserId == 0 ) { // session request hasn't yet finished
                                       // wait for it... dary.
@@ -258,6 +252,15 @@ var Chat = {
             }
             return false;
         } );
+     },
+     Init: function () {
+         // keep this function short
+         // these things run on every page load
+         // if you just want some initialization operation that only needs to
+         // run when the chat is opened
+         // use the Chat.Load() function, not this.
+         // Chat.Load() is only called once.
+        Chat.BindClick();
         document.domain = 'zino.gr';
         $.get( 'session', function ( res ) {
             Chat.UserId = $( res ).find( 'user' ).attr( 'id' );

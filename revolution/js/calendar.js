@@ -24,7 +24,7 @@ var Calendar = {
             position: 'absolute',
             display: 'none'
         } );
-        document.body.appendChild( Calendar.Element );
+        $( '#world' ).append( Calendar.Element );
     },
     SetDate: function( year, month ) {
         var i;

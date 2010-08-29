@@ -1,9 +1,11 @@
 jquery/jquery.min.js
 jquery/jquery.extend.js
+jquery/jquery.data-selector.min.js
 date.js
 type.js
 kamibu.js
 axslt.js
+async.js
 comment.js
 favourite.js
 photo/view.js

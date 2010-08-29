@@ -79,6 +79,7 @@ RewriteRule ^friends/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&met
 RewriteRule ^friendsmutual/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=list&requiremutual=1&subdomain=$1 [L,QSA]
 
 # chat
+RewriteRule ^chat$ index.php?resource=chat&method=view [L,QSA]
 RewriteRule ^chat/messages$ index.php?resource=chatmessage&method=listing [L,QSA]
 RewriteRule ^chat/message/create$ index.php?resource=chatmessage&method=create&channelid=$1 [L,QSA]
 RewriteRule ^chat/([0-9]+)$ index.php?resource=chatchannel&method=view&channelid=$1 [L,QSA]

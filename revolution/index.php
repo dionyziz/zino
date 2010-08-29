@@ -137,7 +137,7 @@
             echo '<?xml-stylesheet type="text/xsl" href="' . $settings[ 'base' ] . '/global.xsl"?>';
         }
         else {
-            echo '<?xml-stylesheet type="text/xsl" href="http://zino.gr/static/global.xsl?1"?>';
+            echo '<?xml-stylesheet type="text/xsl" href="http://zino.gr/static/global.xsl?2"?>';
         }
     }
     ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?

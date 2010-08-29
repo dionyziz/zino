@@ -3,29 +3,34 @@ var Comment = {
     CommentList: null,
     CurrentCommentPage: 1,
     EndOfComments: false,
+    CommentClicked: function( a, e ){
+        if ( !$( a ).hasClass( 'talk' ) &&
+            $( e.target ).closest( 'a' ).length ) {
+            if ( typeof $( e.target ).attr( 'onclick' ) != 'function' ) {
+                var href = $( e.target ).attr( 'href' );
+                var parts = href.split( '/' );
+
+                if ( parts[ 2 ].substr( parts[ 2 ].length - 'zino.gr'.length, 'zino.gr'.length ) == 'zino.gr' ) {
+                    return true;
+                }
+                window.open( href );
+            }
+            return false;
+        }
+        if ( $( a ).hasClass( 'new' ) ) {
+            return false;
+        }
+        Comment.New.call( a[ 0 ] );
+        return false;
+    },
     Init: function(){
         if ( window.User ) {
             $( 'a.talk, .message' )
             .live( 'mousedown', function(){ Comment.StillMouse = true; } )
             .live( 'mousemove',   function(){ Comment.StillMouse = false; } )
-            .live( 'click', function( e ) {
-                if ( !$( this ).hasClass( 'talk' ) &&
-                    $( e.target ).closest( 'a' ).length ) {
-                    if ( typeof $( e.target ).attr( 'onclick' ) != 'function' ) {
-                        var href = $( e.target ).attr( 'href' );
-                        var parts = href.split( '/' );
-
-                        if ( parts[ 2 ].substr( parts[ 2 ].length - 'zino.gr'.length, 'zino.gr'.length ) == 'zino.gr' ) {
-                            return true;
-                        }
-                        window.open( href );
-                    }
-                    return false;
-                }
-                if ( $( this ).hasClass( 'new' ) ) {
-                    return false;
-                }
-                return Comment.New.call( this );
+            .click( function( e ) {
+                Comment.CommentClicked( $( this ), e );
+                return false;
             });
         }
         this.CommentList = $( ".discussion" );
@@ -62,7 +67,11 @@ var Comment = {
             $newthread = $( '.discussion > .thread.new' );
             parentid = 0;
             if ( $newthread.length === 0 ) {
-                $newthread = $newcomment.clone().insertAfter( '.discussion .note' );
+                $newthread = $newcomment.clone().insertAfter( '.discussion .note' )
+                    .click( function( e ) {
+                        Comment.CommentClicked( this, e );
+                        return false;
+                    });
                 Comment.TextEvents( $newthread, parentid );
             }
             // $( 'a.talk' ).fadeOut( 300 );
@@ -217,6 +226,10 @@ var Comment = {
             if( this.length === 0 ) {
                 Comment.EndOfComments = true;
             }
+            $( this ).click( function( e ) {
+                Comment.CommentClicked( $( this ), e );
+                return false;
+            });
             Comment.CommentList.append( $( this ) );
             if( !Comment.EndOfComments ){
                 Comment.AssignEvents();

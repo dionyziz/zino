@@ -1,6 +1,4 @@
 var AlbumListing = {
-    Initialized: false,
-    CurrentAlbum: null,
     Minimize: function(){
         $( '.useralbums' ).removeClass( 'expanded' )
             .children( 'ol' ).slideUp().end()
@@ -21,6 +19,21 @@ var AlbumListing = {
                     AlbumListing.AppendOwnActions( $( this ) );
                 });
             }
+            $( '.useralbums li:not(.new) a' ).click( function() {
+                AlbumListing.LoadAlbum( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
+                return false;
+            } );
+            $( '.deletebutton' ).click( function( e ){
+                e.stopImmediatePropagation();
+                if( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ){
+                    AlbumListing.Remove( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
+                }
+                return false;
+            });
+            $( '#albumlist .add label' ).click( function(){
+                AlbumListing.AddClicked();
+                return false;
+            });
             callback();
         } );
     },
@@ -28,9 +41,13 @@ var AlbumListing = {
         if( albumid === 0 ){
             axslt( $.get( 'photos/' + User ), '/social/photos', function() {
                 $( '.photostream' ).empty().append( $( this ).filter( '.photostream' ).children( 'ul' ) );
+                window.location.hash = 'photos/' + User;
+                Async.hash = 'photos/' + User;
             } );
             return;
         }
+        window.location.hash = 'albums/' + albumid;
+        Async.hash = 'albums/' + albumid;
         $( '.useralbums .selected' ).removeClass( 'selected' );
         $( '#album_' + albumid + ' a' ).addClass( 'selected' );
 
@@ -128,7 +145,19 @@ var AlbumListing = {
             var id = $( data ).find( 'album' ).attr( 'id' );
             $( '#albumlist .new' ).attr( 'id', 'album_' + id ).removeClass( 'new' )
                 .find( 'p' ).addClass( 'editabletext' ).text( title ).end()
-                .children( 'a' ).append( '<span class="deletebutton">×</span>' ).attr( 'href', 'albums/' + id );
+                .children( 'a' ).append( '<span class="deletebutton">×</span>' ).attr( 'href', 'albums/' + id )
+                    .children( 'span.deletebutton' ).click( function(){
+                        e.stopImmediatePropagation();
+                        if( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ){
+                            AlbumListing.Remove( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
+                        }
+                        return false;
+                    }).end()
+                .end()
+                .click( function(){
+                    AlbumListing.LoadAlbum( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
+                    return false;
+                });
             Kamibu.EditableTextElement( $( '#album_' + id + ' p' )[ 0 ], 'Όρισε όνομα', function( title ){
                 $.post( '?resource=album&method=update', { 
                     albumid: id,
@@ -140,6 +169,8 @@ var AlbumListing = {
         }, 'xml');
     },
     Init: function() {
+        AlbumListing.Initialized = false;
+        AlbumListing.CurrentAlbum = null;
         $( '.useralbums span.minimize' ).click( function() {
             if( $('.useralbums' ).hasClass( 'expanded' ) ){
                 AlbumListing.Minimize();
@@ -150,21 +181,6 @@ var AlbumListing = {
                 return false;
             }
             AlbumListing.LoadAlbums( AlbumListing.Maximize );
-            return false;
-        });
-        $( '.useralbums li:not(.new) a' ).live( 'click', function() {
-            AlbumListing.LoadAlbum( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
-            return false;
-        } );
-        $( '.deletebutton' ).live( 'click', function( e ){
-            e.stopImmediatePropagation();
-            if( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ){
-                AlbumListing.Remove( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
-            }
-            return false;
-        });
-        $( '#albumlist .add label' ).live( 'click', function(){
-            AlbumListing.AddClicked();
             return false;
         });
     }

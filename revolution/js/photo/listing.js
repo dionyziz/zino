@@ -12,7 +12,7 @@ var PhotoListing = {
             this.PlaceholderHTML += '<li><a><img /></a></li>';
         }
         PhotoListing.PreparePhotoList();
-        if( $( '.useralbums' ) ) {
+        if( $( '.useralbums' ).length ) {
             AlbumListing.Init();
         }
         $( '.photostream ul li ar' ).live( 'click', function(){

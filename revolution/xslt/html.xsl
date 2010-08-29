@@ -68,7 +68,7 @@
                     <script type="text/javascript" src="global.js"></script>
                 </xsl:when>
                 <xsl:otherwise>
-                    <script type="text/javascript" src="http://static.zino.gr/js/global.js?9"></script>
+                    <script type="text/javascript" src="http://static.zino.gr/js/global.js?10"></script>
                 </xsl:otherwise>
             </xsl:choose>
             <script type="text/javascript">
@@ -81,7 +81,7 @@
                     NowDate.setSeconds( NowDate.getSeconds() + 5 );
                     Now = dateToString( NowDate );
                 }, 5 * 1000 );
-                
+                var Generator = '<xsl:value-of select="/social/@generator" />';
                 var XMLData = {
                     author: '<xsl:value-of select="/social/*/author/name" />'
                 }
@@ -109,12 +109,15 @@
                     'album.view': PhotoListing, //not sure if it's as supposed to
                     'news.listing': News,
                     'poll.view': Poll,
+                    'poll.listing': News,
                     'journal.view': Journal,
+                    'journal.listing': News,
                     'user.view': Profile,
                     'favourite.listing': Favourite,
                     'friendship.listing': Friends,
                     'ban.listing': Admin.Banlist
                 };
+                Async.Init();
                 var MasterTemplate = '<xsl:value-of select="$mastertemplate" />';
                 if ( typeof Routing[ MasterTemplate ] != 'undefined' ) {
                     // this must run asap after the body has been downloaded
