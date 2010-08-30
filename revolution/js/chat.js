@@ -498,6 +498,7 @@ var Chat = {
          }
          
          if ( $( '#u' + userid ).length ) {
+             $( '#u' + userid ).removeClass( 'offline' );
              return;
          }
          var origname = username;
@@ -529,9 +530,9 @@ var Chat = {
          }
      },
      OnUserOffline: function ( userid, username ) {
-         if ( $( '#u' + user ).hadClass( 'flash' ) ) {
+         if ( $( '#u' + userid ).hadClass( 'flash' ) ) {
              // do not remove someone who is talking to you
-             $( '#u' + user ).addClass( 'offline' );
+             $( '#u' + userid ).addClass( 'offline' );
              return;
          }
          $( '#u' + userid ).remove();
