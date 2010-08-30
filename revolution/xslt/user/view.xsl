@@ -14,45 +14,35 @@
             <ul class="useritems">
                 <xsl:if test="photos/@count &gt; 0">
                     <li><a>
-                        <xsl:attribute name="href">
-                            photos/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
+                        <xsl:attribute name="href">photos/<xsl:value-of select="name[1]" /></xsl:attribute>
                         <span><xsl:value-of select="photos/@count" /></span>
                         Φωτογραφίες
                     </a></li>
                 </xsl:if>
                 <xsl:if test="journals/@count &gt; 0">
                     <li><a>
-                        <xsl:attribute name="href">
-                            journals/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
+                        <xsl:attribute name="href">journals/<xsl:value-of select="name[1]" /></xsl:attribute>
                         <span><xsl:value-of select="journals/@count" /></span>
                         Ημερολόγια
                     </a></li>
                 </xsl:if>
                 <xsl:if test="polls/@count &gt; 0">
                     <li><a>
-                        <xsl:attribute name="href">
-                            polls/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
+                        <xsl:attribute name="href">polls/<xsl:value-of select="name[1]" /></xsl:attribute>
                         <span><xsl:value-of select="polls/@count" /></span>
                         Δημοσκοπήσεις
                     </a></li>
                 </xsl:if>
                 <xsl:if test="friends/@count &gt; 0">
                     <li><a>
-                        <xsl:attribute name="href">
-                            friends/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
+                        <xsl:attribute name="href">friends/<xsl:value-of select="name[1]" /></xsl:attribute>
                         <span><xsl:value-of select="friends/@count" /></span>
                         Φίλοι
                     </a></li>
                 </xsl:if>
                 <xsl:if test="favourites/@count &gt; 0">
                     <li><a>
-                        <xsl:attribute name="href">
-                            favourites/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
+                        <xsl:attribute name="href">favourites/<xsl:value-of select="name[1]" /></xsl:attribute>
                         <span><xsl:value-of select="favourites/@count" /></span>
                         Αγαπημένα
                     </a></li>

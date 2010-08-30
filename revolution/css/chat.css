@@ -168,7 +168,13 @@
     border-radius: 5px;
     -webkit-border-radius: 5px;
 }
-.uesrlist li.offline span.username { 
+.userlist li.offline {
+    color: #ccc;
+}
+.userlist li.selected.offline {
+    color: #ccc;
+}
+.userlist li.offline span.username { 
     color: #999;
 }
 .userlist li.flash span.username {
