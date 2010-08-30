@@ -58,7 +58,7 @@ var Admin = {
                             if ( reason !== '' ) {
                                 $.post( 'user/delete', {
                                     id: userid,
-                                    reason: reason,
+                                    reason: reason
                                 }, function () {
                                     alert( 'Ο λογαριασμός διαγράφηκε' );
                                     Kamibu.Go( '' );

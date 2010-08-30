@@ -328,7 +328,7 @@ var PhotoView = {
             $( '.image img.maincontent' ).mousedown( function( e ){
                 var imagepos = {
                     top: $( '.image' ).offset().top,
-                    left: $( '.image' ).offset().left,
+                    left: $( '.image' ).offset().left
                 };
                 PhotoView.Tag.Down({
                     top: e.pageY - imagepos.top,
@@ -339,7 +339,7 @@ var PhotoView = {
             $( '.newtag' ).live( 'mousedown', function( e ){
                 var imagepos = {
                     top: $( '.image' ).offset().top,
-                    left: $( '.image' ).offset().left,
+                    left: $( '.image' ).offset().left
                 };
                 var pos = {
                     top:  e.pageY - imagepos.top,
@@ -445,7 +445,7 @@ var PhotoView = {
                 $( '#' + PhotoView.Tag.index[ i ].id ).css( 'zIndex', i - 0 + 15 );
             }
             */
-        },
+        }
 
     },
     LoadNext: function( evt ) {
