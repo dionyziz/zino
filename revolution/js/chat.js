@@ -233,14 +233,17 @@ var Chat = {
          Ding: function () {
              if ( !Chat.Sound.Ready && !Chat.Sound.Loading ) {
                  Chat.Sound.Loading = true;
-                 $( document.body ).prepend( '<div id="jquery_jplayer"></div>' );
                  $( '#jquery_jplayer' ).jPlayer( {
                      ready: function () {
+                         alert( 'Spound ready' );
                          this.element.jPlayer( "setFile", "http://static.zino.gr/revolution/sound/glass.mp3" );
                          Chat.Sound.Ready = true;
                          Chat.Sound.Loading = false;
                          Chat.Sound.Ding();
-                     }
+                     },
+                     swfPath: '/js/jquery',
+                     nativeSupport: true,
+                     volume: 50
                  } );
                  return;
              }
@@ -285,7 +288,7 @@ var Chat = {
                          + '<div id="chatmessages"></div>'
                          + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
                      + '</div>'
-                 + '</div>' );
+                 + '</div><div id="jquery_jplayer"></div>' );
             if ( Chat.Visible ) { // user has already clicked the chat button
                 Chat.Visible = false;
                 Chat.Toggle();
@@ -405,7 +408,7 @@ var Chat = {
          else {
              var userid, cid, found, username;
 
-             if ( channelid != 0 && User === 'dionyziz' ) {
+             if ( channelid != 0 && User == 'dionyziz' ) {
                  Chat.Sound.Ding();
              }
              found = false;
@@ -444,6 +447,9 @@ var Chat = {
          }
      },
      PopBubble: function ( userid, username, text, channelid ) {
+         if ( Chat.Visible ) {
+             return;
+         }
          if ( !$( '#chatbubbles' ).length ) {
              $( document.body ).append( '<div id="chatbubbles"></div>' );
          }

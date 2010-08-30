@@ -96,7 +96,7 @@ var PhotoListing = {
                         $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
                     }
                     else {
-                        alert( id );
+                        // alert( id );
                     }
                     if ( user ) {
                         $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'alt', user );
