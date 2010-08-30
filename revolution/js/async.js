@@ -13,16 +13,21 @@ var Async = {
             if( typeof( Routing[ window.MasterTemplate ].Unload ) == 'function' ){
                 Routing[ window.MasterTemplate ].Unload();
             }
+            var world = $( this ).find( '#world' ).andSelf().filter( '#world' );
+            var title = $( this ).find( 'title' ).text();
+            var MasterTemplate = world.attr( 'class' ).split( '-' );
+            MasterTemplate = MasterTemplate[ 1 ] + '.' + MasterTemplate[ 2 ];
+
             // Replace the world
             $( '#world' ).empty(); 
-            $( this ).find( '#world' ).children().appendTo( '#world' );
+            world.children().appendTo( '#world' );
             //set new Title, html id and hash
-            $( 'title' ).text( $( this ).find( 'title' ).text() );
-            $( 'html' ).attr( 'id', $( this ).filter( 'html' ).attr( 'id' ) );
+            $( 'title' ).text( title );
+            $( 'html' ).attr( 'id', MasterTemplate.split( '.' ).join( '-' ) );
             window.location.hash = href;
             Async.hash = window.location.hash.substr( 1 );
             //set new Master Template and run
-            window.MasterTemplate = $( this ).filter( 'html' ).attr( 'id' ).split( '-' ).join( '.' );
+            window.MasterTemplate = MasterTemplate;
             Routing[ MasterTemplate ].Init();
             Chat.BindClick();
             $( '.time:not(.processed)' ).load();

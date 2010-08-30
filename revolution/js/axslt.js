@@ -338,7 +338,7 @@ var _aXSLT = {
 	        doc.loadXML( templateString );
 			//alert( basicStylesheet.childNodes[0].childNodes.length );
             finalDoc.appendChild( basicStylesheet.childNodes[0] );
-            alert( finalDoc.childNodes.length );
+            //alert( finalDoc.childNodes.length );
             finalDoc.childNodes[0].appendChild( doc.childNodes[0].childNodes[0] );
 			//alert( basicStylesheet.childNodes[0].childNodes.length );
             //alert( templateDOM.nodeName );

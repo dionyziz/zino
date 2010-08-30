@@ -58,6 +58,7 @@
         </head>
         <body onload="Comet.OnBodyLoaded()">
             <div id="world">
+                <xsl:attribute name="class">master-<xsl:value-of select="/social/@resource"/>-<xsl:value-of select="/social/@method"/></xsl:attribute>
                 <xsl:call-template name="banner" />
                 <div id="content">
                     <xsl:apply-templates />
