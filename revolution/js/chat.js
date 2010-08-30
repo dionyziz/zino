@@ -530,7 +530,7 @@ var Chat = {
          }
      },
      OnUserOffline: function ( userid, username ) {
-         if ( $( '#u' + userid ).hadClass( 'flash' ) ) {
+         if ( $( '#u' + userid ).hasClass( 'flash' ) ) {
              // do not remove someone who is talking to you
              $( '#u' + userid ).addClass( 'offline' );
              return;
