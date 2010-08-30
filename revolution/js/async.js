@@ -1,5 +1,5 @@
 var Async = {
-    Go: function( href ){
+    Go: function( href, callback ){
         var link = href.length ? href : './';
         if( typeof( User ) != 'string' ){
             window.location = href;
@@ -34,6 +34,9 @@ var Async = {
             Routing[ MasterTemplate ].Init();
             Chat.BindClick();
             $( '.time:not(.processed)' ).load();
+            if( typeof( callback ) == 'function' ){
+                callback();
+            }
         } );
     },
     Init: function(){
@@ -45,8 +48,10 @@ var Async = {
             }
         }, 100 );
         
-        if( window.location.hash.length ){
-            Async.Go( window.location.hash.substr( 1 ) );
+        if( window.location.hash.length > 0 ){
+            Async.Go( window.location.hash.substr( 1 ), function(){
+                $( 'body' ).show();        
+            });
         }
         $( 'a:not(:data(events)):not([href^=http])' ).live( 'click', function( e ){
             if( typeof( $( this )[ 0 ].onclick ) == 'function' ){

@@ -57,6 +57,14 @@
             <meta name="description" content="Το Zino είναι εσύ και η παρέα σου ζωντανά online − είσαι μέσα?" />
         </head>
         <body onload="Comet.OnBodyLoaded()">
+            <script type="text/javascript">
+                var href = window.location.href.split( '#' );
+                if( href.length != 1 ){
+                    if( href[ 1 ].length ){
+                        document.body.style.display = 'none';
+                    }
+                }
+            </script>
             <div id="world">
                 <xsl:attribute name="class">master-<xsl:value-of select="/social/@resource"/>-<xsl:value-of select="/social/@method"/></xsl:attribute>
                 <xsl:call-template name="banner" />
