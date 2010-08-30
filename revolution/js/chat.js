@@ -407,9 +407,6 @@ var Chat = {
          else {
              var userid, cid, found, username;
 
-             if ( channelid != 0 ) {
-                 Chat.Sound.Ding();
-             }
              found = false;
              for ( userid in Chat.ChannelByUserId ) {
                  cid = Chat.ChannelByUserId[ userid ];
@@ -481,6 +478,7 @@ var Chat = {
                      setTimeout( arguments.callee, 50 );
                  }
              } )();
+             Chat.Sound.Ding();
          }
      },
      OnUserOnline: function ( userid, username ) {
@@ -527,6 +525,31 @@ var Chat = {
          $( '#u' + userid ).remove();
          Chat.Typing.OnStop( username );
      },
+     FlashingTitleTimeout: null,
+     FlashTitle: function () {
+         var toggle = -1;
+
+         clearInterval( Chat.FlashingTitleTimeout );
+         if ( Chat.FlashingTabs ) {
+             document.title = 'Σου μιλάνε!';
+             Chat.FlashingTitleTimeout = setInterval( function() { 
+                 ++toggle;
+                 switch ( toggle ) { 
+                     case 0:
+                        document.title = 'Chat στο zino';
+                        break;
+                     case 1:
+                        var $talkingheads = $( '.userlist .flash' );
+                        document.title = $( $talkingheads[ Math.floor( Math.random() * $talkingheads.length ) ] ).find( '.username' ).text();
+                        break;
+                     case 2:
+                        document.title = 'Σου μιλάνε!';
+                        toggle = -1;
+                        break;
+                }
+             }, 1000 );
+         }
+     },
      Flash: function ( userid, message ) {
          if ( Chat.Visible ) {
              $( '#u' + userid )[ 0 ].scrollIntoView();
@@ -536,6 +559,8 @@ var Chat = {
              return;
          }
          ++Chat.FlashingTabs;
+         Chat.FlashTitle();
+         Chat.Sound.Ding();
          $( '#u' + userid ).addClass( 'flash' ).html(
             '<span class="username">' + $( '#u' + userid ).text() + '</span>'
             + '<span class="text">' + message + '</span>'
@@ -546,6 +571,7 @@ var Chat = {
              return;
          }
          --Chat.FlashingTabs;
+         Chat.FlashTitle();
          $( '#u' + userid ).removeClass( 'flash' );
          var uname = $( '#u' + userid + ' .username' ).text();
          $( '#u' + userid ).text( uname );
