@@ -235,7 +235,12 @@ var Chat = {
                  Chat.Sound.Loading = true;
                  $( '#jquery_jplayer' ).jPlayer( {
                      ready: function () {
-                         this.element.jPlayer( "setFile", "http://static.zino.gr/revolution/sound/glass.mp3" );
+                         this.element.jPlayer(
+                            "setFile",
+                            "http://static.zino.gr/revolution/sound/glass.mp3",
+                            "http://static.zino.gr/revolution/sound/glass.ogg",
+                            "http://static.zino.gr/revolution/sound/glass.wav"
+                         );
                          Chat.Sound.Ready = true;
                          Chat.Sound.Loading = false;
                          Chat.Sound.Ding();
