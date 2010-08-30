@@ -4,11 +4,14 @@ var Async = {
         if( typeof( User ) != 'string' ){
             window.location = href;
         }
+        $( '#world' ).stop( 1 ).fadeTo( 100, 0.5 );
         axslt( $.get( link ), 'call:html', function(){
+            $( '#world' ).stop( 1 ).fadeTo( 0, 1 );
             //Close Chat
             if( Chat.Visible ){
                 Chat.Toggle();
             }
+
             // Run Unload Function from previous Master Template
             if( typeof( Routing[ window.MasterTemplate ].Unload ) == 'function' ){
                 Routing[ window.MasterTemplate ].Unload();
