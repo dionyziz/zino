@@ -1,7 +1,10 @@
 function innerxml( node ) {
-    return (node.xml || (new XMLSerializer()).serializeToString(node) || "").replace(
-        new RegExp("(^<\\w*" + node.tagName + "[^>]*>)|(<\\w*\\/\\w*" + node.tagName + "[^>]*>$)", "gi"), "");
+    var text = node.xml || ( new XMLSerializer() ).serializeToString( node ) || "";
+    var regex = new RegExp( "(^<\\w*" + node.tagName + "[^>]*>)|(<\\w*\\/\\w*" + node.tagName + "[^>]*>$)", "gi" );
+
+    return text.replace( regex, "" );
 }
+
 var ExcaliburSettings = {
     Production: true
 };
