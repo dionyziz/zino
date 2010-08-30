@@ -775,7 +775,7 @@ var Chat = {
 
              $chatmessages.find( '.scrollcontainer' ).css( { top: '50px' } );
              $chatmessages.prepend( $panel );
-             $panel.find( '.toolbox' ).append( '<li><a class="sendfile" href="#"><img src="http://static.zino.gr/revolution/page_white_get.png" alt="Αποστολή αρχείου" title="Αποστολή αρχείου" /></a></li>' );
+             $panel.find( '.toolbox' ).append( '<li><a class="sendfile" href=""><img src="http://static.zino.gr/revolution/page_white_get.png" alt="Αποστολή αρχείου" title="Αποστολή αρχείου" /></a></li>' );
              $chatmessages.find( 'a.sendfile' ).click( Chat.File.Send );
              $.get( 'chat/' + channelid, function ( res ) {
                  var users = $( res ).find( 'user' );
