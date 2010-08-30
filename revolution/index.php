@@ -27,23 +27,6 @@
             $_SESSION[ 'user' ] = $user;
         }
     }
-    if ( isset( $_SESSION[ 'user' ] ) ) {
-        switch ( strtolower( $_SESSION[ 'user' ][ 'name' ] ) ) {
-            case 'shinda_tori':
-            case 'donhoulio':
-            case 'annaaa':
-			case 'nitrio2' :
-			case 'stak_o_gamiac':
-            case 'e3wghinos':
-            case 'gogkas':
-            case 'gkogac':
-            case 'parvati':
-            case 'ilias':
-            case 'gogkasm0m':
-                throw New Exception( 'Access denied' );
-            default:
-        }
-    }
     
     $resource = $method = '';
     !isset( $_GET[ 'resource' ] ) or $resource = $_GET[ 'resource' ];
