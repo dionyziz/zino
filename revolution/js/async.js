@@ -19,7 +19,7 @@ var Async = {
             MasterTemplate = MasterTemplate[ 1 ] + '.' + MasterTemplate[ 2 ];
 
             // Replace the world
-            $( '#world' ).empty(); 
+            $( '#world' ).empty().removeClass().addClass( world.attr( 'class' ) );
             world.children().appendTo( '#world' );
             //set new Title, html id and hash
             $( 'title' ).text( title );
