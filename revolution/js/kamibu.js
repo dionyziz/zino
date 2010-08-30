@@ -1,6 +1,7 @@
 var Kamibu = {
     Go: function ( href ) {
-        Async.Go( href );
+        var base = document.getElementsByTagName( 'base' )[ 0 ].href;
+        window.location.href = base + href;
     },
     EditableTextElement: function( element, placeholder, callback ) {
         /** Requirements: jQuery */
