@@ -549,6 +549,9 @@ var Chat = {
                 }
              }, 1000 );
          }
+         else {
+             document.title = 'Chat στο zino';
+         }
      },
      Flash: function ( userid, message ) {
          if ( Chat.Visible ) {
