@@ -168,6 +168,9 @@
     border-radius: 5px;
     -webkit-border-radius: 5px;
 }
+.uesrlist li.offline span.username { 
+    color: #999;
+}
 .userlist li.flash span.username {
     color: black;
 }

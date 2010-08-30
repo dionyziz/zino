@@ -285,7 +285,6 @@ var Chat = {
             Chat.Join( Chat.UserId + ':' + Chat.Authtoken ); // listen for private messages only
             $( document.body ).append(
                  '<div style="display:none" id="chat">'
-                     // + '<div class="xbutton">&laquo; Πίσω</div>'
                      + '<div class="userlist">'
                          + '<div class="search"><input type="text" value="Αναζήτηση"></div>'
                          + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
@@ -530,6 +529,11 @@ var Chat = {
          }
      },
      OnUserOffline: function ( userid, username ) {
+         if ( $( '#u' + user ).hadClass( 'flash' ) ) {
+             // do not remove someone who is talking to you
+             $( '#u' + user ).addClass( 'offline' );
+             return;
+         }
          $( '#u' + userid ).remove();
          Chat.Typing.OnStop( username );
      },
