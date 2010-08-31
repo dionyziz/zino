@@ -55,6 +55,7 @@
                 throw Exception( 'You are not allowed to delete this tag' );
             }
             ImageTage::Delete( $phototagid );
+            Template( 'imagetag/deleted', compact( 'tag' ) );
         }
     }
 

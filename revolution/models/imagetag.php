@@ -70,6 +70,7 @@
                 throw Exception( 'No such tag' ); // other exception type maybe?
             }
             $tag[ 'image ' ] = array(
+                'id' => $tag[ 'imageid' ],
                 'userid' => $tag[ 'imageuserid' ],
                 'name' => $tag[ 'imagename' ]
             );
