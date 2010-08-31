@@ -49,6 +49,9 @@
             Template( 'imagetag/listing', compact( 'tags', 'photoid' ) );
         }
         public static function Delete( $phototagid ) {
+            clude( 'models/db.php' );
+			clude( 'models/imagetag.php' );
+
             $tag = ImageTag::Item( $phototagid );
             $userid = $_SESSION[ 'user' ][ 'id' ];
             if ( $userid != $tag[ 'ownerid' ] && $userid != $tag[ 'personid' ] && $userid != $tag[ 'image' ][ 'userid' ] ) {
