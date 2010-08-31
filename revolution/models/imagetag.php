@@ -43,6 +43,38 @@
             $info[ 'id' ] = mysql_insert_id();
             return $info;
         }
+        public static function Item( $id ) {
+            $res = db(
+                'SELECT
+                    `tag_id` AS id,
+                    `tag_imageid` AS imageid,
+                    `tag_personid` AS personid,
+                    `tag_created` AS created,
+                    `tag_left` AS left,
+                    `tag_top` AS top,
+                    `tag_width` AS width,
+                    `tag_height` AS height,
+                    `tag_ownerid` AS ownerid,
+                    `image_userid` AS imageuserid,
+                    `image_name` AS imagename
+                FROM
+                    `imagetags`
+                    LEFT JOIN `images` ON
+                        `image_id` = `imagetag_imageid`
+                WHERE
+                    `imagetag_id` = :id
+                LIMIT 1;', compact( 'id' )
+            );
+            $tag = mysql_fetch_array( $res );
+            if ( empty( $tag ) ) {
+                throw Exception( 'No such tag' ); // other exception type maybe?
+            }
+            $tag[ 'image ' ] = array(
+                'userid' => $tag[ 'imageuserid' ],
+                'name' => $tag[ 'imagename' ]
+            );
+            return $tag;
+        }
 		public static function ItemMulti( $ids ) {
 			if ( !is_array( $ids ) ) {
 				return array();
@@ -105,6 +137,7 @@
             return $ret;
 		}
         public static function Delete( $id ) {
+            db( 'DELETE FROM `imagetags` WHERE `imagetag_id` = :id LIMIT 1;', compact( 'id' ) );
         }
     }
 ?>

@@ -112,10 +112,10 @@ CREATE TRIGGER imageinsert AFTER INSERT ON `images`
 
 CREATE TRIGGER imageupdate AFTER UPDATE ON `images`
     FOR EACH ROW BEGIN
-   		DECLARE albummainid INT(11);
+   		DECLARE albummainid, albumfirstid INT(11);
         IF OLD.`image_delid` = 0 AND NEW.`image_delid` = 1 THEN
             UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
-            UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
+            UPDATE `albums` SET `albuιιιιιm_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
             DELETE FROM `activities` WHERE `activity_userid` = OLD.`image_userid` AND `activity_typeid` = 7 AND `activity_itemid` = OLD.`image_id` LIMIT 1;
 
             SELECT 
@@ -133,9 +133,9 @@ CREATE TRIGGER imageupdate AFTER UPDATE ON `images`
             INTO albummainid, albumfirstid;
 
             IF albummainid = OLD.`image_id` THEN
-                IF albumfirstid IS NULL THEN -- is this necessary?
-                    albumfirstid = 0
-                END IF;
+                -- IF albumfirstid IS NULL THEN -- is this necessary?
+                --    albumfirstid = 0
+                -- END IF;
                 UPDATE `albums` SET `album_mainimageid` = albumfirstid WHERE `album_id` = OLD.`image_albumid`;
             END IF;
 
@@ -198,7 +198,7 @@ CREATE TRIGGER albumupdate AFTER UPDATE ON `albums`
         IF OLD.`album_mainimageid` <> NEW.`album_mainimageid` THEN
             SELECT `user_egoalbumid` FROM `users` WHERE `user_id` = NEW.`album_ownerid` INTO useregoalbumid;
             IF useregoalbumid = NEW.`album_id` THEN
-                UPDATE `user_avatarid` = NEW.`album_mainimageid` WHERE `user_id` = OLD.`album_ownerid` LIMIT 1;
+                UPDATE `users` SET `user_avatarid` = NEW.`album_mainimageid` WHERE `user_id` = OLD.`album_ownerid` LIMIT 1;
             END IF;
         END IF;
    END;

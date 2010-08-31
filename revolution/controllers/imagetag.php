@@ -49,6 +49,12 @@
             Template( 'imagetag/listing', compact( 'tags', 'photoid' ) );
         }
         public static function Delete( $phototagid ) {
+            $tag = ImageTag::Item( $phototagid );
+            $userid = $_SESSION[ 'user' ][ 'id' ];
+            if ( $userid != $tag[ 'ownerid' ] && $userid != $tag[ 'personid' ] && $userid != $tag[ 'image' ][ 'userid' ] ) {
+                throw Exception( 'You are not allowed to delete this tag' );
+            }
+            ImageTage::Delete( $phototagid );
         }
     }
 
