@@ -83,7 +83,7 @@
                 </xsl:when>
                 <xsl:otherwise>
                     <script type="text/javascript">
-                        <xsl:attribute name="src">http://static.zino.gr/js/global.js?<xsl:value-of select="$js" /></xsl:attribute>
+                        <xsl:attribute name="src">http://static.zino.gr/js/global.js?<xsl:value-of select="$jsversion" /></xsl:attribute>
                     </script>
                 </xsl:otherwise>
             </xsl:choose>
