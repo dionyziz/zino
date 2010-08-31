@@ -1,8 +1,6 @@
 <user id="<?= $user[ 'id' ] ?>"<?
     if ( isset( $user[ 'rights' ] ) && $user[ 'rights' ] > 30 ):
-    ?>
-    admin="yes"
-    <?
+    ?> admin="yes"<?
     endif;
     ?>>
     <name><?= $user[ 'name' ] ?></name>
