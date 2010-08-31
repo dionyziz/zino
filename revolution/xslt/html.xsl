@@ -8,6 +8,9 @@
     <xsl:value-of select="/*[1]/@method" />
 </xsl:variable>
 
+<xsl:variable name="cssversion">14</xsl:variable>
+<xsl:variable name="jsversion">13</xsl:variable>
+
 <xsl:variable name="user" select="/*[1]/@for" />
 <xsl:variable name="sandbox" select="contains( /social/@generator, 'http://beta.zino.gr/' ) or contains( /social/@generator, 'http://local.zino.gr/' )" />
 
@@ -39,7 +42,9 @@
                     <link type="text/css" href="global.css" rel="stylesheet" />
                 </xsl:when>
                 <xsl:otherwise>
-                    <link type="text/css" href="http://static.zino.gr/css/global.css?13" rel="stylesheet" />
+                    <link type="text/css" rel="stylesheet">
+                        <xsl:attribute name="href">http://static.zino.gr/css/global.css?<xsl:value-of select="$cssversion" /></xsl:attribute>
+                    </link>
                 </xsl:otherwise>
             </xsl:choose>
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
@@ -77,7 +82,9 @@
                     <script type="text/javascript" src="global.js"></script>
                 </xsl:when>
                 <xsl:otherwise>
-                    <script type="text/javascript" src="http://static.zino.gr/js/global.js?11"></script>
+                    <script type="text/javascript">
+                        <xsl:attribute name="src">http://static.zino.gr/js/global.js?<xsl:value-of select="$js" /></xsl:attribute>
+                    </script>
                 </xsl:otherwise>
             </xsl:choose>
             <script type="text/javascript">
