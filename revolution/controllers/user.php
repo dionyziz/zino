@@ -54,11 +54,16 @@
                 if ( isset( $user[ 'profile' ][ 'songid' ] ) && $user[ 'profile' ][ 'songid' ] != -1 ) {
                     $song = Song::Item( $user[ 'id' ] );
                 }
-                $interests = Interest::ListByUser( $user[ 'id' ] );
+                else { //TODO: rely only on Song::Item
+                    $song = false;
+                }
                 
                 if ( $song === false ) {
                     unset( $song );
                 }
+                
+                $interests = Interest::ListByUser( $user[ 'id' ] );
+                
                 $friendofuser = false;
                 if ( isset( $_SESSION[ 'user' ] ) ) {
                     $friendofuser = ( bool ) ( Friend::Strength( $_SESSION[ 'user' ][ 'id' ], $user[ 'id' ] ) & FRIENDS_A_HAS_B );
