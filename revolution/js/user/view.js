@@ -1,6 +1,11 @@
 var Profile = {
     CurrentValues: {},
     Init: function () {
+        if ( $( 'li.aboutme' ).length ) {
+            var aboutme = $( 'li.aboutme > div.text' ).text(); //TODO: replace span with div
+            $( 'li.aboutme > div.text' ).empty().append( Kamibu.Nl2Br( aboutme ) );
+        }
+        
         if ( $( '.accountmenu' ).length ) {
             $( '.accountmenu a:eq(0)' ).click( function () {
                 axslt( false, 'call:user.modal.settings', function() {
@@ -307,29 +312,32 @@ var Profile = {
             }
             $.post( '?resource=user&method=update', { dob: year + '-' + month + '-' + day } );
         }, 'Ημερομηνία γέννησης' );
-        if ( $( 'li.aboutme > span' ).hasClass( 'notshown' ) ) {
-            $( 'li.aboutme > span' ).text( 'Να μην εμφανίζεται' );
+        if ( $( 'li.aboutme > div.text' ).hasClass( 'notshown' ) ) {
+            $( 'li.aboutme > div.text' ).text( 'Να μην εμφανίζεται' );
         }
-        $( 'li.aboutme > span' ).addClass( 'editable' ).click( function() {
+        $( 'li.aboutme > div.text' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.aboutme', function() {
                 var $modal = $( this ).filter( 'div' );
                 $modal.prependTo( 'body' ).modal();
                 var text = '';
-                if ( !$( 'li.aboutme > span' ).hasClass( 'notshown' ) ) {
-                    text = $( 'li.aboutme > span' ).text();
+                if ( !$( 'li.aboutme > div.text' ).hasClass( 'notshown' ) ) {
+                    text = Kamibu.Br2Nl( $( 'li.aboutme > div.text' ) );
                 }
-                $modal.find( 'textarea.aboutme' ).val( text ).focus();
+                $modal.find( 'textarea.aboutme' ).focus().val( text );
                 //$modal.find( 'textarea.aboutme' ).val( text ).focus();
                 $modal.find( 'a.save' ).click( function() {
                     var text = $modal.find( 'textarea.aboutme' ).val();
-                    $( 'li.aboutme > span' ).text( text ).removeClass( 'notshown' );
+                    text = $.trim( text );
+                    var s = text.replace( /(\n){3,}/g, '\n\n' ).split( '\n' ); //limiting sequential newlines to 3
+                    text = s.slice( 0, 9 ).join( '\n' ) + s.slice( 10 ).join( '\n' ).replace( /(\n)+/g, ' ' ); //limiting total newlines to 9
+                    $( 'li.aboutme > div.text' ).removeClass( 'notshown' ).empty().append( Kamibu.Nl2Br( text ) );
                     $.post( 'user/update', { 'aboutme': text } );
                     $modal.jqmHide();
                     return false;
                 } );
                 $modal.find( 'a.linebutton' ).click( function() {
                     $.post( 'user/update', { aboutme: '' } );
-                    $( 'li.aboutme > span' ).text( 'Να μην εμφανίζεται' ).addClass( 'notshown' );
+                    $( 'li.aboutme > div.text' ).text( 'Να μην εμφανίζεται' ).addClass( 'notshown' );
                     $modal.jqmHide();
                     return false;
                 } );

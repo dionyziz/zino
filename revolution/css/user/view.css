@@ -106,8 +106,12 @@ ul.userdetails > li {
     width: 100%;
     font-weight: bold;
 }
-ul.userdetails li span {
+ul.userdetails li span,
+ul.userdetails li.aboutme div.text {
     font-weight: normal;
+}
+ul.userdetails li.aboutme div.text {
+    display: inline;
 }
 li.heightweight {
     text-align: center;
@@ -121,6 +125,7 @@ li.heightweight ul li {
 }
 ul.userdetails li.aboutme {
     padding: 1em 0;
+    overflow: hidden;
 }
 .mplayer{
     margin-top: 20px;

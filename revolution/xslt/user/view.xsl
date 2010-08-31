@@ -591,16 +591,16 @@
         <xsl:if test="aboutme or $user = ../name[1]">
             <li class="aboutme">
                 <div>Λίγα λόγια για μένα:</div>
-                <span>
+                <div class="text">
                     <xsl:choose>
                         <xsl:when test="not( aboutme ) and $user = ../name[1]">
-                            <xsl:attribute name="class">aboutme notshown</xsl:attribute>
+                            <xsl:attribute name="class">notshown</xsl:attribute>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:value-of select="aboutme" />
                         </xsl:otherwise>
                     </xsl:choose>
-                </span>
+                </div>
             </li>
         </xsl:if>
     </ul>

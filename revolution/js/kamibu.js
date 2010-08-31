@@ -3,6 +3,36 @@ var Kamibu = {
         var base = document.getElementsByTagName( 'base' )[ 0 ].href;
         window.location.href = base + href;
     },
+    Nl2Br: function ( text ) {
+        /** Requirements: jQuery */
+        var res = document.createElement( 'div' );
+        var br = document.createElement( 'br' );
+        var lns = text.split( '\n' );
+        for ( var i = 0, l = lns.length ; i < l; ++i ) {
+            if ( lns[ i ] != '' ) {
+                $( res ).append( document.createTextNode( lns[ i ] ) );
+            }
+            if ( i != l - 1 ) {
+                $( res ).append( br.cloneNode() );
+            }
+        }
+        return res.childNodes;
+    },
+    Br2Nl: function ( element ) {
+        /** Requirements: jQuery */
+        var text = '';
+        element = element.get( 0 );
+        for ( var i = 0, l = element.childNodes.length; i < l; ++i ) {
+            if ( element.childNodes[ i ].nodeType == Node.TEXT_NODE ) {
+                text += element.childNodes[ i ].nodeValue;
+            }
+            else if ( element.childNodes[ i ].nodeType == Node.ELEMENT_NODE &&
+                      element.childNodes[ i ].nodeName.toLowerCase() == 'br' ) {
+                text += '\n';
+            }
+        }
+        return text;
+    },
     EditableTextElement: function( element, placeholder, callback ) {
         /** Requirements: jQuery */
         
