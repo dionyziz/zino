@@ -411,6 +411,7 @@ var Profile = {
             } );
             return false;
         } );
+        Profile.Player.Init();
         //var $sloganinput = $( '<input/>' ).val( $( 'div.slogan' ).text() );
         //Kamibu.EditableTextElement( $( 'div.slogan' ).get( 0 ), 'Όρισε σλόγκαν', function( text ) { alert( text ); } );
         //$( 'div.slogan' ).text( '' ).append( $sloganinput );

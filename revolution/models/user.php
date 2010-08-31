@@ -290,6 +290,7 @@
                     `profile_politics`,
                     `profile_slogan`,
                     `profile_aboutme`,
+                    `profile_songid`,
                     `profile_dob`,
                     `profile_moodid`,
                     `mood_labelmale`, `mood_labelfemale`,
@@ -340,7 +341,7 @@
                 'eyecolor', 'haircolor',
                 'sexualorientation', 'relationship',
                 'religion', 'politics',
-                'slogan', 'aboutme', 'dob', 'age'
+                'slogan', 'aboutme', 'dob', 'age', 'songid'
             );
             foreach ( $profiledetails as $detail ) {
                 $row[ 'profile' ][ $detail ] = $row[ 'profile_' . $detail ];
@@ -411,6 +412,7 @@
             }
 
 			if ( isset( $details[ 'profile_songid' ] ) ) {
+                clude( 'models/music/song.php' );
 				Song::Insert( $userid, $details[ 'profile_songid' ] );
 			}
 

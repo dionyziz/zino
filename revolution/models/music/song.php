@@ -30,8 +30,8 @@
 		}
 
         public static function Insert( $userid, $songid ) {
-			clude( 'music/grooveshark.php' );
-			clude( 'music/GSAPI.php' );
+			clude( 'models/music/grooveshark.php' );
+			clude( 'models/music/GSAPI.php' );
 			$gsapi = GSAPI::getInstance(array('APIKey' => "1100e42a014847408ff940b233a39930" ) );
 			$songid = ( int )$songid;
 			$userid = ( int )$userid;

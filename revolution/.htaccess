@@ -50,6 +50,7 @@ RewriteRule ^comments/([1-4])/([0-9]+)$ index.php?resource=comment&method=listin
 
 #songs
 RewriteRule ^randomsongs$ index.php?resource=song&method=listing&randomlist=1 [L,QSA]
+RewriteRule ^song/list$ index.php?resource=song&method=listing [L,QSA]
 
 #ban
 RewriteRule ^ban/list$ index.php?resource=ban&method=listing [L,QSA]

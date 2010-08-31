@@ -81,6 +81,9 @@ var axslt = function( xml, template, callback, params, xslPath ) {
 };
 
 var node_dump = function( nodeset ) {
+    if ( !nodeset.length ) {
+        nodeset = [ nodeset ];
+    }
     var xmls =  new XMLSerializer();
     var res = '//Total nodes: ' + nodeset.length + '\n';
     for ( var i = 0; i < nodeset.length; i++ ) {
@@ -385,7 +388,7 @@ var _aXSLT = {
         
         if ( typeof( xml ) == 'string' ) {
             if ( window.DOMParser ) {
-                new DOMParser().parseFromString( xsl, 'text/xml' );
+                xmldoc = new DOMParser().parseFromString( xml, 'text/xml' );
             }
             else if ( window.ActiveXObject ) {
                 xmldoc = new ActiveXObject("Microsoft.XMLDOM");
@@ -411,7 +414,6 @@ var _aXSLT = {
                 xmldoc = xml.responseXML;
             }
         }
-        
         if ( window.ActiveXObject ) {
             
             //alert( xmldoc.nodeName );
@@ -545,7 +547,7 @@ var _aXSLT = {
             throw new Error( 'aXSLT: Empty result document' );
         }
         if ( callback ) {
-            callback.call( result.childNodes );
+            callback.call( result.childNodes, result.childNodes );
         }
     }
 };

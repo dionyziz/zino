@@ -51,7 +51,9 @@
                 $comments = $commentdata[ 1 ];
                 $counts = UserCount::Item( $user[ 'id' ] );
                 $activities = Activity::ListByUser( $user[ 'id' ] );
-                $song = Song::Item( $user[ 'id' ] );
+                if ( isset( $user[ 'profile' ][ 'songid' ] ) && $user[ 'profile' ][ 'songid' ] != -1 ) {
+                    $song = Song::Item( $user[ 'id' ] );
+                }
                 $interests = Interest::ListByUser( $user[ 'id' ] );
                 
                 if ( $song === false ) {

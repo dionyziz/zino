@@ -24,9 +24,10 @@ poll.js
 journal.js
 wysiwyg.js
 si.files.js
-user/view.js
 presence.js
+user/view.js
 user/details.js
+user/player.js
 calendar.js
 friends.js
 album.js

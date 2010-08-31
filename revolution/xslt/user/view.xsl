@@ -185,8 +185,19 @@
                 <div class="eof"></div>
                 <xsl:apply-templates select="details" />
 
-                <xsl:apply-templates select="song" />
                 
+                <xsl:if test="song or $user = name">
+                    <div class="mplayer">
+                        <xsl:choose>
+                            <xsl:when test="song">
+                                <xsl:apply-templates select="song" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <a href="" id="addnewsong" class="notshown editable">Πρόσθεσε ένα τραγούδι στο προφίλ σου</a>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </div>
+                </xsl:if>
                 <xsl:call-template name="taglists">
                     <xsl:with-param name="taglists" select="taglists" />
                 </xsl:call-template>

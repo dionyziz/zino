@@ -16,6 +16,10 @@
 	cursor: pointer;
 	display: block;
 }
+.mplayer .toolbox .delete{
+    background: url( http://static.zino.gr/phoenix/delete.png );
+    padding: 0 12px 1px 0;
+}
 .mplayer .toolbox .search{
 	background: transparent url(http://static.zino.gr/phoenix/edit.png) no-repeat 0 0;
 	padding: 0 1px 0 11px;
@@ -39,7 +43,9 @@
 #mplayersearchmodal .toolbar .exit:active{
 	background-position: 0 -30px;
 }
-
+#mplayersearchmodal div {
+    padding: 0;
+}
 #mplayersearchmodal .input{
 	position: relative;
 }
@@ -96,6 +102,7 @@
 	background: white;
 	border-collapse: collapse;
 	color: #32587d;
+    text-align: left;
 }
 #mplayersearchmodal table tr{
 	padding: 3px;
@@ -105,6 +112,7 @@
 	font-weight: bold;
 	text-align: left;
 	cursor: default;
+    text-align: center;
 }
 #mplayersearchmodal table thead tr.hidden{
 	visibility: collapse;
