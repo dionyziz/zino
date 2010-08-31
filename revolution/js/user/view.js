@@ -136,12 +136,6 @@ var Profile = {
             $( '.userinterests.ego li div.editarea span' ).live( 'click', function(){
                 Profile.Interests.InterestClicked( $( this ) );
             });
-            $( '.userinterests.ego li div.editarea a.delete' ).live( 'click', function(){
-                $( this ).siblings( '.selected' ).each( function(){
-                    Profile.Interests.Remove( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
-                });
-                return false;
-            });
         },
         StartEdit: function( li ){
             var text;
@@ -169,6 +163,12 @@ var Profile = {
             }
             var spans = $( li ).children( 'span' ).removeClass( 'selected' );
             $( '<div class="editarea"><input class="empty" type="text"></input><p><a class="delete" href=""></a></p></div>' )
+                .find( 'p a.delete' ).click( function() {
+                    $( this ).siblings( '.selected' ).each( function(){
+                        Profile.Interests.Remove( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
+                    });
+                    return false;
+                } ).end()
                 .find( 'input' ).val( text ).data( 'default', text ).keydown( function( e ){
                     if( e.which == 27 ){
                         Profile.Interests.CancelEdit( $( this ).closest( 'li' ) );
