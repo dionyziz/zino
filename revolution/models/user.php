@@ -470,6 +470,23 @@
 					}
 				}	
 			}
+            
+            static $textfields = array( 'profile_msn', 'profile_skype', 'profile_yim', 'profile_slogan', 'profile_aboutme' );
+            foreach ( $textfields as $field ) {
+                if ( isset( $data[ $field ] ) ) {
+                    $data[ $field ] = preg_replace( '/[\xC2\xA0]/', ' ', $data[ $field ] ); //nbsps -> space
+                    $data[ $field ] = trim( $data[ $field ] );
+                    if ( $field == 'profile_aboutme' ) {
+                        $data[ 'profile_aboutme' ] = preg_replace( '/(\n){3,}/', "\n\n", $data[ $field ] ); //limit nls to 2 each time
+                    }
+                    else {
+                        $data[ $field ] = preg_replace( '/(\n)+/', ' ', $data[ $field ] );
+                    }
+                }
+            }
+            if ( isset( $data[ 'profile_aboutme' ] ) ) {
+                $data[ 'profile_aboutme' ] = preg_replace( '/(\n){2,}/', "\n\n", $data[ 'profile_aboutme' ] );
+            }
 	
 			return $data;
 		}
