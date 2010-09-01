@@ -23,15 +23,19 @@ var Comment = {
         Comment.New.call( a[ 0 ] );
         return false;
     },
+    AssignMessageEvents: function( $list ) {
+        $list.live( 'mousedown', function(){ Comment.StillMouse = true; } )
+            .live( 'mousemove',   function(){ Comment.StillMouse = false; } )
+            .click( ( function() {
+                    return function( e ) {
+                    Comment.CommentClicked( $( this ), e );
+                    return false;
+                }
+            } )() );
+    },
     Init: function(){
         if ( window.User ) {
-            $( 'a.talk, .message' )
-            .live( 'mousedown', function(){ Comment.StillMouse = true; } )
-            .live( 'mousemove',   function(){ Comment.StillMouse = false; } )
-            .click( function( e ) {
-                Comment.CommentClicked( $( this ), e );
-                return false;
-            });
+            Comment.AssignMessageEvents( $( 'a.talk, .message' ) );
         }
         this.CommentList = $( ".discussion" );
         Comment.AssignEvents();
@@ -231,10 +235,9 @@ var Comment = {
             if( this.length === 0 ) {
                 Comment.EndOfComments = true;
             }
-            $( this ).click( function( e ) {
-                Comment.CommentClicked( $( this ), e );
-                return false;
-            });
+            if ( window.User ) {
+                Comment.AssignMessageEvents( $( this ).find( '.message' ) );
+            }
             Comment.CommentList.append( $( this ) );
             if( !Comment.EndOfComments ){
                 Comment.AssignEvents();
