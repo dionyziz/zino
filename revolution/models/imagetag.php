@@ -60,7 +60,7 @@
                 FROM
                     `imagetags`
                     LEFT JOIN `images` ON
-                        `image_id` = `imagetag_imageid`
+                        `image_id` = `tag_imageid`
                 WHERE
                     `tag_id` = :id
                 LIMIT 1;', compact( 'id' )
