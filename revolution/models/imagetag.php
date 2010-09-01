@@ -67,7 +67,7 @@
             );
             $tag = mysql_fetch_array( $res );
             if ( empty( $tag ) ) {
-                throw Exception( 'No such tag' ); // other exception type maybe?
+                throw new Exception( 'No such tag' ); // other exception type maybe?
             }
             $tag[ 'image ' ] = array(
                 'id' => $tag[ 'imageid' ],
