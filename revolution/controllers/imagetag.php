@@ -57,7 +57,7 @@
             if ( $userid != $tag[ 'ownerid' ] && $userid != $tag[ 'personid' ] && $userid != $tag[ 'image' ][ 'userid' ] ) {
                 throw Exception( 'You are not allowed to delete this tag' );
             }
-            ImageTage::Delete( $phototagid );
+            ImageTag::Delete( $phototagid );
             Template( 'imagetag/deleted', compact( 'tag' ) );
         }
     }
