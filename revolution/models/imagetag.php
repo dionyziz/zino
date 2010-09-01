@@ -107,7 +107,7 @@
                     `places`
                 ON `profile_placeid` = `place_id`
 				WHERE `tag_id` IN :ids
-				LIMIT 1,100', compact( 'ids' )
+				LIMIT 0,100', compact( 'ids' )
 			);
             $ret = array();
             foreach ( $rows as $i => $row ) {
