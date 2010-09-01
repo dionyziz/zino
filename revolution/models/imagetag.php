@@ -138,7 +138,7 @@
             return $ret;
 		}
         public static function Delete( $id ) {
-            db( 'DELETE FROM `imagetags` WHERE `imagetag_id` = :id LIMIT 1;', compact( 'id' ) );
+            db( 'DELETE FROM `imagetags` WHERE `tag_id` = :id LIMIT 1;', compact( 'id' ) );
         }
     }
 ?>
