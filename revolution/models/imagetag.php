@@ -62,7 +62,7 @@
                     LEFT JOIN `images` ON
                         `image_id` = `imagetag_imageid`
                 WHERE
-                    `imagetag_id` = :id
+                    `tag_id` = :id
                 LIMIT 1;', compact( 'id' )
             );
             $tag = mysql_fetch_array( $res );
