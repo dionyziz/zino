@@ -139,9 +139,9 @@
                 <? if( $photo[ 'title' ] != '' ): ?>
                     <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
                 <? endif; ?>
-                <author id="<?= $tag[ 'imageownerid' ] ?>">
+                <author id="<?= $tag[ 'photo' ][ 'user' ][ 'id' ] ?>">
                 </author>
-                <media url="http://images2.zino.gr/media/<?= $tag[ 'imageownerid' ] ?>/<?= $tag[ 'imageid' ] ?>/<?= $tag[ 'imageid' ] ?>_150.jpg" />
+                <media url="http://images2.zino.gr/media/<?= $tag[ 'photo' ][ 'user' ][ 'id' ] ?>/<?= $tag[ 'photo' ][ 'id' ] ?>/<?= $tag[ 'photo' ][ 'id' ] ?>_150.jpg" />
                 <imagetags>
                     <imagetag id="<?= $tag[ 'id' ] ?>">
                         <creator id="<?= $owner[ 'id' ] ?>">
