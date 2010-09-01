@@ -32,7 +32,7 @@
 			$info = ImageTag::Create( $personid, $photoid, $ownerid, $top, $left, $width, $height );
             $id = $info[ 'id' ];
 			if(  $ownerid != $personid ) {
-				Notification::Create( $ownerid, $personid, EVENT_IMAGETAG_CREATED, $photoid );
+				Notification::Create( $ownerid, $personid, EVENT_IMAGETAG_CREATED, $id );
 			}
             Template( 'imagetag/create', compact( 'id', 'personid', 'photoid', 'ownerid', 'top', 'left', 'width', 'height' ) );
 			return;
