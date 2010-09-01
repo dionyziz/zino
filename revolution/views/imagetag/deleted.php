@@ -4,8 +4,8 @@
         <person id="<?= $tag[ 'personid' ] ?>" />
         <owner id="<?= $tag[ 'ownerid' ] ?>" />
         <geometry>
-            <left><?= $tag[ 'left' ] ?></left>
-            <top><?= $tag[ 'top' ] ?></top>
+            <left><?= $tag[ 'tagleft' ] ?></left>
+            <top><?= $tag[ 'tagtop' ] ?></top>
             <width><?= $tag[ 'width' ] ?></width>
             <height><?= $tag[ 'height' ] ?></height>
         </geometry>
