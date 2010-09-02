@@ -198,6 +198,11 @@ var Notifications = {
                     Notifications.Save();
                     return false;
                 } );
+                break;
+            case 'tag':
+                $ib.find( '.image' ).click( function(){
+                    Notifications.Navigate( 'photos/' + $( this ).attr( 'id' ).split( '_' )[ 1 ] );
+                });
         }
 
         if ( url !== '' ) {

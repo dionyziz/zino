@@ -10,6 +10,9 @@
             break;
         case EVENT_FRIENDRELATION_CREATED:
             ?>friend<?
+            break;
+        case EVENT_IMAGETAG_CREATED:
+            ?>tag<?
     endswitch;
     ?>" id="<?= $notification[ 'id' ] ?>">
     <? switch ( $notification[ 'eventtypeid' ] ):
@@ -135,13 +138,15 @@
         $photo = $tag[ 'photo' ];
         $owner = $tag[ 'owner' ];
         ?>
-            <photo>
+            <photo id="<?= $photo[ 'id' ] ?>">
                 <? if( $photo[ 'title' ] != '' ): ?>
                     <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
                 <? endif; ?>
                 <author id="<?= $tag[ 'photo' ][ 'user' ][ 'id' ] ?>">
                 </author>
-                <media url="http://images2.zino.gr/media/<?= $tag[ 'photo' ][ 'user' ][ 'id' ] ?>/<?= $tag[ 'photo' ][ 'id' ] ?>/<?= $tag[ 'photo' ][ 'id' ] ?>_150.jpg" />
+                <media url="http://images2.zino.gr/media/<?= $tag[ 'photo' ][ 'user' ][ 'id' ] ?>/<?= $tag[ 'photo' ][ 'id' ] ?>/<?= $tag[ 'photo' ][ 'id' ] ?>_full.jpg" />
+                <width><?= $tag[ 'photo' ][ 'width' ] ?></width>
+                <height><?= $tag[ 'photo' ][ 'height' ] ?></height>
                 <imagetags>
                     <imagetag id="<?= $tag[ 'id' ] ?>">
                         <creator id="<?= $owner[ 'id' ] ?>">

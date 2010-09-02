@@ -94,6 +94,7 @@
             </div>
         </xsl:if>
         <xsl:if test="not(@deleted)">
+            <xsl:call-template name="imagetag.list" />
             <xsl:call-template name="favourite.list" />
         </xsl:if>
     </div>
@@ -106,4 +107,27 @@
         </xsl:if>
     </div>
     <xsl:apply-templates select="discussion" />
+</xsl:template>
+
+<xsl:template name="imagetag.list">
+    <xsl:if test="/social/photo/imagetags">
+        <ul class="tagged">
+            <li>Σε αυτή τη φωτογραφία: </li>
+            <xsl:for-each select="/social/photo/imagetags/imagetag">
+                <li class="listtag">
+                    <xsl:attribute name="id">listtag_<xsl:value-of select="@id" /></xsl:attribute>
+                    <xsl:if test="./@id = ../imagetag[last()]/@id">
+                        <xsl:attribute name="class">listtag last</xsl:attribute>
+                    </xsl:if>
+                    <a>
+                        <xsl:attribute name="href">users/<xsl:value-of select="user/name" /></xsl:attribute>
+                        <xsl:value-of select="user/name" />
+                    </a>
+                    <xsl:if test="/social/@for = /social/photo/author/name or /social/@for = user/name"> 
+                        <a href="" class="delete"> (Διαγραφή)</a>
+                    </xsl:if>
+                </li>
+            </xsl:for-each>
+        </ul>
+    </xsl:if>
 </xsl:template>

@@ -75,15 +75,40 @@
 </xsl:template>
 
 <xsl:template match="notification[@type='tag']" mode="list">
-    <div class="box">
+    <xsl:variable name="IW" select="photo/width" />
+    <xsl:variable name="IH" select="photo/height" />
+    <xsl:variable name="TW" select="photo/imagetags/imagetag/width" />
+    <xsl:variable name="TH" select="photo/imagetags/imagetag/height" />
+    <xsl:variable name="TL" select="photo/imagetags/imagetag/left" />
+    <xsl:variable name="TT" select="photo/imagetags/imagetag/top" />
+    
+    <xsl:variable name="scale" select="100 div $TH" />
+    <xsl:variable name="which">height</xsl:variable>
+    <xsl:if test="$TW div $TH > 2">
+        <xsl:variable name="scale" select="200 div $TW" />
+        <xsl:variable name="which">width</xsl:variable>
+    </xsl:if>
+    <xsl:variable name="NIW" select="$scale * $IW" />
+    <xsl:variable name="NIH" select="$scale * $IH" />
+    <xsl:variable name="NTW" select="$scale * $TW" />
+    <xsl:variable name="NTH" select="$scale * $TH" />
+    <xsl:variable name="NTL" select="$scale * $TL" />
+    <xsl:variable name="NTT" select="$scale * $TT" />
+    <div class="box tagbox">
         <xsl:attribute name="id">notification_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
-        <div class="details">
+        <div class="details tag">
             <img>
                 <xsl:attribute name="src">
                     <xsl:value-of select="photo/media/@url" />
                 </xsl:attribute>
                 <xsl:attribute name="alt">
                     <xsl:value-of select="photo/title" />
+                </xsl:attribute>
+                <xsl:attribute name="style">
+                    width: <xsl:value-of select="$NIW" />px;
+                    height: <xsl:value-of select="$NIH" />px;
+                    top: -<xsl:value-of select="$NTT" />px;
+                    left: -<xsl:value-of select="$NTL" />px;
                 </xsl:attribute>
             </img>
         </div>
@@ -368,7 +393,7 @@
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
         <ul class="tips">
-            <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
+            <li>Enter = <strong>Προσθήκη στα αγαπημένα</strong></li>
             <li>Escape = <strong>Αγνόηση</strong></li>
         </ul>
         <div class="details">
@@ -378,34 +403,41 @@
                     <xsl:otherwise>Ο</xsl:otherwise>
                 </xsl:choose>
                 <xsl:text> </xsl:text>
-                <xsl:value-of select="photo/imagetags/image/tag/creator/name" />
+                <xsl:value-of select="photo/imagetags/imagetag/creator/name" />
                 <xsl:text> </xsl:text>
                 σε αναγνώρισε σε μία φωτογραφία.
             </strong></p>
-            <xsl:apply-templates select="photo/imagetags/image/tag/creator" />
-        </div>
-        <xsl:choose>
-            <xsl:when test="user/knows/user/knows"><!-- friend relationship mutual already -->
-                <div class="note">
-                    <p><strong>Γράψε ένα σχόλιο στη φωτογραφία:</strong></p>
-                    <form action="comment/create" method="post" class="save">
-                        <div class="thread new" style="display: block;">
-                            <input type="hidden" name="typeid" value="2" />
-                            <input type="hidden" name="itemid">
-                                <xsl:attribute name="value">
-                                    <xsl:value-of select="photo/@id" />
-                                </xsl:attribute>
-                            </input>
-                            <input type="hidden" name="parentid" value="0" />
-                            <div class="message mine new">
-                                <div><textarea name="text"></textarea></div>
-                            </div>
-                        </div>
-                        <p class="note">Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>
-                    </form>
+            <div class="image">
+                <xsl:attribute name="id">photo_<xsl:value-of select="photo/@id" /></xsl:attribute>
+                <xsl:attribute name="style">width:<xsl:value-of select="photo/width" />px;cursor:pointer;</xsl:attribute>
+                <img class="hover">
+                    <xsl:attribute name="src"><xsl:value-of select="photo/media/@url" /></xsl:attribute>
+                </img>
+                <div class="tag visible">
+                    <xsl:attribute name="style">
+                        top: <xsl:value-of select="photo/imagetags/imagetag/top" />px;
+                        left: <xsl:value-of select="photo/imagetags/imagetag/left" />px;
+                        width: <xsl:value-of select="photo/imagetags/imagetag/width" />px;
+                        height: <xsl:value-of select="photo/imagetags/imagetag/height" />px;
+                    </xsl:attribute>
+                    <div class="imagecontainer">
+                        <img>
+                            <xsl:attribute name="src"><xsl:value-of select="photo/media/@url" /></xsl:attribute>
+                            <xsl:attribute name="style">
+                                top: -<xsl:value-of select="photo/imagetags/imagetag/top" />px;
+                                left: -<xsl:value-of select="photo/imagetags/imagetag/left" />px;
+                            </xsl:attribute>
+                        </img>
+                    </div>
                 </div>
-            </xsl:when>
-        </xsl:choose>
+            </div>
+            <form action="favourite/create" method="post" class="save">
+                <input type="hidden" name="typeid" value="2" />
+                <input type="hidden" name="itemid">
+                    <xsl:attribute name="value"><xsl:value-of select="photo/@id" /></xsl:attribute>
+                </input>
+            </form>
+        </div>
     </div>
 </xsl:template>
 <xsl:template match="notification[@type='friend']" mode="view">

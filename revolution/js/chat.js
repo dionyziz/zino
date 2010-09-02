@@ -227,6 +227,7 @@ var Chat = {
                 $( this ).hide().removeClass( 'visible' );
             }
          });
+         Chat.Search.Init();
          Chat.Loaded = true;
          return true;
      },
@@ -288,6 +289,7 @@ var Chat = {
                      + '<div class="userlist">'
                          + '<div class="search"><input type="text" value="Αναζήτηση"></div>'
                          + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
+                         + '<ol id="searchlist"></ol>'
                      + '</div>'
                      + '<div class="textmessages">'
                          + '<div class="loading" style="display:none">Λίγα δευτερόλεπτα υπομονή...</div>'
@@ -300,6 +302,83 @@ var Chat = {
                 Chat.Toggle();
             }
         } );
+     },
+     Search: {
+        key: '',
+        Cancel: function(){
+            $( '#searchlist' ).empty().hide();
+            $( '#onlineusers' ).show();
+            Chat.Search.key = '';
+        },
+        Typing: function( text ){
+            if( text.length <= 1 ){
+                Chat.Search.Cancel();
+                return;
+            }
+
+            if( Chat.Search.key == '' || text.substr( 0, Chat.Search.key.length ) != Chat.Search.key ){ //the key is not valid
+                Chat.Search.GetUsers( text );
+                return;
+            }
+            Chat.Search.Filter( text );
+        },
+        GetUsers: function( text ){
+            Chat.Search.key = text;
+            $( '#searchlist' ).empty().append( '<li class="user_loading"><img src="http://static.zino.gr/revolution/loading.gif" /></li>' );
+            $( '#searchlist' ).show();
+            $( '#onlineusers' ).hide();
+            $.get( 'users/search', { query: text }, function( data ){
+                $( '#searchlist' ).empty();
+                $( data ).find( 'user' ).each( function(){
+                    if( $( this ).children( 'name' ).text() == User ){
+                        return;
+                    }
+                    var li = $( '<li id="searchuser_' + $( this ).attr( 'id' ) + '">' +
+                                    '<span class="user">' + $( this ).children( 'name' ).text() + '</span>' +
+                                '</li>' );
+                    if( !$( '#u' + $( this ).attr( 'id' ) ).length ){
+                        li.addClass( 'offline' );
+                    }
+                    li.appendTo( '#searchlist' );
+                });
+                Chat.Search.Filter();
+            });
+        },
+        Filter: function(){
+            var key = $( '.search input' ).val();
+            if( key == '' ){
+                Chat.Search.Cancel();
+                return;
+            }
+            if( $( '#searchlist li.user_loading' ).length ){
+                return;
+            }
+            $('#searchlist li' ).hide().filter( ':containsCI(' + key + ')' ).show().each( function(){
+                var oldtext = $( this ).text();
+                var newtext = '<span class="sel">' +
+                                oldtext.substr( 0, key.length ) +
+                             '</span>' +
+                             oldtext.substr( key.length );
+                $( this ).children( 'span.user' ).html( newtext );
+            });
+
+        },
+        Init: function(){
+            $( '.search' ).show();
+            $( '.search input' ).keydown( function( e ){
+                if( e.which == 27 ){
+                    Chat.Search.Cancel();
+                    $( '.search input' ).val( '' ).blur();
+                }
+            }).keyup( function(){
+                Chat.Search.Typing( $( this ).val() );
+            });
+            $( '#searchlist li:not(.user_loading)' ).live( 'click', function(){
+                Chat.ShowPrivate( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
+                $( '#searchlist li' ).removeClass( 'selected' );
+                $( this ).addClass( 'selected' );
+            });
+        }
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {
@@ -518,7 +597,7 @@ var Chat = {
              }
          }
          var newuser = document.createElement( 'li' );
-         newuser.appendChild( document.createTextNode( origname ) );
+         $( newuser ).html( '<span class="user"></span>' ).children( 'span' ).text( origname );
          newuser.id = 'u' + userid;
          newuser.onclick = Chat.NameClick;
 

@@ -88,6 +88,7 @@
                     `tag_ownerid` as ownerid, `user_name` as ownername, `user_deleted` as ownerdeleted,
                     `user_avatarid` as owneravatarid, `user_gender` as ownergender,
                     `image_userid` as imageownerid,
+                    `image_width` as imagewidth, `image_height` as imageheight,
                     `image_name` as imagename,	`profile_placeid` as placeid, (
                         ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
                         - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
@@ -116,7 +117,9 @@
                     'title' => $row[ 'imagename' ],
                     'user' => array(
                         'id' => $row[ 'imageownerid' ]
-                    )
+                    ),
+                    'width' => $row[ 'imagewidth' ],
+                    'height' => $row[ 'imageheight' ]
                 );
                 $rows[ $i ][ 'owner' ] = array(
                     'id' => $row[ 'ownerid' ],
@@ -131,7 +134,8 @@
                     $rows[ $i ][ 'imageid' ], $rows[ $i ][ 'imageownerid' ], $rows[ $i ][ 'imagename' ],
                     $rows[ $i ][ 'ownerid' ], $rows[ $i ][ 'ownername' ], $rows[ $i ][ 'ownerdeleted' ],
                     $rows[ $i ][ 'owneravatarid' ], $rows[ $i ][ 'ownergender' ],
-                    $rows[ $i ][ 'age' ], $rows[ $i ][ 'location' ]
+                    $rows[ $i ][ 'age' ], $rows[ $i ][ 'location' ], $rows[ $i ][ 'imagewidth' ],
+                    $rows[ $i ][ 'imageheight' ]
                 );
                 $ret[ $row[ 'id' ] ] = $rows[ $i ];
             }

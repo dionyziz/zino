@@ -9,6 +9,7 @@ RewriteRule ^photo/delete$ index.php?resource=photo&method=delete [L,QSA]
 #RewriteRule ^photos/byalbum/([0-9]+)$ index.php?resource=photo&method=listing&albumid=$1 [L,QSA]
 RewriteRule ^imagetags/([0-9]+)$ index.php?resource=imagetag&method=listing&photoid=$1 [L,QSA]
 RewriteRule ^imagetag/create$ index.php?resource=imagetag&method=create [L,QSA]
+RewriteRule ^imagetag/delete$ index.php?resource=imagetag&method=delete [L,QSA]
 
 # albums
 RewriteRule ^albums/([0-9]+)$ index.php?resource=album&method=view&id=$1 [L,QSA]

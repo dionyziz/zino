@@ -78,7 +78,7 @@ var PhotoView = {
                 id: id
             }, function(){
                 Async.Go( 'photos/' + User );
-            });     
+            });
         },
         Init: function(){
             if( typeof( User ) != 'string' || $( '.contentitem .details a.username' ).text() != User ){
@@ -90,20 +90,6 @@ var PhotoView = {
                 }
             });
         }
-    },
-    Unload: function(){
-        Comment.Unload();
-    },
-    Init: function(){
-        PhotoView.Title.Init();
-        PhotoView.Remove.Init();
-		ItemView.Init( 2 );
-        PhotoView.Tag.Init();
-        $( document ).bind( 'keydown', { combi: 'left', disableInInput: true }, PhotoView.LoadPrevious );
-        $( document ).bind( 'keydown', { combi: 'right', disableInInput: true }, PhotoView.LoadNext );
-        $( '.image' ).click( function(){ // Photo tagging guy, check that ( --ted )
-            PhotoView.LoadNext();
-        });
     },
     Tag: {
         index: [],
@@ -122,20 +108,21 @@ var PhotoView = {
                 $( friendlist ).hide().appendTo( '.image' );
                 $.get( 'friendsmutual/' + User, function( data ){
                     $( '.friendlist ul li.friend_loading' ).hide();
-                    if( !PhotoView.Tag.Friend.list[ $( data ).find( 'friends' ).attr( 'id' ) ] ){
-                        var li = $( '<li id="friend_' + $( data ).find( 'friends' ).attr( 'id' ) + '" class="me">' +
-                                        '<a href="">εγώ<span style="display:none;">' + User + '</span></a>' + 
-                                    '</li>' );
-                        $( '.friendlist ul' ).append( li );
+                    var li = $( '<li id="friend_' + $( data ).find( 'friends' ).attr( 'id' ) + '" class="me">' +
+                                    '<a href="">εγώ<span style="display:none;">' + User + '</span></a>' + 
+                                '</li>' );
+                    $( '.friendlist ul' ).append( li );
+                    if( PhotoView.Tag.Friend.list[ $( data ).find( 'friends' ).attr( 'id' ) ] ){
+                        li.addClass( 'hidden' );
                     }
                     $( data ).find( 'friend' ).each( function(){
-                        if( PhotoView.Tag.Friend.list[ $( this ).attr( 'id' ) ] === true ){
-                            return;
-                        }
                         var li = $( '<li id="friend_' + $( this ).attr( 'id' ) + '">' + 
                                         '<a href="">' + $( this ).children( 'name' ).text() + '</a>' +
                                     '</li>' );
                         $( '.friendlist ul' ).append( li );
+                        if( PhotoView.Tag.Friend.list[ $( this ).attr( 'id' ) ] === true ){
+                            $( li ).addClass( 'hidden' );
+                        }
                     });
                     $( '.friendlist a' ).click( function(){
                         var id = $( this ).parent().attr( 'id' ).split( '_' )[ 1 ];
@@ -156,16 +143,16 @@ var PhotoView = {
             },
             Type: function( text ){
                 if( text.length ){
-                    $( '.friendlist ul li:not(.friend_loading)' ).hide().removeClass( 'selected' )
+                    $( '.friendlist ul li:not(.friend_loading):not(.hidden)' ).hide().removeClass( 'selected' )
                         .filter( ':containsCI(' + text + ')' ).show().end()
                         .filter( ':visible:first' ).addClass( 'selected' );
                 }
                 else{
-                    $( '.friendlist ul li:not(.friend_loading)' ).removeClass( 'selected' ).show();
+                    $( '.friendlist ul li:not(.friend_loading):not(.hidden)' ).removeClass( 'selected' ).show();
                 }
             },
             Unload: function(){
-                PhotoView.Tag.Friend.Initialized = false;
+                PhotoView.Tag.Friend.initialized = false;
                 PhotoView.Tag.Friend.list = {};
             },
             Init: function(){
@@ -210,13 +197,12 @@ var PhotoView = {
                 height: $( '.newtag' ).height()
             };
             $( '.friendlist' ).hide();
-            $( '.newtag' ).remove();
             
             var person = $( '#friend_' + id ).text();
             if( $( '#friend_' + id ).hasClass( 'me' ) ){
                 person = $( '#friend_' + id + ' span' ).text();
             }
-            $( '#friend_' + id ).remove();
+            $( '#friend_' + id ).addClass( 'hidden' );
             $.post( 'imagetag/create', tosend, function( data ){
                 var tag = $( '<div class="tag">' + 
                                 '<div class="namecontainer">' + 
@@ -247,8 +233,28 @@ var PhotoView = {
                             left: $( data ).find( 'left' ).text() * ( -1 )
                         });
                 tag.appendTo( '.image' ).hide();
-                PhotoView.Tag.StopTagging();
-                $( '#tag_' + $( data ).find( 'imagetag' ).attr( 'id' ) + ' .imagecontainer' ).mouseover();
+                var text = $( '<li id="listtag_' + $( data ).find( 'imagetag' ).attr( 'id' ) + '">' + 
+                        '<a href="users/' + person + '">' + person + '</a>' + 
+                        '<a href="" class="delete"> (Διαγραφή)</a></li>' );
+                text.find( '.delete' ).click( function(){
+                    PhotoView.Tag.Remove( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
+                    return false;
+                });
+                text.addClass( 'listtag' ).appendTo( '.tagged' );
+                $( '.newtag' ).fadeOut( function(){
+                    $( this ).remove();
+                });
+                $( '.tagged li' ).removeClass( 'last' ).filter( ':last' ).addClass( 'last' );
+            });
+        },
+        Remove: function( id ){
+            $.post( 'imagetag/delete', {
+                phototagid: id
+            }, function( data ){
+                $( '.friendlist ul li:containsCI(' + $( '#listtag_' + id ).children( 'a:first' ).text() + ')' ).removeClass( 'hidden' );
+                $( '#tag_' + id ).remove();
+                $( '#listtag_' + id ).remove();
+                $( '.tagged li' ).removeClass( 'last' ).filter( ':last' ).addClass( 'last' );
             });
         },
         Cancel: function(){
@@ -392,6 +398,7 @@ var PhotoView = {
         StopTagging: function(){
             $( window ).unbind( 'mousemove mouseup keyup' );
             $( '.maincontent' ).unbind( 'mousedown' );
+            $( '.newtag' ).die( 'mousedown' );
             $( '.image .tag' ).show();
             $( '.image' ).css( 'cursor', 'default' );
             PhotoView.Tag.Cancel();
@@ -406,6 +413,11 @@ var PhotoView = {
                         .siblings( '.tag' ).fadeTo( 0, 0 );
                 $( '.image img.maincontent' ).stop( 1 ).fadeTo( 100, 0.4 );
             }).live( 'mouseout', function(){
+                if( PhotoView.Tag.running ){
+                    $( '.image img.maincontent' ).stop( 1 ).fadeTo( 0, 1 );
+                    $( '.image .tag' ).fadeTo( 0, 0 ).hide();
+                    return;
+                }
                 $( this ).siblings( '.namecontainer' ).hide();
                 $( '.image img.maincontent' ).stop( 1 ).fadeTo( 100, 1, function( item ){
                     return function(){
@@ -431,24 +443,26 @@ var PhotoView = {
                     e.stopImmediatePropagation();
                 }
             });
-            /* attempt to fix tag overlay failed :(
-            $( '.tag' ).each( function(){
-                PhotoView.Tag.index.push({
-                    id: $( this ).attr( 'id' ),
-                    area: parseInt( $( this ).css( 'width' ) ) * parseInt( $( this ).css( 'height' ) )
-                });
+            $( '.tagged li' ).live( 'mouseover', function(){
+                $( '#tag_' + $( this ).attr( 'id' ).split( '_' )[ 1 ] + ' .imagecontainer' ).mouseover();
+            }).live( 'mouseout', function(){
+                $( '#tag_' + $( this ).attr( 'id' ).split( '_' )[ 1 ] + ' .imagecontainer' ).mouseout();
             });
-            PhotoView.Tag.index.sort( function( a, b ){
-                return b.area - a.area;
+            $( '.tagged .delete' ).click( function(){
+                PhotoView.Tag.Remove( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
+                return false;
             });
-            for( var i in PhotoView.Tag.index ){
-                $( '#' + PhotoView.Tag.index[ i ].id ).css( 'zIndex', i - 0 + 15 );
-            }
-            */
+        },
+        Unload: function(){
+            $( '.image .tag .imagecontainer' ).die( 'mouseover mouseout' );
+            $( '.image .tag .namecontainer.inside' ).die( 'mouseover mouseout' );
+            $( '.tagged li' ).die( 'mouseover mouseout' );
+            PhotoView.Tag.Friend.Unload();
+            PhotoView.Tag.running = false;
         }
 
     },
-    LoadNext: function( evt ) {
+    LoadNext: function() {
         if( PhotoView.Tag.running ){
             return false;
         }
@@ -475,5 +489,20 @@ var PhotoView = {
             Kamibu.Go( '#photos/' + $previous.text() );
         }
         return false;
+    },
+    Unload: function(){
+        Comment.Unload();
+        PhotoView.Tag.Unload();
+    },
+    Init: function(){
+        PhotoView.Title.Init();
+        PhotoView.Remove.Init();
+		ItemView.Init( 2 );
+        PhotoView.Tag.Init();
+        $( document ).bind( 'keydown', { combi: 'left', disableInInput: true }, PhotoView.LoadPrevious );
+        $( document ).bind( 'keydown', { combi: 'right', disableInInput: true }, PhotoView.LoadNext );
+        $( '.image' ).click( function(){ // Photo tagging guy, check that ( --ted )
+            PhotoView.LoadNext();
+        });
     }
 };
