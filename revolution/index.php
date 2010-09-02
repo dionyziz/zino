@@ -174,6 +174,27 @@
     catch ( Exception $e ) {
         echo '<error>' . $e->getMessage() . '</error>';
     }
+
+    global $settings;
+    if ( $settings[ 'beta' ] ) {
+        ?><debug>
+            <db><?php
+                $queries = db_get_debug_data();
+                foreach ( $queries as $query ) {
+                    ?><query>
+                        <sql><?php
+                        echo "\n" . $query[ 'sql' ] . "\n";
+                        ?></sql>
+                        <time><?php
+                        echo $query[ 'time' ];
+                        ?></time>
+                    </query>
+                    <?php
+                }
+            ?></db>
+        </debug><?php
+    }
+
     ?></social><?php
     
     ob_flush();

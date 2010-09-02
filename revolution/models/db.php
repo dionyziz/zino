@@ -1,5 +1,6 @@
 <?php
     global $settings;
+    global $queries;
     
     mysql_connect( $settings[ 'db' ][ 'host' ], $settings[ 'db' ][ 'user' ], $settings[ 'db' ][ 'password' ] ) or die( mysql_error() );
     mysql_select_db( $settings[ 'db' ][ 'name' ] );
@@ -27,7 +28,19 @@
         }
         return strtr( $sql, $bind );
     }
+    function db_add_debug_data( $query, $time = 0 ) {
+        global $queries;
+        $queries[] = array(
+            'sql' => $query,
+            'time' => "$time ms"
+        );
+    }
+    function db_get_debug_data() {
+        global $queries;
+        return $queries;
+    }
     function db( $sql, $bind = false ) {
+        global $settings;
         if ( $bind == false ) {
             $bind = array();
         }
@@ -45,7 +58,12 @@
             $bind[ ':' . $key ] = $value;
             unset( $bind[ $key ] );
         }
+        $startTime = microtime();
         $res = mysql_query( strtr( $sql, $bind ) );
+        $queryTime = microtime() - $startTime;
+        if ( $settings[ 'beta' ] ) {
+            db_add_debug_data( strtr( $sql, $bind ), $queryTime * 1000 );
+        }
         if ( $res === false ) {
             throw new DBException( mysql_error() );
         }

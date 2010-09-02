@@ -69,7 +69,8 @@
                     $friendofuser = ( bool ) ( Friend::Strength( $_SESSION[ 'user' ][ 'id' ], $user[ 'id' ] ) & FRIENDS_A_HAS_B );
                 }
             }
-            include 'views/user/view.php';
+            Template( 'user/view', compact( 'user', 'counts', 'friendofuser', 'song', 'activities', 'interests', 'comments' ) );
+            // include 'views/user/view.php';
         }
         public static function Listing( $query = '', $showoffline = false ) {
             clude( 'models/db.php' );
