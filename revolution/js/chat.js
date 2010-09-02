@@ -374,8 +374,14 @@ var Chat = {
                 Chat.Search.Typing( $( this ).val() );
             });
             $( '#searchlist li:not(.user_loading)' ).live( 'click', function(){
-                Chat.ShowPrivate( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
-                $( '#searchlist li' ).removeClass( 'selected' );
+                var id = $( this ).attr( 'id' ).split( '_' )[ 1 ];
+                Chat.ShowPrivate( id );
+                Chat.OnUserOnline( id, $( this ).text() );
+                $( '#onlineusers li' ).removeClass( 'selected' );
+                if( $( this ).hasClass( 'offline' ) ){
+                    $( '#u' + id ).addClass( 'offline' );
+                }
+                $( '#u' + id ).addClass( 'selected' );
                 $( this ).addClass( 'selected' );
             });
         }
@@ -669,7 +675,7 @@ var Chat = {
          Chat.FlashTitle();
          $( '#u' + userid ).removeClass( 'flash' );
          var uname = $( '#u' + userid + ' .username' ).text();
-         $( '#u' + userid ).text( uname );
+         $( '#u' + userid ).html( '<span class="user"></span>' ).children().text( uname );
      },
      Join: function ( channelid ) {
          // Listen to push messages here
@@ -793,6 +799,9 @@ var Chat = {
                     userid: userid
                 },
                 function ( res ) {
+                    if( !$( '#u' + userid ).hasClass( 'selected' ) ){
+                        return;
+                    }
                     channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
                     Chat.ChannelByUserId[ userid ] = channelid;
                     Chat.HistoryFromXML( res );
