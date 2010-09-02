@@ -240,6 +240,9 @@ var PhotoView = {
                     PhotoView.Tag.Remove( $( this ).closest( 'li' ).attr( 'id' ).split( '_' )[ 1 ] );
                     return false;
                 });
+                if( $( '.tagged' ).length === 0 ){
+                    $( '<ul class="tagged"><li>Σε αυτή τη φωτογραφία: </li></ul>' ).insertAfter( '.title' );
+                }
                 text.addClass( 'listtag' ).appendTo( '.tagged' );
                 $( '.newtag' ).fadeOut( function(){
                     $( this ).remove();
@@ -255,6 +258,9 @@ var PhotoView = {
                 $( '#tag_' + id ).remove();
                 $( '#listtag_' + id ).remove();
                 $( '.tagged li' ).removeClass( 'last' ).filter( ':last' ).addClass( 'last' );
+                if( $( '.tagged li' ).length == 1 ){
+                    $( '.tagged' ).remove();
+                }
             });
         },
         Cancel: function(){
