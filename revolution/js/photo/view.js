@@ -256,7 +256,7 @@ var PhotoView = {
             }, function( data ){
                 $( '.friendlist ul li:containsCI(' + $( '#listtag_' + id ).children( 'a:first' ).text() + ')' ).removeClass( 'hidden' );
                 $( '#tag_' + id ).remove();
-                $( '#listtag_' + id ).remove();
+                $( '#listtag_' + id ).mouseout().remove();
                 $( '.tagged li' ).removeClass( 'last' ).filter( ':last' ).addClass( 'last' );
                 if( $( '.tagged li' ).length == 1 ){
                     $( '.tagged' ).remove();
