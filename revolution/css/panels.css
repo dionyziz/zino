@@ -271,9 +271,16 @@ textarea.invisible {
             background-color: #222;
             z-index: 1;
         }
+        .panel .tagbox{
+            background: #666;
+        }
         .panel .box div.details.tag {
             left: 0;
+            border: 0;
         }
+            .panel .box div.details.tag img{
+                position: relative;
+            }
         .panel .box div.details .background{
             position: absolute;
             width: 100%;

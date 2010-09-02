@@ -107,6 +107,18 @@
             font-family: "Trebuchet MS";
             font-size: 110%;
         }
+        #chat #searchlist{
+            display: none;
+        }
+            #chat #searchlist li.user_loading{
+                text-align: center;
+            }
+            #chat #searchlist span.sel{
+                background: #ddf;
+            }
+            #chat #searchlist li.selected span.sel{
+                background: transparent;
+            }
     #chat .xbutton {
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
@@ -141,9 +153,18 @@
 .userlist li {
     padding: 5px;
     cursor: pointer;
+    list-style: disc inside none;
+    color: green;
+}
+.userlist li.user_loading, .userlist li.world{
+    list-style: none;
+}
+.userlist li span.user{
+    color: black;
 }
 .userlist .world {
     font-weight: bold;
+    color: black;
 }
 .userlist li.selected {
     background: -webkit-gradient(
@@ -162,6 +183,9 @@
     border-radius: 5px;
     color: white;
 }
+    .userlist li.selected span.user{
+        color: white;
+    }
 .userlist li.flash {
     background-color: orange;
     -moz-border-radius: 5px;
@@ -169,13 +193,13 @@
     -webkit-border-radius: 5px;
 }
 .userlist li.offline {
-    color: #ccc;
+    color: #666;
 }
 .userlist li.selected.offline {
-    color: #ccc;
+    color: #666;
 }
 .userlist li.offline span.username { 
-    color: #999;
+    color: #555;
 }
 .userlist li.flash span.username {
     color: black;
