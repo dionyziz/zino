@@ -112,7 +112,9 @@
 <xsl:template name="imagetag.list">
     <xsl:if test="/social/photo/imagetags">
         <ul class="tagged">
-            <li>Σε αυτή τη φωτογραφία: </li>
+            <xsl:if test="/social/photo/imagetags">
+                <li>Σε αυτή τη φωτογραφία: </li>
+            </xsl:if>
             <xsl:for-each select="/social/photo/imagetags/imagetag">
                 <li class="listtag">
                     <xsl:attribute name="id">listtag_<xsl:value-of select="@id" /></xsl:attribute>
