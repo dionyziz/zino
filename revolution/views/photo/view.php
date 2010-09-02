@@ -52,7 +52,7 @@
         <? endforeach; ?>
     </favourites>
     <? endif; ?>
-	<? if ( isset( $imagetags ) ): ?>
+	<? if ( isset( $imagetags ) && sizeof( $imagetags ) ): ?>
 	<imagetags>
 	<? foreach ( $imagetags as $tag ): ?>
 		<imagetag id="<?= $tag[ 'id' ] ?>">
