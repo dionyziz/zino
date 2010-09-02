@@ -10,7 +10,8 @@ var Comment = {
                 var href = $( e.target ).attr( 'href' );
                 var parts = href.split( '/' );
 
-                if ( parts[ 2 ].substr( parts[ 2 ].length - 'zino.gr'.length, 'zino.gr'.length ) == 'zino.gr' ) {
+                if ( parts[ 2 ].substr( parts[ 2 ].length - 'zino.gr'.length, 'zino.gr'.length ) == 'zino.gr' && !e.ctrlKey ) {
+                    Async.Go( href );
                     return true;
                 }
                 window.open( href );

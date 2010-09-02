@@ -43,7 +43,11 @@
                             <label class="cabinet">
                                 <input type="file" name="uploadimage" class="file" />
                             </label>
-                            <input type="hidden" name="albumid" value="0" />
+                            <input type="hidden" name="albumid" value="0">
+                                <xsl:if test="/social/album">
+                                    <xsl:attribute name="value"><xsl:value-of select="/social/album/@id" /></xsl:attribute>
+                                </xsl:if>
+                            </input>
                             <span class="tooltip"><span>&#9650;</span>ανέβασε εικόνα</span>
                         </div>
                     </form>
