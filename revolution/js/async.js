@@ -34,6 +34,7 @@ var Async = {
             Routing[ MasterTemplate ].Init();
             Chat.BindClick();
             $( '.time:not(.processed)' ).load();
+            window.scroll( 0, 0 );
             if( typeof( callback ) == 'function' ){
                 callback();
             }
