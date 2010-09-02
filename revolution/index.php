@@ -183,7 +183,7 @@
                 foreach ( $queries as $query ) {
                     ?><query>
                         <sql><?php
-                        echo "\n" . $query[ 'sql' ] . "\n";
+                        echo "\n" . htmlspecialchars( $query[ 'sql' ] ) . "\n";
                         ?></sql>
                         <time><?php
                         echo $query[ 'time' ];
