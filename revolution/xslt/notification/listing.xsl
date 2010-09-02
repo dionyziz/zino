@@ -99,12 +99,12 @@
         <div class="details tag">
             <xsl:attribute name="style">
                 <xsl:if test="$NTW &lt; 200">
-                    left: -<xsl:value-of select="( 200 - $NTW ) div 2" />px;
-                    right: -<xsl:value-of select="( 200 - $NTW ) div 2" />px;
+                    left: <xsl:value-of select="( 200 - $NTW ) div 2" />px;
+                    right: <xsl:value-of select="( 200 - $NTW ) div 2" />px;
                 </xsl:if>
                 <xsl:if test="$NTH &lt; 100">
-                    top: -<xsl:value-of select="( 100 - $NTH ) div 2" />px;
-                    bottom: -<xsl:value-of select="( 100 - $NTH ) div 2" />px;
+                    top: <xsl:value-of select="( 100 - $NTH ) div 2" />px;
+                    bottom: <xsl:value-of select="( 100 - $NTH ) div 2" />px;
                 </xsl:if>
             </xsl:attribute>
             <img>
