@@ -58,9 +58,9 @@
             $bind[ ':' . $key ] = $value;
             unset( $bind[ $key ] );
         }
-        $startTime = microtime();
+        $startTime = microtime( true );
         $res = mysql_query( strtr( $sql, $bind ) );
-        $queryTime = microtime() - $startTime;
+        $queryTime = microtime( true ) - $startTime;
         if ( $settings[ 'beta' ] ) {
             db_add_debug_data( strtr( $sql, $bind ), $queryTime * 1000 );
         }
