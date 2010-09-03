@@ -185,21 +185,23 @@
             <time><?php
                 $totalTime = microtime( true ) - $startTime;
                 echo $totalTime * 1000;
-            ?></time>
-            <db><?php
-                $queries = db_get_debug_data();
-                foreach ( $queries as $query ) {
-                    ?><query>
-                        <sql><?php
-                        echo "\n" . htmlspecialchars( $query[ 'sql' ] ) . "\n";
-                        ?></sql>
-                        <time><?php
-                        echo $query[ 'time' ];
-                        ?></time>
-                    </query>
-                    <?php
-                }
-            ?></db><?php
+            ?></time><?php
+            if ( function_exists( 'db_get_debug_data' ) ) {
+                ?><db><?php
+                    $queries = db_get_debug_data();
+                    foreach ( $queries as $query ) {
+                        ?><query>
+                            <sql><?php
+                            echo "\n" . htmlspecialchars( $query[ 'sql' ] ) . "\n";
+                            ?></sql>
+                            <time><?php
+                            echo $query[ 'time' ];
+                            ?></time>
+                        </query>
+                        <?php
+                    }
+                ?></db><?php
+            }
             if ( class_exists( 'Spot' ) && Spot::$RequestTime !== false ) {
                 ?><spot>
                     <time><?php
