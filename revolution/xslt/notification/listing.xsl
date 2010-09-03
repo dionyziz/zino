@@ -81,13 +81,16 @@
     <xsl:variable name="TH" select="photo/imagetags/imagetag/height" />
     <xsl:variable name="TL" select="photo/imagetags/imagetag/left" />
     <xsl:variable name="TT" select="photo/imagetags/imagetag/top" />
-    
-    <xsl:variable name="scale" select="100 div $TH" />
-    <xsl:variable name="which">height</xsl:variable>
-    <xsl:if test="$TW div $TH > 2">
-        <xsl:variable name="scale" select="200 div $TW" />
-        <xsl:variable name="which">width</xsl:variable>
-    </xsl:if>
+    <xsl:variable name="scale">
+        <xsl:choose>
+            <xsl:when test="$TW div $TH > 2">
+               <xsl:value-of select="100 div $TH" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="200 div $TW" />
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
     <xsl:variable name="NIW" select="$scale * $IW" />
     <xsl:variable name="NIH" select="$scale * $IH" />
     <xsl:variable name="NTW" select="$scale * $TW" />

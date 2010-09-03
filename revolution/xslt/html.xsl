@@ -98,7 +98,7 @@
                     Now = dateToString( NowDate );
                 }, 5 * 1000 );
                 var Generator = '<xsl:value-of select="/social/@generator" />';
-                var Beta = Generator.indexOf( 'http://beta.zino.gr' ) != -1;
+                var Beta = <xsl:value-of select="$sandbox" />;
                 var XMLData = {
                     author: '<xsl:value-of select="/social/*/author/name" />'
                 }
