@@ -8,6 +8,7 @@
     */
     
     class Spot {
+        public static $RequestTime = false;
         private static $mRequestHeader = "SPOT\n";
 
         public function __construct() {
@@ -22,6 +23,8 @@
             if ( $settings[ 'spotdaemon' ][ 'enabled' ] == false ) {
                 return false;
             }
+
+            $startTime = microtime( true );
 
             $request = self::$mRequestHeader . $requestBody;
             
@@ -43,6 +46,8 @@
 
             $response = socket_read( $sock, 1024 );
             socket_close( $sock );
+
+            self::$RequestTime = ( microtime( true ) - $startTime ) * 1000;
 
             $lines = explode( "\n", $response );
             //w_assert( $lines[ 0 ] == "SUCCESS", "Spot failed! Response: $response" );

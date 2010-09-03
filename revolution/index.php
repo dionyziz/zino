@@ -199,8 +199,15 @@
                     </query>
                     <?php
                 }
-            ?></db>
-        </debug><?php
+            ?></db><?php
+            if ( class_exists( 'Spot' ) && Spot::$RequestTime !== false ) {
+                ?><spot>
+                    <time><?php
+                    echo Spot::$RequestTime;
+                    ?></time>
+                </spot><?php
+            }
+        ?></debug><?php
     }
 
     ?></social><?php
