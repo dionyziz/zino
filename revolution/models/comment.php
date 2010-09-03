@@ -134,7 +134,6 @@
         public static function GetMemcached( $typeid, $itemid ) {
             global $mc;
 
-            $mc->set( 'comtree_' . $itemid . '_' . $typeid, array() );
             $paged = $mc->get( 'comtree_' . $itemid . '_' . $typeid );
             if ( $paged === false ) {
                 return Comment::RegenerateMemcache( $typeid, $itemid );
