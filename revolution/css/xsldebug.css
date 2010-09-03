@@ -1,0 +1,41 @@
+#xsldebug{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: white;
+    border: 1px solid #346;
+    width: 200px;
+    height: 120px;
+    z-index: 2000;
+}
+#xsldebug h4{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: #346;
+    color: white;
+}
+#xsldebug ul{
+    overflow: auto;
+    color: black;
+    height: 105px;
+}
+#xsldebug ul li.ok{
+    color: #33CC00;
+}
+#xsldebug ul li.warning{
+    color: #FF6600;
+}
+#xsldebug ul li.critical{
+    color: #FF0033;
+}
+
+#xsldebug ul li span.which{
+    display: block;
+    float: left;
+    width: 120px;
+}
+#xsldebug ul li span.microtime{
+    display: block;
+    margin-left: 125px;
+}
