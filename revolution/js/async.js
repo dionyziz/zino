@@ -1,8 +1,9 @@
 var Async = {
     Go: function( href, callback ){
         var link = href.length ? href : './';
-        if( typeof( User ) != 'string' ){
+        if( typeof( User ) != 'string' || $.browser.msie ){
             window.location = href;
+            return;
         }
         $( '#world' ).stop( 1 ).fadeTo( 100, 0.5 );
         axslt( $.get( link ), 'call:html', function(){
@@ -41,6 +42,7 @@ var Async = {
                 callback();
             }
         } );
+        return false;
     },
     Init: function(){
         Async.hash = window.location.hash.substr( 1 );
@@ -70,8 +72,7 @@ var Async = {
             if( path != Generator ){
                 window.location = Generator + '#' + $( this ).attr( 'href' );
             }
-            Async.Go( $( this ).attr( 'href' ) );
-            return false;
+            return Async.Go( $( this ).attr( 'href' ) );
         });
     }
 };
