@@ -17,6 +17,10 @@
 
     global $settings;
     $settings = include 'settings.php';
+
+    if ( $settings[ 'beta' ] ) {
+        $startTime = microtime( true );
+    }
     
 	$uri = $_SERVER[ 'REQUEST_URI' ];
     
@@ -178,6 +182,10 @@
     global $settings;
     if ( $settings[ 'beta' ] ) {
         ?><debug>
+            <time><?php
+                $totalTime = microtime( true ) - $startTime;
+                echo $totalTime * 1000;
+            ?></time>
             <db><?php
                 $queries = db_get_debug_data();
                 foreach ( $queries as $query ) {
