@@ -176,9 +176,10 @@
 
             $ip = ( string )UserIp();
 
+			//set delid = 1 in case of problem in upload
             db( 'INSERT INTO `images`
                 ( `image_userid`, `image_albumid`, `image_userip`, `image_created`, `image_delid` )
-                VALUES ( :userid, :albumid, :ip, NOW(), 0 )',
+                VALUES ( :userid, :albumid, :ip, NOW(), 1 )',
                 compact( 'userid', 'albumid', 'ip' ) );
 
             $id = mysql_insert_id();
@@ -193,8 +194,24 @@
             $state = Photo::UpdateFileInformation( $id, $data[ 'width' ], $data[ 'height' ], $data[ 'filesize' ], $data[ 'mime' ] );
             $data[ 'id' ] = $id;
 
+			//set delid = 0 , succesfull upload !
+			Photo::UnDelete( $id );
+
             return $data;
         }
+		public static function UnDelete( $id ) {
+			if ( !is_numeric( $id ) ) {
+				throw new Exception( "Id should be numeric" );
+			}
+			return db( "UPDATE
+                        `images` 
+                    SET 
+                        `image_delid` = 0
+                    WHERE 
+                        `image_id` = :id
+                    LIMIT 1;"
+			);
+		}
         public static function UpdateDetails( $id, $title, $albumid ) {
             $id = ( int )$id;
             $albumid = ( int )$albumid;
