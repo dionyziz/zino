@@ -45,6 +45,7 @@ var Comment = {
         $( 'a.talk, .message' ).die( 'mousedown mousemove' );
         Comment.RemoveEvents();
         Comment.CurrentCommentPage = 1;
+        Comment.EndOfComments = false;
     },
     GetCurrentTypeId: function(){ 
         return {
