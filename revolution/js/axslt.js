@@ -275,9 +275,38 @@ var _aXSLT = {
     },
     transformUnit: function( unitIndex ) {
         var unit = this.pendingUnits[ unitIndex ];
+        window.unit = unit;
+        var now = new Date();
         this.transform( unit.xml, unit.xsl, unit.callback, unit.name, unit.mode, unit.params );
+        var Newnow = new Date();
+        if( Beta ){
+            this.appendDebugData( unit.xml.responseXML.URL.substr( Generator.length ), Newnow.getTime() - now.getTime() );
+        }
         //alert( 'transform unit' );
         this.deQueue( unitIndex );
+    },
+    appendDebugData: function( which, time ){
+        var debug = document.getElementById( 'xsldebug' );
+        if( debug == null ){
+            var debug = document.createElement( 'div' );
+            debug.innerHTML = '<h4>XSL processing time</h4><ul></ul>';
+            debug.id = 'xsldebug';
+            document.body.appendChild( debug );
+        }
+        var item = document.createElement( 'li' );
+        item.innerHTML = '<span class="which">' + which + '</span><span class="microtime">' + time + 'ms</span>';
+        if( time < 100 ){
+            item.className = 'ok';
+        }
+        else if( time < 300 ){
+            item.className = 'warning';
+        }
+        else{
+            item.className = 'critical';
+        }
+        
+        debug.getElementsByTagName( 'ul' )[ 0 ].appendChild( item );
+        debug.getElementsByTagName( 'ul' )[ 0 ].scrollByLines( 1 );
     },
     expandParams: function( params ) {
         var ret = '';

@@ -83,9 +83,9 @@
         <h2>Αλλαγή εικόνας</h2>
         <div class="scrollbox">
             <xsl:choose>
-                <xsl:when test="//photos/photo">
-                    <ul><xsl:attribute name="style">width: <xsl:value-of select="count( //photos/photo ) * 110" />px</xsl:attribute>
-                        <xsl:for-each select="//photos/photo">
+                <xsl:when test="/social/album/photos/photo">
+                    <ul><xsl:attribute name="style">width: <xsl:value-of select="count( /social/album/photos/photo ) * 110" />px</xsl:attribute>
+                        <xsl:for-each select="/social/album/photos/photo">
                             <li><xsl:attribute name="id">avphoto_<xsl:value-of select="@id" /></xsl:attribute>
                                 <img><xsl:attribute name="src"><xsl:value-of select="media/@url" /></xsl:attribute></img>
                             </li>
