@@ -11,12 +11,14 @@ var Async = {
             if( Chat.Visible ){
                 Chat.Toggle();
             }
-
             // Run Unload Function from previous Master Template
             if( typeof( Routing[ window.MasterTemplate ].Unload ) == 'function' ){
                 Routing[ window.MasterTemplate ].Unload();
             }
             var world = $( this ).find( '#world' ).andSelf().filter( '#world' );
+            if( world.length == 0 ){ //could not transform the xml corectly ( IE? )
+                window.location = href;
+            }
             var title = $( this ).find( 'title' ).text();
             var MasterTemplate = world.attr( 'class' ).split( '-' );
             MasterTemplate = MasterTemplate[ 1 ] + '.' + MasterTemplate[ 2 ];
