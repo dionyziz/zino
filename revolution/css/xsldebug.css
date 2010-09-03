@@ -4,7 +4,7 @@
     right: 10px;
     background: white;
     border: 1px solid #346;
-    width: 200px;
+    width: 300px;
     height: 120px;
     z-index: 2000;
 }
@@ -14,6 +14,12 @@
     text-align: center;
     background: #346;
     color: white;
+}
+#xsldebug h4 span{
+    float: right;
+    display: block;
+    padding-right: 5px;
+    cursor: pointer;
 }
 #xsldebug ul{
     overflow: auto;
@@ -33,9 +39,9 @@
 #xsldebug ul li span.which{
     display: block;
     float: left;
-    width: 120px;
+    width: 220px;
 }
 #xsldebug ul li span.microtime{
     display: block;
-    margin-left: 125px;
+    margin-left: 225px;
 }

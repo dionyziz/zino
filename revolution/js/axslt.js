@@ -289,7 +289,10 @@ var _aXSLT = {
         var debug = document.getElementById( 'xsldebug' );
         if( debug == null ){
             var debug = document.createElement( 'div' );
-            debug.innerHTML = '<h4>XSL processing time</h4><ul></ul>';
+            debug.innerHTML = '<h4>XSL processing time<span class="delete">X</span></h4><ul></ul>';
+            debug.getElementsByTagName( 'span' )[ 0 ].onclick = function(){
+                document.getElementById( 'xsldebug' ).style.display = 'none';
+            };
             debug.id = 'xsldebug';
             document.body.appendChild( debug );
         }
