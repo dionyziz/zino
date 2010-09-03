@@ -209,7 +209,7 @@
                         `image_delid` = 0
                     WHERE 
                         `image_id` = :id
-                    LIMIT 1;"
+                    LIMIT 1;", compact( 'id' )
 			);
 		}
         public static function UpdateDetails( $id, $title, $albumid ) {
