@@ -26,6 +26,9 @@
     color: black;
     height: 105px;
 }
+#xsldebug li{
+    clear: both;
+}
 #xsldebug ul li.ok{
     color: #33CC00;
 }
@@ -39,9 +42,16 @@
 #xsldebug ul li span.which{
     display: block;
     float: left;
-    width: 220px;
+    width: 170px;
 }
-#xsldebug ul li span.microtime{
+#xsldebug ul li span.microtime1{
     display: block;
-    margin-left: 225px;
+    float: left;
+    margin-left: 10px;
+    width: 50px;
+}
+#xsldebug ul li span.microtime2{
+    display: block;
+    float: left;
+    margin-left: 10px;
 }

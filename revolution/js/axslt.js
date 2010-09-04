@@ -275,17 +275,12 @@ var _aXSLT = {
     },
     transformUnit: function( unitIndex ) {
         var unit = this.pendingUnits[ unitIndex ];
-        window.unit = unit;
-        var now = new Date();
+        window.now = new Date();
         this.transform( unit.xml, unit.xsl, unit.callback, unit.name, unit.mode, unit.params );
-        var Newnow = new Date();
-        if( Beta ){
-            this.appendDebugData( unit.xml.responseXML.URL.substr( Generator.length ), Newnow.getTime() - now.getTime() );
-        }
         //alert( 'transform unit' );
         this.deQueue( unitIndex );
     },
-    appendDebugData: function( which, time ){
+    appendDebugData: function( which, time1, time2 ){
         var debug = document.getElementById( 'xsldebug' );
         if( debug == null ){
             var debug = document.createElement( 'div' );
@@ -297,7 +292,10 @@ var _aXSLT = {
             document.body.appendChild( debug );
         }
         var item = document.createElement( 'li' );
-        item.innerHTML = '<span class="which">' + which + '</span><span class="microtime">' + time + 'ms</span>';
+        item.innerHTML = '<span class="which">' + which + '</span>' + 
+                         '<span class="microtime1">' + time1 + 'ms</span>' +
+                         '<span class="microtime2">' + time2 + 'ms</span>';
+        var time = time1 - 0 + time2;
         if( time < 100 ){
             item.className = 'ok';
         }
@@ -573,13 +571,27 @@ var _aXSLT = {
             //alert( new XMLSerializer().serializeToString( result ) );
             _aXSLT.postTransform( result, callback );
         }
+        if( Beta ){
+            var respxml = xml.responseXML;
+            var uri = respxml.URL;
+            if( uri == null ){
+                uri = respxml.responseURI;
+            }
+            this.appendDebugData( 
+                uri.substr( Generator.length ), 
+                window.precallback.getTime() - window.now.getTime(),
+                window.postcallback.getTime() - window.precallback.getTime()
+            );
+        }
     },
     postTransform: function( result, callback ) {
         if ( !result ) {
             throw new Error( 'aXSLT: Empty result document' );
         }
+        window.precallback = new Date();
         if ( callback ) {
             callback.call( result.childNodes, result.childNodes );
         }
+        window.postcallback = new Date();
     }
 };
