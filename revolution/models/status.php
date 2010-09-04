@@ -2,7 +2,9 @@
 
     class Status {
         public static function Create( $userid, $text ) {
-            is_int( $userid ) or die;
+            if ( !is_numeric( $userid ) ) {
+				throw new Exception( "userid should be an integer" );
+			}
 
             $status = array(
                 'userid' => $userid,
