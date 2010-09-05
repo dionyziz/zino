@@ -112,6 +112,7 @@ select.dropdown option {
 #world {
     position: relative;
     overflow: hidden;
+    padding-bottom: 20px;
 }
 #content {
     position: relative;
