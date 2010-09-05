@@ -12,16 +12,11 @@
     session_start();
     error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );
     
-    clude( 'models/water.php' );
     header( 'Content-type: application/xml' );
 
     global $settings;
     $settings = include 'settings.php';
 
-    if ( $settings[ 'beta' ] ) {
-        $startTime = microtime( true );
-    }
-    
 	$uri = $_SERVER[ 'REQUEST_URI' ];
     
     if ( !isset( $_SESSION[ 'user' ] ) ) {
@@ -30,6 +25,15 @@
         if ( $user !== false ) {
             $_SESSION[ 'user' ] = $user;
         }
+    }
+    
+    $settings[ 'debug' ] = $settings[ 'beta' ] || in_array( $_SESSION[ 'user' ][ 'id' ], array( 1, 658, 3890, 4005, 5104, 5181 ) ); // developer ids here will have debugging on live
+    
+    if ( $settings[ 'debug' ] ) {
+        clude( 'models/_water.php' );
+    }
+    else {
+        clude( 'models/water.php' );
     }
     
     $resource = $method = '';
@@ -179,40 +183,9 @@
         echo '<error>' . $e->getMessage() . '</error>';
     }
 
-    global $settings;
-    if ( $settings[ 'beta' ] ) {
-        ?><debug>
-            <time><?php
-                $totalTime = microtime( true ) - $startTime;
-                echo $totalTime * 1000;
-            ?></time><?php
-            if ( function_exists( 'db_get_debug_data' ) ) {
-                ?><db><?php
-                    $queries = db_get_debug_data();
-                    foreach ( $queries as $query ) {
-                        ?><query>
-                            <sql><?php
-                            echo "\n" . htmlspecialchars( $query[ 'sql' ] ) . "\n";
-                            ?></sql>
-                            <time><?php
-                            echo $query[ 'time' ];
-                            ?></time>
-                        </query>
-                        <?php
-                    }
-                ?></db><?php
-            }
-            if ( class_exists( 'Spot' ) && Spot::$RequestTime !== false ) {
-                ?><spot>
-                    <time><?php
-                    echo Spot::$RequestTime;
-                    ?></time>
-                </spot><?php
-            }
-        ?></debug><?php
+    if ( $settings[ 'debug' ] ) {
+        Template( 'debug/view', array() );
     }
 
     ?></social><?php
-    
-    ob_flush();
 ?>

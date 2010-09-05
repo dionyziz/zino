@@ -986,7 +986,7 @@ global $mc, $settings;
 if ( $settings[ 'enablemc' ] ) {
     $mc = new memcached(
         array(
-              'servers' => array('88.198.246.218:11211'),
+              'servers' => array('127.0.0.1:11211'),
               'debug'   => false,
               'compress_threshold' => 10240,
               'persistant' => true

@@ -58,12 +58,9 @@
             $bind[ ':' . $key ] = $value;
             unset( $bind[ $key ] );
         }
-        $startTime = microtime( true );
+        Water::QueryStart( strtr( $sql, $bind ) );
         $res = mysql_query( strtr( $sql, $bind ) );
-        $queryTime = microtime( true ) - $startTime;
-        if ( $settings[ 'beta' ] ) {
-            db_add_debug_data( strtr( $sql, $bind ), $queryTime * 1000 );
-        }
+        Water::QueryEnd();
         if ( $res === false ) {
             throw new DBException( mysql_error() );
         }
