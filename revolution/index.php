@@ -27,7 +27,7 @@
         }
     }
     
-    $settings[ 'debug' ] = $settings[ 'beta' ] || in_array( $_SESSION[ 'user' ][ 'id' ], array( 1, 658, 3890, 4005, 5104, 5181 ) ); // developer ids here will have debugging on live
+    $settings[ 'debug' ] = $settings[ 'beta' ] || $_GET[ 'debugkey' ] == 'weo210x88xjnXELkoweuo2i0d8knmxcn';
     
     if ( $settings[ 'debug' ] ) {
         clude( 'models/_water.php' );
