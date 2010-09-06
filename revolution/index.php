@@ -92,7 +92,7 @@
 					$domain = "";
 				}
 				if ( ( $domain !== ".zino.gr" && $domain !== "zino.gr" ) && $referer !== "" ) {
-					throw New Exception( 'Not Valid Post Referer -'  );
+					throw New Exception( 'Not Valid Post Referer - ' . $domain  );
 				}
 			}
 		}
