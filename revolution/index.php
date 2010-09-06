@@ -16,6 +16,15 @@
 
     global $settings;
     $settings = include 'settings.php';
+    
+    $settings[ 'debug' ] = $settings[ 'beta' ] || $_GET[ 'debugkey' ] == 'weo210x88xjnXELkoweuo2i0d8knmxcn';
+    
+    if ( $settings[ 'debug' ] ) {
+        clude( 'models/_water.php' );
+    }
+    else {
+        clude( 'models/water.php' );
+    }
 
 	$uri = $_SERVER[ 'REQUEST_URI' ];
     
@@ -25,15 +34,6 @@
         if ( $user !== false ) {
             $_SESSION[ 'user' ] = $user;
         }
-    }
-    
-    $settings[ 'debug' ] = $settings[ 'beta' ] || $_GET[ 'debugkey' ] == 'weo210x88xjnXELkoweuo2i0d8knmxcn';
-    
-    if ( $settings[ 'debug' ] ) {
-        clude( 'models/_water.php' );
-    }
-    else {
-        clude( 'models/water.php' );
     }
     
     $resource = $method = '';
