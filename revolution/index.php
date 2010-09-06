@@ -17,7 +17,7 @@
     global $settings;
     $settings = include 'settings.php';
     
-    $settings[ 'debug' ] = $settings[ 'beta' ] || $_GET[ 'debugkey' ] == 'weo210x88xjnXELkoweuo2i0d8knmxcn';
+    $settings[ 'debug' ] = $settings[ 'beta' ] || ( isset( $_GET[ 'debugkey' ] ) && $_GET[ 'debugkey' ] == 'weo210x88xjnXELkoweuo2i0d8knmxcn' );
     
     if ( $settings[ 'debug' ] ) {
         clude( 'models/_water.php' );
