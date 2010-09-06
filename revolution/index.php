@@ -84,7 +84,7 @@
 			if ( isset( $pieces[ 2 ] ) ) {
                 if ( $pieces[ 2 ][ strlen( $pieces[ 2 ] ) - 1 ] == '#' ) {
                     // remove possible # suffix
-                    $pieces[ 2 ] = strlen( $pieces[ 2 ], 0, -1 );
+                    $pieces[ 2 ] = substr( $pieces[ 2 ], 0, -1 );
                 }
 				if ( strlen( $pieces[ 2 ] ) > 7 )  {
 					$domain = substr( $pieces[ 2 ], -8 );
