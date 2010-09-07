@@ -184,7 +184,7 @@ var Notifications = {
             document.title = '(' + $( this ).find( 'h3 span' ).text() + ') ' + document.title;
             $( this ).find( '.businesscard ul li:last' ).addClass( 'last' );
             
-            var notificationbody = $( '<div id="notificationWrapper"><div class="nbutton"><span class="num"></span></div></div>' );
+            var notificationbody = $( '<div id="notificationWrapper"><div title="Εμφανιση ενημερωσεων" class="nbutton"><span class="num"></span></div></div>' );
             notificationbody.append( $( this ) )
                 .find( '.nbutton' ).css( 'display', 'none' ); //hide it
             $( '#world' ).after( notificationbody );
@@ -272,6 +272,7 @@ var Notifications = {
         } );
     },
     Hide: function() {
+        document.title = Notifications.OriginalTitle;
         $( '#notifications' ).slideUp( function(){ // this will hide the panel
             var count = $( '#notifications .box' ).length;
             if( count ){
@@ -284,12 +285,12 @@ var Notifications = {
         Notifications.TakenOver = false;
     },
     Show: function(){
-        if( !$( '#notifications .tagbox' ).length ){
+        if( !$( '#notifications .box' ).length ){
             return;
         }
-        $( '#notificationWrapper .nbutton' ).stop( 1 )
-            .slideUp( function(){
-                $( '#notifications' ).slideDown();
-            }); // this will hide the arrow and show the panel
+        $( '#notifications' ).slideDown();
+        setTimeout( function(){
+            $( '#notificationWrapper .nbutton' ).hide();
+        }, 100 );
     }
 };

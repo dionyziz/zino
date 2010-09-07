@@ -170,7 +170,6 @@ textarea.invisible {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
 }
 #notifications{
     z-index: 11;
@@ -207,7 +206,7 @@ textarea.invisible {
         height: 30px;
         cursor: pointer;
     }
-    .panel .xbutton:hover, .panel .vbutton:hover {
+    .panel .xbutton:hover, .panel .vbutton:hover, .nbutton:hover {
         background-position: 0 -60px;
     }
     .panel .xbutton {
@@ -217,13 +216,13 @@ textarea.invisible {
         background-image: url( 'http://static.zino.gr/revolution/vbutton.png' );
     }
     #notificationWrapper .nbutton{
-        position: absolute;
+        position: fixed;
         right: 10px;
         bottom: -6px;
         width: 30px;
         height: 30px;
         cursor: pointer;
-        background: url( 'http://static.zino.gr/revolution/vbutton.png' ) no-repeat;
+        background: url( 'http://static.zino.gr/revolution/nbutton.png' ) no-repeat;
         z-index: 11;
     }
         #notificationWrapper .nbutton span.num{
