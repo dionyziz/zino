@@ -150,8 +150,8 @@ var _aXSLT = {
             return this.xslCache[ path ].index;
         }
         
-        var index = this.lastListIndex++;
-
+        this.lastListIndex++;
+		var index = this.lastListIndex;
         if ( typeof( arbitraryContent ) == 'string' ) {
             var xhr = {
                 responseText: arbitraryContent,

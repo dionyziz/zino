@@ -206,6 +206,15 @@ textarea.invisible {
     .panel .vbutton {
         background-image: url( 'http://static.zino.gr/revolution/vbutton.png' );
     }
+    #notificationWrapper .nbutton{
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: url( 'http://static.zino.gr/revolution/vbutton.png' ) no-repeat;
+    }
     .panel .box:hover {
         border: 2px solid white;
     }
