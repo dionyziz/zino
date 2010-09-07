@@ -953,6 +953,7 @@ var Chat = {
              $( '#chatbutton' ).parent().removeClass( 'selected' );
          }
          else {
+             Notifications.Hide();
              Chat.OriginalTitle = document.title;
              document.title = 'Chat στο zino';
              $( '#chat' ).show();

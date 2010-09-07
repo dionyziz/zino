@@ -79,7 +79,7 @@ var Notifications = {
         Notifications.DoneWithCurrent();
     },
     Done: function () {
-        $( '#world' ).show();
+        $( '#world' ).fadeIn();
         setTimeout( Notifications.Hide, 800 );
     },
     DoneWithCurrent: function () {
@@ -184,10 +184,10 @@ var Notifications = {
             document.title = '(' + $( this ).find( 'h3 span' ).text() + ') ' + document.title;
             $( this ).find( '.businesscard ul li:last' ).addClass( 'last' );
             
-            var notificationbody = $( '<div id="notificationWrapper" class="bottom"></div>' ).children().append( $( this ) );
-            notificationbody.append( '<div class="nbutton"><span class="num"></span></div>' )
-                .children( '.nbutton' ).slideUp( 0 ); //hide it
-            $( document.body ).append( notificationbody );
+            var notificationbody = $( '<div id="notificationWrapper"><div class="nbutton"><span class="num"></span></div></div>' );
+            notificationbody.append( $( this ) )
+                .find( '.nbutton' ).css( 'display', 'none' ); //hide it
+            $( '#world' ).after( notificationbody );
             
             $( '.instantbox form' ).submit( function () {
                 Notifications.Save();
@@ -210,6 +210,9 @@ var Notifications = {
                 }
                 Notifications.Hide();
             } );
+            $( '#notificationWrapper .nbutton' ).click( function(){
+                Notifications.Show();
+            });
         } );
     },
     Select: function ( notificationtype, notificationid ) {
@@ -270,16 +273,13 @@ var Notifications = {
     },
     Hide: function() {
         $( '#notifications' ).slideUp( function(){ // this will hide the panel
-            var count = $( '#notifications .tagbox' ).length;
+            var count = $( '#notifications .box' ).length;
             if( count ){
-                if( count > 9 ){
-                    count = '';
-                }
                 $( '#notificationWrapper .nbutton' ).stop( 1 ).slideDown() //this will show the arrow
                     .children( 'span' ).html( count ).show();
             }
         });
-        $( '.instantbox' ).hide();
+        $( '.instantbox' ).fadeOut();
         Notifications.Shortcuts.Remove();
         Notifications.TakenOver = false;
     },
@@ -288,6 +288,8 @@ var Notifications = {
             return;
         }
         $( '#notificationWrapper .nbutton' ).stop( 1 )
-            .slideUp( $( '#notifications' ).slideDown ); // this will hide the arrow and show the panel
+            .slideUp( function(){
+                $( '#notifications' ).slideDown();
+            }); // this will hide the arrow and show the panel
     }
 };
