@@ -8,8 +8,8 @@
     <xsl:value-of select="/*[1]/@method" />
 </xsl:variable>
 
-<xsl:variable name="cssversion">18</xsl:variable>
-<xsl:variable name="jsversion">19</xsl:variable>
+<xsl:variable name="cssversion">19</xsl:variable>
+<xsl:variable name="jsversion">20</xsl:variable>
 
 <xsl:variable name="user" select="/*[1]/@for" />
 <xsl:variable name="sandbox" select="contains( /social/@generator, 'http://beta.zino.gr/' ) or contains( /social/@generator, 'http://local.zino.gr/' )" />
