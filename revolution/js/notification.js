@@ -12,40 +12,10 @@ var Notifications = {
         Notifications.TakenOver = true;
         $( '#world' ).hide();
     },
-    Navigate: function ( url ) {
-        document.body.style.cursor = 'wait';
+    Release: function(){
+        Notifications.Shortcuts.Remove();
+        Notifications.TakenOver = false;
         $( '#notificationWrapper .instantbox' ).hide();
-        $( '#notifications' ).hide();
-        Notifications.Hide();
-        $( 'body' ).append(
-              '<div class="wait">'
-                + '<div class="progressbar">'
-                    + '<div class="progress"></div>'
-                + '</div>'
-            + '</div>'
-        );
-        $( '.progress' ).css( { width: '25px' } );
-        $( '.progress' ).animate( {
-            width: '300px'
-        }, 500 );
-        var LetFinish = 30;
-        var leave = function () {
-            if ( Notifications.PendingRequests ) {
-                // wait for pending requests to complete
-                --LetFinish;
-                if ( LetFinish ) {
-                    setTimeout( leave, 100 );
-                    return;
-                }
-            }
-            // else
-            Async.Go( url, function(){
-                $( 'body > .wait' ).remove();
-                document.body.style.cursor = 'auto';
-                $( '#notifications' ).show();
-            });
-        };
-        leave();
     },
     Ignore: function () {
         Notifications.Shortcuts.Assign( function(){}, Notifications.Save, Notifications.Ignore );
@@ -243,7 +213,7 @@ var Notifications = {
                 break;
             case 'tag':
                 $ib.find( '.image' ).click( function(){
-                    Notifications.Navigate( 'photos/' + $( this ).attr( 'id' ).split( '_' )[ 1 ] );
+                    Async.Go( 'photos/' + $( this ).attr( 'id' ).split( '_' )[ 1 ] );
                 });
         }
 
@@ -255,7 +225,7 @@ var Notifications = {
                         $ib.find( '.content' ).empty().append( $( this ) );
                         $ib.find( '.content .contentitem' ).append( '<div class="tips">Κάνε κλικ για μεγιστοποίηση</div>' );
                         $ib.find( '.content' ).click( function () {
-                            Notifications.Navigate( url );
+                            Async.Go( url );
                         } );
                     }
                 );

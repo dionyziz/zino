@@ -5,8 +5,13 @@ var Async = {
             window.location = href;
             return;
         }
-        $( '#world' ).stop( 1 ).fadeTo( 100, 0.5 );
+        if( $( '#world:visible' ).length ){
+            $( '#world' ).stop( 1 ).fadeTo( 100, 0.5 );
+        }
         axslt( $.get( link ), 'call:html', function(){
+            if( Notifications.TakenOver ){
+                Notifications.Release();
+            }
             $( '#world' ).stop( 1 ).fadeTo( 0, 1 );
             //Close Chat
             if( Chat.Visible ){
