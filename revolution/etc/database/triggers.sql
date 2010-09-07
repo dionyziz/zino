@@ -89,7 +89,6 @@ CREATE TRIGGER commentdelete AFTER DELETE ON `comments`
         END CASE;
         DELETE FROM `bulk` WHERE `bulk_id`=OLD.`comment_bulkid` LIMIT 1;
         DELETE FROM `activities` WHERE `activity_userid` = OLD.`comment_userid` AND `activity_typeid` = 1 AND `activity_itemid` = OLD.`comment_itemid` LIMIT 1;
-        DELETE FROM `comments` WHERE `comment_parentid` = OLD.`comment_id`;
    END;
 |
 
