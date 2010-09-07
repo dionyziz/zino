@@ -44,10 +44,10 @@
             return self::$mTraces;
         }
         public static function Init() {
-            self::$mStartTime = microtime( false );
+            self::$mStartTime = microtime( true );
         }
         public static function TotalTime() {
-            return ( microtime( false ) - self::$mStartTime ) * 1000;
+            return ( microtime( true ) - self::$mStartTime ) * 1000;
         }
     }
 
