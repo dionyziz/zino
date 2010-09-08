@@ -26,6 +26,8 @@
             }
             $bulk = Bulk::FindById( $bulkids );
             $activities = array();
+            $photoids = array();
+            $userids = array();
             foreach ( $rows as $i => $row ) {
                 $activity = array();
                 $activity[ 'typeid' ] = $row[ 'activity_typeid' ];
@@ -44,16 +46,10 @@
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
                         if ( $activity[ 'item' ][ 'typeid' ] == TYPE_PHOTO ) {
-                            $photo = Photo::Item( $row[ 'activity_itemid' ] );
-                            $activity[ 'item' ][ 'user' ][ 'id' ] = $photo[ 'userid' ];
-                            $activity[ 'item' ][ 'user' ][ 'name' ] = $photo[ 'username' ];
-                            $activity[ 'item' ][ 'user' ][ 'gender' ] = $photo[ 'gender' ];
+                            $photoids[ $row[ 'activity_itemid' ] ][] = $i;
                         }
                         else if ( $activity[ 'item' ][ 'typeid' ] == TYPE_USERPROFILE ) {
-                            $user = User::Item( $activity[ 'item' ][ 'id' ] );
-                            $activity[ 'item' ][ 'user' ][ 'id' ] = $user[ 'id' ];
-                            $activity[ 'item' ][ 'user' ][ 'name' ] = $user[ 'name' ];
-                            $activity[ 'item' ][ 'user' ][ 'gender' ] = $user[ 'gender' ];
+                            $userids[ $row[ 'activity_itemid' ] ][] = $i;
                         }
                         break;
                     case ACTIVITY_FAVOURITE:
@@ -69,14 +65,11 @@
                             $activity[ 'item' ][ 'text' ] = $bulk[ $row[ 'activity_bulkid' ] ];
                         }
                         if ( $activity[ 'item' ][ 'typeid' ] == TYPE_PHOTO ) {
-                            $photo = Photo::Item( $row[ 'activity_itemid' ] );
-                            $activity[ 'item' ][ 'user' ][ 'id' ] = $photo[ 'userid' ];
-                            $activity[ 'item' ][ 'user' ][ 'name' ] = $photo[ 'username' ];
-                            $activity[ 'item' ][ 'user' ][ 'gender' ] = $photo[ 'gender' ];
+                            $photoids[ $row[ 'activity_itemid' ] ][] = $i;
                         }
                         break;
                     case ACTIVITY_FRIEND:
-                        $friend = User::Item( $row[ 'activity_itemid' ] );
+                        $userids[ $row[ 'activity_itemid' ] ][] = $i;
                         $activity[ 'friend' ] = array();
                         $activity[ 'friend' ][ 'id' ] = $row[ 'activity_itemid' ];
                         $activity[ 'friend' ][ 'name' ] = $row[ 'activity_text' ];
@@ -86,7 +79,7 @@
                         $activity[ 'relation' ][ 'id' ] = $row[ 'activity_refid' ];
                         break;
                     case ACTIVITY_FAN:
-                        $fan = User::Item( $row[ 'activity_itemid' ] );
+                        $userids[ $row[ 'activity_itemid' ] ][] = $i;
                         $activity[ 'fan' ] = array();
                         $activity[ 'fan' ][ 'id' ] = $row[ 'activity_itemid' ];
                         $activity[ 'fan' ][ 'name' ] = $row[ 'activity_text' ];
@@ -119,7 +112,37 @@
                     default:
                         throw New Exception( 'unknown activity type' );
                 }
-                $activities[] = $activity;
+                $activities[ $i ] = $activity;
+            }
+            $photos = Photo::ListByIds( array_keys( $photoids ) );
+            foreach ( $photos as $photo ) {
+                $indexes = $photoids[ $photo[ 'id' ] ];
+                foreach ( $indexes as $index ) {
+                    $activity = $activities[ $index ];
+                    $activity[ 'item' ][ 'user' ][ 'id' ] = $photo[ 'userid' ];
+                    $activity[ 'item' ][ 'user' ][ 'name' ] = $photo[ 'username' ];
+                    $activity[ 'item' ][ 'user' ][ 'gender' ] = $photo[ 'gender' ];
+                    $activities[ $index ] = $activity;
+                }
+            }
+            $users = User::ListByIds( array_keys( $userids ) );
+            foreach ( $users as $user ) {
+                $indexes = $userids[ $user[ 'id' ] ];
+                foreach ( $indexes as $index ) {
+                    $activity = $activities[ $index ];
+                    if ( $activity[ 'typeid' ] == ACTIVITY_FRIEND ) {
+                        $activity[ 'friend' ][ 'gender' ] = $user[ 'gender' ];
+                    }
+                    else if ( $activity[ 'typeid' ] == ACTIVITY_FAN ) {
+                        $activity[ 'fan' ][ 'gender' ] = $user[ 'gender' ];
+                    }
+                    else if ( $activity[ 'typeid' ] == ACTIVITY_COMMENT ) {
+                        $activity[ 'item' ][ 'user' ][ 'id' ] = $user[ 'id' ];
+                        $activity[ 'item' ][ 'user' ][ 'name' ] = $user[ 'name' ];
+                        $activity[ 'item' ][ 'user' ][ 'gender' ] = $user[ 'gender' ];
+                    }
+                    $activities[ $index ] = $activity;
+                }
             }
             return $activities;
         }

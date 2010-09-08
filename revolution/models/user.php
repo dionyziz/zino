@@ -237,6 +237,28 @@
             );
 			return mysql_fetch_array( $res );
         }
+        public static function ListByIds( $ids ) {
+            if ( empty( $ids ) ) {
+                return array();
+            }
+            
+            $res = db(
+                'SELECT
+                    `user_id` AS id,
+                    `user_deleted` as userdeleted, `user_name` AS name, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid, `user_rights` AS rights
+                FROM
+                    `users`
+                WHERE
+                    `user_id` IN :ids;', compact( 'ids' )
+            );
+
+            $users = array();
+            while ( $user = mysql_fetch_array( $res ) ) {
+                $users[ $user[ 'id' ] ] = $user;
+            }
+
+            return $users;
+        }
         public static function ItemByName( $name ) {
 			$name = ( string )$name;
 			if ( $name == "" ) {
