@@ -969,6 +969,10 @@ var Chat = {
              }
              $( '#chatbutton' ).parent().addClass( 'selected' );
              Chat.GetOnline();
+             var li = $( '#chatmessages_' + Chat.CurrentChannel + ' ol' )[ 0 ].lastChild;
+             if ( li != null ) {
+                 li.scrollIntoView();
+             }
          }
          Chat.Visible = !Chat.Visible;
      }
