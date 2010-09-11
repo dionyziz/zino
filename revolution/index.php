@@ -12,7 +12,10 @@
     session_start();
     error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );
     
-    header( 'Content-type: application/xml' );
+    $isGooglebot = strpos( strtolower( $_SERVER[ 'HTTP_USER_AGENT' ] ), "googlebot" ) !== false;
+    if ( !$isGooglebot ) {
+        header( 'Content-type: application/xml' );
+    }
 
     global $settings;
     $settings = include 'settings.php';
@@ -192,4 +195,15 @@
     }
 
     ?></social><?php
+    if ( $isGooglebot ) {
+        $xml = ob_get_clean();
+
+        $doc = New DomDocument();
+        $doc->load( 'http://zino.gr/static/global.xsl' );
+        $xsl = New XSLTProcessor();
+        $xsl->importStylesheet( $doc );
+
+        $doc->loadXML( $xml );
+        echo $xsl->TransformToXml( $doc );
+    }
 ?>
