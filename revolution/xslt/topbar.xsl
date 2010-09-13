@@ -108,7 +108,7 @@
         </xsl:choose>
         <ul>
             <li id="chat_icon">
-                <a href="#chat" id="chatbutton">Chat</a>
+                <a href="" id="chatbutton">Chat</a>
             </li>
             <li id="feedback_icon">
                 <a href="journals/13371">Feedback</a>
