@@ -137,6 +137,10 @@ var Kamibu = {
         if( $( timeNode ).hasClass( 'processedtime' ) ){
             return true;
         }
+        if( $( timeNode ).text() == '0000-00-00 00:00:00' ){
+            $( timeNode ).text( 'Σε λίγο' ).show();
+            return true;
+        }
         var diff = dateDiff( $( timeNode ).text(), Now );
         $( timeNode ).html( '<span class="friendly">' + greekDateDiff( diff ) + '</span>'
                            +'<span class="timestamp">' + stringToDate( $( timeNode ).text() ).getTime() + '</span>' );

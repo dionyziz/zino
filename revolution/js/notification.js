@@ -10,6 +10,9 @@ var Notifications = {
     },
     TakeOver: function () {
         Notifications.TakenOver = true;
+        if( Chat.Visible ){
+            Chat.Toggle();
+        }
         $( '#world' ).hide();
     },
     Release: function(){

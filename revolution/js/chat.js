@@ -935,6 +935,7 @@ var Chat = {
              messages[ messages.length - 1 ].scrollIntoView();
          }
          Chat.CurrentChannel = channelid;
+        $( '#outgoing' ).find( 'textarea' ).focus();
      },
      // hide/show the chat application
      Toggle: function () {
