@@ -134,7 +134,7 @@
                     'friendship.listing': Friends,
                     'ban.listing': Admin.Banlist
                 };
-                Async.Init();
+                // Async.Init(); disabled until it works properly
                 var MasterTemplate = '<xsl:value-of select="$mastertemplate" />';
                 if ( typeof Routing[ MasterTemplate ] != 'undefined' ) {
                     // this must run asap after the body has been downloaded
