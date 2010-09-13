@@ -1,5 +1,7 @@
 var Async = {
     Go: function( href, callback ){
+        Kamibu.Go( href );
+        return false;
         var link = href.length ? href : './';
         if( typeof( User ) != 'string' || $.browser.msie ){
             window.location = href;
