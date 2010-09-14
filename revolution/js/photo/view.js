@@ -478,7 +478,7 @@ var PhotoView = {
                 opacity: 1,
                 left: '6px'
             }, 100 );
-            Kamibu.Go( '#photos/' + $next.text() );
+            Kamibu.Go( 'photos/' + $next.text() );
         }
         return false;
     },
@@ -492,7 +492,7 @@ var PhotoView = {
                 opacity: 1,
                 left: '-6px'
             }, 100 );
-            Kamibu.Go( '#photos/' + $previous.text() );
+            Kamibu.Go( 'photos/' + $previous.text() );
         }
         return false;
     },
