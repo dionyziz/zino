@@ -52,6 +52,7 @@ var Async = {
         return false;
     },
     Init: function(){
+        return;
         Async.hash = window.location.hash.substr( 1 );
         setInterval( function(){
             if( window.location.hash.substr( 1 ) != Async.hash ){
