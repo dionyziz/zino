@@ -242,15 +242,19 @@
 .textmessages .typing span {
     color: #666;
 }
-.textmessages strong {
+#chat .textmessages strong a {
     color: #39f;
     font-weight: normal;
     float: left;
     text-align: right;
     padding-right: 15px;
     width: 100px;
+    text-decoration: none;
 }
-.textmessages strong.self {
+#chat .textmessages strong a:hover {
+    text-decoration: underline;
+}
+#chat .textmessages strong.self a {
     color: #999;
 }
 .textmessages #chatmessages ol img {

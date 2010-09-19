@@ -101,8 +101,7 @@ var Chat = {
             if ( author == User ) {
                 li += ' class="self"';
             }
-            li += '>';
-            li += author;
+            li += '><a href="users/' + author + '">' + author + '</a>';
             text = Chat.GetFormattedText( text, author == User );
             if ( text == null ) {
                 continue;
@@ -393,10 +392,9 @@ var Chat = {
          }
 
          var li = document.createElement( 'li' );
-         li.innerHTML = '<strong class="self"></strong> <span class="text"></span>';
-         $( li )
-            .children( 'strong' ).text( User ).end()
-            .children( 'span.text' ).text( text );
+         li.innerHTML = '<strong class="self"><a></a></strong> <span class="text"></span>';
+         $( 'a', li ).attr( 'href', 'users/' + User ).text( User ).end()
+         $( 'span.text', li ).text( text );
 
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild.scrollIntoView();
@@ -480,7 +478,7 @@ var Chat = {
              }
              li = document.createElement( 'li' );
              li.id = shoutid;
-             li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> ' + text + '</li>'; 
+             li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong><a href="users/' + author + '">' + author + '</a></strong> ' + text + '</li>'; 
              history.appendChild( li );
              Chat.Typing.OnStop( author );
              Chat.Timestamps.Add( $( '.time:not(.processedtime)' ).load() );
