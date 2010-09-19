@@ -5,7 +5,7 @@
         </xsl:when>
         
         <xsl:when test="error and error/@type = 'largefile'">
-            H φωτογραφία σου δεν πρέπει να ξεπερνάει τα 4MB
+            H φωτογραφία σου δεν πρέπει να ξεπερνάει τα 7MB
         </xsl:when>
         
         <xsl:when test="error and error/@type = 'fileupload'">
