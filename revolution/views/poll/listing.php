@@ -26,7 +26,7 @@
                 <subdomain><?= $item[ 'user' ][ 'subdomain' ]; ?></subdomain>
                 <gender><?= $item[ 'user' ][ 'gender' ]; ?></gender>
                 <avatar>
-                    <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $item[ 'avatarid' ] ?>/<?= $item[ 'avatarid' ] ?>_100.jpg" />
+                    <media url="http://images2.zino.gr/media/<?= $item[ 'userid' ] ?>/<?= $item[ 'avatarid' ] ?>/<?= $item[ 'avatarid' ] ?>_100.jpg" />
                 </avatar>
             </author>
         <? endif; ?>        
