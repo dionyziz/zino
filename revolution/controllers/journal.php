@@ -39,7 +39,7 @@
                 $journals = Journal::ListByUser( $user[ 'id' ] );
             }
             else {
-                $journals = Journal::ListRecent();
+                $journals = Journal::ListRecent( 25 );
             }
             Template( 'journal/listing', compact( 'journals', 'user' ) );
         }

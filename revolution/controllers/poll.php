@@ -50,7 +50,7 @@
 		            $polls = Poll::ListByIds( $ids );
 	            }
 	            else {
-	            	$polls = Poll::ListRecent();
+	            	$polls = Poll::ListRecent( 25 );
 	            }
             }
             Template( 'poll/listing', compact( 'user', 'polls' ) );
