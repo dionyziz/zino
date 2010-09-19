@@ -15,11 +15,16 @@
 				ORDER BY `journal_id` DESC
 				LIMIT :amount', array( 'amount' => $amount ) 
             );
-            $polls = array();
+            $journals = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $polls[] = $row;
+                $journals[ $row[ 'id' ] ] = $row;
+                $journals[ $row[ 'id' ] ][ 'user' ] = array( 
+                    'name' => $row[ 'username' ],
+                    'subdomain' => $row[ 'subdomain' ],
+                    'gender' => $row[ 'gender' ]
+                );
             }
-            return $polls;
+            return $journals;
         }
         public static function ListByUser( $userid ) {
             $res = db(

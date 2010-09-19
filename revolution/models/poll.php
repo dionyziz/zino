@@ -19,7 +19,12 @@
             );
             $polls = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $polls[] = $row;
+                $polls[ $row[ 'id' ] ] = $row;
+                $polls[ $row[ 'id' ] ][ 'user' ] = array( 
+                    'name' => $row[ 'username' ],
+                    'subdomain' => $row[ 'subdomain' ],
+                    'gender' => $row[ 'gender' ]
+                );
             }
             return $polls;
         }

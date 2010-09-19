@@ -11,9 +11,9 @@
     <journal id="<?= $item[ 'id' ]; ?>">
         <published><?= $item[ 'created' ] ?></published>
         <author>
-            <name><?= $item[ 'username' ]; ?></name>
-            <subdomain><?= $item[ 'subdomain' ]; ?></subdomain>
-            <gender><?= $item[ 'gender' ]; ?></gender>
+            <name><?= $item[ 'user' ][ 'name' ]; ?></name>
+            <subdomain><?= $item[ 'user' ][ 'subdomain' ]; ?></subdomain>
+            <gender><?= $item[ 'user' ][ 'gender' ]; ?></gender>
             <avatar>
                 <media url="http://images2.zino.gr/media/<?= $item[ 'userid' ] ?>/<?= $item[ 'avatarid' ] ?>/<?= $item[ 'avatarid' ] ?>_100.jpg" />
             </avatar>
