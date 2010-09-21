@@ -62,8 +62,11 @@ div.eof{
 	margin-top: -1em;
 }
 #PhotoView .image_content{
-	width: 100%;
+	display: block;
+	margin: auto;
 }
+
+
 div.loading{
 	background: #5A5A5A url(../images/loading.gif) no-repeat 50% 50%;
 	border-radius: 10px;
