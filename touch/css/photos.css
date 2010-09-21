@@ -1,0 +1,83 @@
+div.eof{
+	clear: both;
+}
+
+#NavigationBar.fade{
+	opacity: 0.7 !important;
+}
+
+#PhotoList li{
+	float: left;
+	width: 76px;
+	height: 76px;
+	margin: 2px;
+	position: relative;
+}
+#PhotoList img{
+    border: 1px solid #333;
+    width: 75px;
+    height: 75px;
+}
+#PhotoList .commentnum{
+	position: absolute;
+	display: inline;
+	top: 2px;
+	left: 2px;
+	border-radius: 20px;
+	border: 2px solid white;
+	font-size: 10px;
+	padding: 2px 2px 2px 3px;
+	min-width: 20px;
+	text-align: center;
+	background: orange;
+	font-weight: bold;
+}
+
+#NewList li{
+	border-bottom: 1px dotted black;
+	padding: 5px;
+	font-size: 12px;
+}
+#NewList li img{
+	height: 50px;
+	float: left;
+	margin-right: 10px;
+}
+#NewList li .username{
+	color: #1B49C1;
+	font-weight: bold;
+}
+#NewList li .time{
+	color: #555;
+	margin-left: 6px;
+}
+
+#PhotoView .photo_loading{
+	position: fixed;
+	width: 2em;
+	height: 2em;
+	top: 50%;
+	left: 50%;
+	margin-left: -1em;
+	margin-top: -1em;
+}
+#PhotoView .image_content{
+	width: 100%;
+}
+div.loading{
+	background: #5A5A5A url(../images/loading.gif) no-repeat 50% 50%;
+	border-radius: 10px;
+	color: white;
+	font-weight: bold;
+	height: 10em;
+	width: 10em;
+	left: 50%;
+	top: 50%;
+	margin-left: -5em;
+	margin-top: -5em;
+	padding-top: 8em;
+	text-align: center;
+	text-shadow: black 0 1px 1px;
+	position: absolute;
+}
+
