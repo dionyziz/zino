@@ -96,7 +96,7 @@ PhotoView = {
 		if( screenD.width / screenD.height < imageD.width / imageD.height ){
 			img.setWidth( screenD.width );
 			img.setHeight( 'auto' );
-			img.setStyle( 'margin-top', ( screenD.height - imageD.height * ( screenD.width / imageD.width ) / 2 + 'px' );
+			img.setStyle( 'margin-top', ( screenD.height - imageD.height * ( screenD.width / imageD.width ) ) / 2 + 'px' );
 		}
 		else{
 			img.setWidth( 'auto' );
