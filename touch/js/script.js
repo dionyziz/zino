@@ -421,7 +421,7 @@ Ext.setup({
 					autoLoad: true,
 					proxy: {
 						type: 'ajax',
-						url: 'proxy.php?resource=photo&method=listing',
+						url: window.base + '?resource=photo&method=listing',
 						reader: {
 							type: 'xml',
 							root: 'photo'
@@ -498,7 +498,7 @@ Ext.setup({
 					autoLoad: true,
 					proxy: {
 						type: 'ajax',
-						url: 'proxy.php?resource=news&method=listing',
+						url: window.base + '?resource=news&method=listing',
 						reader: {
 							type: 'xml',
 							root: 'poll,journal'
