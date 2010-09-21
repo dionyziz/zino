@@ -4,21 +4,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0;" />
         <title>Zino</title>
-        <link rel="stylesheet" href="sencha/resources/css/ext-touch.css" type="text/css" />
+        <link rel="stylesheet" href="css/ext-touch.css" type="text/css" />
         <link rel="stylesheet" href="css/photos.css" type="text/css" />
         <script type="text/javascript" src="js/ext-touch-debug.js"></script>
 		<script type="text/javascript" src="js/ext-touch-extend.js"></script>
 		<script type="text/javascript" src="js/date.js"></script>
 		<script type="text/javascript" src="js/kamibu.js"></script>
 		<script type="text/javascript">
-				var Now = '<?=date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] );?>';
-				var NowDate = stringToDate( Now );
+				Now = '<?=date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] );?>';
+				NowDate = stringToDate( Now );
+				base = 'http://beta.zino.gr/ted';
 				setInterval( function(){
 					NowDate.setSeconds( NowDate.getSeconds() + 5 );
 					Now = dateToString( NowDate );
 				}, 5 * 1000 );
-				window.Now = Now;
-				window.NowDate = NowDate;
 		</script>
         <script type="text/javascript" src="js/script.js"></script>
     </head>

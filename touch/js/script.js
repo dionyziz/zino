@@ -131,7 +131,7 @@ PhotoView = {
 		}
 		card.data.downloading = true;
 		var request = Ext.Ajax.request({
-			url: 'proxy.php?resource=photo&method=view&id=' + id,
+			url: window.base + '?resource=photo&method=view&id=' + id,
 			success: function( carusel, card ){
 				return function( result ){
 					card.data.downloading = false;
