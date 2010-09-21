@@ -94,19 +94,13 @@ PhotoView = {
 		
 		var img = card.getEl().select( 'img' );
 		if( screenD.width / screenD.height < imageD.width / imageD.height ){
-			var width = screenD.width;
-			var height = imageD.height * ( screenD.width / imageD.width )
-			img.setWidth( width );
-			img.setHeight( height );
-			img.setStyle( 'margin-top', ( screenD.height - height ) / 2 + 'px' );
-			img.setStyle( 'margin-left', 0 );
+			img.setWidth( screenD.width );
+			img.setHeight( 'auto' );
+			img.setStyle( 'margin-top', ( screenD.height - imageD.height * ( screenD.width / imageD.width ) / 2 + 'px' );
 		}
 		else{
-			var width = imageD.width * ( screenD.height / imageD.height );
-			var height = screenD.height;
-			img.setWidth( width );
-			img.setHeight( height );
-			img.setStyle( 'margin-left', ( screenD.width - width ) / 2 + 'px' );
+			img.setWidth( 'auto' );
+			img.setHeight( screenD.height );
 			img.setStyle( 'margin-top', 0 );
 		}
 	},
