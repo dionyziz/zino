@@ -1,4 +1,4 @@
-Ext.data.XmlReader2 = Ext.extend( Ext.data.XmlReader, {
+Ext.override( Ext.data.XmlReader, {
     createAccessor: function() {
         var selectValue = function(key, root, defaultValue){
 			if( key == '#' ){
@@ -56,4 +56,3 @@ Ext.data.XmlReader2 = Ext.extend( Ext.data.XmlReader, {
         };
     }(),
 });
-Ext.data.ReaderMgr.registerType('xml', Ext.data.XmlReader2);

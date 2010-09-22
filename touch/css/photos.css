@@ -2,8 +2,15 @@ div.eof{
 	clear: both;
 }
 
-#NavigationBar.fade{
+.fade{
 	opacity: 0.7 !important;
+}
+
+#Layout > .x-panel-body > div{
+	margin-top: 44px;
+}
+#Layout > .x-panel-body > div#PhotoView{
+	margin-top: 0;
 }
 
 #PhotoList li{

@@ -177,6 +177,10 @@ PhotoView = {
 		Layout.getComponent( 'PhotoView' ).removeAll();
 		PhotoView._pending = [];
 	},
+	BeforeOrientationChange: function(){
+		Navigation.Topbar.Hide( false );
+		Navigation.Bottombar.Hide( false );
+	},
 	OrientationChange: function(){
 		var carusel = Layout.getComponent( 'PhotoView' );
 		var items = carusel.items.items;
@@ -187,67 +191,92 @@ PhotoView = {
 		}
 	},
 	Init: function( id ){
-		Navigation.Topbar.Fade( true, true );
+	/*	Navigation.Topbar.Hide( false );
+		Navigation.Bottombar.Hide( false );
+		Layout.ForceDoLayout();
+		Navigation.Topbar.Show( false );
+		
+		Navigation.Bottombar.Show( false );
+*/		Navigation.Topbar.FadeOut();
 		this.Get( id );
 	},
 	Destroy: function(){
-		Navigation.Topbar.Fade( false, true );
-		Navigation.Topbar.Show( true );
+/*		Navigation.Topbar.Show( false );
+		
+		Navigation.Bottombar.Show( false );
+		Layout.ForceDoLayout();
+*/		Navigation.Topbar.FadeIn();
 		this.RemoveAll();
 	}
 };
 
-
 Navigation = {
-	Topbar: {
-		Refresh: function(){
-			if( Navigation.callstack.length ){
-				Layout.getComponent( 'NavigationBar' ).items.get( 0 ).show();
-				Layout.getComponent( 'NavigationBar' ).items.get( 1 ).hide();
-				Layout.getComponent( 'NavigationBar' ).items.get( 2 ).hide();
-				Layout.getComponent( 'NavigationBar' ).items.get( 3 ).hide();
+	Bottombar: {
+		Hide: function( animation ){
+			if( animation === true ){
+				animation = {type:'slide',direction:'down'};
+			}
+			Ext.getCmp( 'PhotoViewBar' ).hide( animation );
+		},
+		Show: function( animation ){
+			if( animation === true ){
+				animation = {type:'slide',direction:'up'};
+			}
+			Ext.getCmp( 'PhotoViewBar' ).show( animation );
+		},
+		Toggle: function(){
+			if( Navigation.Bottombar.IsVisible() ){
+				Navigation.Bottombar.Hide( true );
 				return;
 			}
-			Layout.getComponent( 'NavigationBar' ).items.get( 0 ).hide();
-			Layout.getComponent( 'NavigationBar' ).items.get( 1 ).show();
-			Layout.getComponent( 'NavigationBar' ).items.get( 2 ).show();
-			Layout.getComponent( 'NavigationBar' ).items.get( 3 ).show();
+			Navigation.Bottombar.Show( true );
 		},
-		Hide: function( dolayout, animation ){
-			Layout.getDockedComponent( 0 ).hide( animation );
-			if( dolayout ){
-				Navigation.Topbar.doLayout();
+		IsVisible: function(){
+			return Ext.getCmp( 'PhotoViewBar' ).isVisible();
+		}
+	},
+	Topbar: {
+		Refresh: function(){
+			var bar =  Ext.getCmp( 'NavigationBar' );
+			if( Navigation.callstack.length ){
+				bar.items.get( 0 ).show();
+				bar.items.get( 1 ).hide();
+				bar.items.get( 2 ).hide();
+				bar.items.get( 3 ).hide();
+				return;
 			}
+			bar.items.get( 0 ).hide();
+			bar.items.get( 1 ).show();
+			bar.items.get( 2 ).show();
+			bar.items.get( 3 ).show();
 		},
-		Fade: function( fade, dolayout ){
-			Navigation.Topbar.Hide( true );
-			Navigation.Topbar.Show();
-			if( fade ){
-				Layout.getDockedComponent( 0 ).getEl().addClass( 'fade' );
+		Hide: function( animation ){
+			if( animation === true ){
+				animation = {type:'slide',direction:'up'};
 			}
-			else{
-				Layout.getDockedComponent( 0 ).getEl().removeClass( 'fade' );
-			}
+			Ext.getCmp( 'NavigationBar' ).hide( animation );
 		},
-		Show: function( dolayout, animation ){
-			Layout.getDockedComponent( 0 ).show( animation );
-			if( dolayout ){
-				Navigation.Topbar.doLayout();
+		Show: function( animation ){
+			if( animation === true ){
+				animation = {type:'slide',direction:'down'};
 			}
+			Ext.getCmp( 'NavigationBar' ).show( animation );
 		},
 		Toggle: function(){
 			if( Navigation.Topbar.IsVisible() ){
-				Navigation.Topbar.Hide( false, {type:'slide',direction:'up'} );
+				Navigation.Topbar.Hide( true );
 				return;
 			}
-			Navigation.Topbar.Show( false, {type:'slide',direction:'down'});
-		},
-		doLayout: function(){
-			Layout.componentLayout.childrenChanged = true;
-			Layout.doComponentLayout();
+			Navigation.Topbar.Show( true );
 		},
 		IsVisible: function(){
-			return Layout.getDockedComponent( 0 ).isVisible();
+			return Ext.getCmp( 'NavigationBar' ).isVisible();
+		},
+		FadeOut: function(){
+			Ext.getCmp( 'NavigationBar' ).addClass( 'fade' );
+		},
+		FadeIn: function(){
+			Ext.getCmp( 'NavigationBar' ).removeClass( 'fade' );
 		}
 	},
 	callstack: [],
@@ -260,25 +289,7 @@ Navigation = {
 			direction: 'right',
 			type: 'slide'
 		};
-		if( !togo.id ){
-			Navigation.Gotomain( togo.type, anim );
-			return;
-		}
-		Navigation.Goto( togo.type, togo.id, anim, true );
-	},
-	BlankCallstack: function(){
-		Navigation.callstack = [];
-	},
-	Gotomain: function( type, anim ){
-		var current = Layout.getActiveItem().id.split( '_' );
-		Navigation.BlankCallstack();
-		Navigation.Topbar.Refresh();
-		
-		this.runDestroy( current[ 0 ] );
-		Layout.setCard( type );
-		this.runInit( type );
-		
-		Layout.getActiveItem().store.load();
+		Navigation.Goto( togo.type, togo.id, true );
 	},
 	runInit: function( type, id ){
 		if( window[ type ] && typeof( window[ type ].Init ) == 'function' ){
@@ -293,28 +304,38 @@ Navigation = {
 	Goto: function( type, id, back ){
 		var current = Layout.getActiveItem().id.split( '_' );
 		if( back === true ){
-			Navigation.callstack.pop();
+			var anim = {
+				type: 'slide',
+				direction: 'right'
+			};
 		}
 		else{
 			Navigation.callstack.push({ type: current[ 0 ], id: current[ 1 ] });
+			var anim = {
+				type: 'slide',
+				direction: 'left'
+			};
 		}
+		Navigation.Topbar.Refresh();
 		
-		this.runDestroy( current[ 0 ] );
-		Layout.setCard( type );
+		setTimeout( function(){
+			Navigation.runDestroy( current[ 0 ] );
+		}, 300 );
+		Layout.setCard( type, anim );
 		this.runInit( type, id );
 		
-		Navigation.Topbar.Refresh();
+		if( Layout.getActiveItem().store ){
+			Layout.getActiveItem().store.load();
+		}
 	}
 };
 
-
 Ext.setup({
-	icon: 'icon.png',
-	tabletStartupScreen: 'tablet_startup.jpg',
-	phoneStartupScreen: 'phone_startup.jpg',
+	icon: 'http://static.zino.gr/touch/icon.png',
+	tabletStartupScreen: 'http://static.zino.gr/touch/tablet_startup.jpg',
+	phoneStartupScreen: 'http://static.zino.gr/touch/phone_startup.jpg',
 	glossOnIcon: true,
 	fullscreen: true,
-	monitorOrientation: true,
 	onReady: function(){
 		Ext.regModel( 'PhotoList', {
 			fields: [
@@ -353,14 +374,15 @@ Ext.setup({
 		});
 		window.Layout = new Ext.Panel({
 			layout: 'card',
+			id: 'Layout',
 			fullscreen: true,
 			monitorOrientation: true,
 			listeners: {
-				orientationchange: function( panel, orientation, width, height ){
-					var activeitemid = Layout.getActiveItem().id;
-					if( window[ activeitemid ] && window[ activeitemid ].OrientationChange ){
-						window[ activeitemid ].OrientationChange();
-					}
+				beforeorientationchange: function(){
+					this.getActiveItem().fireEvent( 'beforeorientationchange' );
+				},
+				orientationchange: function(){
+					this.getActiveItem().fireEvent( 'orientationchange' );
 				}
 			},
 			defaults:{
@@ -370,13 +392,13 @@ Ext.setup({
 				
 			},
 			dockedItems: [ new Ext.Toolbar({
+				overlay: true,
 				ui: 'dark',
 				dock: 'top',
 				id: 'NavigationBar',
 				items: [{
 					text: 'Πίσω',
 					cls: 'back',
-					dockposition: 'top',
 					hidden: true,
 					handler: Navigation.Back,
 					ui: 'back'
@@ -393,7 +415,7 @@ Ext.setup({
 				}, {
 					text: 'Προφίλ',
 					handler: function(){
-//						Navigation.Gotomain( 'OwnProfile' );
+						Navigation.Gotomain( 'OwnProfile' );
 					}
 				}, {
 					xtype: 'spacer'
@@ -439,7 +461,6 @@ Ext.setup({
 				),
 				listeners: {
 					itemtap: function( list, index ){
-						PhotoView.RemoveAll();
 						Navigation.Goto( 'PhotoView', list.all.elements[ index ].id.split( '_' )[ 1 ] );
 					}
 				}
@@ -451,9 +472,32 @@ Ext.setup({
 				indicator: false,
 				scroll: 'none',
 				style: 'background: black;',
-				monitorOrientation: false,
-				
+				dockedItems: [ new Ext.Toolbar({
+					overlay: true,
+					ui: 'dark',
+					dock: 'bottom',
+					cls: 'fade',
+					id: 'PhotoViewBar',
+					listeners: {
+						tap: function(){
+							Ext.getCmp( 'PhotoView' ).data.stopPropagation = true;
+						},
+						afterrender: function( bar ){
+							bar.mon( bar.getEl(), {
+								tap: function(){
+									bar.fireEvent( 'tap' );
+								}
+							});
+						}
+					},
+					items: [{
+						text: 'Πίσω'
+					}]
+				})],
 				listeners: {
+					orientationchange: function(){
+						PhotoView.OrientationChange();
+					},
 					cardswitch: function( carusel, newcard ){
 						PhotoView.Get( newcard.id.split( '_' )[ 1 ] );
 						if( newcard.data.rendered ){
@@ -462,19 +506,22 @@ Ext.setup({
 					},
 					tap: function(){
 						Navigation.Topbar.Toggle();
+						Navigation.Bottombar.Toggle();
 					},
 					afterrender: function( carusel ){
 						carusel.mon( carusel.getEl(), {
 							tap: function(){
-								carusel.fireEvent( 'tap' );
+								carusel.data.stopPropagation || carusel.fireEvent( 'tap' );
+								carusel.data.stopPropagation = false;
 							}
 						});
 					}
 				},
+				data: {},
 				defaults: {
 					scroll: 'vertical',
 					html:'<div class="photo_loading">' +
-							'<img src="images/photoloading.gif" />' +
+							'<img src="http://static.zino.gr/touch/photoloading.gif" />' +
 						'</div>',
 					data: {
 						rendered: false,
@@ -508,7 +555,7 @@ Ext.setup({
 				tpl: new Ext.XTemplate(
 					'<ul>' +
 						'<tpl for=".">' +
-							'<li onclick="Navigation.Goto( \'{type}\', \'{id}\' )" class="new {type}" id="{id}">' +
+							'<li class="new {type}" id="{id}">' +
 								'<img src="{author_avatarurl}" alt="{author_name}" />' +
 								'<div class="details">' +
 									'<div class="top">' +
