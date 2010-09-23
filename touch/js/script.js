@@ -211,6 +211,16 @@ PhotoView = {
 };
 
 Navigation = {
+	Togglebars: function(){
+		if( this.Topbar.isVisible() ){
+			this.Topbar.Hide( true );
+			this.Bottombar.Hide( true );
+		}
+		else{
+			this.Topbar.Show( true );
+			This.Bottombar.Show( true );
+		}
+	},
 	Bottombar: {
 		Hide: function( animation ){
 			if( animation === true ){
@@ -332,8 +342,8 @@ Navigation = {
 
 Ext.setup({
 	icon: 'http://static.zino.gr/touch/icon.png',
-	tabletStartupScreen: 'http://static.zino.gr/touch/tablet_startup.jpg',
-	phoneStartupScreen: 'http://static.zino.gr/touch/phone_startup.jpg',
+	tabletStartupScreen: 'http://static.zino.gr/touch/wallpapers/zino_black_768x1004jpg',
+	phoneStartupScreen: 'http://static.zino.gr/touch/wallpapers/zino_black_320x460.jpg',
 	glossOnIcon: true,
 	fullscreen: true,
 	onReady: function(){
@@ -505,8 +515,7 @@ Ext.setup({
 						}
 					},
 					tap: function(){
-						Navigation.Topbar.Toggle();
-						Navigation.Bottombar.Toggle();
+						Navigation.Togglebars();
 					},
 					afterrender: function( carusel ){
 						carusel.mon( carusel.getEl(), {
@@ -585,5 +594,8 @@ Ext.setup({
 				html: '<h1>chat here</h1>'
 			}]
 		});
+		if( navigator.standalone ){
+			Ext.select( 'body' ).addClass( 'standalone' );
+		}
 	}
 });

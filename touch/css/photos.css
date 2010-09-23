@@ -6,6 +6,13 @@ div.eof{
 	opacity: 0.7 !important;
 }
 
+
+body.standalone #Layout > .x-panel-body > div{
+	margin-top: 66px;
+}
+body.standalone #NavigationBar{
+	margin-top: 20px;
+}
 #Layout > .x-panel-body > div{
 	margin-top: 44px;
 }
