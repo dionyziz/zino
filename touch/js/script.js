@@ -212,9 +212,9 @@ PhotoView = {
 
 Navigation = {
 	Togglebars: function(){
-		if( Navigation.Topbar.IsVisible() ){
-			Navigation.Topbar.Hide( true );
-			Navigation.Bottombar.Hide( true );
+		if( this.Topbar.IsVisible() ){
+			this.Topbar.Hide( true );
+			this.Bottombar.Hide( true );
 		}
 		else{
 			Navigation.Topbar.Show( true );
@@ -399,7 +399,7 @@ Ext.setup({
 				},
 				orientationchange: function(){
 					this.getActiveItem().fireEvent( 'orientationchange' );
-				}
+				},
 			},
 			defaults:{
 				scroll: 'vertical',
@@ -511,8 +511,14 @@ Ext.setup({
 					}]
 				})],
 				listeners: {
+					beforeorientationchange: function(){
+						Navigation.Topbar.Show( false );
+						Navigation.Bottombar.Show( false );
+					},
 					orientationchange: function(){
 						PhotoView.OrientationChange();
+						Navigation.Topbar.Hide( false );
+						Navigation.Bottombar.Hide( false );
 					},
 					cardswitch: function( carusel, newcard ){
 						PhotoView.Get( newcard.id.split( '_' )[ 1 ] );

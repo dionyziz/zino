@@ -10,14 +10,20 @@
         <title>Zino</title>
         <link rel="stylesheet" href="css/ext-touch.css" type="text/css" />
         <link rel="stylesheet" href="css/photos.css" type="text/css" />
-        <script type="text/javascript" src="js/ext-touch.js"></script>
+        <script type="text/javascript" src="js/ext-touch-debug.js"></script>
 		<script type="text/javascript" src="js/ext-touch-extend.js"></script>
 		<script type="text/javascript" src="js/date.js"></script>
 		<script type="text/javascript" src="js/kamibu.js"></script>
 		<script type="text/javascript">
 				Now = '<?=date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] );?>';
-				NowDate = stringToDate( Now );
-				base = 'http://beta.zino.gr/ted';
+				NowDate = stringToDate( Now );<?php
+				if( file_exists( 'proxy.php' ) ){
+					?>base = 'http://theodosis.podzone.net/m.zino.gr/proxy.php';<?php
+				}
+				else{
+					?>base = 'http://beta.zino.gr/ted';<?php
+				}
+				?>
 				setInterval( function(){
 					NowDate.setSeconds( NowDate.getSeconds() + 5 );
 					Now = dateToString( NowDate );
