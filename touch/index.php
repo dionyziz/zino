@@ -10,7 +10,7 @@
         <title>Zino</title>
         <link rel="stylesheet" href="css/ext-touch.css" type="text/css" />
         <link rel="stylesheet" href="css/photos.css" type="text/css" />
-        <script type="text/javascript" src="js/ext-touch-debug.js"></script>
+        <script type="text/javascript" src="js/ext-touch.js"></script>
 		<script type="text/javascript" src="js/ext-touch-extend.js"></script>
 		<script type="text/javascript" src="js/date.js"></script>
 		<script type="text/javascript" src="js/kamibu.js"></script>

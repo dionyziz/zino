@@ -212,13 +212,13 @@ PhotoView = {
 
 Navigation = {
 	Togglebars: function(){
-		if( this.Topbar.isVisible() ){
-			this.Topbar.Hide( true );
-			this.Bottombar.Hide( true );
+		if( Navigation.Topbar.IsVisible() ){
+			Navigation.Topbar.Hide( true );
+			Navigation.Bottombar.Hide( true );
 		}
 		else{
-			this.Topbar.Show( true );
-			This.Bottombar.Show( true );
+			Navigation.Topbar.Show( true );
+			Navigation.Bottombar.Show( true );
 		}
 	},
 	Bottombar: {
@@ -311,10 +311,10 @@ Navigation = {
 			window[ type ].Destroy();
 		}
 	},
-    Gotomain: function( type ){
-        this.Goto( type, null, true, false );
-    },
-	Goto: function( type, id, back, animate ){
+	Gotomain: function( type ){
+		this.Goto( type, null, true, false );
+	},
+	Goto: function( type, id, back, animation ){
 		var current = Layout.getActiveItem().id.split( '_' );
 		if( back === true ){
 			var anim = {
@@ -329,11 +329,10 @@ Navigation = {
 				direction: 'left'
 			};
 		}
-        if( animate === false ){
-            anim = false;
-        }
 		Navigation.Topbar.Refresh();
-		
+		if( animation === false ){
+			anim = false;
+		}
 		setTimeout( function(){
 			Navigation.runDestroy( current[ 0 ] );
 		}, 300 );
@@ -345,6 +344,7 @@ Navigation = {
 		}
 	}
 };
+
 
 Ext.setup({
 	icon: 'http://static.zino.gr/touch/icon.png',
@@ -399,10 +399,7 @@ Ext.setup({
 				},
 				orientationchange: function(){
 					this.getActiveItem().fireEvent( 'orientationchange' );
-				},
-				beforeorientationchange: function(){
-					Navigation.Topbar.h
-				},
+				}
 			},
 			defaults:{
 				scroll: 'vertical',
@@ -491,6 +488,28 @@ Ext.setup({
 				indicator: false,
 				scroll: 'none',
 				style: 'background: black;',
+				dockedItems: [ new Ext.Toolbar({
+					overlay: true,
+					ui: 'dark',
+					dock: 'bottom',
+					cls: 'fade',
+					id: 'PhotoViewBar',
+					listeners: {
+						tap: function(){
+							Ext.getCmp( 'PhotoView' ).data.stopPropagation = true;
+						},
+						afterrender: function( bar ){
+							bar.mon( bar.getEl(), {
+								tap: function(){
+									bar.fireEvent( 'tap' );
+								}
+							});
+						}
+					},
+					items: [{
+						text: 'Πίσω'
+					}]
+				})],
 				listeners: {
 					orientationchange: function(){
 						PhotoView.OrientationChange();
