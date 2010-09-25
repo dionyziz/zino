@@ -72,7 +72,8 @@ var axslt = function( xml, template, callback, params, xslPath ) {
     }
     if ( !xslPath ) {
         if ( !_aXSLT.defaultStylesheet ) {
-            throw new Error( 'aXSLT: Please specify a (default) stylesheet or pass an XSL path' );
+            //throw new Error( 'aXSLT: Please specify a (default) stylesheet or pass an XSL path' );
+            if ( window.console ) { console.log( 'aXSLT: Pleace specify a (default) stylesheet or pass an XSL path' ); }
             return;
         }
         xslPath = _aXSLT.defaultStylesheet;
@@ -197,7 +198,9 @@ var _aXSLT = {
     },
     registerUnit: function( xml, xslpath, callback, templateName, templateMode, params ) {
         if ( xslpath === false ) {
-            throw new Error( 'aXSLT: Invalid xsl path / default xsl not defined' );
+            //throw new Error( 'aXSLT: Invalid xsl path / default xsl not defined' );
+            if ( window.console ) { console.log( 'aXSLT: Invalid xsl path / default xsl not defined' ); }
+            return;
         }
         var xslindex = this.prepareXSL( xslpath );
         if ( this.xmlReady( xml ) && this.xslCache[ xslpath ].xhr.readyState == 4 ) {
@@ -255,7 +258,7 @@ var _aXSLT = {
         }
         var pending = _aXSLT.unitLists[ index ].slice(); //cloning the array, because the dequeue of successfully transformed units break the iteration behaviour
         for ( var i = 0; i < pending.length; ++i ) {
-            if ( _aXSLT.pendingUnits[ pending[ i ] ].xsl.readyState == 4 ) {
+            if ( _aXSLT.pendingUnits[ pending[ i ] ] && _aXSLT.pendingUnits[ pending[ i ] ].xsl.readyState == 4 ) {
                 _aXSLT.transformUnit( pending[ i ] );
             }
         }
@@ -264,11 +267,9 @@ var _aXSLT = {
         if ( xsl.readyState != 4 ) {
             return;
         }
-        //alert( index );
-        //alert( _aXSLT.unitLists[ index ] );
         var pending = _aXSLT.unitLists[ index ].slice(); //cloning the array, because the dequeue of successfully transformed units break the iteration behaviour
         for ( var i = 0; i < pending.length; i++ ) {
-            if ( this.xmlReady( _aXSLT.pendingUnits[ pending[ i ] ].xml ) ) { //test
+            if (  _aXSLT.pendingUnits[ pending[ i ] ] && this.xmlReady( _aXSLT.pendingUnits[ pending[ i ] ].xml ) ) { //test
                 _aXSLT.transformUnit( pending[ i ] );
             }
         }
@@ -342,7 +343,9 @@ var _aXSLT = {
                 '</xsl:stylesheet>';
             templateDOM = new DOMParser().parseFromString( templateString, 'text/xml' ).childNodes[0].childNodes[0];
             if ( basicStylesheet.childNodes[0].nodeName == 'html' ) {
-                throw new Error( 'aXSLT: The xsl file has an html structure' );
+                //throw new Error( 'aXSLT: The xsl file has an html structure' );
+                if ( window.console ) { console.log( 'aXSLT: The xsl file has an html structure' ); }
+                return;
             }
             basicStylesheet.childNodes[0].appendChild( basicStylesheet.importNode( templateDOM, true ) );
         }
@@ -413,7 +416,9 @@ var _aXSLT = {
         stylesheet = _aXSLT.addTemplate( stylesheet, templateName, templateMode, params );
         //alert( stylesheet );
         if ( !stylesheet ) {
-            throw new Error( 'aXSLT: Error in template juggling' );
+            //throw new Error( 'aXSLT: Error in template juggling' );
+            if ( window.console ) { console.log( 'aXSLT: Error in template juggling' ) ; }
+            return;
         }
         
         if ( typeof( xml ) == 'string' ) {
@@ -571,7 +576,7 @@ var _aXSLT = {
             //alert( new XMLSerializer().serializeToString( result ) );
             _aXSLT.postTransform( result, callback );
         }
-        if( Beta ){
+        if( Beta && xml.responseXML ){
             var respxml = xml.responseXML;
             var uri = respxml.URL;
             if( uri == null ){
@@ -586,7 +591,9 @@ var _aXSLT = {
     },
     postTransform: function( result, callback ) {
         if ( !result ) {
-            throw new Error( 'aXSLT: Empty result document' );
+            //throw new Error( 'aXSLT: Empty result document' );
+            if ( window.console ) { console.log( 'aXSLT: Empty result document' ); }
+            return;
         }
         window.precallback = new Date();
         if ( callback ) {
