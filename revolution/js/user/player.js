@@ -36,7 +36,7 @@ Profile.Player = {
             MozBorderRadiusBottomright: 4,
             MozBorderRadiusBottomleft: 4,
         }).find( '.list' ).slideDown( 'normal' );
-        
+        $( '#mplayersearchmodal' ).find( 'tbody' ).empty();
         axslt( $.get( 'song/list', { query: query } ), 'call:user.modal.songlist', function( elems ) {
             $modal.find( 'table thead tr' ).removeClass( 'hidden' );
             var $elems = $( elems ).filter( 'tr' );
