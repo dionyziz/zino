@@ -46,7 +46,6 @@
             else {
             	$journals = Journal::ListRecent( 25 );
             }
-
             //$photos = Photo::ListRecent( 0, 25 ); // no images ase shown on news
             $content = array();
 			$i = 0;
