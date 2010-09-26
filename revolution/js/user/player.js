@@ -20,7 +20,7 @@ Profile.Player = {
         }
     },
     OpenSearchModal: function() {
-        axslt( $.get(), 'call:user.modal.song', function() { //TODO remove pointless ajax request
+        axslt( $.get('./'), 'call:user.modal.song', function() { //TODO remove pointless ajax request
             Profile.Player.PrepareModal( $( this ).filter( '#mplayersearchmodal' ), function() {} );
         } );
         return false;
