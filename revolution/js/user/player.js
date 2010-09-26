@@ -26,7 +26,7 @@ Profile.Player = {
         return false;
     },
     DeleteSong: function() {
-        $.post( 'user/update', { songid: -1 } );
+        $.post( 'user/update', { song: -1 } );
         $( '.mplayer' ).empty().append( $( '<a href="" id="addnewsong" class="notshown editable" />' ).text( 'Πρόσθεσε ένα τραγούδι στο προφίλ σου' ) );
     },
     SubmitSearch: function( $modal, query ) {
