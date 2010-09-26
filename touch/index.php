@@ -12,13 +12,14 @@
         <link rel="stylesheet" href="css/photos.css" type="text/css" />
         <script type="text/javascript" src="js/ext-touch-debug.js"></script>
 		<script type="text/javascript" src="js/ext-touch-extend.js"></script>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/date.js"></script>
 		<script type="text/javascript" src="js/kamibu.js"></script>
 		<script type="text/javascript">
 				Now = '<?=date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] );?>';
 				NowDate = stringToDate( Now );<?php
 				if( file_exists( 'proxy.php' ) ){
-					?>base = 'http://theodosis.podzone.net/m.zino.gr/proxy.php';<?php
+					?>base = 'proxy.php';<?php
 				}
 				else{
 					?>base = 'http://beta.zino.gr/ted';<?php
