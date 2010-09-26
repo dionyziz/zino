@@ -1,6 +1,6 @@
 <?php
     class Tinyurl {
-        public static function Search( $term ) {
+        public static function SearchSong( $term ) {
             $url = "http://tinysong.com/s/" . urlencode( $term ) . "?format=json&limit=32";
 
             $handler = curl_init();        
