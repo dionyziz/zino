@@ -142,6 +142,7 @@
         }
         public static function Update( $multiargs ) {
             $options = $multiargs;
+            var_dump( $options );
             
 			if ( !is_array( $options ) || empty( $options ) ) {
 				return false;
