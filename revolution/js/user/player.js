@@ -47,9 +47,7 @@ Profile.Player = {
                 if ( !isNaN( id ) ) {
                     axslt( '<song id="' + id + '" />', '/song', function( elems ) {
                         $.post( 'user/update', { 
-                            songid: id,
-                            albumid: albumid,
-                            artistid: artistid
+                            profile_songid: [ id, albumid, artistid ]
                         } );
                         $modal.jqmHide().remove();
                         $( '.mplayer' ).empty().append( $( elems ).filter( 'div.player' ) );
