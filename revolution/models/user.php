@@ -434,12 +434,12 @@
             }
 
 			if ( isset( $details[ 'profile_songid' ] ) ) {
-                clude( 'models/music/song.php' );
-				Song::Insert( $userid, $details[ 'profile_songid' ] );
-                if ( is_array( $details[ 'profile_songid' ] ) ) {
+                clude( 'models/music/song.php' );				
+                if ( is_array( $details[ 'profile_songid' ] ) ) { // new song inserted
+                    Song::Insert( $userid, $details[ 'profile_songid' ] );
                     $details[ 'profile_songid' ] = ( int )$details[ 'profile_songid' ][ 'songid' ];
                 }
-                else {
+                else { //delete
                     $details[ 'profile_songid' ] = -1;
                 }
 			}
