@@ -436,7 +436,12 @@
 			if ( isset( $details[ 'profile_songid' ] ) ) {
                 clude( 'models/music/song.php' );
 				Song::Insert( $userid, $details[ 'profile_songid' ] );
-                $details[ 'profile_songid' ] = ( int )$details[ 'profile_songid' ][ 'songid' ];
+                if ( is_array( $details[ 'profile_songid' ] ) ) {
+                    $details[ 'profile_songid' ] = ( int )$details[ 'profile_songid' ][ 'songid' ];
+                }
+                else {
+                    $details[ 'profile_songid' ] = -1;
+                }
 			}
 
 			$details = User::CheckDataOnUserUpdate( $details );
