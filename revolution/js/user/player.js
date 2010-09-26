@@ -42,9 +42,15 @@ Profile.Player = {
             var $elems = $( elems ).filter( 'tr' );
             $elems.click( function () { 
                 var id = $( this ).attr( 'id' ).split( '_' )[ 1 ];
+                var albumid = $( this ).find( '.albumid' ).text().split( '_' )[ 1 ];
+                var artistid = $( this ).find( '.artistid' ).text().split( '_' )[ 1 ];
                 if ( !isNaN( id ) ) {
                     axslt( '<song id="' + id + '" />', '/song', function( elems ) {
-                        $.post( 'user/update', { songid: id } );
+                        $.post( 'user/update', { 
+                            songid: id,
+                            albumid: albumid,
+                            artistid: artistid
+                        } );
                         $modal.jqmHide().remove();
                         $( '.mplayer' ).empty().append( $( elems ).filter( 'div.player' ) );
                         Profile.Player.Init();

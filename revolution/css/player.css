@@ -104,6 +104,9 @@
 	color: #32587d;
     text-align: left;
 }
+#mplayersearchmodal table span.albumid, #mplayersearchmodal table span.artistid{
+    display: none;
+}
 #mplayersearchmodal table tr{
 	padding: 3px;
 	cursor: pointer;

@@ -128,8 +128,14 @@
     <xsl:for-each select="/social/songs/song">
         <tr><xsl:attribute name="id">song_<xsl:value-of select="@id" /></xsl:attribute>
             <td class="name"><xsl:value-of select="name" /></td>
-            <td class="artist"><xsl:value-of select="artist/name" /></td>
-            <td class="album"><xsl:value-of select="album/name" /></td>
+            <td class="artist">
+                <span class="artistid">artist_<xsl:value-of select="artist/@id" /></span>
+                <xsl:value-of select="artist/name" />
+            </td>
+            <td class="album">
+                <span class="albumid">album_<xsl:value-of select="album/@id" /></span>
+                <xsl:value-of select="album/name" />
+            </td>
         </tr>
     </xsl:for-each>
 </xsl:template>
