@@ -469,7 +469,7 @@
 			'profile_email' 
 			'profile_dob'
 			*/
-			$validints = array ( 'profile_moodid', 'profile_placeid', 'profile_songid' );
+			$validints = array ( 'profile_moodid', 'profile_placeid' );
 			$validarrays = array( 
 				'profile_sexualorientation' => array( '-' , 'straight', 'bi', 'gay' ) ,
  				'profile_relationship' => array( '-', 'single', 'relationship', 'casual', 'engaged', 'married','complicated' ),
