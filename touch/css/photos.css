@@ -19,6 +19,60 @@ body.standalone #NavigationBar{
 #Layout > .x-panel-body > div#PhotoView{
 	margin-top: 0;
 }
+#Layout > .x-panel-body > div#LoginForm{
+	margin-top: 0;
+}
+
+.portrait #LoginForm .h2{
+	margin: 55px 0;
+}
+.portrait #LoginForm .field{
+	margin-top: 20px;
+}
+.portrait #LoginForm .login{
+	float: right;
+	margin: 60px 20px 0 0;
+}
+.landscape #LoginForm .h2{
+	margin: 20px 0;
+}
+.landscape #LoginForm .field{
+	margin-top: 10px;
+}
+.landscape #LoginForm .login{
+	float: right;
+	margin: 30px 80px 0 0;
+}
+
+#LoginForm{
+	background: url("http://static.zino.gr/touch/login-bg.png") no-repeat;
+	background-size: 100% 120%;
+	color: white;
+	text-align: center;
+}
+#LoginForm > .x-panel-body{
+	max-width: 320px;
+	margin: auto;
+}
+#LoginForm .x-panel-body{
+	background: transparent;
+}
+#LoginForm h2{
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+}
+#LoginForm label{
+	display: block;
+}
+#LoginForm .x-input-text, #LoginForm .x-input-password{
+	background: url("http://static.zino.gr/revolution/loggedout/textbox.png");
+	border: 0;
+	padding: 3px;
+	width: 188px;
+	height: 30px;
+	text-align: center;
+}
 
 #PhotoList li{
 	float: left;
@@ -98,3 +152,7 @@ div.loading{
 	position: absolute;
 }
 
+.x-button img{
+	width: 1.4em;
+	height: 1.4em;
+}

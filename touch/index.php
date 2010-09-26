@@ -22,7 +22,7 @@
 					?>base = 'proxy.php';<?php
 				}
 				else{
-					?>base = 'http://beta.zino.gr/ted';<?php
+					?>base = 'http://beta.zino.gr/ted/';<?php
 				}
 				?>
 				setInterval( function(){

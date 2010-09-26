@@ -1,6 +1,33 @@
 PhotoView = {
-	_threshold: 5,
+	_threshold: 0,
 	_pending: [],
+	Tag: {
+		Open: function(){},
+	},
+	Rename: {
+		Open: function(){},
+	},
+	Comments: {
+		Show: function(){},
+	},
+	Like: function(){
+		var id = Ext.getCmp( 'PhotoView' ).getActiveItem().id.split( '_' )[ 1 ];
+		Ext.Ajax.request({
+			method: "POST",
+			url: window.base + '?resource=favourite&method=create',
+			params: {
+				typeid: 2,
+				itemid: id
+			},
+			success: function(){
+				Ext.getCmp( 'PhotoLike' ).disable().addClass( 'liked' );
+			},
+			failure: function(){
+				Ext.Msg.alert( 'Ωπ...', 'Υπήρξε κάποιο πρόβλημα.' );
+			}
+		});
+	},
+	Delete: function(){},
 	GetCardIndex: function( carusel, card ){
 		var items = carusel.items.items;
 		for( var i = 0; i < items.length; ++i ){
@@ -53,7 +80,7 @@ PhotoView = {
             return Ext.isEmpty(val) ? defaultValue : val;
         };
 		var photo = {
-			title: selectValue( 'social > photo > title', xml ),
+			title: jQuery( xml ).find( 'social > photo > title' ).text(),
 			album: {
 				id: selectValue( 'social > photo album@id', xml ),
 				name: selectValue( 'social > photo album name', xml ),
@@ -69,13 +96,24 @@ PhotoView = {
 				width: parseInt( selectValue( 'social > photo > media@width', xml ) ),
 				height: parseInt( selectValue( 'social > photo > media@height', xml ) )
 			},
-			favourites: selectValue( 'social > photo > favourites@count', xml ),
-			comments: selectValue( 'social > photo > discussion@count', xml ),
+			favourites: {
+				totalCount: selectValue( 'favourites@count', xml ),
+				users: []
+			},
+			comments: {
+				totalCount: selectValue( 'discussion@count', xml ),
+				items: Ext.DomQuery.select( 'discussion', xml )
+			},
 			siblings: {
 				prev: selectValue( 'photos photo[navigation=previous]@id', xml ),
 				next: selectValue( 'photos photo[navigation=next]@id', xml )
 			}
 		};
+		var favs = Ext.DomQuery.select( 'favourites user name', xml );
+		for( var i = 0; i < favs.length; ++i ){
+			photo.favourites.users[ i ] = favs[ i ].textContent;
+		}
+		window.photo = photo;
 		return photo;
 	},
 	SetDimentions: function( carusel, card, screenD, imageD ){
@@ -342,6 +380,12 @@ Navigation = {
 		if( Layout.getActiveItem().store ){
 			Layout.getActiveItem().store.load();
 		}
+	},
+	StartSession: function(){
+		Layout.setCard( 'PhotoList', false );
+		Layout.show();
+		Ext.getCmp( 'NavigationBar' ).show();
+		Ext.getCmp( 'PhotoList' ).store.load();
 	}
 };
 
@@ -393,13 +437,26 @@ Ext.setup({
 			id: 'Layout',
 			fullscreen: true,
 			monitorOrientation: true,
+			hidden: true,
 			listeners: {
 				beforeorientationchange: function(){
 					this.getActiveItem().fireEvent( 'beforeorientationchange' );
 				},
-				orientationchange: function(){
+				orientationchange: function( p, o ){
+					
+					Ext.getBody().removeClass( 'landscape' );
+					Ext.getBody().removeClass( 'portrait' );
+					Ext.getBody().addClass( o );
+					
 					this.getActiveItem().fireEvent( 'orientationchange' );
 				},
+				beforerender: function(){
+					Ext.getBody().addClass( 'loading' );
+					Ext.getBody().addClass( Ext.getOrientation() );
+					if( navigator.standalone ){
+						Ext.getBody().addClass( 'standalone' );
+					}
+				}
 			},
 			defaults:{
 				scroll: 'vertical',
@@ -411,6 +468,7 @@ Ext.setup({
 				overlay: true,
 				ui: 'dark',
 				dock: 'top',
+				hidden: true,
 				id: 'NavigationBar',
 				items: [{
 					text: 'Πίσω',
@@ -444,13 +502,53 @@ Ext.setup({
 				}]
 			})],
 			items: [
-			{
+			new Ext.form.FormPanel({ //Login
+				type: 'xml',
+				id: 'LoginForm',
+				method: "POST",
+				url: window.base + '?resource=session&method=create',
+				items:[{
+					cls: 'h2',
+					html: '<h2>Καλωσήρθες στο Zino</h2>',
+				}, {
+					cls: 'field',
+					xtype: 'textfield',
+					hasFocus: true,
+					label: 'Ψευδώνυμο',
+					name: 'username',
+					required: true,
+				}, {
+					cls: 'field',
+					xtype: 'passwordfield',
+					label: 'Κωδικός',
+					name: 'password',
+					required: true
+				}, {
+					cls: 'login',
+					xtype: 'button',
+					text: 'Είσοδος',
+					ui: 'confirm',
+					width: 120,
+					handler: function(){
+						Ext.getCmp( 'LoginForm' ).submit({
+							type: 'xml',
+							success: function(){
+								Navigation.Gotomain( 'PhotoList' );
+								Layout.getDockedComponent( 'NavigationBar' ).show();
+							}
+						});
+					}
+				}, {
+					cls: 'eof'
+				}]
+			}),
+			{ //PhotoList
 				id: 'PhotoList',
 				xtype: 'dataview',
 				itemSelector: 'li.photo',
 				store: new Ext.data.Store({
 					model: 'PhotoList',
-					autoLoad: true,
+				//	autoLoad: true,
 					proxy: {
 						type: 'ajax',
 						url: window.base + '?resource=photo&method=listing',
@@ -481,7 +579,7 @@ Ext.setup({
 					}
 				}
 			}, 
-			{
+			{ //PhotoView
 				id: 'PhotoView',
 				xtype: 'carousel',
 				direction: 'horizontal',
@@ -507,7 +605,57 @@ Ext.setup({
 						}
 					},
 					items: [{
-						text: 'Πίσω'
+						text: 'actions',
+						id: 'PhotoActions',
+						handler: function(){
+							if( !this.actions ){
+								this.PhotoAction = new Ext.ActionSheet({
+									id: 'PhotoAction',
+									defaults: {
+										scope: this
+									},
+									items: [{
+										text: 'Το αγαπώ',
+										ui: 'confirm',
+										handler: PhotoView.Like
+									}, {
+										text: 'Γνωρίζω κάποιον',
+										handler: PhotoView.Tag.Open
+									}, {
+										text: 'Σχόλια',
+										handler: PhotoView.Comments.Show
+									}, {
+										text: 'Μετονομασία',
+										handler: PhotoView.Rename.Open
+									}, {
+										text: 'Διαγραφή',
+										ui: 'decline',
+										handler: PhotoView.Delete,
+									}, {
+										text: 'Κλείσιμο',
+										handler: function(){
+											this.PhotoAction.hide();
+										}
+									}]
+								});
+							}
+							this.PhotoAction.show();
+						}
+					}, {
+						text: '',
+						id: "PhotoLike",
+						icon: 'http://static.zino.gr/touch/like_grey.png',
+						disabledicon: 'http://static.zino.gr/touch/like.png',
+						handler: PhotoView.Like,
+						listeners: {
+							disable: function(){
+								this.el.select( 'img' ).setStyle( 'background-image', 'url("' + this.disabledicon + '")' );
+							},
+							enable: function(){
+								this.el.select( 'img' ).setStyle( 'background-image', 'url("' + this.icon + '")' );
+							},
+							
+						}
 					}]
 				})],
 				listeners: {
@@ -551,13 +699,13 @@ Ext.setup({
 				},
 				items: []
 			},
-			{
+			{ //NewList
 				id: 'NewList',
 				xtype: 'dataview',
 				itemSelector: 'li.new',
 				store: new Ext.data.Store({
 					model: 'NewList',
-					autoLoad: true,
+			//		autoLoad: true,
 					proxy: {
 						type: 'ajax',
 						url: window.base + '?resource=news&method=listing',
@@ -597,17 +745,29 @@ Ext.setup({
 					}
 				)
 			}, 
-			{
+			{ //Profile
 				title: 'profile',
 				html: '<h1>profile</h1>'
 			}, 
-			{
+			{ //Chat
 				title: 'Chat',
 				html: '<h1>chat here</h1>'
 			}]
 		});
-		if( navigator.standalone ){
-			Ext.select( 'body' ).addClass( 'standalone' );
-		}
+		
+		Ext.Ajax.request({ //check logged in
+			url: window.base + '?resource=session&method=view',
+			success: function( result ){
+				
+				var user = Ext.DomQuery.selectNode( 'user', result.responseXML );
+				if( !user ){
+					window.User = false;
+					Layout.show();
+					return;
+				}
+				window.User = user.getAttribute( 'id' );
+				Navigation.StartSession();
+			}
+		});
 	}
 });
