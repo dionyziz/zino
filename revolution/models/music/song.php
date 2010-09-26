@@ -29,21 +29,23 @@
                 );
 		}
 
-        public static function Insert( $userid, $songid ) {
+        public static function Insert( $userid, $songinfo ) {
 			clude( 'models/music/grooveshark.php' );
 			clude( 'models/music/GSAPI.php' );
-			$gsapi = GSAPI::getInstance(array('APIKey' => "1100e42a014847408ff940b233a39930" ) );
-			$songid = ( int )$songid;
+			//$gsapi = GSAPI::getInstance(array('APIKey' => "1100e42a014847408ff940b233a39930" ) );
+            if ( !is_array( $songinfo ) 
+                 || !is_int( $songinfo[ 'artistid' ] ) 
+                 || !is_int( $songinfo[ 'songid' ] )
+                 || !is_int( $songinfo[ 'albumid' ] ) ) {
+                throw New Exception( "problem with song update" );
+            }
 			$userid = ( int )$userid;
-			$info = $gsapi->songAbout( $songid );
-			if ( !isset( $info[ 'songID' ] ) ) {
-				throw New Exception( "Could not retrive the song" );
-			}
+			//$info = $gsapi->songAbout( $songid );
 			return db(
 					'INSERT INTO `song`
                  ( `song_songid`, `song_albumid`, `song_artistid`, `song_userid`, `song_created` )
                  VALUES ( :songid,:albumid, :artistid, :userid, NOW() )',
-                 array( 'songid' => $info[ "songID" ], 'albumid' => $info[ "albumID" ], 'artistid' => $info[ "artistID" ], 'userid' => $userid )
+                 array( 'songid' => $songinfo[ "songid" ], 'albumid' => $songinfo[ "albumid" ], 'artistid' => $songinfo[ "artistid" ], 'userid' => $userid )
                 );
         }
     }
