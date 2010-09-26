@@ -34,9 +34,9 @@
 			clude( 'models/music/GSAPI.php' );
 			//$gsapi = GSAPI::getInstance(array('APIKey' => "1100e42a014847408ff940b233a39930" ) );
             if ( !is_array( $songinfo ) 
-                 || !is_int( $songinfo[ 'artistid' ] ) 
-                 || !is_int( $songinfo[ 'songid' ] )
-                 || !is_int( $songinfo[ 'albumid' ] ) ) {
+                 || !is_numeric( $songinfo[ 'artistid' ] ) 
+                 || !is_numeric( $songinfo[ 'songid' ] )
+                 || !is_numeric( $songinfo[ 'albumid' ] ) ) {
                 throw New Exception( "problem with song update" );
             }
 			$userid = ( int )$userid;
