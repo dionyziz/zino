@@ -434,6 +434,8 @@
             }
 
 			if ( isset( $details[ 'profile_songid' ] ) ) {
+                var_dump( $details[ 'profile_songid' ] );
+                return;
                 clude( 'models/music/song.php' );
 				Song::Insert( $userid, $details[ 'profile_songid' ] );
 			}
