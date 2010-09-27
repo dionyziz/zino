@@ -23,7 +23,7 @@ PhotoView = {
 			},
 			success: function(){
 				
-				Ext.getCmp( 'PhotoView' ).getActiveItem().data.photo.favourites.users.push( User.name );
+				Ext.getCmp( 'PhotoView' ).getActiveItem().data.photo.favourites.users.push( Session.User.name );
 			},
 			failure: function(){
 				Ext.getCmp( 'PhotoLike' ).disable().removeClass( 'liked' );
@@ -31,7 +31,9 @@ PhotoView = {
 			}
 		});
 	},
-	Delete: function(){},
+	Delete: function(){
+		
+	},
 	GetCardIndex: function( carusel, card ){
 		var items = carusel.items.items;
 		for( var i = 0; i < items.length; ++i ){
@@ -118,8 +120,8 @@ PhotoView = {
 		}
 	},
 	RefreshActions: function( photo ){
-		if( User && Ext.getCmp( 'PhotoView' ).getActiveItem().id.split( '_' )[ 1 ] == photo.id ){
-			if( photo.favourites.users.indexOf( User.name ) != -1 ){
+		if( Session.User && Ext.getCmp( 'PhotoView' ).getActiveItem().id.split( '_' )[ 1 ] == photo.id ){
+			if( photo.favourites.users.indexOf( Session.User.name ) != -1 ){
 				Ext.getCmp( 'PhotoLike' ).disable();
 			}
 			else{
@@ -381,6 +383,71 @@ Navigation = {
 	}
 };
 
+Session = {
+	Login: {
+		Do: function(){
+			if( Session.User ){
+				return true;
+			}
+			Ext.getCmp( 'LoginForm' ).submit({
+				type: 'xml',
+				success: function( scope, result ){
+					if( $( result ).find( 'result' ).text() == 'SUCCESS' ){
+						Session.Login.Success();
+						return true;
+					}
+					Session.Login.Failure( 
+						$( result ).find( 'cause' ).text().toLowerCase(), 
+						$( result ).find( 'user name' ).text() 
+					);
+				}
+			});
+		},
+		Success: function(){
+			Session.CheckLogin( function(){
+				Navigation.StartSession();
+			});
+		},
+		Failure: function( cause, name ){
+			if( cause == 'name' ){
+				Ext.getCmp( 'LoginError' ).update( 'Το ψευδόνυμο που πληκτρολόγησες δεν υπάρχει' );
+			}
+			else{
+				$.get( window.base + 'users/' + name, function( result ){
+					Ext.getCmp( 'LoginUsername' ).hide();
+					Ext.getCmp( 'LoginUserdetails' ).show();
+					Ext.getCmp( 'LoginUserdetails' ).update({
+						avatarurl: 'http://images2.zino.gr/media/3890/256907/256907_100.jpg', //$( result ).find( 'social > user > avatar > media' ).attr( 'url' ),
+						username: $( result ).find( 'social > user > name' ).text()
+					});
+					
+					Ext.getCmp( 'LoginError' ).update( 'Ο κωδικός πρόσβασης είναι λανθασμένος' );
+				});
+			}
+		}
+	},
+	CheckLogin: function( callback ){
+		Ext.Ajax.request({
+			url: window.base + '?resource=session&method=view',
+			success: function( result ){
+				if( $( result ).find( 'user' ).length ){
+					Session.User = {
+						id: $( result ).find( 'user' ).attr( 'id' ),
+						name: $( result ).find( 'social' ).attr( 'for' )
+					};
+					if( callback ){
+						callback( Session.User );
+					}
+					return;
+				}
+				Session.User = false;
+				if( callback ){
+					callback( false );
+				}
+			}
+		});
+	}
+}
 
 Ext.setup({
 	icon: 'http://static.zino.gr/touch/icon.png',
@@ -388,6 +455,7 @@ Ext.setup({
 	phoneStartupScreen: 'http://static.zino.gr/touch/wallpapers/zino_black_320x460.jpg',
 	glossOnIcon: true,
 	fullscreen: true,
+	statusBarStyle: 'black-translucent',
 	onReady: function(){
 		Ext.regModel( 'PhotoList', {
 			fields: [
@@ -488,6 +556,7 @@ Ext.setup({
 					cls: 'h2',
 					html: '<h2>Καλωσήρθες στο Zino</h2>',
 				}, {
+					id: 'LoginUsername',
 					cls: 'field',
 					xtype: 'textfield',
 					hasFocus: true,
@@ -495,26 +564,32 @@ Ext.setup({
 					name: 'username',
 					required: true,
 				}, {
+					id: 'LoginUserdetails',
+					cls: 'field',
+					height: 52,
+					tpl: new Ext.XTemplate(
+						'<img src="{avatarurl}" alt="{username}" />' + 
+						'<div>{username}</div>'
+					),
+					hidden: true,
+				}, {
 					cls: 'field',
 					xtype: 'passwordfield',
 					label: 'Κωδικός',
 					name: 'password',
-					required: true
+					required: true,
+				}, {
+					id: 'LoginError',
+					cls: 'error field',
+					height: 60,
+					html: '<span class="signup">Δεν έχεις λογαριασμό; <a href="">Δημιούργησε έναν</a></span>'
 				}, {
 					cls: 'login',
 					xtype: 'button',
 					text: 'Είσοδος',
 					ui: 'confirm',
 					width: 120,
-					handler: function(){
-						Ext.getCmp( 'LoginForm' ).submit({
-							type: 'xml',
-							success: function(){
-								Navigation.Gotomain( 'PhotoList' );
-								Layout.getDockedComponent( 'NavigationBar' ).show();
-							}
-						});
-					}
+					handler: Session.Login.Do
 				}, {
 					cls: 'eof'
 				}]
@@ -721,22 +796,14 @@ Ext.setup({
 			}]
 		});
 		
-		Ext.Ajax.request({ //check logged in
-			url: window.base + '?resource=session&method=view',
-			success: function( result ){
-				$( '.ph' ).remove();
-				var user = Ext.DomQuery.selectNode( 'user', result.responseXML );
-				if( !user ){
-					window.User = false;
-					Layout.show();
-					return;
-				}
-				window.User = {
-					id: user.getAttribute( 'id' ),
-					name: $( result.responseXML ).find( 'social' ).attr( 'for' )
-				};
-				Navigation.StartSession();
+		Session.CheckLogin( function( user ){
+			$( '.ph' ).remove();
+			window.user = user;
+			if( !user ){
+				Layout.show();
+				return;
 			}
-		});
+			Navigation.StartSession();
+		} );
 	}
 });

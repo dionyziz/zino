@@ -24,24 +24,26 @@ body.standalone #NavigationBar{
 }
 
 .portrait #LoginForm .h2{
-	margin: 35px 0;
+	margin: 20px 0;
 }
 .portrait #LoginForm .field{
-	margin-top: 20px;
+	margin: 20px auto 0 auto;
+	width: 188px;
 }
 .portrait #LoginForm .login{
 	float: right;
-	margin: 60px 20px 0 0;
+	margin: 15px 20px 0 0;
 }
 .landscape #LoginForm .h2{
 	margin: 20px 0;
 }
 .landscape #LoginForm .field{
-	margin-top: 10px;
+	margin: 10px auto 0 auto;
+	width: 188px;
 }
 .landscape #LoginForm .login{
 	float: right;
-	margin: 30px 80px 0 0;
+	margin: 5px 80px 0 0;
 }
 
 #LoginForm{
@@ -72,6 +74,35 @@ body.standalone #NavigationBar{
 	width: 188px;
 	height: 30px;
 	text-align: center;
+}
+#LoginForm #LoginUserdetails img{
+	width: 50px;
+	float: left;
+	margin-right: 20px;
+}
+#LoginForm #LoginUserdetails .x-panel-body{
+	padding: 0;
+}
+#LoginForm #LoginUserdetails .x-panel-body div{
+	font-size: 20px;
+	font-weight: bold;
+	position: relative;
+	top: 5px;
+}
+#LoginForm .error{
+	padding: 0;
+	color: #f33;
+	font-size: 13px;
+	margin-top: 5px;
+}
+#LoginForm .signup{
+	color: white;
+	text-align: right;
+}
+#LoginForm .signup a{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
 }
 
 #PhotoList li{
@@ -156,7 +187,7 @@ div.ph{
 	padding-top: 8em;
 	text-align: center;
 	text-shadow: black 0 1px 1px;
-	position: absolute;
+	position: fixed;
 }
 
 .x-button img{
