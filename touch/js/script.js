@@ -413,7 +413,7 @@ Session = {
 				Ext.getCmp( 'LoginError' ).update( 'Το ψευδόνυμο που πληκτρολόγησες δεν υπάρχει' );
 			}
 			else{
-				$.get( window.base + 'users/' + name, function( result ){
+				$.get( window.base + '?resource=users&method=view&name=' + name, function( result ){
 					Ext.getCmp( 'LoginUsername' ).hide();
 					Ext.getCmp( 'LoginUserdetails' ).show();
 					Ext.getCmp( 'LoginUserdetails' ).update({
