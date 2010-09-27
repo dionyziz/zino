@@ -36,16 +36,17 @@
             if ( !is_array( $songinfo ) 
                  || !is_numeric( $songinfo[ 'artistid' ] ) 
                  || !is_numeric( $songinfo[ 'songid' ] )
-                 || !is_numeric( $songinfo[ 'albumid' ] ) ) {
+                 || !is_numeric( $songinfo[ 'albumid' ] )
+                 || !isset( $songinfo[ 'title' ] ) ) {
                 throw New Exception( "problem with song update" );
             }
 			$userid = ( int )$userid;
 			//$info = $gsapi->songAbout( $songid );
 			return db(
 					'INSERT INTO `song`
-                 ( `song_songid`, `song_albumid`, `song_artistid`, `song_userid`, `song_created` )
-                 VALUES ( :songid,:albumid, :artistid, :userid, NOW() )',
-                 array( 'songid' => $songinfo[ "songid" ], 'albumid' => $songinfo[ "albumid" ], 'artistid' => $songinfo[ "artistid" ], 'userid' => $userid )
+                 ( `song_songid`, `song_albumid`, `song_artistid`, `song_title`, `song_userid`, `song_created` )
+                 VALUES ( :songid,:albumid, :artistid, :title, :userid, NOW() )',
+                 array( 'songid' => $songinfo[ "songid" ], 'albumid' => $songinfo[ "albumid" ], 'artistid' => $songinfo[ "artistid" ], 'title' => $songinfo[ 'title' ], 'userid' => $userid )
                 );
         }
     }
