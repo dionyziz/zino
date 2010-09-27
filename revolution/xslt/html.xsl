@@ -9,7 +9,7 @@
 </xsl:variable>
 
 <xsl:variable name="cssversion">21</xsl:variable>
-<xsl:variable name="jsversion">23</xsl:variable>
+<xsl:variable name="jsversion">24</xsl:variable>
 
 <xsl:variable name="user" select="/*[1]/@for" />
 <xsl:variable name="sandbox" select="contains( /social/@generator, 'http://beta.zino.gr/' ) or contains( /social/@generator, 'http://local.zino.gr/' )" />
