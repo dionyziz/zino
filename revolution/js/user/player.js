@@ -44,10 +44,11 @@ Profile.Player = {
                 var id = $( this ).attr( 'id' ).split( '_' )[ 1 ];
                 var albumid = $( this ).find( '.albumid' ).text().split( '_' )[ 1 ];
                 var artistid = $( this ).find( '.artistid' ).text().split( '_' )[ 1 ];
+                var title = $( this ).find( '.name' ).text();
                 if ( !isNaN( id ) ) {
                     axslt( '<song id="' + id + '" />', '/song', function( elems ) {
                         $.post( 'user/update', { 
-                            song: { songid: id, albumid: albumid, artistid: artistid }
+                            song: { songid: id, title: title, albumid: albumid, artistid: artistid }
                         } );
                         $modal.jqmHide().remove();
                         $( '.mplayer' ).empty().append( $( elems ).filter( 'div.player' ) );
@@ -56,7 +57,7 @@ Profile.Player = {
                 }
                 return false;
             } );
-            $modal.find( 'table' ).append( $elems );
+            $modal.find( 'tbody' ).empty().append( $elems );
         } );
         //Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
     },
