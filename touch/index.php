@@ -33,5 +33,6 @@
         <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body>
+		<div class="ph">Φόρτωση...</div>
     </body>
 </html>

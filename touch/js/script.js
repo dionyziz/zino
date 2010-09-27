@@ -12,6 +12,8 @@ PhotoView = {
 	},
 	Like: function(){
 		var id = Ext.getCmp( 'PhotoView' ).getActiveItem().id.split( '_' )[ 1 ];
+		//add the liked class immediatly, for visual purposes
+		Ext.getCmp( 'PhotoLike' ).disable().addClass( 'liked' );
 		Ext.Ajax.request({
 			method: "POST",
 			url: window.base + '?resource=favourite&method=create',
@@ -20,9 +22,11 @@ PhotoView = {
 				itemid: id
 			},
 			success: function(){
-				Ext.getCmp( 'PhotoLike' ).disable().addClass( 'liked' );
+				
+				Ext.getCmp( 'PhotoView' ).getActiveItem().data.photo.favourites.users.push( User.name );
 			},
 			failure: function(){
+				Ext.getCmp( 'PhotoLike' ).disable().removeClass( 'liked' );
 				Ext.Msg.alert( 'Ωπ...', 'Υπήρξε κάποιο πρόβλημα.' );
 			}
 		});
@@ -51,69 +55,40 @@ PhotoView = {
 		return carusel.getComponent( 'PhotoView_' + id );
 	},
 	ParseXml: function( xml ){
-        var selectValue = function(key, root, defaultValue){
-			if( key == '#' ){
-				return root.tagName;
-			}
-			if( key.indexOf( '@' ) != -1 ){
-				var property = key.split( '@' )[ 1 ];
-				key = key.split( '@' )[ 0 ];
-			}
-			var val;
-			if( key.length ){
-				var node = Ext.DomQuery.selectNode(key, root);
-				if( node && node.firstChild ){
-					node = node.firstChild;
-				}
-			}
-			else{
-				var node = root;
-			}
-            if(node){
-				if( typeof( node.getAttribute ) != 'undefined' && typeof( property ) != 'undefined' ){
-					val = node.getAttribute( property );
-				}
-				else{
-					val = node.nodeValue;
-				}
-            }
-            return Ext.isEmpty(val) ? defaultValue : val;
-        };
 		var photo = {
-			title: jQuery( xml ).find( 'social > photo > title' ).text(),
+			id: $( xml ).find( 'social > photo' ).attr( 'id' ),
+			title: $( xml ).find( 'social > photo > title' ).text(),
 			album: {
-				id: selectValue( 'social > photo album@id', xml ),
-				name: selectValue( 'social > photo album name', xml ),
+				id: $( xml ).find( 'social > photo album' ).attr( 'id' ),
+				name: $( xml ).find( 'social > photo album name' ).text(),
 			},
 			author: {
-				name: selectValue( 'social > photo > author > name', xml ),
-				gender: selectValue( 'social > photo > author > gender', xml ),
-				avatarurl: selectValue( 'social > photo > author > avatar > media@url', xml ),
+				name: $( xml ).find( 'social > photo > author > name' ).text(),
+				gender: $( xml ).find( 'social > photo > author > gender' ).text(),
+				avatarurl: $( xml ).find( 'social > photo > author > avatar > media' ).attr( 'url' ),
 			},
-			published: selectValue( 'social > photo > published', xml ),
-			url: selectValue( 'social > photo > media@url', xml ),
+			published: $( xml ).find( 'social > photo > published' ).text(),
+			url: $( xml ).find( 'social > photo > media' ).attr( 'url' ),
 			size: {
-				width: parseInt( selectValue( 'social > photo > media@width', xml ) ),
-				height: parseInt( selectValue( 'social > photo > media@height', xml ) )
+				width: parseInt( $( xml ).find( 'social > photo > media' ).attr( 'width' ) ),
+				height: parseInt( $( xml ).find( 'social > photo > media' ).attr( 'height' ) )
 			},
 			favourites: {
-				totalCount: selectValue( 'favourites@count', xml ),
+				totalCount: $( xml ).find( 'favourites' ).attr( 'count' ),
 				users: []
 			},
 			comments: {
-				totalCount: selectValue( 'discussion@count', xml ),
-				items: Ext.DomQuery.select( 'discussion', xml )
+				totalCount: $( xml ).find( 'discussion' ).attr( 'count' ),
+				items: $( xml ).find( 'discussion' )
 			},
 			siblings: {
-				prev: selectValue( 'photos photo[navigation=previous]@id', xml ),
-				next: selectValue( 'photos photo[navigation=next]@id', xml )
+				prev: $( xml ).find( 'photos photo[navigation=previous]' ).attr( 'id' ),
+				next: $( xml ).find( 'photos photo[navigation=next]' ).attr( 'id' )
 			}
 		};
-		var favs = Ext.DomQuery.select( 'favourites user name', xml );
-		for( var i = 0; i < favs.length; ++i ){
-			photo.favourites.users[ i ] = favs[ i ].textContent;
-		}
-		window.photo = photo;
+		$( xml ).find( 'favourites user name' ).each( function( i ){
+			photo.favourites.users[ i ] = $( this ).text().toLowerCase();
+		});
 		return photo;
 	},
 	SetDimentions: function( carusel, card, screenD, imageD ){
@@ -142,6 +117,16 @@ PhotoView = {
 			img.setStyle( 'margin-top', 0 );
 		}
 	},
+	RefreshActions: function( photo ){
+		if( User && Ext.getCmp( 'PhotoView' ).getActiveItem().id.split( '_' )[ 1 ] == photo.id ){
+			if( photo.favourites.users.indexOf( User.name ) != -1 ){
+				Ext.getCmp( 'PhotoLike' ).disable();
+			}
+			else{
+				Ext.getCmp( 'PhotoLike' ).enable();
+			}
+		}
+	},
 	Get: function( id, chain ){
 		if( typeof( chain ) == 'undefined' ){
 			chain = PhotoView._threshold;
@@ -155,6 +140,7 @@ PhotoView = {
 			if( chain ){
 				PhotoView.GetSiblings( carusel, card, chain );
 			}
+			PhotoView.RefreshActions( card.data.photo );
 			return false;
 		}
 		if( card.data.downloading ){
@@ -162,6 +148,7 @@ PhotoView = {
 			return false;
 		}
 		card.data.downloading = true;
+		Ext.getCmp( 'PhotoViewBar' ).disable();
 		var request = Ext.Ajax.request({
 			url: window.base + '?resource=photo&method=view&id=' + id,
 			success: function( carusel, card ){
@@ -173,12 +160,17 @@ PhotoView = {
 					PhotoView._pending[ request.id ] = false;
 					
 					var photo = PhotoView.ParseXml( result.responseXML );
+					card.data.photo = photo;
 					if( photo.siblings.prev && !carusel.getComponent( 'PhotoView_' + photo.siblings.prev ) ){
 						PhotoView.AddEmptyCard( carusel, photo.siblings.prev, 0 );
 					}
 					if( photo.siblings.next && !carusel.getComponent( 'PhotoView_' + photo.siblings.next ) ){
 						PhotoView.AddEmptyCard( carusel, photo.siblings.next, carusel.items.items.length + 1 );
 					}
+					
+					Ext.getCmp( 'PhotoViewBar' ).enable();
+					
+					PhotoView.RefreshActions( photo );
 					
 					card.update( '<img class="image_content" src="' + photo.url + '" />' );
 					card.doLayout();
@@ -405,21 +397,6 @@ Ext.setup({
 				{ name: 'comments', mapping: 'discussion@count', type: 'int' }
 			]
 		});
-		Ext.regModel( 'PhotoView', {
-			fields: [
-				{ name: 'id', mapping: '@id', type: 'string' },
-				{ name: 'title', mapping: 'title', type: 'string' },
-				{ name: 'album_id', mapping: 'containedwithin album@id', type: 'string' },
-				{ name: 'album_name', mapping: 'containedwithin album name', type: 'string' },
-				{ name: 'author_name', mapping: 'author name', type: 'string' },
-				{ name: 'author_gender', mapping: 'author gender', type: 'string' },
-				{ name: 'author_avatarurl', mapping: 'author avatar media@url', type: 'string' },
-				{ name: 'published', mapping: 'published', type: 'date', dateFormat: 'Y-m-d H:i:s' },
-				{ name: 'src', mapping: 'media@url', type: 'string' },
-				{ name: 'comments', mappiing: 'discussion@count', type: 'string' },
-				{ name: 'favourites', mapping: 'favourites@count', type: 'string' }
-			]
-		});
 		Ext.regModel( 'NewList', {
 			fields: [
 				{ name: 'id', mapping: '@id', type: 'string' },
@@ -585,7 +562,6 @@ Ext.setup({
 				direction: 'horizontal',
 				indicator: false,
 				scroll: 'none',
-				style: 'background: black;',
 				dockedItems: [ new Ext.Toolbar({
 					overlay: true,
 					ui: 'dark',
@@ -608,22 +584,16 @@ Ext.setup({
 						text: 'actions',
 						id: 'PhotoActions',
 						handler: function(){
-							if( !this.actions ){
+							if( !this.PhotoAction ){
 								this.PhotoAction = new Ext.ActionSheet({
 									id: 'PhotoAction',
+									hideOnMaskTap: true,
 									defaults: {
 										scope: this
 									},
 									items: [{
-										text: 'Το αγαπώ',
-										ui: 'confirm',
-										handler: PhotoView.Like
-									}, {
 										text: 'Γνωρίζω κάποιον',
 										handler: PhotoView.Tag.Open
-									}, {
-										text: 'Σχόλια',
-										handler: PhotoView.Comments.Show
 									}, {
 										text: 'Μετονομασία',
 										handler: PhotoView.Rename.Open
@@ -631,11 +601,6 @@ Ext.setup({
 										text: 'Διαγραφή',
 										ui: 'decline',
 										handler: PhotoView.Delete,
-									}, {
-										text: 'Κλείσιμο',
-										handler: function(){
-											this.PhotoAction.hide();
-										}
 									}]
 								});
 							}
@@ -689,6 +654,7 @@ Ext.setup({
 				data: {},
 				defaults: {
 					scroll: 'vertical',
+					cls: 'card',
 					html:'<div class="photo_loading">' +
 							'<img src="http://static.zino.gr/touch/photoloading.gif" />' +
 						'</div>',
@@ -758,14 +724,17 @@ Ext.setup({
 		Ext.Ajax.request({ //check logged in
 			url: window.base + '?resource=session&method=view',
 			success: function( result ){
-				
+				$( '.ph' ).remove();
 				var user = Ext.DomQuery.selectNode( 'user', result.responseXML );
 				if( !user ){
 					window.User = false;
 					Layout.show();
 					return;
 				}
-				window.User = user.getAttribute( 'id' );
+				window.User = {
+					id: user.getAttribute( 'id' ),
+					name: $( result.responseXML ).find( 'social' ).attr( 'for' )
+				};
 				Navigation.StartSession();
 			}
 		});

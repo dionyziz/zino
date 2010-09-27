@@ -24,7 +24,7 @@ body.standalone #NavigationBar{
 }
 
 .portrait #LoginForm .h2{
-	margin: 55px 0;
+	margin: 35px 0;
 }
 .portrait #LoginForm .field{
 	margin-top: 20px;
@@ -120,6 +120,12 @@ body.standalone #NavigationBar{
 	margin-left: 6px;
 }
 
+#PhotoView{
+	background: black;
+}
+#PhotoView .card{
+	background: black;
+}
 #PhotoView .photo_loading{
 	position: fixed;
 	width: 2em;
@@ -128,6 +134,7 @@ body.standalone #NavigationBar{
 	left: 50%;
 	margin-left: -1em;
 	margin-top: -1em;
+	background: black;
 }
 #PhotoView .image_content{
 	display: block;
@@ -135,8 +142,8 @@ body.standalone #NavigationBar{
 }
 
 
-div.loading{
-	background: #5A5A5A url(../images/loading.gif) no-repeat 50% 50%;
+div.ph{
+	background: #5A5A5A url(http://static.zino.gr/touch/loading.gif) no-repeat 50% 50%;
 	border-radius: 10px;
 	color: white;
 	font-weight: bold;
