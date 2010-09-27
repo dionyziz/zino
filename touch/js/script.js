@@ -430,6 +430,7 @@ Session = {
 		Ext.Ajax.request({
 			url: window.base + '?resource=session&method=view',
 			success: function( result ){
+				result = result.responseXML;
 				if( $( result ).find( 'user' ).length ){
 					Session.User = {
 						id: $( result ).find( 'user' ).attr( 'id' ),
