@@ -380,6 +380,12 @@ Navigation = {
 		Layout.show();
 		Ext.getCmp( 'NavigationBar' ).show();
 		Ext.getCmp( 'PhotoList' ).store.load();
+	},
+	Mask: function(){
+		$( '.mask' ).show();
+	},
+	Unmask: function(){
+		$( '.mask' ).hide();
 	}
 };
 
@@ -548,257 +554,264 @@ Ext.setup({
 				}]
 			})],
 			items: [
-			new Ext.form.FormPanel({ //Login
-				type: 'xml',
-				id: 'LoginForm',
-				method: "POST",
-				url: window.base + '?resource=session&method=create',
-				items:[{
-					cls: 'h2',
-					html: '<h2>Καλωσήρθες στο Zino</h2>',
-				}, {
-					id: 'LoginUsername',
-					cls: 'field',
-					xtype: 'textfield',
-					hasFocus: true,
-					label: 'Ψευδώνυμο',
-					name: 'username',
-					required: true,
-				}, {
-					id: 'LoginUserdetails',
-					cls: 'field',
-					height: 52,
+				new Ext.form.FormPanel({ //Login
+					type: 'xml',
+					id: 'LoginForm',
+					method: "POST",
+					url: window.base + '?resource=session&method=create',
+					items:[{
+						cls: 'h2',
+						html: '<h2>Καλωσήρθες στο Zino</h2>',
+					}, {
+						id: 'LoginUsername',
+						cls: 'field',
+						xtype: 'textfield',
+						hasFocus: true,
+						label: 'Ψευδώνυμο',
+						name: 'username',
+						required: true,
+					}, {
+						id: 'LoginUserdetails',
+						cls: 'field',
+						height: 52,
+						tpl: new Ext.XTemplate(
+							'<img src="{avatarurl}" alt="{username}" />' + 
+							'<div>{username}</div>'
+						),
+						hidden: true,
+					}, {
+						cls: 'field',
+						xtype: 'passwordfield',
+						label: 'Κωδικός',
+						name: 'password',
+						required: true,
+					}, {
+						id: 'LoginError',
+						cls: 'error field',
+						height: 60,
+						html: '<span class="signup">Δεν έχεις λογαριασμό; <a href="">Δημιούργησε έναν</a></span>'
+					}, {
+						cls: 'login',
+						xtype: 'button',
+						text: 'Είσοδος',
+						ui: 'confirm',
+						width: 120,
+						handler: Session.Login.Do
+					}, {
+						cls: 'eof'
+					}]
+				}),
+				{ //PhotoList
+					id: 'PhotoList',
+					xtype: 'dataview',
+					itemSelector: 'li.photo',
+					store: new Ext.data.Store({
+						model: 'PhotoList',
+					//	autoLoad: true,
+						proxy: {
+							type: 'ajax',
+							url: window.base + '?resource=photo&method=listing',
+							reader: {
+								type: 'xml',
+								root: 'photo'
+							}
+						},
+						listeners: {
+							beforeload: Navigation.Mask,
+							load: Navigation.Unmask
+						}
+					}),
 					tpl: new Ext.XTemplate(
-						'<img src="{avatarurl}" alt="{username}" />' + 
-						'<div>{username}</div>'
+						'<ul>' + 
+							'<tpl for=".">' + 
+								'<li class="photo" id="photo_{id}">'+
+									'<img id="{id}" src="{src}" alt="{author}" title="{author}"/>' +
+									'<tpl if="comments != 0">' +
+										'<div class="commentnum">{comments}</div>' +
+									'</tpl>' +
+								'</li>' +
+							'</tpl>' +
+						'</ul>',
+						{
+							compiled: true
+						}
 					),
-					hidden: true,
-				}, {
-					cls: 'field',
-					xtype: 'passwordfield',
-					label: 'Κωδικός',
-					name: 'password',
-					required: true,
-				}, {
-					id: 'LoginError',
-					cls: 'error field',
-					height: 60,
-					html: '<span class="signup">Δεν έχεις λογαριασμό; <a href="">Δημιούργησε έναν</a></span>'
-				}, {
-					cls: 'login',
-					xtype: 'button',
-					text: 'Είσοδος',
-					ui: 'confirm',
-					width: 120,
-					handler: Session.Login.Do
-				}, {
-					cls: 'eof'
-				}]
-			}),
-			{ //PhotoList
-				id: 'PhotoList',
-				xtype: 'dataview',
-				itemSelector: 'li.photo',
-				store: new Ext.data.Store({
-					model: 'PhotoList',
-				//	autoLoad: true,
-					proxy: {
-						type: 'ajax',
-						url: window.base + '?resource=photo&method=listing',
-						reader: {
-							type: 'xml',
-							root: 'photo'
+					listeners: {
+						itemtap: function( list, index ){
+							Navigation.Goto( 'PhotoView', list.all.elements[ index ].id.split( '_' )[ 1 ] );
 						}
 					}
-				}),
-				tpl: new Ext.XTemplate(
-					'<ul>' + 
-						'<tpl for=".">' + 
-							'<li class="photo" id="photo_{id}">'+
-								'<img id="{id}" src="{src}" alt="{author}" title="{author}"/>' +
-								'<tpl if="comments != 0">' +
-									'<div class="commentnum">{comments}</div>' +
-								'</tpl>' +
-							'</li>' +
-						'</tpl>' +
-					'</ul>',
-					{
-						compiled: true
-					}
-				),
-				listeners: {
-					itemtap: function( list, index ){
-						Navigation.Goto( 'PhotoView', list.all.elements[ index ].id.split( '_' )[ 1 ] );
-					}
-				}
-			}, 
-			{ //PhotoView
-				id: 'PhotoView',
-				xtype: 'carousel',
-				direction: 'horizontal',
-				indicator: false,
-				scroll: 'none',
-				dockedItems: [ new Ext.Toolbar({
-					overlay: true,
-					ui: 'dark',
-					dock: 'bottom',
-					cls: 'fade',
-					id: 'PhotoViewBar',
-					listeners: {
-						tap: function(){
-							Ext.getCmp( 'PhotoView' ).data.stopPropagation = true;
+				}, 
+				{ //PhotoView
+					id: 'PhotoView',
+					xtype: 'carousel',
+					direction: 'horizontal',
+					indicator: false,
+					scroll: 'none',
+					dockedItems: [ new Ext.Toolbar({
+						overlay: true,
+						ui: 'dark',
+						dock: 'bottom',
+						cls: 'fade',
+						id: 'PhotoViewBar',
+						listeners: {
+							tap: function(){
+								Ext.getCmp( 'PhotoView' ).data.stopPropagation = true;
+							},
+							afterrender: function( bar ){
+								bar.mon( bar.getEl(), {
+									tap: function(){
+										bar.fireEvent( 'tap' );
+									}
+								});
+							}
 						},
-						afterrender: function( bar ){
-							bar.mon( bar.getEl(), {
+						items: [{
+							text: 'actions',
+							id: 'PhotoActions',
+							handler: function(){
+								if( !this.PhotoAction ){
+									this.PhotoAction = new Ext.ActionSheet({
+										id: 'PhotoAction',
+										hideOnMaskTap: true,
+										defaults: {
+											scope: this
+										},
+										items: [{
+											text: 'Γνωρίζω κάποιον',
+											handler: PhotoView.Tag.Open
+										}, {
+											text: 'Μετονομασία',
+											handler: PhotoView.Rename.Open
+										}, {
+											text: 'Διαγραφή',
+											ui: 'decline',
+											handler: PhotoView.Delete,
+										}]
+									});
+								}
+								this.PhotoAction.show();
+							}
+						}, {
+							text: '',
+							id: "PhotoLike",
+							icon: 'http://static.zino.gr/touch/like_grey.png',
+							disabledicon: 'http://static.zino.gr/touch/like.png',
+							handler: PhotoView.Like,
+							listeners: {
+								disable: function(){
+									this.el.select( 'img' ).setStyle( 'background-image', 'url("' + this.disabledicon + '")' );
+								},
+								enable: function(){
+									this.el.select( 'img' ).setStyle( 'background-image', 'url("' + this.icon + '")' );
+								},
+								
+							}
+						}]
+					})],
+					listeners: {
+						beforeorientationchange: function(){
+							Navigation.Topbar.Show( false );
+							Navigation.Bottombar.Show( false );
+						},
+						orientationchange: function(){
+							PhotoView.OrientationChange();
+							Navigation.Topbar.Hide( false );
+							Navigation.Bottombar.Hide( false );
+						},
+						cardswitch: function( carusel, newcard ){
+							PhotoView.Get( newcard.id.split( '_' )[ 1 ] );
+							if( newcard.data.rendered ){
+								PhotoView.SetDimentions( carusel, newcard );
+							}
+						},
+						tap: function(){
+							Navigation.Togglebars();
+						},
+						afterrender: function( carusel ){
+							carusel.mon( carusel.getEl(), {
 								tap: function(){
-									bar.fireEvent( 'tap' );
+									carusel.data.stopPropagation || carusel.fireEvent( 'tap' );
+									carusel.data.stopPropagation = false;
 								}
 							});
 						}
 					},
-					items: [{
-						text: 'actions',
-						id: 'PhotoActions',
-						handler: function(){
-							if( !this.PhotoAction ){
-								this.PhotoAction = new Ext.ActionSheet({
-									id: 'PhotoAction',
-									hideOnMaskTap: true,
-									defaults: {
-										scope: this
-									},
-									items: [{
-										text: 'Γνωρίζω κάποιον',
-										handler: PhotoView.Tag.Open
-									}, {
-										text: 'Μετονομασία',
-										handler: PhotoView.Rename.Open
-									}, {
-										text: 'Διαγραφή',
-										ui: 'decline',
-										handler: PhotoView.Delete,
-									}]
-								});
+					data: {},
+					defaults: {
+						scroll: 'vertical',
+						cls: 'card',
+						html:'<div class="photo_loading">' +
+								'<img src="http://static.zino.gr/touch/photoloading.gif" />' +
+							'</div>',
+						data: {
+							rendered: false,
+							downloading: false
+						},
+					},
+					items: []
+				},
+				{ //NewList
+					id: 'NewList',
+					xtype: 'dataview',
+					itemSelector: 'li.new',
+					store: new Ext.data.Store({
+						model: 'NewList',
+				//		autoLoad: true,
+						proxy: {
+							type: 'ajax',
+							url: window.base + '?resource=news&method=listing',
+							reader: {
+								type: 'xml',
+								root: 'poll,journal'
 							}
-							this.PhotoAction.show();
-						}
-					}, {
-						text: '',
-						id: "PhotoLike",
-						icon: 'http://static.zino.gr/touch/like_grey.png',
-						disabledicon: 'http://static.zino.gr/touch/like.png',
-						handler: PhotoView.Like,
+						},
 						listeners: {
-							disable: function(){
-								this.el.select( 'img' ).setStyle( 'background-image', 'url("' + this.disabledicon + '")' );
-							},
-							enable: function(){
-								this.el.select( 'img' ).setStyle( 'background-image', 'url("' + this.icon + '")' );
-							},
-							
-						}
-					}]
-				})],
-				listeners: {
-					beforeorientationchange: function(){
-						Navigation.Topbar.Show( false );
-						Navigation.Bottombar.Show( false );
-					},
-					orientationchange: function(){
-						PhotoView.OrientationChange();
-						Navigation.Topbar.Hide( false );
-						Navigation.Bottombar.Hide( false );
-					},
-					cardswitch: function( carusel, newcard ){
-						PhotoView.Get( newcard.id.split( '_' )[ 1 ] );
-						if( newcard.data.rendered ){
-							PhotoView.SetDimentions( carusel, newcard );
-						}
-					},
-					tap: function(){
-						Navigation.Togglebars();
-					},
-					afterrender: function( carusel ){
-						carusel.mon( carusel.getEl(), {
-							tap: function(){
-								carusel.data.stopPropagation || carusel.fireEvent( 'tap' );
-								carusel.data.stopPropagation = false;
+							beforeload: Navigation.Mask,
+							load: function( store ){
+								Navigation.Unmask();
+								store.sort( 'published', 'DESC' );
 							}
-						});
-					}
-				},
-				data: {},
-				defaults: {
-					scroll: 'vertical',
-					cls: 'card',
-					html:'<div class="photo_loading">' +
-							'<img src="http://static.zino.gr/touch/photoloading.gif" />' +
-						'</div>',
-					data: {
-						rendered: false,
-						downloading: false
-					},
-				},
-				items: []
-			},
-			{ //NewList
-				id: 'NewList',
-				xtype: 'dataview',
-				itemSelector: 'li.new',
-				store: new Ext.data.Store({
-					model: 'NewList',
-			//		autoLoad: true,
-					proxy: {
-						type: 'ajax',
-						url: window.base + '?resource=news&method=listing',
-						reader: {
-							type: 'xml',
-							root: 'poll,journal'
 						}
-					},
-					listeners: {
-						read: function( store ){
-							store.sort( 'published', 'DESC' );
-						}
-					}
-				}),
-				layout: 'vbox',
-				tpl: new Ext.XTemplate(
-					'<ul>' +
-						'<tpl for=".">' +
-							'<li class="new {type}" id="{id}">' +
-								'<img src="{author_avatarurl}" alt="{author_name}" />' +
-								'<div class="details">' +
-									'<div class="top">' +
-										'<span class="username">{author_name}</span>' +
-										'<span class="time">{[ this.greekDate( values.published ) ]}</span>' +
+					}),
+					layout: 'vbox',
+					tpl: new Ext.XTemplate(
+						'<ul>' +
+							'<tpl for=".">' +
+								'<li class="new {type}" id="{id}">' +
+									'<img src="{author_avatarurl}" alt="{author_name}" />' +
+									'<div class="details">' +
+										'<div class="top">' +
+											'<span class="username">{author_name}</span>' +
+											'<span class="time">{[ this.greekDate( values.published ) ]}</span>' +
+										'</div>' +
+										'<div class="title">{title}</div>' +
 									'</div>' +
-									'<div class="title">{title}</div>' +
-								'</div>' +
-								'<div class="eof"></div>' +
-							'</li>' +
-						'</tpl>' +
-					'</ul>',
-					{
-						compiled: true,
-						greekDate: function( date ){
-							return greekDateDiff( dateDiff( dateToString( date ), Now ) );
+									'<div class="eof"></div>' +
+								'</li>' +
+							'</tpl>' +
+						'</ul>',
+						{
+							compiled: true,
+							greekDate: function( date ){
+								return greekDateDiff( dateDiff( dateToString( date ), Now ) );
+							}
 						}
-					}
-				)
-			}, 
-			{ //Profile
-				title: 'profile',
-				html: '<h1>profile</h1>'
-			}, 
-			{ //Chat
-				title: 'Chat',
-				html: '<h1>chat here</h1>'
-			}]
+					)
+				}, 
+				{ //Profile
+					title: 'profile',
+					html: '<h1>profile</h1>'
+				}, 
+				{ //Chat
+					title: 'Chat',
+					html: '<h1>chat here</h1>'
+				}
+			]
 		});
 		
 		Session.CheckLogin( function( user ){
-			$( '.ph' ).remove();
+			Navigation.Unmask();
 			window.user = user;
 			if( !user ){
 				Layout.show();

@@ -29,6 +29,9 @@
         <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body>
-		<div class="ph">Φόρτωση...</div>
+		<div class="mask">
+			<div class="ph">Φόρτωση...</div>
+			<div class="overlay"></div>
+		</div>
     </body>
 </html>
