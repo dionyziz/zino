@@ -6,7 +6,6 @@ div.eof{
 	opacity: 0.7 !important;
 }
 
-
 body.standalone #Layout > .x-panel-body > div{
 	margin-top: 66px;
 }
@@ -19,55 +18,91 @@ body.standalone #NavigationBar{
 #Layout > .x-panel-body > div#PhotoView{
 	margin-top: 0;
 }
-#Layout > .x-panel-body > div#LoginForm{
+#Layout > .x-panel-body > div.sessionform{
 	margin-top: 0;
 }
 
-.portrait #LoginForm .h2{
+.portrait .sessionform .h2{
 	margin: 20px 0;
 }
-.portrait #LoginForm .field{
+.portrait .sessionform .sh2{
+	margin: 4px 0;
+}
+.portrait .sessionform .field{
 	margin: 20px auto 0 auto;
 	width: 188px;
 }
-.portrait #LoginForm .login{
+.portrait .sessionform .sfield{
+	margin-top: 10px;
+}
+.portrait .sessionform .login{
 	float: right;
 	margin: 15px 20px 0 0;
 }
-.landscape #LoginForm .h2{
-	margin: 20px 0;
+.portrait .sessionform .signup{
+	float: right;
+	margin: 5px 20px 0 0;
 }
-.landscape #LoginForm .field{
+.landscape .sessionform .h2{
+	margin: 10px 0;
+}
+.landscape .sessionform .sh2{
+	margin: 4px 0;
+}
+.landscape .sessionform .field{
 	margin: 10px auto 0 auto;
 	width: 188px;
 }
-.landscape #LoginForm .login{
+.landscape .sessionform .sfield{
+	margin-top: 4px;
+}
+.landscape .sessionform .login{
 	float: right;
 	margin: 5px 80px 0 0;
 }
+.landscape .sessionform .signup{
+	float: right;
+	margin: 5px 80px 0 0;
+}
+.sessionform .sh2 .x-panel-body{
+	padding: 10px;
+}
 
-#LoginForm{
+
+.sessionform{
 	background: url("http://static.zino.gr/touch/login-bg.png") no-repeat;
 	background-size: 100% 120%;
 	color: white;
 	text-align: center;
 }
-#LoginForm > .x-panel-body{
+.sessionform > .x-panel-body{
 	max-width: 320px;
 	margin: auto;
 }
-#LoginForm .x-panel-body{
+form.sessionform div.x-panel-body{
 	background: transparent;
 }
-#LoginForm h2{
+.sessionform .user{
+	padding: 5px;
+	border-radius: 5px;
+	background: rgba(255,255,255,0.4);
+}
+.sessionform .user div{
+	width: 175px;
+	height: 50px;
+	float: left;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+.sessionform h2{
 	font-size: 22px;
 	font-weight: bold;
 	text-align: center;
 }
-#LoginForm label{
+.sessionform label{
 	display: block;
 }
-#LoginForm .x-input-text, #LoginForm .x-input-password{
+.sessionform .x-input-text, .sessionform .x-input-password{
 	background: url("http://static.zino.gr/revolution/loggedout/textbox.png");
 	border: 0;
 	padding: 3px;
@@ -75,31 +110,28 @@ body.standalone #NavigationBar{
 	height: 30px;
 	text-align: center;
 }
-#LoginForm #LoginUserdetails img{
+.sessionform #LoginUserdetails img{
 	width: 50px;
 	float: left;
 	margin-right: 20px;
 }
-#LoginForm #LoginUserdetails .x-panel-body{
+.sessionform #LoginUserdetails .x-panel-body{
 	padding: 0;
 }
-#LoginForm #LoginUserdetails .x-panel-body div{
+.sessionform #LoginUserdetails .x-panel-body div{
 	font-size: 20px;
 	font-weight: bold;
 	position: relative;
 	top: 5px;
+	text-align: left;
+	white-space:
 }
-#LoginForm .error{
+.sessionform .error{
 	padding: 0;
-	color: #f33;
 	font-size: 13px;
-	margin-top: 5px;
+	margin: 10px 0 0 0;
 }
-#LoginForm .signup{
-	color: white;
-	text-align: right;
-}
-#LoginForm .signup a{
+.sessionform .error a{
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
@@ -116,20 +148,6 @@ body.standalone #NavigationBar{
     border: 1px solid #333;
     width: 75px;
     height: 75px;
-}
-#PhotoList .commentnum{
-	position: absolute;
-	display: inline;
-	top: 2px;
-	left: 2px;
-	border-radius: 20px;
-	border: 2px solid white;
-	font-size: 10px;
-	padding: 2px 2px 2px 3px;
-	min-width: 20px;
-	text-align: center;
-	background: orange;
-	font-weight: bold;
 }
 
 #NewList li{
@@ -172,6 +190,28 @@ body.standalone #NavigationBar{
 	margin: auto;
 }
 
+.bubble{
+	position: absolute;
+	top: 2px;
+	border-radius: 20px;
+	border: 2px solid white;
+	text-align: center;
+	font-weight: bold;
+	display: inline;
+	font-size: 10px;
+	padding: 2px 2px 2px 3px;
+	min-width: 20px;
+}
+.bubble.note{
+	background: orange;
+	left: 2px;
+}
+.bubble.close{
+	background: red;
+	right: 0;
+	font-size: 20px;
+	line-height: 10px;
+}
 
 div.ph{
 	background: #5A5A5A url(http://static.zino.gr/touch/loading.gif) no-repeat 50% 50%;

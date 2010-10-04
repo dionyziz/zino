@@ -30,8 +30,8 @@
     </head>
     <body>
 		<div class="mask">
-			<div class="ph">Φόρτωση...</div>
 			<div class="overlay"></div>
+			<div class="ph">Φόρτωση...</div>
 		</div>
     </body>
 </html>

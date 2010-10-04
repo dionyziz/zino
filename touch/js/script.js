@@ -1,5 +1,5 @@
 PhotoView = {
-	_threshold: 0,
+	_threshold: 5,
 	_pending: [],
 	Tag: {
 		Open: function(){},
@@ -32,7 +32,35 @@ PhotoView = {
 		});
 	},
 	Delete: function(){
-		
+	//	Ext.Msg.confirm( 'Επιβεβαίωση', 'Σίγουρα θέλεις να διαγράψεις τη φωτογραφία;', function( ans ){
+			if( !confirm( 'Σίγουρα θέλεις να διαγράψεις τη φωτογραφία;' ) ){
+				return;
+			}
+			Ext.getCmp( 'PhotoAction' ).hide();
+			Ext.Ajax.request({
+				method: "POST",
+				url: window.base + '?resource=photo&method=delete',
+				params: {
+					id: Ext.getCmp( 'PhotoView' ).getActiveItem().id.split( '_' )[ 1 ]
+				},
+				success: function(){
+					var carusel = Ext.getCmp( 'PhotoView' );
+					var card = carusel.getActiveItem();
+					if( carusel.items.items.length == 1 ){
+						Navigation.Back();
+						return;
+					}
+					var index = PhotoView.GetCardIndex( carusel, card );
+					if( carusel.items.items[ index + 1 ] ){
+						carusel.setCard( index + 1 );
+						card.destroy();
+						return;
+					}
+					carusel.setCard( index - 1 );
+					card.destroy();
+				}
+			});
+	//	});
 	},
 	GetCardIndex: function( carusel, card ){
 		var items = carusel.items.items;
@@ -243,6 +271,7 @@ PhotoView = {
 };
 
 Navigation = {
+	callstack: [],
 	Togglebars: function(){
 		if( this.Topbar.IsVisible() ){
 			this.Topbar.Hide( true );
@@ -321,32 +350,28 @@ Navigation = {
 			Ext.getCmp( 'NavigationBar' ).removeClass( 'fade' );
 		}
 	},
-	callstack: [],
-	Back: function(){
-		var togo = Navigation.callstack.pop();
-		if( !togo ){
-			return;
+	Goto: {
+		Login: function(){
+			Ext.getCmp( 'NavigationBar' ).hide();
+			Navigation.Goto.Main( 'LoginForm' );
+		},
+		Photos: function(){
+			Navigation.Goto.Main( 'PhotoList' );
+		},
+		News: function(){
+			Navigation.Goto.Main( 'NewList' );
+		},
+		Profile: function(){
+			Navigation.Goto.Main( 'Profile' );
+		},
+		Chat: function(){
+			Navigation.Goto.Main( 'Chat' );
+		},
+		Main: function( type ){
+			Navigation.Go( type, null, true, false );
 		}
-		var anim = {
-			direction: 'right',
-			type: 'slide'
-		};
-		Navigation.Goto( togo.type, togo.id, true );
 	},
-	runInit: function( type, id ){
-		if( window[ type ] && typeof( window[ type ].Init ) == 'function' ){
-			window[ type ].Init( id );
-		}
-	},
-	runDestroy: function( type ){
-		if( window[ type ] && typeof( window[ type ].Destroy ) == 'function' ){
-			window[ type ].Destroy();
-		}
-	},
-	Gotomain: function( type ){
-		this.Goto( type, null, true, false );
-	},
-	Goto: function( type, id, back, animation ){
+	Go: function( type, id, back, animation ){
 		var current = Layout.getActiveItem().id.split( '_' );
 		if( back === true ){
 			var anim = {
@@ -375,10 +400,31 @@ Navigation = {
 			Layout.getActiveItem().store.load();
 		}
 	},
+	Back: function(){
+		var togo = Navigation.callstack.pop();
+		if( !togo ){
+			return;
+		}
+		var anim = {
+			direction: 'right',
+			type: 'slide'
+		};
+		Navigation.Go( togo.type, togo.id, true );
+	},
+	runInit: function( type, id ){
+		if( window[ type ] && typeof( window[ type ].Init ) == 'function' ){
+			window[ type ].Init( id );
+		}
+	},
+	runDestroy: function( type ){
+		if( window[ type ] && typeof( window[ type ].Destroy ) == 'function' ){
+			window[ type ].Destroy();
+		}
+	},
 	StartSession: function(){
 		Layout.setCard( 'PhotoList', false );
 		Layout.show();
-		Ext.getCmp( 'NavigationBar' ).show();
+		Ext.getCmp( 'NavigationBar' ).show().doLayout();
 		Ext.getCmp( 'PhotoList' ).store.load();
 	},
 	Mask: function(){
@@ -398,7 +444,7 @@ Session = {
 			Ext.getCmp( 'LoginForm' ).submit({
 				type: 'xml',
 				success: function( scope, result ){
-					if( $( result ).find( 'result' ).text() == 'SUCCESS' ){
+					if( $( result ).find( 'result' ).text().toLowerCase() == 'success' ){
 						Session.Login.Success();
 						return true;
 					}
@@ -410,30 +456,34 @@ Session = {
 			});
 		},
 		Success: function(){
-			Session.CheckLogin( function(){
-				Navigation.StartSession();
-			});
+			Session.CheckLogin( Navigation.StartSession );
 		},
 		Failure: function( cause, name ){
 			if( cause == 'name' ){
-				Ext.getCmp( 'LoginError' ).update( 'Το ψευδόνυμο που πληκτρολόγησες δεν υπάρχει' );
+				Ext.getCmp( 'LoginError' ).update( 'Το ψευδόνυμο που πληκτρολόγησες δεν υπάρχει. <a href="">Θέλεις να γραφτείς τώρα;</a>' );
+				Ext.getCmp( 'LoginUsername' ).focus();
 			}
 			else{
-				$.get( window.base + '?resource=users&method=view&name=' + name, function( result ){
+				$.get( window.base + '?resource=user&method=view&subdomain=' + name + '&verbose=1', function( result ){
 					Ext.getCmp( 'LoginUsername' ).hide();
-					Ext.getCmp( 'LoginUserdetails' ).show();
 					Ext.getCmp( 'LoginUserdetails' ).update({
-						avatarurl: 'http://images2.zino.gr/media/3890/256907/256907_100.jpg', //$( result ).find( 'social > user > avatar > media' ).attr( 'url' ),
+						avatarurl: $( result ).find( 'social > user > avatar > media' ).attr( 'url' ),
 						username: $( result ).find( 'social > user > name' ).text()
 					});
+					Ext.getCmp( 'LoginUserdetails' ).show();
+					Ext.getCmp( 'LoginPassword' ).setValue( '' );
 					
 					Ext.getCmp( 'LoginError' ).update( 'Ο κωδικός πρόσβασης είναι λανθασμένος' );
 				});
 			}
+		},
+		Show: function(){
+			Layout.setCard( 0, false );
 		}
 	},
 	CheckLogin: function( callback ){
 		Ext.Ajax.request({
+			method: 'GET',
 			url: window.base + '?resource=session&method=view',
 			success: function( result ){
 				result = result.responseXML;
@@ -453,8 +503,78 @@ Session = {
 				}
 			}
 		});
+	},
+	Logout: function(){
+		Session.User = false;
+		Ext.getCmp( 'PhotoList' ).store.removeAll();
+		Ext.getCmp( 'PhotoList' ).doLayout();
+		Ext.getCmp( 'NewList' ).store.removeAll();
+		Ext.getCmp( 'NewList' ).doLayout();
+		$.post( window.base + 'session/delete', Navigation.Goto.Login );
+	},
+	Signup: {
+		Error: function( message ){
+			Ext.getCmp( 'SignupError' ).update( message );
+		},
+		Do: function(){
+			if( Session.User ){
+				return false;
+			}
+			if ( !Session.Signup.CheckFields() ){
+				return false;
+			}
+			Ext.getCmp( 'SignupForm' ).submit({
+				type: 'xml',
+				success: function( scope, result ){
+					if( $( result ).find( 'result' ).text().toLowerCase() == 'fail' ){
+						switch ( $( result ).find( 'error' ).text() ){
+							case 'invalid email':
+								Session.Signup.Error( 'Το email που έγραψες δεν είναι σωστό.' );
+								break;
+							case 'invalid username':
+								Session.Signup.Error( 'το ψευδόνυμο αυτό υπάρχει ήδη.' );
+								break;
+						}
+					}
+					else{
+						Session.CheckLogin( Navigation.StartSession );
+					}
+				}
+			});
+		},
+		CheckFields: function(){
+			var message, inputs = $( '#SignupForm input[class^=x-input]' );
+			var email = inputs.filter( '[name=email]' );
+			var pass2 = inputs.filter( '[name=password2]' );
+			var pass = inputs.filter( '[name=password]' );
+			var nickname  = inputs.filter( '[name=name]' );
+			if( !/^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$/.test( nickname.val() ) ){
+				Session.Signup.Error( "Το ψευδώνυμο μπορεί να αποτελέιται από 4-19 λατινικούς χαρακτήρτες ή αριθμούς." );
+				return false;
+			}
+			if( pass.val() != pass2.val() ){
+				Session.Signup.Error( "Οι κωδικοί είναι διαφορετικοί" );
+				pass.val( '' );
+				pass2.val( '' );
+				return false;
+			}
+			if( pass.val().length < 4 ){
+				Session.Signup.Error( "Ο κωδικός πρέπει να έχει περισσότερους από τέσερις χαρακτήρες" );
+				pass2.val( '' );
+				pass.val( '' );
+				return false;
+			}
+			if( !Kamibu.ValidEmail( email.val() ) ){
+				Session.Signup.Error( "Η διεύθυνση email είναι λανθασμένη." );
+				return false;
+			}
+			return true;
+		},
+		Show: function(){
+			Layout.setCard( 1, false );
+		}
 	}
-}
+};
 
 Ext.setup({
 	icon: 'http://static.zino.gr/touch/icon.png',
@@ -513,8 +633,6 @@ Ext.setup({
 			defaults:{
 				scroll: 'vertical',
 				centered: true,
-				loadingText: 'loading...',
-				
 			},
 			dockedItems: [ new Ext.Toolbar({
 				overlay: true,
@@ -530,33 +648,30 @@ Ext.setup({
 					ui: 'back'
 				}, {
 					text: 'Εικόνες',
-					handler: function(){
-						Navigation.Gotomain( 'PhotoList' );
-					}
+					handler: Navigation.Goto.Photos
 				}, {
 					text: 'Νέα',
-					handler: function(){
-						Navigation.Gotomain( 'NewList' );
-					}
+					handler: Navigation.Goto.News
 				}, {
 					text: 'Προφίλ',
-					handler: function(){
-						Navigation.Gotomain( 'OwnProfile' );
-					}
+					handler: Navigation.Goto.Profile
 				}, {
 					xtype: 'spacer'
-				},{
+				}, {
+					text: 'Logout',
+					ui: 'decline',
+					handler: Session.Logout
+				}, {
 					text: 'Chat',
 					ui: 'action',
-					handler: function(){
-//						Navigation.Goto( 'Chat' );
-					}
+					handler: Navigation.Goto.Chat
 				}]
 			})],
 			items: [
 				new Ext.form.FormPanel({ //Login
 					type: 'xml',
 					id: 'LoginForm',
+					cls: 'sessionform',
 					method: "POST",
 					url: window.base + '?resource=session&method=create',
 					items:[{
@@ -570,26 +685,69 @@ Ext.setup({
 						label: 'Ψευδώνυμο',
 						name: 'username',
 						required: true,
+						listeners: {
+							afterrender: function(){
+								$( '#LoginUsername' ).find( 'input' ).keypress( function( e ){
+									if( e.which == 13 ){
+										Ext.getCmp( 'LoginPassword' ).focus();
+									}
+								});
+							}
+						},
 					}, {
 						id: 'LoginUserdetails',
-						cls: 'field',
-						height: 52,
+						cls: 'field user',
+						width: 280,
+						height: 62,
 						tpl: new Ext.XTemplate(
 							'<img src="{avatarurl}" alt="{username}" />' + 
-							'<div>{username}</div>'
+							'<div>{username}</div>' +
+							'<span class="bubble close">×</span>'
 						),
+						listeners: {
+							show: function(){
+								Ext.getCmp( 'LoginUserdetails' ).el.select( '.bubble' ).addListener( 'click', function(){
+									Ext.getCmp( 'LoginUserdetails' ).hide();
+									Ext.getCmp( 'LoginUsername' ).setValue( '' ).show();
+									Ext.getCmp( 'LoginError' ).update( 'Δεν έχεις λογαριασμό; <a href="">Δημιούργησε έναν</a>' );
+								});
+							}
+						},
 						hidden: true,
 					}, {
+						id: 'LoginPassword',
 						cls: 'field',
 						xtype: 'passwordfield',
 						label: 'Κωδικός',
 						name: 'password',
 						required: true,
+						listeners: {
+							afterrender: function(){
+								$( '#LoginPassword' ).find( 'input' ).keypress( function( e ){
+									if( e.which == 13 ){
+										if( !Ext.getCmp( 'LoginUsername' ).getValue().length ){
+											Ext.getCmp( 'LoginUsername' ).focus();
+											return;
+										}
+										Session.Login.Do();
+									}
+								});
+							}
+						}
 					}, {
 						id: 'LoginError',
-						cls: 'error field',
+						cls: 'error',
 						height: 60,
-						html: '<span class="signup">Δεν έχεις λογαριασμό; <a href="">Δημιούργησε έναν</a></span>'
+						html: 'Δεν έχεις λογαριασμό; <a href="">Δημιούργησε έναν</a>',
+						listeners: {
+							afterrender: function(){
+								$( '#LoginError a' ).live( 'click', function(){
+									Ext.getCmp( 'SignupUsername' ).setValue( Ext.getCmp( 'LoginUsername' ).getValue() );
+									Session.Signup.Show();
+									return false;
+								});
+							}
+						}
 					}, {
 						cls: 'login',
 						xtype: 'button',
@@ -597,6 +755,70 @@ Ext.setup({
 						ui: 'confirm',
 						width: 120,
 						handler: Session.Login.Do
+					}, {
+						cls: 'eof'
+					}]
+				}),
+				new Ext.form.FormPanel({ //Register
+					type: 'xml',
+					id: 'SignupForm',
+					cls: 'sessionform',
+					method: "POST",
+					url: window.base + '?resource=user&method=create',
+					items:[{
+						cls: 'h2 sh2',
+						html: '<h2>Μπές στην παρέα</h2>',
+					}, {
+						id: 'SignupUsername',
+						cls: 'field sfield',
+						xtype: 'textfield',
+						hasFocus: true,
+						label: 'Ψευδώνυμο',
+						name: 'name',
+						required: true,
+						listeners: {
+							activate: function(){
+								this.focus();
+							}
+						}
+					}, {
+						cls: 'field sfield',
+						xtype: 'passwordfield',
+						label: 'Κωδικός',
+						name: 'password',
+						required: true,
+					}, {
+						cls: 'field sfield',
+						xtype: 'passwordfield',
+						label: 'Κωδικός (ξανά)',
+						name: 'password2',
+						required: true,
+					}, {
+						cls: 'field sfield',
+						xtype: 'textfield',
+						label: 'Email',
+						name: 'email',
+						required: true,
+					}, {
+						id: 'SignupError',
+						cls: 'error',
+						html: 'Έχεις ήδη λογαριασμό; <a href="">Πήγενε στη φόρμα εισόδου.</a>',
+						listeners: {
+							afterrender: function(){
+								$( '#SignupError a' ).live( 'click', function(){
+									Session.Login.Show();
+									return false;
+								});
+							}
+						}
+					}, {
+						id: 'SignupButton',
+						cls: 'signup',
+						xtype: 'button',
+						text: 'Μπές τώρα',
+						ui: 'confirm',
+						width: 120,
+						handler: Session.Signup.Do
 					}, {
 						cls: 'eof'
 					}]
@@ -627,7 +849,7 @@ Ext.setup({
 								'<li class="photo" id="photo_{id}">'+
 									'<img id="{id}" src="{src}" alt="{author}" title="{author}"/>' +
 									'<tpl if="comments != 0">' +
-										'<div class="commentnum">{comments}</div>' +
+										'<div class="bubble note">{comments}</div>' +
 									'</tpl>' +
 								'</li>' +
 							'</tpl>' +
@@ -638,7 +860,7 @@ Ext.setup({
 					),
 					listeners: {
 						itemtap: function( list, index ){
-							Navigation.Goto( 'PhotoView', list.all.elements[ index ].id.split( '_' )[ 1 ] );
+							Navigation.Go( 'PhotoView', list.all.elements[ index ].id.split( '_' )[ 1 ] );
 						}
 					}
 				}, 
@@ -821,3 +1043,4 @@ Ext.setup({
 		} );
 	}
 });
+
