@@ -8,7 +8,7 @@
     <xsl:value-of select="/*[1]/@method" />
 </xsl:variable>
 
-<xsl:variable name="cssversion">21</xsl:variable>
+<xsl:variable name="cssversion">22</xsl:variable>
 <xsl:variable name="jsversion">24</xsl:variable>
 
 <xsl:variable name="user" select="/*[1]/@for" />

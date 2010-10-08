@@ -111,7 +111,7 @@
                 <a href="" id="chatbutton">Chat</a>
             </li>
             <li id="feedback_icon">
-                <a href="journals/13371">Feedback</a>
+                <a href="journals/13525">Meeting</a>
             </li>
             <xsl:if test="not($breadcrumb)">
                 <li id="photo_icon">
