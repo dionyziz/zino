@@ -10,6 +10,7 @@
 
 <xsl:variable name="cssversion">22</xsl:variable>
 <xsl:variable name="jsversion">24</xsl:variable>
+<xsl:variable name="xslversion">10</xsl:variable>
 
 <xsl:variable name="user" select="/*[1]/@for" />
 <xsl:variable name="sandbox" select="contains( /social/@generator, 'http://beta.zino.gr/' ) or contains( /social/@generator, 'http://local.zino.gr/' )" />
@@ -109,10 +110,10 @@
 
                <xsl:choose>
                     <xsl:when test="$sandbox">
-                        _aXSLT.defaultStylesheet = 'global.xsl';
+                        _aXSLT.defaultStylesheet = 'global.xsl?<xsl:value-of select="$xslversion" />';
                     </xsl:when>
                     <xsl:otherwise>
-                        _aXSLT.defaultStylesheet = 'static/global.xsl';
+                        _aXSLT.defaultStylesheet = 'static/global.xsl<xsl:value-of select="$xslversion" />';
                     </xsl:otherwise>
                 </xsl:choose>
 
