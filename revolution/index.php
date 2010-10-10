@@ -12,7 +12,9 @@
     session_start();
     error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );
     
-    $isGooglebot = strpos( strtolower( $_SERVER[ 'HTTP_USER_AGENT' ] ), "googlebot" ) !== false;
+    if ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) ) {
+        $isGooglebot = strpos( strtolower( $_SERVER[ 'HTTP_USER_AGENT' ] ), "googlebot" ) !== false;
+    }
     if ( !$isGooglebot ) {
         header( 'Content-type: application/xml' );
     }
