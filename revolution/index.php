@@ -12,6 +12,7 @@
     session_start();
     error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );
     
+    $isGooglebot = false;
     if ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) ) {
         $isGooglebot = strpos( strtolower( $_SERVER[ 'HTTP_USER_AGENT' ] ), "googlebot" ) !== false;
     }
