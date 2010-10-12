@@ -113,7 +113,7 @@
                         _aXSLT.defaultStylesheet = 'global.xsl?<xsl:value-of select="$xslversion" />';
                     </xsl:when>
                     <xsl:otherwise>
-                        _aXSLT.defaultStylesheet = 'static/global.xsl<xsl:value-of select="$xslversion" />';
+                        _aXSLT.defaultStylesheet = 'static/global.xsl?<xsl:value-of select="$xslversion" />';
                     </xsl:otherwise>
                 </xsl:choose>
 
