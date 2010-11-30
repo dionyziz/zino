@@ -13,7 +13,7 @@ var Kamibu = {
                 $( res ).append( document.createTextNode( lns[ i ] ) );
             }
             if ( i != l - 1 ) {
-                $( res ).append( br.cloneNode() );
+                $( res ).append( br.cloneNode( true ) );
             }
         }
         return res.childNodes;
