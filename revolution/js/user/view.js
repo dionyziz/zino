@@ -146,25 +146,25 @@ var Profile = {
             var text;
             switch( li.attr( 'id' ) ){
                 case 'hobbies':
-                    text = 'Προσθεσε ενα hobby';
+                    text = 'Πρόσθεσε ένα hobby';
                     break;
                 case 'movies':
-                    text = 'Προσθεσε μια ταινα';
+                    text = 'Πρόσθεσε μια ταινία';
                     break;
                 case 'shows':
-                    text = 'Προσθεσε μια σειρα';
+                    text = 'Πρόσθεσε μια σειρά';
                     break;
                 case 'books':
-                    text = 'Προσθεσε ενα βιβλιο';
+                    text = 'Πρόσθεσε ενα βιβλίο';
                     break;
                 case 'games':
-                    text = 'Προσθεσε ενα παιχνιδι';
+                    text = 'Πρόσθεσε ενα παιχνίδι';
                     break;
                 case 'artists':
-                    text = 'Προσθεσε εναν καλλιτεχνη';
+                    text = 'Πρόσθεσε εναν καλλιτέχνη';
                     break;
                 case 'songs':
-                    text = 'Προσθεσε ενα τραγουδι';
+                    text = 'Πρόσθεσε ενα τραγούδι';
             }
             var spans = $( li ).children( 'span' ).removeClass( 'selected' );
             $( '<div class="editarea"><input class="empty" type="text"></input><p><a class="delete" href=""></a></p></div>' )
@@ -289,7 +289,7 @@ var Profile = {
                     $moodpicker.hide().remove();
                     $activemood.show();
                 } );
-            }, { 'gender': Profile.CurrentValues[ 'gender' ] } );
+            }, { 'gender': Profile.CurrentValues.gender } );
         } );
     },
     PrepareInlineEditables: function() {
@@ -481,13 +481,14 @@ var Profile = {
         select.appendTo( element );//.css( 'display', 'block' );
     },
     PopulateSelect: function( element, field ) {
-        var map = UserDetails.GetMap( field, Profile.CurrentValues[ 'gender' ] );
+        var map = UserDetails.GetMap( field, Profile.CurrentValues.gender );
         var nbsp = String.fromCharCode( 160 );
         var select = $( element ).find( 'select' );
         select.empty();
         if ( typeof( map[ -2 ] ) != 'undefined' ) {
             $( '<option />' ).attr( 'value', -2 ).text( nbsp + map[ -2 ] + nbsp).appendTo( select );
         }
+        var key;
         for ( key in map ) {
             if ( key != -2 ) {
                 $( '<option />' ).attr( 'value', key ).text( nbsp + map[ key ] + nbsp).appendTo( select );
@@ -497,7 +498,7 @@ var Profile = {
         Profile.UpdateField( $( element ).find( 'span' ), field );
     },
     UpdateField: function( span, field ) {
-        var text = UserDetails.GetString( field, Profile.CurrentValues[ field ], Profile.CurrentValues[ 'gender' ] );
+        var text = UserDetails.GetString( field, Profile.CurrentValues[ field ], Profile.CurrentValues.gender );
         $( span ).removeClass( 'notshown' ).text( text );
         if ( Profile.CurrentValues[ field ] == '-' ) {
             span.addClass( 'notshown' );
