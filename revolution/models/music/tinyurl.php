@@ -1,7 +1,7 @@
 <?php
     class Tinyurl {
         public static function SearchSong( $term ) {
-            $url = "http://tinysong.com/s/" . urlencode( $term ) . "?format=json&limit=32";
+            $url = "http://tinysong.com/s/" . urlencode( $term ) . "?format=json&limit=32&key=12747305fb33dc121853ca62536ec6ad";
 
             $handler = curl_init();        
             curl_setopt( $handler, CURLOPT_URL, $url );
