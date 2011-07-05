@@ -110,9 +110,6 @@
             <li id="chat_icon">
                 <a href="" id="chatbutton">Chat</a>
             </li>
-            <li id="feedback_icon">
-                <a href="journals/13870" >Meeting</a>
-            </li>
             <xsl:if test="not($breadcrumb)">
                 <li id="photo_icon">
                     <xsl:if test="/social/photos and not(/social/photos/author)">
