@@ -114,7 +114,7 @@ CREATE TRIGGER imageupdate AFTER UPDATE ON `images`
    		DECLARE albummainid, albumfirstid INT(11);
         IF OLD.`image_delid` = 0 AND NEW.`image_delid` = 1 THEN
             UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
-            UPDATE `albums` SET `albuιιιιιm_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
+            UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
             DELETE FROM `activities` WHERE `activity_userid` = OLD.`image_userid` AND `activity_typeid` = 7 AND `activity_itemid` = OLD.`image_id` LIMIT 1;
 
             SELECT 
