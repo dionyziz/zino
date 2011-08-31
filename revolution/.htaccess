@@ -69,6 +69,9 @@ RewriteRule ^users/([a-zA-Z_][a-zA-Z\-_0-9]+)$ index.php?resource=user&method=vi
 RewriteRule ^user/update$ index.php?resource=user&method=update [L,QSA]
 RewriteRule ^user/delete$ index.php?resource=user&method=delete [L,QSA]
 
+# report
+RewriteRule ^report/create$ index.php?resource=report&method=create [L,QSA]
+
 # settings
 RewriteRule ^settings$ index.php?resource=settings&method=view [L,QSA]
 RewriteRule ^settings/update$ index.php?resource=settings&method=update [L,QSA]
