@@ -360,3 +360,81 @@ ul.accountmenu li a {
     padding: 0;
     margin: 0;
 }
+#report {
+    margin: 10px 0px 0px 110px;
+}
+#report a {
+    text-decoration: none;
+}
+#report_modal {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    z-index: 2999;
+    top: 0;
+    left: 0;
+    background: none repeat scroll 0 0 #000000;
+    opacity: 0.5;
+}
+#report_reason {
+    display: none;
+    z-index: 3000;
+    position: fixed;
+    left: 50%;
+    margin-left: -329px;
+}
+#report_reason form {
+    text-align: center;
+    background: #213549;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border-radius: 10px;
+}
+#report_reason form select, #report_reason form textarea {
+    width: 240px;
+}
+#report_reason form span.opt_capt {
+    display: none;
+    margin-top: 10px;
+    border-bottom: 1px solid white;
+}
+#report_reason form span.opt_0  {
+    display: block;
+}
+span.required {
+    color: red;
+}
+#report_reason form input, #report_reason form textarea {
+    display: block;
+    margin: 10px auto 0 auto;
+}
+#report_reason form textarea {
+    border: 1px solid red;
+    border-radius: 3px;
+}
+#report_reason form input[ type=submit ] {
+    border: 2px solid #3B5D81;
+    color: white;
+    background-color: #284059;
+    font-size: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+#report_reason form span.close {
+    background: url("http://static.zino.gr/phoenix/xbutton.png") repeat scroll 0 0 transparent;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -20px;
+}

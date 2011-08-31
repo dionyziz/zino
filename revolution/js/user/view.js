@@ -505,3 +505,50 @@ var Profile = {
         }
     }
 };
+
+$( "a#report_link" ).click( function() {
+    $( "div#report_modal" ).show();
+    $( "div#report_reason" ).show();
+    return false;
+} );
+
+$( "div#report_reason form span.close" ).click( function() {
+    $( "div#report_modal" ).hide();
+    $( "div#report_reason" ).hide();
+    return false;
+} );
+
+$( "div#report_reason form select" ).change( function() {
+    $( "#report_reason form span.opt_capt" ).hide();
+    $( "#report_reason form span.opt_" + this.value ).css( "display", "block" );
+    if ( this.value == 0 || this.value == 3 ) {
+        $( "#report_reason form textarea" ).css( "border-color", "red" );
+        $( "span#legend" ).show();
+    }
+    else {
+        $( "span#legend" ).hide();
+        $( "#report_reason form textarea" ).css( "border-color", "black" );
+    }
+});
+
+$( "div#report_reason form" ).submit( function() {
+    var profile = parseInt( $( '.userview' ).attr( 'id' ).split( '_' )[1], 10 );
+    var opt = $( "div#report_reason form select" )[ 0 ];
+    var text = $( "div#report_reason form textarea" )[ 0 ];
+    var cat = $( "div#report_reason form select option" )[ opt.value ].innerHTML;
+    if ( opt.value == 0 || opt.value == 3 ) {
+        if ( text.value.length == 0 ) {
+            alert( "Πρέπει να συμπληρωθεί η φόρμα πριν σταλθεί η αναφορά." );
+            return false;
+        }
+    }
+    $.post( 'report/create', {
+        id: profile,
+        opt: cat.toLowerCase(),
+        details: text.value
+    } );
+    alert( "Η αναφορά στάλθηκε με επιτυχία." );
+    $( "div#report_reason" ).hide();
+    $( "div#report_modal" ).hide();
+    return false;
+} );

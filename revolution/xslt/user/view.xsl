@@ -132,6 +132,34 @@
                         </div>
                     </xsl:if>
                 </div>
+                <xsl:if test="$user != name[1]">
+                    <div id="report">
+                        <a href="" id="report_link" >Αναφορά κακής χρήσης</a>
+                        <div id="report_modal">
+                        </div>
+                        <div id="report_reason">
+                            <h3>Παρακαλώ διευκρινίστε το παράπτωμα για το οποίο αναφέρετε τον χρήστη.</h3>
+                            <form>
+                                <span class="close"></span>
+                                <select>
+                                    <option value="0" selected="default" >Ακατάλληλο περιεχόμενο</option>
+                                    <option value="1" >Ψεύτικος λογαριασμός</option>
+                                    <option value="2" >Ηλεκτρονική παρενόχληση</option>
+                                    <option value="3" >Παραβίαση πνευματικών δικαιωμάτων</option>
+                                </select>
+                                <span class="opt_capt opt_0">Κάνε αντιγραφή και επικόλληση όλες τις διευθύνσεις όπου υπάρχει το ακατάλληλο περιεχόμενο.<span class="required">*</span></span>
+                                <span class="opt_capt opt_1">Κάνε αντιγραφή και επικόλληση τη διεύθυνση του αληθινού προφίλ.</span>
+                                <span class="opt_capt opt_2">Γράψε μας περισσότερες πληροφορίες για την παρενόχληση.</span>
+                                <span class="opt_capt opt_3">Κάνε αντιγραφή και επικόλληση όλες τις διευθύνσεις όπου υπάρχει το περιεχόμενο που παραβιάζει τα πνευματικά σου δικαιώματα.<span class="required">*</span></span>
+                                <textarea></textarea>
+                                <span id='legend'>
+                                    <span class="required">*</span>Απαιτείται η συμπλήρωση της φόρμας.
+                                </span>
+                                <input type="submit" value="Αναφορά" />
+                            </form>
+                        </div>
+                    </div>
+                </xsl:if>
             </div>
             <div class="eof"></div>
             <div class="pantherbox tweetbox" style="display: none">
