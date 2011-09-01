@@ -98,7 +98,7 @@
             <xsl:call-template name="favourite.list" />
         </xsl:if>
         <xsl:if test="/social/@for != author/name">
-            <a id='report_image' ><span class='mark'>!</span> Αναφορά εικόνας</a>
+            <a id='report_image' ><span class='mark'>!</span> Αναφορά ακαταλλήλου περιεχομένου</a>
         </xsl:if>
     </div>
     <div class="navigation" style="display: none;">
