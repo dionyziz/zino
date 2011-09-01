@@ -512,7 +512,7 @@ var PhotoView = {
         });
     }
 };
-$( "a#report_image" ).click( function() {
+$( "div#report_image" ).click( function() {
     var answer = confirm( "Είσαι σιγουρος ότι θες να αναφέρεις αυτή την εικόνα;" );
     if ( answer ) {
         $.post( "report/create", {
@@ -523,4 +523,5 @@ $( "a#report_image" ).click( function() {
             alert( "Η εικόνα αναφέρθηκε στους διαχειριστές με επιτυχία." );
         } );
     }
+    return false;
 } );

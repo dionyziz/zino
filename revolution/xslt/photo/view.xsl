@@ -34,10 +34,21 @@
                 </img>
                 <xsl:if test="/social/@for = author/name">
                     <div class="icon" id="deletebutton" title="Διαγραφή εικόνας">&#215;</div>     
-                    <div class="icon left" id="tagbutton"></div>
+                    <xsl:if test="author/friends">
+                        <div class="icon left" id="tagbutton"></div>
+                    </xsl:if>
                 </xsl:if>
-                <xsl:if test="author/friends">
-                    <div class="icon" id="tagbutton"></div>
+                <xsl:if test="/social/@for != author/name">
+                    <xsl:if test="author/friends">
+                        <div class="icon" id="tagbutton"></div>
+                    </xsl:if>
+                    <div id='report_image' class="icon">
+                    <xsl:if test="author/friends">
+                        <xsl:attribute name="class">
+                        icon left
+                        </xsl:attribute>
+                    </xsl:if>
+                    !</div>
                 </xsl:if>
                 <xsl:for-each select="imagetags/imagetag">
                     <div class="tag">
@@ -96,9 +107,6 @@
         <xsl:if test="not(@deleted)">
             <xsl:call-template name="imagetag.list" />
             <xsl:call-template name="favourite.list" />
-        </xsl:if>
-        <xsl:if test="/social/@for != author/name">
-            <a id='report_image' ><span class='mark'>!</span> Αναφορά ακαταλλήλου περιεχομένου</a>
         </xsl:if>
     </div>
     <div class="navigation" style="display: none;">
