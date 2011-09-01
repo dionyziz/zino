@@ -238,4 +238,13 @@
 .contentitem .hidden {
     display: none;
 }
-
+a#report_image {
+    text-decoration: none;
+    cursor: pointer;
+}
+.mark {
+    color: #f00;
+    font-family: serif;
+    font-size: 14pt;
+    font-weight: bold;
+}

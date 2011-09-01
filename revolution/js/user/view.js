@@ -545,7 +545,8 @@ $( "div#report_reason form" ).submit( function() {
     $.post( 'report/create', {
         id: profile,
         opt: cat.toLowerCase(),
-        details: text.value
+        details: text.value,
+        item: "user"
     } );
     alert( "Η αναφορά στάλθηκε με επιτυχία." );
     $( "div#report_reason" ).hide();

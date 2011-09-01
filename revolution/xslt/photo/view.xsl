@@ -97,6 +97,9 @@
             <xsl:call-template name="imagetag.list" />
             <xsl:call-template name="favourite.list" />
         </xsl:if>
+        <xsl:if test="/social/@for != author/name">
+            <a id='report_image' ><span class='mark'>!</span> Αναφορά εικόνας</a>
+        </xsl:if>
     </div>
     <div class="navigation" style="display: none;">
         <xsl:if test="/social/photo/author/photos/photo[ @navigation='next' ]">

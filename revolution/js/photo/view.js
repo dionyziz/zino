@@ -512,3 +512,15 @@ var PhotoView = {
         });
     }
 };
+$( "a#report_image" ).click( function() {
+    var answer = confirm( "Είσαι σιγουρος ότι θες να αναφέρεις αυτή την εικόνα;" );
+    if ( answer ) {
+        $.post( "report/create", {
+            details: window.location.href,
+            item: "photo"
+        }, function( response ) {
+            console.log( response );
+            alert( "Η εικόνα αναφέρθηκε στους διαχειριστές με επιτυχία." );
+        } );
+    }
+} );

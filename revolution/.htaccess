@@ -71,6 +71,7 @@ RewriteRule ^user/delete$ index.php?resource=user&method=delete [L,QSA]
 
 # report
 RewriteRule ^report/create$ index.php?resource=report&method=create [L,QSA]
+RewriteRule ^report/listing$ index.php?resource=report&method=create [L,QSA]
 
 # settings
 RewriteRule ^settings$ index.php?resource=settings&method=view [L,QSA]
