@@ -30,10 +30,11 @@
 
             $res = db_array(
                 'SELECT
+                    *
                 FROM
                     `users`
                 WHERE
-                    `user_reports` != 0;
+                    `user_reports` != 0
                 '
             );
             return $res;
