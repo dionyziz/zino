@@ -42,7 +42,7 @@
                     <xsl:if test="author/friends">
                         <div class="icon" id="tagbutton"></div>
                     </xsl:if>
-                    <div id='report_image' class="icon">
+                    <div id='report_image' class="icon" title='Αναφορά Ακαταλλήλου Περιεχομένου'>
                     <xsl:if test="author/friends">
                         <xsl:attribute name="class">
                         icon left
