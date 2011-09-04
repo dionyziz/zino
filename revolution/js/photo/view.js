@@ -519,7 +519,6 @@ $( "div#report_image" ).click( function() {
             details: window.location.href,
             item: "photo"
         }, function( response ) {
-            console.log( response );
             alert( "Η εικόνα αναφέρθηκε στους διαχειριστές με επιτυχία." );
         } );
     }
