@@ -46,6 +46,7 @@ RewriteRule ^favourites/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=favourite&m
 
 # comments
 RewriteRule ^comment/create$ index.php?resource=comment&method=create [L,QSA]
+RewriteRule ^comment/delete$ index.php?resource=comment&method=delete [L,QSA]
 RewriteRule ^comments/([0-9]+)$ index.php?resource=comment&method=view&commentid=$1 [L,QSA]
 RewriteRule ^comments/([1-4])/([0-9]+)$ index.php?resource=comment&method=listing&typeid=$1&itemid=$2 [L,QSA]
 
