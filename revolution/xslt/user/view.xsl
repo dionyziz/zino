@@ -240,7 +240,7 @@
     </xsl:if>
 </xsl:template>
 
-<xsl:template match="activities">
+<xsl:template match="/social[@resource='user' and @method='view']//activities">
     <xsl:if test="activity">
         <h2>
             <xsl:choose>
@@ -255,9 +255,9 @@
     </xsl:if>
 </xsl:template>
 
-<xsl:template match="activity">
+<xsl:template match="/social[@resource='user' and @method='view']//activity">
     <li>
-        <a>
+        <a class="itemlink">
             <xsl:choose>
                 <xsl:when test="type = 'comment'">
                     <xsl:choose>

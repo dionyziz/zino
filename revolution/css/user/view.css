@@ -279,38 +279,38 @@ select.location {
     .rightbar h2 {
         margin: 0 0 10px;
     }
-    .rightbar .activities li {
+    .activities li {
         margin-bottom: 10px;
         padding: 5px;
         border-top: 1px solid #2C4762;
         background: #243A50;
         background: -moz-linear-gradient(top, #243A50, #243A50);
     }
-        .rightbar .activities li a {
+        .activities li a.itemlink {
             text-decoration: none;
             color: white;
             display: block;
         }
-        .rightbar .activities li a.photo {
+        .activities li a.photo {
             min-height: 66px;
         }
-        .rightbar .activities li .head {
+        .activities li .head {
             display: block;
             font-weight: bold;
         }
-        .rightbar .activities li .body {
+        .activities li .body {
             display: block;
         }
-            .rightbar .activities li .body .wysiwyg-youtube-preview {
+            .activities li .body .wysiwyg-youtube-preview {
                 clear: none;
             }
-            .rightbar .activities .body img {
+            .activities .body img {
                 max-height: 100px;
             }
-        .rightbar .activities li .time {
+        .activities li .time {
             font-size: 11px;
         }
-        .rightbar .activities li > a > img {
+        .activities li > a > img {
             float: right;
             height: 60px;
         }

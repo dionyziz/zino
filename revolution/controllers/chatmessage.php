@@ -23,6 +23,7 @@
                 }
             }
             $chatmessages = ChatMessage::ListByChannel( $channelid, 0, 100 );
+
             $channel = array(
                 'id' => $channelid
             );

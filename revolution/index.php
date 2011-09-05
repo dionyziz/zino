@@ -57,7 +57,8 @@
 	if ( !in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
         'user', 'chatmessage', 'tunnel', 'videostream', 'notification','friendship', 'interest', 'settings',
-        'chatchannel', 'chatparticipant', 'presence', 'place', 'mood', 'album', 'song', 'imagetag', 'ban', 'passwordrequest', 'file', 'report'
+        'chatchannel', 'chatparticipant', 'presence', 'place', 'mood', 'album', 'song', 'imagetag', 'ban', 'passwordrequest',
+        'file', 'dashboard', 'report'
     ) ) ) {
         if ( $subdomain ) {
             $resource = 'user';
@@ -65,8 +66,8 @@
         }
         else {
             if ( isset( $_SESSION[ 'user' ] ) ) {
-                $resource = 'photo';
-                $method = 'listing';
+                $resource = 'dashboard';
+                $method = 'view';
             }
             else {
                 $resource = 'session';
@@ -112,7 +113,7 @@
         $method == 'view' or $method = 'listing';
 	}
     
-    function Template( $path, $variables ) {
+    function Template( $path, $variables = array() ) {
         foreach ( $variables as $_name => $_value ) {
             $$_name = $_value; //MAGIC!
         }

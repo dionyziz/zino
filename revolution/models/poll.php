@@ -64,7 +64,7 @@
             );
             $polls = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $polls[] = $row;
+                $polls[ $row[ 'id' ] ] = $row;
             }
             return $polls;
         }

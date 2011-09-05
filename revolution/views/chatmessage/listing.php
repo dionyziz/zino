@@ -1,6 +1,6 @@
 <chatchannel id="<?= $channel[ 'id' ] ?>">
     <discussion>
-        <? foreach ( $chatmessages as $chatmessage ): ?>
+        <? foreach ( $chatmessages as $chatmessage ):?>
         <comment id="s<?= $chatmessage[ 'id' ] ?>">
             <author>
                 <name><?= $chatmessage[ 'username' ] ?></name>

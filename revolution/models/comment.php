@@ -23,6 +23,117 @@
 
             return array( count( $paged ), $comments );
         }
+        public static function ListLatest( $offset, $limit = 30 ) {
+            clude( 'models/db.php' );
+                        
+            clude( 'models/types.php' );
+            clude( 'models/bulk.php' );
+            clude( 'models/photo.php' );
+            clude( 'models/journal.php' );
+            clude( 'models/poll.php' );
+            clude( 'models/user.php' );
+            
+            $res = db(
+                'SELECT
+                    `comment_id` as id,
+                    `comment_userid` as userid,
+                    `comment_bulkid` as bulkid,
+                    `comment_itemid` as itemid,
+                    `comment_typeid` as itemtype,
+                    `comment_created` as created,
+                    
+                    `user_name` AS username,
+                    `user_gender` AS gender,
+                    `user_id` AS userid,
+                    `user_subdomain` AS subdomain,
+                    
+                    `image_id` AS avatarid
+                FROM
+                    `comments`
+                    LEFT JOIN
+                        `users` on `comment_userid` = `user_id`
+                    LEFT JOIN
+                        `images` on `user_avatarid` = `image_id`
+                    
+                WHERE
+                    `comment_delid` = 0
+                ORDER BY
+                    `comment_id` DESC
+                LIMIT
+                    :offset, :limit;',
+                compact( 'offset', 'limit' )
+            );
+
+            $comments = array();
+            
+            $bulkids = array();
+            
+            $journalids = array();
+            $photoids = array();
+            $pollids = array();
+            $profileids = array();
+            
+            $journals = array();
+            $photos = array();
+            $polls = array();
+            $profiles = array();
+            
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $row[ 'id' ] = (int) $row[ 'id' ];
+                $row[ 'userid' ] = (int) $row[ 'userid' ];
+                
+                $refid = array_push( $comments, array(
+                    'user' => array(
+                        'id' => $row[ 'userid' ],
+                        'name' => $row[ 'username' ],
+                        'gender' => $row[ 'gender' ],
+                        'subdomain' => $row[ 'subdomain' ],
+                        'avatarid' => $row[ 'avatarid' ]
+                    ),
+                    'id' => $row[ 'id' ],
+                    'bulkid' => $row[ 'bulkid' ],
+                    'itemid' => $row[ 'itemid' ]
+                ) ) - 1;
+                
+                switch ( $row[ 'itemtype' ] ) {
+                    case TYPE_PHOTO:
+                        $type = 'photo';
+                        $photoids[] = $row[ 'itemid' ];
+                        break;
+                    case TYPE_USERPROFILE:
+                        $type = 'profile';
+                        $profileids[] = $row[ 'itemid' ];
+                        break;
+                    case TYPE_JOURNAL:
+                        $type = 'journal';
+                        $journalids[] = $row[ 'itemid' ];
+                        break;
+                    case TYPE_POLL:
+                        $type = 'poll';
+                        $pollids[] = $row[ 'itemid' ];
+                        break;
+                    default:
+                        $type = 'unknown';
+                }
+                
+                $comments[ $refid ][ 'type' ] = $type;
+                $bulkids[] = $row[ 'bulkid' ];
+            }
+            
+            $bulks = Bulk::FindById( $bulkids );
+            
+            foreach ( $comments as $id => $comment ) {
+                $comments[ $id ][ 'text' ] = $bulks[ $comment[ 'bulkid' ] ];
+                unset( $comments[ $id ][ 'bulkid' ] );
+            }
+            
+            $photos = Photo::ListByIds( $photoids );
+            $journals = Journal::ListByIds( $journalids );
+            $polls = Poll::ListByIds( $pollids );
+            $profiles = User::ListByIds( $profileids );
+            
+            return compact( 'comments', 'photos', 'journals', 'polls' );
+        }
         public function ListNear( $typeid, $itemid, $commentid, $offset = 0, $limit = 100000 ) {
             global $mc;
 

@@ -30,5 +30,6 @@ album/view.xsl
 notification/listing.xsl
 ban/listing.xsl
 chat.xsl
+dashboard/view.xsl
 
 outro.xsl
