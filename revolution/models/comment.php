@@ -4,6 +4,8 @@
     global $settings;
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
+    clude( 'models/notification.php' );
+
     class Comment {
         public static function ListByPage( $typeid, $itemid, $page ) {
             if ( $page <= 0 ) {
@@ -452,7 +454,40 @@
             }
             return $commentinfo;
         }
-        public function DeleteByIds( $ids ) {
+        public static function Delete( $id ) {
+            $stack = array();
+
+            array_push( $stack, $id );
+            while ( !empty( $stack ) ) {
+                $id = array_pop( $stack );
+
+                db(
+                    'UPDATE
+                        `comments`
+                    SET
+                        `comment_delid` = 1
+                    WHERE
+                        `comment_id` = :id
+                    LIMIT 1',
+                    compact( 'id' )
+                );
+                Notification::DeleteByItem( $id );
+
+                $results = db_array(
+                    'SELECT
+                        `comment_id`
+                    FROM
+                        `comments`
+                    WHERE
+                        `comment_parentid` = :id
+                        AND `comment_delid` = 0',
+                    compact( 'id' )
+                );
+
+                foreach ( $results as $result ) {
+                    array_push( $stack, $result[ 'comment_id' ] );
+                }
+            }
         }
     }
 ?>

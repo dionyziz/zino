@@ -135,5 +135,16 @@
                     `notify_itemid` = :itemid
                  LIMIT 1', compact( 'eventtype', 'userid', 'itemid' ) );
         }
+        public static function DeleteByItem( $itemid ) {
+            db(
+                'DELETE
+                FROM
+                    `notify`
+                WHERE
+                    `notify_itemid` = :itemid
+                LIMIT 1',
+                compact( 'itemid' )
+            );
+        }
     }
 ?>
