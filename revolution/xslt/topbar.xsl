@@ -115,7 +115,7 @@
                     <xsl:if test="/social/photos and not(/social/photos/author)">
                         <xsl:attribute name="class">selected</xsl:attribute>
                     </xsl:if>
-                    <a href="">Εικόνες</a>
+                    <a href="photos">Εικόνες</a>
                 </li>
                 <li id="news_icon">
                     <xsl:if test="/social/news">
