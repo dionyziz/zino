@@ -247,6 +247,24 @@ var Comment = {
             $( '.time:not(.processedtime)' ).load();
         } );
 
+    },
+    Delete: function ( photo_id ) {
     }
     /*END*/
 };
+$( ".message .delete a" ).click( function ( e ) {
+    var answer = confirm( "Είσαι σιγουρος ότι θες να διαγράψεις αυτό το σχόλιο;" );
+    var comment_id = e.currentTarget.id.split( '_' )[ 1 ];
+    if ( answer ) {
+        $.post(
+            "comment/delete",
+            {
+                id: comment_id
+            },
+            function () {
+                $( '#thread_' + comment_id ).fadeOut();
+            }
+        );
+    }
+    return false;
+} );
