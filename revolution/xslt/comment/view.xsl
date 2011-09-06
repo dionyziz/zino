@@ -28,6 +28,14 @@
                     </xsl:if>
                 </div>
             </div>
+            <xsl:if test="/social/@for = author/name or /social/*/author/name = /social/@for or /social/user/name = /social/@for">
+                <div class='delete'>
+                    <a href="#" title='Διαγραφή Σχολίου'>
+                        <xsl:attribute name="id">delete_<xsl:value-of select="@id" /></xsl:attribute>
+                        ×
+                    </a>
+                </div>
+            </xsl:if>
             <div class="text">
                 <xsl:copy-of select="text/*|text/text()" />
             </div>

@@ -159,3 +159,21 @@ table.smileys {
         width: 100%;
         overflow: hidden;
     }
+
+.message .delete {
+    float: right;
+
+    height: 40px;
+    width: 40%;
+}
+    .message .delete a {
+        display: none;
+        padding: 1% 2% 0 0;
+    }
+    .message .delete a, .message .delete a:hover, .message .delete a:active, .message .delete a:visited {
+        text-align: right;
+        text-decoration: none;
+    }
+    .message .delete:hover a {
+        display: block;
+    }

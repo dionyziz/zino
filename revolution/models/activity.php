@@ -146,6 +146,17 @@
             }
             return $activities;
         }
+        public static function DeleteByBulk( $bulkid ) {
+            db(
+                'DELETE
+                FROM
+                    `activities`
+                WHERE
+                    `activity_bulkid` = :bulkid
+                LIMIT 1',
+                compact( 'bulkid' )
+            );
+        }
     }
 
 ?>

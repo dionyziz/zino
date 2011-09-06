@@ -65,5 +65,49 @@
             }
             include 'views/comment/listing.php';
         }
+        public static function Delete( $id ) {
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a photo' );
+            clude( 'models/db.php' );
+            clude( 'models/comment.php' );
+            clude( 'models/user.php' );
+
+            $comment = Comment::Item( $id );
+
+            if ( $comment[ 'user' ][ 'id' ] == $_SESSION[ 'user' ][ 'id' ] ) {
+                Comment::Delete( $id );
+            }
+            else {
+                clude( 'models/types.php' );
+
+                switch ( $comment[ 'typeid' ] ) {
+                    case TYPE_POLL:
+                        clude( 'models/poll.php' );
+                        $poll = Poll::Item( $comment[ 'itemid' ] );
+                        $userid = $poll[ 'user' ][ 'id' ];
+                        break;
+                    case TYPE_PHOTO:
+                        clude( 'models/photo.php' );
+                        $photo = Photo::Item( $comment[ 'itemid' ] );
+                        $userid = $photo[ 'user' ][ 'id' ];
+                        break;
+                    case TYPE_USERPROFILE:
+                        $userid = $comment[ 'itemid' ];
+                        break;
+                    case TYPE_JOURNAL:
+                        clude( 'models/journal.php' );
+                        $journal = Journal::Item( $comment[ 'itemid' ] );
+                        $userid = $journal[ 'user' ][ 'id' ];
+                        break;
+                    default:
+                }
+
+                if ( $userid == $_SESSION[ 'user' ][ 'id' ] ) {
+                    Comment::Delete( $id );
+                }
+                else {
+                    throw new Exception( 'Cannot delete comment.' );
+                }
+            }
+        }
     }
 ?>

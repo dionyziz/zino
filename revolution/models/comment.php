@@ -5,6 +5,7 @@
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
     clude( 'models/notification.php' );
+    clude( 'models/activity.php' );
 
     class Comment {
         public static function ListByPage( $typeid, $itemid, $page ) {
@@ -457,7 +458,7 @@
         public static function Delete( $id ) {
             $stack = array();
 
-            array_push( $stack, $id );
+            array_push( $stack, trim( $id ) );
             while ( !empty( $stack ) ) {
                 $id = array_pop( $stack );
 
@@ -471,7 +472,11 @@
                     LIMIT 1',
                     compact( 'id' )
                 );
+
+                $comment = Comment::Item( $id );
+
                 Notification::DeleteByItem( $id );
+                Activity::DeleteByBulk( trim( $comment[ 'bulkid' ] ) );
 
                 $results = db_array(
                     'SELECT
@@ -485,7 +490,7 @@
                 );
 
                 foreach ( $results as $result ) {
-                    array_push( $stack, $result[ 'comment_id' ] );
+                    array_push( $stack, trim( $result[ 'comment_id' ] ) );
                 }
             }
         }
