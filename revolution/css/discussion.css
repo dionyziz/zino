@@ -160,20 +160,21 @@ table.smileys {
         overflow: hidden;
     }
 
-.message .delete {
+.del {
     float: right;
+    display: none;
 
-    height: 40px;
-    width: 40%;
+    margin: 5px 5px 0 0;
+
+    opacity: .5;
 }
-    .message .delete a {
-        display: none;
-        padding: 1% 2% 0 0;
-    }
-    .message .delete a, .message .delete a:hover, .message .delete a:active, .message .delete a:visited {
+    .del, .del:hover, .del:active, .del:visited {
         text-align: right;
         text-decoration: none;
     }
-    .message .delete:hover a {
+    .message:hover .del {
         display: block;
+    }
+    .del:hover {
+        opacity: 1;
     }
