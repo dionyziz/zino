@@ -3,7 +3,7 @@
         'db' => array(
             'host' => 'code.kamibu.com',
             'user' => 'zinophoenix',
-            'password' => 'rm99fixed',
+            'password' => 'password',
             'name' => 'zinophoenix'
         ),
         'base' => 'http://beta.zino.gr/USERNAME',
