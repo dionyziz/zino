@@ -17,7 +17,7 @@ news- and article-centered to discussion centered, it became a more interactive
 place to participate and discuss all subjects from personal matters and hobbies
 to religion, love, and politics.
 
-It was later rebranded as Zino and modified to be more user-centered than 
+It was later rebranded as Zino and modified to be more user-centered than
 disucssion-centered. The most prominent version of the website was version
 Phoenix.
 
@@ -30,7 +30,7 @@ The founders of Zino are:
 
  * Dionysis Zindros (dionyziz@gmail.com)
  * Chris Pappas (chrispappas12@gmail.com)
- * Aleksis Brezas (abresas@gmail.com)
+ * Aleksis Brezas
 
 Contributors are:
 
